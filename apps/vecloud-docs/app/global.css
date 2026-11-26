@@ -43,13 +43,19 @@
   --color-fd-accent-foreground: oklch(98.5% 0 0);
   --color-fd-ring: oklch(57.9% 0.232 259.64);
 }
+#nd-notebook-layout {
+  --fd-header-height: 58.8px;
+}
+#nd-subnav > [data-header-body] {
+  height: var(--fd-header-height);
+}
 .docs-brand {
   display: inline-flex;
   align-items: center;
   gap: 14px;
 }
 .docs-brand img {
-  width: 99px;
+  width: 89.1px;
   height: auto;
 }
 .docs-brand-label {
