@@ -2,8 +2,9 @@ FROM node:24-bookworm-slim AS build
 WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 RUN npm install --global pnpm@11.25.0
-COPY apps/vecloud-docs/ ./
+COPY apps/vecloud-docs/package.json apps/vecloud-docs/pnpm-lock.yaml apps/vecloud-docs/pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
+COPY apps/vecloud-docs/ ./
 RUN pnpm build
 
 FROM node:24-bookworm-slim AS runtime
