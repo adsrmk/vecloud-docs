@@ -7,7 +7,6 @@ on:
         'apps/vecloud-docs/**',
         'Dockerfile',
         '.dockerignore',
-        'railway.json',
         '.github/workflows/vecloud-docs.yml',
       ]
   pull_request:
@@ -16,7 +15,6 @@ on:
         'apps/vecloud-docs/**',
         'Dockerfile',
         '.dockerignore',
-        'railway.json',
         '.github/workflows/vecloud-docs.yml',
       ]
 permissions:
