@@ -1,0 +1,46 @@
+---
+title: IP-adressen blokkeren
+description: Beperk toegang tot een Nginx-website met losse IP-adressen of CIDR-netwerken.
+icon: ShieldBan
+---
+
+## Waar geldt een blokkering?
+
+Open je website en kies **IP deny** in de sidebar, direct onder **SSL certificates**. Deze functie beheert de Nginx-blokkeerlijst voor de gekoppelde domeinen van deze website. Het is geen serverbrede firewall en blokkeert geen e-mail- of SSH-aanmeldingen.
+
+<PortalScreenshot name="ip-deny" alt="IP deny met één adres of netwerk per regel" caption="De ingevulde adressen zijn documentatievoorbeelden. Gebruik in je eigen omgeving uitsluitend het bedoelde bezoekeradres of netwerk." />
+
+## Adressen toevoegen
+
+1. Kies **Add IP addresses** rechts naast de paginatitel.
+2. Voer één IPv4-adres, IPv6-adres of CIDR-netwerk per regel in.
+3. Controleer vooral het bereik van een CIDR-regel. Een heel netwerk kan ook gewenste bezoekers uitsluiten.
+4. Kies **Add IP addresses** en controleer of de adressen in de tabel staan.
+
+Dit zijn uitsluitend documentatievoorbeelden:
+
+```text
+192.0.2.40
+198.51.100.0/24
+2001:db8::/32
+```
+
+De lijst ondersteunt maximaal **250 adressen of netwerkregels**. CIDR-netwerken kunnen na opslaan in genormaliseerde vorm verschijnen. Gebruik geen domeinnamen, URL’s of hostnamen in dit veld.
+
+## Een blokkering verwijderen
+
+Kies **Delete** bij het adres en bevestig de verwijdering. Controleer daarna of de rij verdwenen is en test de toegang vanuit het betreffende netwerk. Een regel verwijderen corrigeert geen blokkering die daarnaast in een externe firewall of proxy bestaat.
+
+Als domeinen verschillende lijsten gebruiken, toont het panel een waarschuwing met een actie om de gezamenlijke lijst op alle domeinen toe te passen. Controleer eerst of alle weergegeven adressen werkelijk overal geblokkeerd moeten worden.
+
+## Configuratie in verwerking of niet bevestigd
+
+IP deny en handmatige VirtualHost-wijzigingen gebruiken dezelfde websiteconfiguratie. Bewerk ze niet gelijktijdig in verschillende tabs. Bij een melding over een lopende wijziging of een niet bevestigd resultaat vernieuw je eerst de actuele gegevens. Controleer of de gewenste regel al aanwezig of verdwenen is voordat je opnieuw opslaat.
+
+Bewerk het door het panel beheerde IP-blok niet handmatig in de VirtualHost-configuratie. Gebruik deze pagina voor toevoegen en verwijderen.
+
+## Andere webservers en proxies
+
+**IP deny** is beschikbaar voor Nginx-websites. Op Apache kunnen onder **SSL certificates → IP access** aparte allow/block-regels staan. De optie om alleen adressen toe te staan sluit andere bezoekers uit en verschilt van een gewone blokkeerlijst.
+
+Bij een externe proxy moet de webserver het echte bezoekeradres correct herkennen. Blokkeer niet het gedeelde proxyadres om één bezoeker te weren; vraag hulp als onduidelijk is welk adres de server gebruikt.

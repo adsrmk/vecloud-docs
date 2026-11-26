@@ -1,0 +1,38 @@
+---
+title: Utilisation des ressources du site
+description: Examinez CPU, mémoire, swap, stockage et processus dans Analytics.
+icon: Cpu
+---
+
+## Choisir un graphique et une période
+
+Ouvrez **Domains → votre site → Analytics**, puis **Resource usage** plus bas. Choisissez une mesure et la dernière heure, 24 heures, 7 jours ou 30 jours. Ce choix est indépendant des graphiques de trafic. **Refresh resource usage** récupère les mesures ; l’heure indique leur dernière consultation.
+
+<PortalScreenshot
+  name="resource-usage"
+  alt="Graphique CPU avec mesures de démonstration"
+  caption="Graphique CPU avec mesures de démonstration"
+/>
+
+## Interpréter les mesures
+
+| Mesure | Interprétation |
+| --- | --- |
+| CPU | Utilisation du processeur ; 100% représente une vCPU |
+| Memory | Mémoire utilisée par l’environnement du site |
+| Swap | Espace swap utilisé |
+| Storage performance (I/O) | Octets lus et écrits par seconde |
+| Storage performance (IOPS) | Opérations de lecture et d’écriture par seconde |
+| Processes | Nombre de processus mesuré |
+
+Pour I/O et IOPS, choisissez un périphérique si proposé. Lectures et écritures sont des séries distinctes. La limite de la dernière mesure apparaît sous le graphique si disponible. **Unlimited** signifie qu’aucune limite spécifique n’y est enregistrée, pas une capacité physique infinie.
+
+Un pic bref de CPU peut accompagner une mise à jour ou sauvegarde. Une mémoire, un swap ou un nombre de processus durablement élevés nécessitent d’examiner l’application et les tâches simultanées. La mémoire mesurée diffère du paramètre PHP `memory_limit`.
+
+## Mesures absentes
+
+Les taux CPU et I/O sont calculés entre mesures consécutives. Sans points suffisants, le graphique peut rester vide ; l’absence de données ne signifie pas une consommation nulle. Changez de période ou actualisez. Une erreur de récupération ne prouve pas que le site est hors ligne.
+
+## Agir à partir des mesures
+
+Comparez les horaires au trafic, tâches planifiées, mises à jour et journaux. Modifiez un élément à la fois et comparez la même période ensuite. Ces graphiques ne modifient ni limites ni offre. Pour examiner des limites ou erreurs persistantes, fournissez au support mesure, période et adresse du site.

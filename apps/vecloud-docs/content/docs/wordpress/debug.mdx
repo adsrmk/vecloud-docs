@@ -1,0 +1,37 @@
+---
+title: WordPress-debugging
+description: Leg fouten tijdelijk vast zonder foutdetails aan bezoekers te tonen.
+icon: Bug
+---
+
+## De debugopties
+
+Open **Apps → Toolkit → Debug** bij de betreffende WordPress-installatie. De schakelaars beheren drie afzonderlijke instellingen.
+
+| Instelling | Functie |
+| --- | --- |
+| WP_DEBUG | Schakelt de WordPress-debugmodus in. |
+| WP_DEBUG_LOG | Schrijft debugmeldingen naar `wp-content/debug.log`. |
+| WP_DEBUG_DISPLAY | Toont debugmeldingen in de HTML voor bezoekers. |
+
+<PortalScreenshot name="wordpress-debug" alt="WordPress-debugopties met foutweergave uitgeschakeld" caption="In deze lokale demonstratie is logging ingeschakeld en foutweergave voor bezoekers uitgeschakeld. Er worden geen loggegevens getoond." />
+
+## Een probleem onderzoeken
+
+1. Noteer de fout, URL en het tijdstip waarop het probleem optreedt.
+2. Schakel **WP_DEBUG** en **WP_DEBUG_LOG** tijdelijk in.
+3. Laat **WP_DEBUG_DISPLAY** uit op een publieke website.
+4. Wacht op de bevestiging van de wijzigingen en voer de foutgevende handeling één keer opnieuw uit.
+5. Open **Files**, ga naar de installatiemap van WordPress en bekijk `wp-content/debug.log` als dit is aangemaakt.
+
+Een log kan paden, verzoekgegevens en andere niet-publieke details bevatten. Deel alleen het relevante fragment en verwijder gevoelige waarden.
+
+## Geen log of geen toegang tot de toolkit
+
+Een logbestand ontstaat pas wanneer er iets wordt gelogd. Controleer of logging is ingeschakeld, of het probleem opnieuw is uitgevoerd en of je de juiste installatiemap bekijkt.
+
+Als WordPress zelf niet goed kan starten, kan ook de toolkit delen niet uitlezen. Bekijk dan het PHP-foutenlog in **Developer tools**. Dit is een andere logbron dan het WordPress-debugbestand.
+
+## Na het onderzoek
+
+Schakel tijdelijke debugopties weer uit en controleer de publieke website. Bewaar benodigde diagnosegegevens veilig en ruim niet meer benodigde logbestanden op. Laat uitgebreide logging en foutweergave niet onnodig actief.

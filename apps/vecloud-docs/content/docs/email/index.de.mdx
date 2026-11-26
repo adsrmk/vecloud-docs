@@ -1,0 +1,37 @@
+---
+title: E-Mail-Adressen und Postfächer
+description: Erstelle Postfächer oder Weiterleitungen und verwalte Namen, Quota, Status und Zugriff.
+icon: Mail
+---
+
+## E-Mail öffnen
+
+Wähle **Email** im Hauptmenü. Suche die richtige Adresse und prüfe ihre Domain. Öffne das Aktionsmenü und **Manage**. Je nach Adresse stehen **Mailbox**, **Forwarders**, **Catch-all**, **Spam settings**, **Out of office** und **Email client settings** bereit.
+
+## Adresse erstellen
+
+1. Wähle **Add email address**.
+2. Gib nur den Teil vor `@` ein und wähle die richtige Domain.
+3. Nutze **Mailbox** zum Speichern von Nachrichten und Anmelden per Webmail oder Mailprogramm. Gib Größe in MB/GB, erkennbaren Namen und ein starkes Passwort an.
+4. Nutze **Forwarding only** zur Weiterleitung an bestehende Adressen ohne eigenes Postfach. Füge mindestens ein gültiges Ziel hinzu; ein Postfachpasswort wird dabei nicht erstellt.
+5. Wähle **Create email address** und prüfe die neue Tabellenzeile.
+
+Ein neues Postfachpasswort benötigt mindestens zehn Zeichen mit Kleinbuchstaben, Großbuchstaben, Zahl und Sonderzeichen. Bewahre es im Passwortmanager auf. Die Erstellung ändert keine externen MX oder Routingwerte; prüfe auch [Mailrouting und DNS](../dns-ssl/mail-routing.mdx).
+
+## Postfach ändern
+
+Öffne **Manage → Mailbox** für Name, Status, optionales neues Passwort, Quota in MB und [Aliasse](./forwarding.mdx). Über **Save changes** speicherst du den Entwurf.
+
+Ein leeres Passwortfeld behält das bisherige Passwort bei. Ein leeres Quotafeld behält die vorhandene Grenze. Prüfe den Verbrauch vor einer Verringerung; die Kapazität hängt auch vom verfügbaren Hostingplatz ab. Aktualisiere nach Passwortänderungen deine Mailprogramme.
+
+<PortalScreenshot name="mailbox" alt="Postfacheinstellungen mit Name, Quota und Alias" caption="Ein leeres Passwortfeld behält das bisherige Passwort. Alle gezeigten Postfachdaten sind fiktiv." />
+
+## Deaktivieren oder löschen
+
+Das Aktionsmenü der Liste bietet **Disable** und **Enable**. Eine suspendierte Adresse kann vom Hostingbetreiber eingeschränkt sein; bitte um Hilfe, wenn du den Status nicht ändern kannst.
+
+**Permanently delete** entfernt Adresse und Postfachdaten nach Bestätigung. Sichere benötigte Nachrichten zuvor, etwa mit deinem Mailprogramm. Deaktiviere die Adresse vorübergehend, wenn du das Postfach behalten möchtest.
+
+## Erstellung oder Speichern schlägt fehl
+
+Prüfe Domain, freie Paketkapazität und Pflichtfelder. Kontrolliere bei unklarem Ergebnis zuerst die aktuelle Liste oder Einstellung, bevor du die Aktion wiederholst. Für Mailprogramme lies [Verbindung und Webmail](./clients.mdx).

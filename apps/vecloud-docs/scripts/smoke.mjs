@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { once } from 'node:events';
-import { cp, mkdir, readFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, readdir } from 'node:fs/promises';
 import { createServer } from 'node:net';
 import { setTimeout as delay } from 'node:timers/promises';
+import { icons } from 'lucide-react';
 
 const app = new URL('../', import.meta.url);
 let base = process.env.DOCS_SMOKE_BASE_URL;
@@ -56,6 +57,37 @@ async function get(path, expected = 200, headers = {}) {
 }
 const locales = ['nl', 'en', 'es', 'fr', 'de'];
 const prefix = (locale) => `/${locale}`;
+const content = new Map();
+const screenshotNames = new Set();
+const files = await readdir(new URL('content/docs/', app), { recursive: true });
+for (const file of files) {
+  if (!file.endsWith('.mdx')) continue;
+  const match = file.match(/\.(en|es|fr|de)\.mdx$/);
+  const locale = match?.[1] ?? 'nl';
+  const parts = file.replace(/(?:\.(?:en|es|fr|de))?\.mdx$/, '').split('/');
+  const slugs = [];
+  for (const part of parts) if (!part.startsWith('(')) slugs.push(part);
+  if (slugs.at(-1) === 'index') slugs.pop();
+  const path = `/${locale}/docs${slugs.length ? '/' + slugs.join('/') : ''}`;
+  assert.ok(!content.has(path), 'Unique route: ' + path);
+  const mdx = await readFile(new URL('content/docs/' + file, app), 'utf8');
+  assert.match(mdx, /^title: .+/m, file + ' title');
+  assert.match(mdx, /^description: .+/m, file + ' description');
+  const icon = mdx.match(/^icon: (.+)$/m)?.[1];
+  if (icon) assert.ok(icons[icon], file + ' supported icon');
+  content.set(path, { mdx, title: mdx.match(/^title: (.+)$/m)[1] });
+  for (const [, name] of mdx.matchAll(/<PortalScreenshot\s+name="([^"]+)"/g))
+    screenshotNames.add(name);
+}
+const defaultPages = [];
+for (const path of content.keys())
+  if (path.startsWith('/nl/')) defaultPages.push(path);
+for (const path of defaultPages)
+  for (const locale of locales)
+    assert.ok(
+      content.has('/' + locale + path.slice(3)),
+      path + ' translation ' + locale,
+    );
 const escapeHTML = (value) =>
   value
     .replaceAll('&', '&amp;')
@@ -82,18 +114,32 @@ try {
   }
   const sitemap = await (await get('/sitemap.xml')).text();
   const pages = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)];
-  assert.equal(pages.length, 40, 'Eight guides in each of five languages');
+  assert.equal(
+    pages.length,
+    content.size,
+    'Every guide appears in the sitemap',
+  );
   const counts = Object.fromEntries(locales.map((locale) => [locale, 0]));
+  const renderedPages = new Map();
+  const internalLinks = new Set();
   for (const [, url] of pages) {
     const location = new URL(url);
     assert.equal(location.origin, 'https://docs.vecloud.eu');
     const path = location.pathname;
     const locale = path.match(/^\/(nl|en|es|fr|de)(?:\/|$)/)?.[1] ?? 'nl';
-    const slug = path.slice((prefix(locale) + '/docs').length + 1) || 'index';
-    const filename = `content/docs/${slug}${locale === 'nl' ? '' : '.' + locale}.mdx`;
-    const mdx = await readFile(new URL(filename, app), 'utf8');
-    const title = mdx.match(/^title: (.+)$/m)[1];
+    const page = content.get(path);
+    assert.ok(page, path + ' source exists');
+    const { title } = page;
     const html = await (await get(path)).text();
+    renderedPages.set(path, html);
+    for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
+      const target = new URL(href.replaceAll('&amp;', '&'), location);
+      if (
+        target.origin === location.origin &&
+        /^\/(nl|en|es|fr|de)\/docs(?:\/|$)/.test(target.pathname)
+      )
+        internalLinks.add(target.pathname + target.hash);
+    }
     assert.match(html, new RegExp(`<html[^>]+lang="${locale}"`), path);
     assert.ok(
       html.includes('id="nd-notebook-layout"'),
@@ -118,6 +164,17 @@ try {
       );
     counts[locale]++;
   }
+  for (const link of internalLinks) {
+    const [path, hash] = link.split('#');
+    assert.ok(renderedPages.has(path), 'Internal destination: ' + link);
+    if (hash)
+      assert.ok(
+        renderedPages
+          .get(path)
+          .includes(`id="${escapeHTML(decodeURIComponent(hash))}"`),
+        'Internal anchor: ' + link,
+      );
+  }
   const queries = {
     nl: 'herstellen',
     en: 'restore',
@@ -126,7 +183,7 @@ try {
     de: 'Wiederherstellung',
   };
   for (const locale of locales) {
-    assert.equal(counts[locale], 8, locale);
+    assert.equal(counts[locale], defaultPages.length, locale + ' guide parity');
     const search = await (
       await get(
         `/api/search?query=${encodeURIComponent(queries[locale])}&locale=${locale}`,
@@ -164,6 +221,31 @@ try {
       new URL(home.headers.get('location'), base).pathname,
       prefix(locale) + '/docs',
     );
+  }
+  for (const name of screenshotNames) {
+    for (const theme of ['light', 'dark']) {
+      const path = `/screenshots/${name}-${theme}.jpg`;
+      const image = await get(path);
+      assert.match(image.headers.get('content-type'), /^image\/jpeg/, path);
+      const bytes = new Uint8Array(await image.arrayBuffer());
+      assert.ok(bytes.length > 10000, path + ' is a real screenshot');
+      assert.equal(bytes[0], 0xff, path + ' JPEG signature');
+      assert.equal(bytes[1], 0xd8, path + ' JPEG signature');
+      const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
+      let dimensions;
+      for (let offset = 2; offset + 8 < bytes.length; ) {
+        assert.equal(bytes[offset], 0xff, path + ' JPEG marker');
+        const marker = bytes[offset + 1];
+        if ([0xc0, 0xc1, 0xc2].includes(marker)) {
+          dimensions = [view.getUint16(offset + 7), view.getUint16(offset + 5)];
+          break;
+        }
+        const length = view.getUint16(offset + 2);
+        assert.ok(length >= 2, path + ' JPEG segment');
+        offset += length + 2;
+      }
+      assert.deepEqual(dimensions, [1280, 900], path + ' screenshot dimensions');
+    }
   }
   const defaultLocale = await fetch(base + '/docs/backups?check=1', {
     redirect: 'manual',
@@ -204,6 +286,8 @@ try {
       alternates: 'passed',
       redirects: 'passed',
       images: 'passed',
+      screenshotPairs: screenshotNames.size,
+      internalLinks: internalLinks.size,
       notFound: 'passed',
     }),
   );

@@ -1,0 +1,38 @@
+---
+title: Aus GitHub deployen
+description: Verbinde ein Repository, richte den Build ein und verfolge Website-Deployments.
+icon: GitBranch
+---
+
+<PortalScreenshot name="github-connect" alt="Ein Demo-Repository mit Build-Skript und Veröffentlichungsverzeichnis verbinden." caption="Ein Demo-Repository mit Build-Skript und Veröffentlichungsverzeichnis verbinden." />
+
+## Voraussetzungen
+
+Öffne **Domains → deine Website → GitHub**. Die GitHub-Anbindung der Organisation benötigt Repository-Zugriff. Schließe angebotene Registrierung und Installation mit einem berechtigten GitHub-Konto ab. Prüfe dort die freigegebenen Repositories.
+
+GitHub-Deployment lässt sich nicht konfigurieren, solange die Website installierte Anwendungen hat. Lösche dafür nicht einfach WordPress oder andere Installationen. Nutze eine passende separate Website oder plane Umstellung und Backup zuerst.
+
+## Repository verbinden
+
+<Steps>
+<Step title="Repository und Version wählen">
+Wähle **Connect repository**, Repository und **Branch or tag**. Fehlt ein Repository, hat die GitHub-App eventuell keinen Zugriff. Prüfe die Verbindung und lade die Auswahl neu.
+</Step>
+<Step title="Build und Veröffentlichungsverzeichnis konfigurieren">
+**Build script** läuft nach dem Abruf im Deployment-Verzeichnis. Nutze den Projektbefehl. **Publish directory** ist relativ, etwa `dist`; leer veröffentlicht das ganze Verzeichnis. Ein falscher Pfad kann trotz erfolgreichem Build falsche Dateien veröffentlichen.
+</Step>
+<Step title="Automatisches Deployment und optionalen Worker wählen">
+**Automatic deployment** reagiert auf Pushes zum gewählten Branch oder Tag. Bei einer neuen Verbindung ist gegebenenfalls ein Worker möglich. Ein Buildskript ist kein Startbefehl für einen dauerhaft laufenden Server.
+</Step>
+<Step title="Ergebnis prüfen">
+Bestätige und prüfe die Ergebnisse. Verbindung, erstes Deployment und Worker sind getrennte Schritte; prüfe erfolgreiche Schritte vor erneuter Erstellung.
+</Step>
+</Steps>
+
+## Deployments verfolgen
+
+Mit **Deploy now** startest du manuell. Prüfe Status, Commit und Logs unter **Deployments**. Eine Anfrage bestätigt noch keine erfolgreiche Veröffentlichung. Teste danach Website und [Worker](./workers.mdx).
+
+Ein laufender Build lässt sich nach Bestätigung abbrechen; der neue Checkout wird nicht aktiviert. Das setzt keine bereits veröffentlichte Version zurück. **Disconnect repository** entfernt die Website-Verbindung; prüfe vorher Auswirkungen auf Anwendung und automatische Deployments.
+
+Halte Passwörter und Tokens aus Befehlen und Logs heraus. Bewahre wichtige Daten und Uploads außerhalb unkontrolliert überschreibender Deployment-Abläufe auf.

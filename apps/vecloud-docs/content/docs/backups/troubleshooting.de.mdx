@@ -1,0 +1,48 @@
+---
+title: Backup-Probleme beheben
+description: Prüfe, ob Liste, Backup-Inhalt oder Wiederherstellung betroffen sind.
+icon: Archive
+---
+
+## Die Liste lädt nicht
+
+1. Prüfe deine Anmeldung und die ausgewählte Domain.
+2. Nutze nach der Fehlermeldung einmal **Try again**.
+3. Öffne die Website bei Bedarf erneut über **Domains**.
+4. Bleibt der Fehler bestehen, notiere Domain, Uhrzeit und genaue Meldung für den Support.
+
+Ein Ladefehler beweist nicht, dass Backups gelöscht wurden. Eine leere Liste ohne Fehlermeldung bedeutet, dass aktuell keine verfügbaren Wiederherstellungspunkte für diese Website angezeigt werden.
+
+## Backup läuft oder ist unvollständig
+
+Öffne **Restore** und prüfe die Details. Kontrolliere Abschluss und Status der benötigten Bestandteile. Eine fehlende Größe oder Datenbank macht ein Teilbackup nicht vollständig.
+
+Nutze im Zweifel einen früheren erfolgreichen Punkt oder lasse das Backup vom Support prüfen. Starte keine Reihe neuer Backups, um einen unklaren Status zu umgehen.
+
+## Eine Datenbank fehlt im Dialog
+
+Im aktuellen Dialog kannst du MariaDB-Datenbanken auswählen, die mit diesem Backup geliefert werden. Prüfe Website und Datum. Erwartest du eine andere Datenbank oder einen anderen Typ, lasse den Inhalt vorab vom Support bestätigen.
+
+## Die Website wirkt nach dem Start unverändert
+
+Die Bestätigung der Anfrage bestätigt nicht den Abschluss. Warte auf das Ergebnis und prüfe die Website erneut. Kontrolliere danach Caches und ob die richtigen Dateien und Datenbank wiederhergestellt wurden.
+
+## Die Website funktioniert nachher nicht
+
+Prüfe zuerst die Kombination aus Dateien und Datenbank. Kontrolliere dann PHP-Version, Datenbankverbindung und Fehlerlog unter **Developer tools**. Notiere die wiederhergestellten Bestandteile und den aktuellen Fehler. Teile keine Passwörter, privaten Schlüssel oder vollständigen Konfigurationsdateien mit dem Support.
+
+## Häufige Fragen
+
+<Accordions>
+<Accordion title="Kann ich im Dialog eine einzelne Datei wählen?">
+Der aktuelle Dialog enthält keinen Dateibrowser. Er stellt verfügbare Website-Dateien mit deiner Datenbankauswahl wieder her. Frage den Support nach einer gezielten Wiederherstellung einzelner Dateien.
+</Accordion>
+<Accordion title="Wie lange stehen Backups zur Verfügung?">
+Der Verlauf hängt von der Hostingkonfiguration ab. Maßgeblich sind die angezeigten Punkte; diese Dokumentation verspricht keine feste Aufbewahrungsfrist.
+</Accordion>
+<Accordion title="Soll ich nach einem Fehler erneut klicken?">
+Prüfe zuerst das aktuelle Ergebnis. Bei verspäteter oder unklarer Antwort kann die Wiederherstellung bereits laufen. Lasse den Status prüfen, bevor du erneut Inhalte überschreibst.
+</Accordion>
+</Accordions>
+
+Zurück zu [Backups](./index.mdx) oder [Ein Backup wiederherstellen](./restore.mdx).

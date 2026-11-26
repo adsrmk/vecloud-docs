@@ -1,0 +1,43 @@
+---
+title: Dateirechte und CHMOD
+description: Prüfe und ändere Rechte für Eigentümer, Gruppe und andere Benutzer.
+icon: LockKeyhole
+---
+
+## Aktuelle Rechte prüfen
+
+Öffne **Files** und prüfe Datei oder Ordner. Das Kontextmenü bietet **File information** und **Permissions (CHMOD)**. Am Desktop öffnest du es per Rechtsklick.
+
+Rechte steuern Lesen, Schreiben und Ausführen. Sie unterscheiden sich vom Dateieigentum.
+
+| Wert | Recht |
+| --- | --- |
+| 4 | Lesen |
+| 2 | Schreiben |
+| 1 | Ausführen; bei Ordnern auch Durchlaufen |
+
+Addiere Werte je Kategorie. `6` bedeutet Lesen und Schreiben, `5` Lesen und Ausführen. Die drei Ziffern gehören zu **Owner**, **Group** und **Everyone**.
+
+<PortalScreenshot
+  name="file-permissions"
+  alt="Dateirechte für README.txt"
+  caption="Dateirechte für README.txt"
+/>
+
+## Rechte ändern
+
+1. Notiere bisherigen Wert und vollständigen Pfad.
+2. Öffne **Permissions (CHMOD)**.
+3. Wähle Ziffern für Eigentümer, Gruppe und andere Benutzer.
+4. Prüfe den angezeigten Wert und wähle **Save permissions**.
+5. Kontrolliere danach Anwendung und Dateizugriff.
+
+Nutze passende Rechte für Anwendung und Hosting. `644` für Dateien und `755` für Ordner sind verbreitete Beispiele, kein allgemeiner Reparaturbefehl.
+
+## Rekursiv anwenden
+
+**Apply recursively** ist nur für Ordner verfügbar und kann viele Untereinträge ändern. Ordner benötigen andere Rechte als normale Textdateien. Wende nicht ungeprüft denselben Wert auf die gesamte Website an; `644` auf Ordnern kann etwa deren Durchlaufen verhindern.
+
+## Problem bleibt bestehen
+
+Prüfe Pfad, Eigentümer und Rechte übergeordneter Ordner. Vergib nicht allgemein mit `777` Schreibzugriff für alle. Bei falschem Eigentümer oder Hostingbeschränkungen bitte um Hilfe mit Pfad und Fehlermeldung. Teile keine Konfigurationsinhalte mit Passwörtern.

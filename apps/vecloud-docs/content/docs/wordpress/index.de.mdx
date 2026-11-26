@@ -1,0 +1,39 @@
+---
+title: WordPress verwalten
+description: Nutze das Toolkit für Kernversion, Website-URL, automatische Updates und Wartung.
+icon: Blocks
+---
+
+## Toolkit öffnen
+
+Öffne die Website und **Apps**. Wähle **Toolkit** bei der richtigen WordPress-Installation. Es enthält **General**, **Plugins**, **Themes**, **Users** und **Debug**. **Admin** öffnet die WordPress-Verwaltung, wenn Zugriff verfügbar ist.
+
+Fehlt eine bestehende Installation, nutze **Scan apps**. Installiere WordPress nicht nur für die Toolkit-Anzeige über vorhandene Dateien neu.
+
+## WordPress aktualisieren
+
+1. Erstelle ein [Backup](../backups/index.mdx) von Dateien und Datenbank.
+2. Prüfe unter **General** installierte und verfügbare WordPress-Version.
+3. Wähle **Update** und lies die Bestätigung.
+4. Warte auf den Abschluss. Die Website kann vorübergehend im Wartungsmodus sein.
+5. Prüfe Website, Administration und wichtige Formulare.
+
+WordPress, Plugins, Theme und PHP müssen kompatibel sein. Teste größere Änderungen bei Bedarf zuerst auf Staging.
+
+## Automatische Kernupdates
+
+Bearbeite die Planung unter **Automatic updates**. **Always update to the latest available version** folgt allen verfügbaren WordPress-Versionen. **Minor versions only** beschränkt automatische Kernupdates auf Minor-Versionen. Speichere die Auswahl.
+
+Die Planung betrifft WordPress selbst. Automatische Plugin- und Theme-Updates verwaltest du in deren Bereichen.
+
+<PortalScreenshot name="wordpress-schedule" alt="Planung automatischer WordPress-Updates" caption="Wähle und speichere die Planung. Die gezeigte Installation verwendet Demodaten." />
+
+## Website-URL ändern
+
+Die Bearbeitungsaktion bei **Site URL** ändert WordPress `siteurl` und `home`. Prüfe vorher Domainzuordnung, DNS und SSL für die neue Adresse. Die Änderung ersetzt nicht automatisch alle alten Inhaltslinks.
+
+Bewahre Panelzugriff und ein Backup vor der Änderung auf. Eine falsche URL kann Anmeldung und Seitenaufrufe stören.
+
+## Wartungsmodus
+
+**Maintenance mode** aktiviert oder deaktiviert die Wartung dieser Installation. Nutze ihn bewusst und deaktiviere ihn nach den Arbeiten. Prüfe die öffentliche Website nach bestätigter Änderung.

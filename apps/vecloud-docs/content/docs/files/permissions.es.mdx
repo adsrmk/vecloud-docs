@@ -1,0 +1,43 @@
+---
+title: Permisos de archivos y CHMOD
+description: Consulta y cambia permisos de propietario, grupo y otros usuarios.
+icon: LockKeyhole
+---
+
+## Consultar permisos
+
+Abre **Files** y comprueba el archivo o carpeta correctos. Su menú contextual ofrece **File information** y **Permissions (CHMOD)**. En escritorio se abre con clic derecho.
+
+Los permisos controlan lectura, escritura y ejecución. No son lo mismo que la propiedad del archivo.
+
+| Valor | Permiso |
+| --- | --- |
+| 4 | Leer |
+| 2 | Escribir |
+| 1 | Ejecutar; en carpetas, también poder recorrerlas |
+
+Suma los valores por categoría. `6` significa leer y escribir; `5`, leer y ejecutar. Los tres dígitos corresponden a **Owner**, **Group** y **Everyone**.
+
+<PortalScreenshot
+  name="file-permissions"
+  alt="Permisos de README.txt"
+  caption="Permisos de README.txt"
+/>
+
+## Cambiarlos
+
+1. Anota el valor actual y la ruta completa.
+2. Abre **Permissions (CHMOD)**.
+3. Elige los dígitos de propietario, grupo y demás usuarios.
+4. Revisa el valor mostrado y pulsa **Save permissions**.
+5. Comprueba después el acceso de aplicación y gestor.
+
+Usa los permisos adecuados para tu aplicación y alojamiento. `644` en archivos y `755` en carpetas son ejemplos habituales, no una reparación universal.
+
+## Aplicar recursivamente
+
+**Apply recursively** solo está disponible para carpetas y puede modificar muchos elementos. Las carpetas y archivos de texto necesitan permisos distintos. No apliques el mismo valor indiscriminadamente a todo el sitio; `644` en carpetas puede impedir recorrerlas.
+
+## No resuelve el problema
+
+Revisa ruta, propietario y permisos de las carpetas superiores. No uses `777` como solución general para permitir escribir a todos. Si falla la propiedad o hay una restricción del alojamiento, pide ayuda indicando ruta y error. No compartas configuraciones con contraseñas.

@@ -1,0 +1,37 @@
+---
+title: Depuración de WordPress
+description: Registra errores temporalmente sin mostrar detalles a los visitantes.
+icon: Bug
+---
+
+## Opciones de depuración
+
+Abre **Apps → Toolkit → Debug** en la instalación. Los interruptores controlan tres ajustes distintos.
+
+| Ajuste | Función |
+| --- | --- |
+| WP_DEBUG | Activa la depuración de WordPress. |
+| WP_DEBUG_LOG | Escribe mensajes en `wp-content/debug.log`. |
+| WP_DEBUG_DISPLAY | Muestra mensajes en el HTML que ven los visitantes. |
+
+<PortalScreenshot name="wordpress-debug" alt="Opciones de depuración sin mostrar errores al público" caption="La demostración local tiene el registro activo y la visualización pública desactivada. No se muestran registros." />
+
+## Investigar un problema
+
+1. Anota error, URL y hora.
+2. Activa temporalmente **WP_DEBUG** y **WP_DEBUG_LOG**.
+3. Mantén **WP_DEBUG_DISPLAY** desactivado en un sitio público.
+4. Espera la confirmación y reproduce una vez la acción que falla.
+5. Abre **Files**, entra en la carpeta de instalación y revisa `wp-content/debug.log` si se ha creado.
+
+Los registros pueden contener rutas, datos de solicitudes y otros detalles privados. Comparte solo el fragmento pertinente y elimina valores sensibles.
+
+## No hay registro o no carga el toolkit
+
+El archivo se crea cuando se registra algún mensaje. Comprueba que la opción esté activa, que hayas reproducido el problema y que estés en la instalación correcta.
+
+Si WordPress no arranca bien, algunas partes del toolkit también pueden fallar. Consulta el registro PHP en **Developer tools**, una fuente distinta del registro de WordPress.
+
+## Al terminar
+
+Desactiva las opciones temporales y comprueba el sitio público. Guarda de forma segura los datos necesarios y elimina registros que ya no hagan falta. No mantengas activados sin necesidad el registro detallado o la visualización de errores.

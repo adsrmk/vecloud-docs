@@ -1,0 +1,38 @@
+---
+title: Ressourcennutzung pro Website
+description: Untersuche CPU, Speicher, Swap, Datenträgeraktivität und Prozesse in Analytics.
+icon: Cpu
+---
+
+## Diagramm und Zeitraum wählen
+
+Öffne **Domains → deine Website → Analytics** und scrolle zu **Resource usage**. Wähle Messgröße und letzte Stunde, 24 Stunden, 7 Tage oder 30 Tage. Dieser Zeitraum ist unabhängig von den Traffic-Diagrammen. **Refresh resource usage** ruft die Messwerte neu ab; die Zeit zeigt den letzten Abruf.
+
+<PortalScreenshot
+  name="resource-usage"
+  alt="CPU-Diagramm mit Beispielmessungen"
+  caption="CPU-Diagramm mit Beispielmessungen"
+/>
+
+## Messgrößen verstehen
+
+| Messgröße | Bedeutung |
+| --- | --- |
+| CPU | Prozessornutzung; 100% entspricht einer vCPU |
+| Memory | Vom Website-Umfeld genutzter Speicher |
+| Swap | Genutzter Swap-Speicher |
+| Storage performance (I/O) | Gelesene und geschriebene Bytes pro Sekunde |
+| Storage performance (IOPS) | Lese- und Schreiboperationen pro Sekunde |
+| Processes | Gemessene Prozessanzahl |
+
+Wähle bei I/O und IOPS gegebenenfalls einen Datenträger. Lesen und Schreiben sind getrennte Messreihen. Unter dem Diagramm steht, sofern vorhanden, das Limit der letzten Messung. **Unlimited** bedeutet, dass dort kein bestimmtes Limit festgelegt ist, nicht unendliche physische Kapazität.
+
+Ein kurzer CPU-Spitzenwert kann zu Update oder Backup gehören. Dauerhaft hoher Speicher-, Swap- oder Prozessverbrauch erfordert eine Prüfung der Anwendung und paralleler Aufgaben. Die Speichermessung entspricht nicht PHPs `memory_limit`.
+
+## Fehlende Messungen
+
+CPU- und I/O-Raten entstehen aus aufeinanderfolgenden Messungen. Ohne genügend Punkte kann ein Diagramm leer bleiben; fehlende Daten sind kein Nullverbrauch. Wähle einen anderen Zeitraum oder aktualisiere. Ein Abruffehler beweist nicht, dass die Website offline ist.
+
+## Maßnahmen ableiten
+
+Vergleiche Zeitpunkte mit Traffic, geplanten Aufgaben, Updates und Logs. Ändere jeweils nur einen Punkt und vergleiche danach denselben Zeitraum. Die Diagramme ändern weder Limits noch Paket. Nenne dem Support bei Limitfragen oder anhaltenden Fehlern Messgröße, Zeitraum und Website.

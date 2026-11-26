@@ -1,0 +1,42 @@
+---
+title: SQL importeren en exporteren
+description: Verplaats MySQL/MariaDB-gegevens met een SQL-bestand en controleer het resultaat.
+icon: FileCode
+---
+
+## Vooraf controleren
+
+Open **Domains → je website → Databases** en klik op de gewenste MySQL/MariaDB-database. Importeren voert SQL uit op deze database. Een bestand uploaden via **Files** voert geen database-import uit.
+
+<Callout type="warn" title="Maak eerst een herstelmogelijkheid">
+Een SQL-dump kan tabellen verwijderen of bestaande gegevens vervangen. Controleer de herkomst en inhoud. Maak een export of back-up voordat je een gevulde database wijzigt. Gebruik bij een migratie bij voorkeur eerst een nieuwe, lege doeldatabase.
+</Callout>
+
+## Een SQL-bestand importeren
+
+<Steps>
+<Step title="Kies de juiste doeldatabase">
+Controleer website en databasenaam. Zorg dat de dump voor MySQL/MariaDB is gemaakt, niet voor PostgreSQL.
+</Step>
+<Step title="Selecteer het bestand">
+Bij **Import SQL file** kies je één `.sql`-, `.gz`- of `.zip`-bestand van maximaal **500 MB**. Compressie moet een geschikte SQL-dump bevatten; een websitearchief of alleen het wijzigen van de extensie maakt geen SQL-bestand.
+</Step>
+<Step title="Start en wacht op bevestiging">
+Kies **Import file**. Laat de pagina open tot de import is bevestigd. Uploadtijd en het uitvoeren van de SQL zijn afzonderlijke delen van dezelfde actie; een groot bestand kan na het versturen nog worden verwerkt.
+</Step>
+<Step title="Controleer de inhoud en applicatie">
+Controleer de tabellen en verwachte gegevens via phpMyAdmin. Werk de applicatieverbinding bij als je naar een andere database of gebruiker verhuist. Test daarna de website.
+</Step>
+</Steps>
+
+Een mislukte of onderbroken import kan gedeeltelijke wijzigingen achterlaten. Ga niet uit van automatische rollback en start niet blind opnieuw op dezelfde gevulde database. Controleer de toestand, herstel een export of gebruik een nieuwe lege database.
+
+## Een SQL-export downloaden
+
+Bij **Export SQL file** kies je **Download**. Het portaal downloadt de database-inhoud als `databasenaam.sql.gz`. Controleer dat de download is afgerond en bewaar het bestand veilig: het kan persoonsgegevens en applicatiegeheimen bevatten.
+
+Een database-export bevat geen websitebestanden, uploads of mail. Voor herstel van de combinatie gebruik je passende [back-ups](../backups/index.mdx).
+
+## Bestands- of verbindingsfouten
+
+Controleer formaat, bestandsgrootte, compatibiliteit van de dump en voldoende opslag. Voor bestanden boven de portaalgrens stem je een geschikte importmethode af met support. SFTP plaatst alleen een bestand op de website; daarna is nog een database-import nodig. Gebruik de MySQL-import niet voor [PostgreSQL](./postgresql.mdx).

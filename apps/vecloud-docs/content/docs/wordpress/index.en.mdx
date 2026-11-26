@@ -1,0 +1,39 @@
+---
+title: Manage WordPress
+description: Use the toolkit for core versions, site URL, automatic updates and maintenance mode.
+icon: Blocks
+---
+
+## Open the toolkit
+
+Open your website and go to **Apps**. Choose **Toolkit** next to the correct WordPress installation. The toolkit contains **General**, **Plugins**, **Themes**, **Users** and **Debug**. **Admin** opens the WordPress administration area when access is available.
+
+If an existing installation is missing, use **Scan apps** for that website. Do not reinstall WordPress over existing files merely to make the toolkit appear.
+
+## Update WordPress
+
+1. Create a [backup](../backups/index.mdx) of files and database.
+2. Open **General** and check installed and available WordPress versions.
+3. Choose **Update** and read the confirmation.
+4. Let the update finish. The website may temporarily enter maintenance mode.
+5. Check the website, administration area and important forms.
+
+WordPress, plugins, theme and PHP must be compatible. Test a major change on a staging website first when needed.
+
+## Automatic core updates
+
+Edit the schedule under **Automatic updates**. **Always update to the latest available version** follows all available WordPress releases. **Minor versions only** restricts automatic core updates to minor releases. Save the selected schedule.
+
+This schedule applies to WordPress itself. Manage plugin and theme automatic updates in their respective sections.
+
+<PortalScreenshot name="wordpress-schedule" alt="WordPress automatic update schedule" caption="Choose the desired schedule and save it. The installation shown uses demonstration data." />
+
+## Change the site URL
+
+Use the edit action next to **Site URL** to update WordPress `siteurl` and `home`. Check the domain mapping, DNS and SSL for the new address first. This change does not automatically replace all old links in your content.
+
+Keep panel access and a backup before changing the address. An incorrect URL can disrupt sign-in or page loading.
+
+## Maintenance mode
+
+**Maintenance mode** enables or disables maintenance for this installation. Use it deliberately and disable it after your work. Check the public website after the change is confirmed.

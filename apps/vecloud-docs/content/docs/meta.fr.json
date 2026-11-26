@@ -3,12 +3,19 @@
   "pages": [
     "index",
     "snelstart",
+    "account",
     "---Hébergement---",
     "websites",
+    "applications",
     "wordpress",
     "email",
     "backups",
     "dns-ssl",
-    "bestanden-databases"
+    "files",
+    "databases",
+    "performance",
+    "developers",
+    "---",
+    "help"
   ]
 }

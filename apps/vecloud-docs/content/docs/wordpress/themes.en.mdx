@@ -1,0 +1,36 @@
+---
+title: Manage themes
+description: Install and update themes, and review the consequences before activating another theme.
+icon: Palette
+---
+
+## Open themes
+
+Go to **Apps → Toolkit → Themes**. Find the theme and check its installed version. The status identifies the active theme.
+
+<PortalScreenshot name="wordpress-themes" alt="Theme list with update actions" caption="The status identifies the active theme. Automatic updates have a separate action. This example uses demonstration data." />
+
+## Install
+
+Choose **Install**, search the catalog and select the theme. Let installation finish and check the list. Installation and activation are different actions: an installed theme does not have to become active.
+
+For custom or commercial themes, follow the publisher’s installation method within WordPress. A child theme also needs its parent theme to remain available.
+
+## Activate a theme
+
+1. Create a [backup](../backups/index.mdx) first.
+2. Open the theme action and choose **Activate**.
+3. Read the confirmation: the website will use this theme and its appearance will change.
+4. Check the public website on desktop and mobile, including menus, widgets and forms.
+
+Test a major theme change on staging first when possible. Theme settings and content blocks can depend on the old theme.
+
+## Update
+
+Choose **Update** when a theme update is available. Wait for confirmation and check the site. Preserve custom changes through an appropriate development workflow; files in the updated theme can be replaced.
+
+Use **Enable automatic updates** or **Disable automatic updates** next to the theme to change automatic updates. This is separate from the WordPress core update schedule.
+
+## Clean up
+
+Only delete themes you no longer need, and check dependencies such as child themes. Read the deletion confirmation carefully. If the outcome is unclear, check the current list before repeating the action.

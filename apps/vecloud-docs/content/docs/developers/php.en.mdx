@@ -1,0 +1,41 @@
+---
+title: PHP versions and settings
+description: Change PHP, extensions and INI settings while checking application compatibility.
+icon: Code
+---
+
+## Change the PHP version
+
+Open **Domains → your website → Developer tools → PHP**. The selector shows versions available for this website and package. Choose a version, read the compatibility notice and confirm. First check that the application, themes and extensions support it. The website may briefly become unavailable during the change.
+
+Older versions may trigger a warning about incompatible MariaDB authentication. The absence of a warning is not a complete application compatibility test. Check the website, administration area and [PHP error log](./logs.mdx) afterwards.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP version, extensions and a safe example log"
+  caption="PHP version, extensions and a safe example log"
+/>
+
+## Extensions and IonCube
+
+Under **PHP extensions**, enable or disable the offered optional extensions. Built-in extensions are separate from configurable options. Availability depends on the environment. The Redis PHP extension is also distinct from the [Redis service](../performance/redis.mdx).
+
+The separate **IonCube loader** section supports applications requiring that loader. Enable it only when the application requires it and the PHP version supports it. The interface notes that the loader is unavailable for PHP 8.0.
+
+## PHP INI editor
+
+The editor is available when your package allows it. Choose **Edit** beside a directive or **Add directive** for a new one. Enter the exact directive name and choose **Text** for a value such as `256M`, or **Boolean** for on/off. Save and check the current value.
+
+**Inherited** means a value comes from a parent setting. A custom value is a website override. Deleting an override restores the inherited value; it does not necessarily disable the feature.
+
+`upload_max_filesize` and similar PHP settings apply to your PHP application. They do not determine the separate limits of the portal file manager or SQL importer.
+
+<Callout type="warn" title="Restart interrupts the website container">
+**Restart** restarts the application container and can interrupt Redis and Node.js too. The website may be offline during the restart. Confirm intentionally and check the application afterwards. A restart does not repair broken code or missing files.
+</Callout>
+
+<PortalScreenshot
+  name="php-ini"
+  alt="Edit a PHP INI value"
+  caption="Edit a PHP INI value"
+/>

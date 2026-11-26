@@ -1,0 +1,35 @@
+---
+title: Redis für deine Website
+description: Aktiviere Redis und verbinde die Anwendung mit dem lokalen Objektcache.
+icon: Database
+---
+
+## Redis aktivieren
+
+Öffne **Domains → deine Website → Optimization → Redis**. Der Schalter ist verfügbar, wenn die Website-Umgebung Redis unterstützt. Aktiviere den Dienst und warte auf die Bestätigung. Danach erscheinen Verbindungsdaten und **Edit redis.conf**.
+
+`127.0.0.1:6379` ist für Anwendungen innerhalb dieser Website-Umgebung bestimmt. Es ist keine öffentliche Internetadresse für deinen Laptop. Andere Server oder Websites erhalten dadurch keinen automatischen Zugriff.
+
+<PortalScreenshot
+  name="optimization"
+  alt="Redis und Opcodecache in Optimization"
+  caption="Redis und Opcodecache in Optimization"
+/>
+
+## Anwendung verbinden
+
+Das Aktivieren von Redis konfiguriert kein WordPress-Plugin oder eine andere Anwendung automatisch. Richte eine passende Redis-Anbindung ein. PHP benötigt gegebenenfalls zusätzlich die Redis-Erweiterung unter **Developer tools → PHP extensions**.
+
+Konfiguriere und aktiviere in WordPress ein geeignetes Objektcache-Plugin gemäß dessen Anleitung. Prüfe dort den Verbindungsstatus. Der eingeschaltete **Redis**-Schalter bestätigt die Diensteinstellung, nicht die tatsächliche Nutzung durch WordPress.
+
+## redis.conf bearbeiten
+
+**Edit redis.conf** öffnet die Konfiguration im [Dateieditor](../files/index.mdx). Bewahre den Originalinhalt auf und ändere nur verstandene Einstellungen. Ungültige Konfiguration kann Redis unbrauchbar machen. Teile den Dateiinhalt nicht in Screenshots oder Tickets, wenn er Geheimnisse enthält.
+
+Falls ein Containerneustart nötig ist, nutze **Developer tools → Restart**. Er kann weitere Dienste im Website-Container unterbrechen und ist kein allgemeiner Ersatz für das Leeren von Caches.
+
+## Deaktivieren und Fehler prüfen
+
+Passe vor dem Abschalten die Anwendungsanbindung an. Andernfalls können Verbindungsfehler entstehen. Prüfe Dienststatus, Host und Port, PHP-Erweiterung und Anwendungskonfiguration.
+
+Redis-Objektcache unterscheidet sich von [FastCGI- und Opcodecache](./cache.mdx). Nutze Cachedaten nicht als Backup oder einzigen Speicher wichtiger Informationen.

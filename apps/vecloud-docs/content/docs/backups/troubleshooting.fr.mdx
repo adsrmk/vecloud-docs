@@ -1,0 +1,48 @@
+---
+title: Dépannage des sauvegardes
+description: Identifiez si la liste, le contenu ou la restauration nécessite une intervention.
+icon: Archive
+---
+
+## La liste ne charge pas
+
+1. Vérifiez votre connexion et le domaine sélectionné.
+2. Utilisez **Try again** une fois après l’erreur.
+3. Si nécessaire, rouvrez le site depuis **Domains**.
+4. Si le problème persiste, notez le domaine, l’heure et l’erreur exacte pour le support.
+
+Une erreur de chargement ne prouve pas que les sauvegardes ont été supprimées. Une liste vide sans erreur signifie qu’aucun point disponible n’est actuellement affiché pour ce site.
+
+## Sauvegarde en cours ou incomplète
+
+Ouvrez **Restore** pour consulter les détails. Vérifiez la fin et l’état des composants nécessaires. Une taille ou une base manquante ne permet pas de considérer une sauvegarde partielle comme complète.
+
+En cas de doute, utilisez un point antérieur réussi ou faites vérifier la sauvegarde par le support. Ne lancez pas une série de nouvelles sauvegardes pour contourner un état incertain.
+
+## Une base manque dans la fenêtre
+
+La fenêtre actuelle permet de sélectionner les bases MariaDB fournies dans cette sauvegarde. Vérifiez le site et la date. Si vous attendiez une autre base ou un autre type, demandez au support de confirmer sa présence avant de continuer.
+
+## Le site semble inchangé après le démarrage
+
+La confirmation de la demande ne confirme pas sa fin. Attendez le résultat puis vérifiez le site. Contrôlez ensuite le cache et la sélection des fichiers et de la base.
+
+## Le site ne fonctionne plus après restauration
+
+Vérifiez d’abord l’association des fichiers et de la base. Examinez ensuite la version PHP, la connexion à la base et le journal d’erreurs dans **Developer tools**. Indiquez ce qui a été restauré et l’erreur actuelle. Ne partagez pas de mots de passe, clés privées ou fichiers de configuration complets avec le support.
+
+## Questions fréquentes
+
+<Accordions>
+<Accordion title="Puis-je choisir un seul fichier dans la fenêtre ?">
+La fenêtre actuelle n’a pas d’explorateur de fichiers. Elle restaure les fichiers disponibles avec votre sélection de bases. Contactez le support pour récupérer un fichier isolé.
+</Accordion>
+<Accordion title="Combien de temps les sauvegardes sont-elles conservées ?">
+Cela dépend de la configuration de l’hébergement. Consultez les points affichés ; cette documentation ne promet pas de durée fixe.
+</Accordion>
+<Accordion title="Dois-je recommencer après une erreur ?">
+Vérifiez d’abord le résultat actuel. Une réponse tardive ou incertaine peut signifier que la restauration a déjà démarré. Faites contrôler l’état par le support avant d’écraser de nouveau le contenu.
+</Accordion>
+</Accordions>
+
+Retour aux [Sauvegardes](./index.mdx) ou à [Restaurer une sauvegarde](./restore.mdx).

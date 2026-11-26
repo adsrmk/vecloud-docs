@@ -1,0 +1,10 @@
+{
+  "title": "Bestanden & toegang",
+  "pages": [
+    "index",
+    "transfers",
+    "permissions",
+    "ftp",
+    "ssh"
+  ]
+}

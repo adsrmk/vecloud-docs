@@ -1,0 +1,40 @@
+---
+title: Configuration VirtualHost
+description: Gérez les directives propres au domaine et évitez les modifications concurrentes.
+icon: FileCode
+---
+
+## Quand l’utiliser
+
+Utilisez [Redirects](../dns-ssl/redirects.mdx) pour les redirections, [IP deny](../dns-ssl/ip-deny.mdx) pour les blocages et [Optimization](../performance/cache.mdx) pour le cache. VirtualHost sert aux directives supplémentaires requises par l’application.
+
+Ouvrez **Domains → votre site → Overview → Website actions → Manage overrides**. Dans **VirtualHost configuration**, ouvrez le menu du domaine voulu et **Edit configuration**. Cette fonction nécessite les droits adaptés.
+
+<PortalScreenshot
+  name="vhost-editor"
+  alt="Éditeur VirtualHost avec configuration de démonstration uniquement"
+  caption="Éditeur VirtualHost avec configuration de démonstration uniquement"
+/>
+
+## Enregistrer une modification
+
+1. Vérifiez le domaine et conservez la configuration propre actuelle.
+2. Ajoutez uniquement des directives valides dans ce contexte VirtualHost. Ne collez pas une configuration globale complète.
+3. Sélectionnez **Save** et attendez la confirmation.
+4. Rouvrez la configuration et testez site, redirections et règles de sécurité.
+
+<Callout type="warn" title="Une syntaxe invalide peut perturber le serveur web">
+Une faute ou directive invalide peut rendre le site indisponible. Testez dans un environnement approprié et conservez l’original restaurable. Enregistrer n’est pas un test fonctionnel complet de l’application.
+</Callout>
+
+## Conserver les règles gérées
+
+Les règles du portail pour IP deny et les redirections compatibles ont des fonctions distinctes. Modifiez-les depuis leurs pages. Le portail conserve les blocages Nginx gérés lors de l’enregistrement libre ; les modifier manuellement ne retire pas fiablement un blocage.
+
+## Rétablir les valeurs par défaut
+
+**Reset to default** supprime la configuration libre propre au domaine après confirmation. Des règles gérées peuvent rester. Cette action ne désactive pas tous les blocages ou redirections et ne restaure ni fichiers ni bases.
+
+## Modification encore en cours
+
+Attendez, puis utilisez **Check status**. En cas de conflit de révision, ouvrez la version actuelle et appliquez-y le changement voulu. N’écrasez pas à nouveau depuis une ancienne version sans contrôle. Évitez les modifications simultanées depuis plusieurs fenêtres ou outils.

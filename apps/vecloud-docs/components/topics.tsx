@@ -6,21 +6,41 @@ import type { Locale } from '@/lib/i18n';
 import { getDocsUrl } from '@/lib/shared';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import {
-  Globe2,
+  Globe,
   Blocks,
   Mail,
   Archive,
   LockKeyhole,
   FolderOpen,
+  Users,
+  Package,
+  Database,
+  Gauge,
+  Code,
+  LifeBuoy,
 } from 'lucide-react';
 
 const topics = [
-  { slug: 'websites', icon: <Globe2 aria-hidden /> },
+  {
+    slug: 'account',
+    path: ['account', 'navigation'],
+    icon: <Users aria-hidden />,
+  },
+  { slug: 'websites', icon: <Globe aria-hidden /> },
+  { slug: 'applications', icon: <Package aria-hidden /> },
   { slug: 'wordpress', icon: <Blocks aria-hidden /> },
   { slug: 'email', icon: <Mail aria-hidden /> },
   { slug: 'backups', icon: <Archive aria-hidden /> },
   { slug: 'dns-ssl', icon: <LockKeyhole aria-hidden /> },
-  { slug: 'bestanden-databases', icon: <FolderOpen aria-hidden /> },
+  { slug: 'files', icon: <FolderOpen aria-hidden /> },
+  { slug: 'databases', icon: <Database aria-hidden /> },
+  { slug: 'performance', icon: <Gauge aria-hidden /> },
+  {
+    slug: 'developers',
+    path: ['developers', 'php'],
+    icon: <Code aria-hidden />,
+  },
+  { slug: 'help', icon: <LifeBuoy aria-hidden /> },
 ] as const;
 
 export function Topics({ locale }: { locale: Locale }) {
@@ -32,7 +52,10 @@ export function Topics({ locale }: { locale: Locale }) {
           <Card
             key={topic.slug}
             title={text.title}
-            href={getDocsUrl([topic.slug], locale)}
+            href={getDocsUrl(
+              'path' in topic ? [...topic.path] : [topic.slug],
+              locale,
+            )}
             icon={topic.icon}
           >
             {text.description}

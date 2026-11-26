@@ -1,0 +1,9 @@
+{
+  "title": "Performances",
+  "pages": [
+    "index",
+    "resources",
+    "cache",
+    "redis"
+  ]
+}

@@ -1,0 +1,42 @@
+---
+title: SSL certificates and HTTPS
+description: Request a certificate, check its validity and direct visitors to HTTPS.
+icon: LockKeyhole
+---
+
+## Request a certificate
+
+Open your website and choose **SSL certificates**. The table shows each domain’s status, issuer, HTTPS setting and expiry date.
+
+1. Check the domain’s public DNS and reachability.
+2. Choose **Request certificate** and select the intended domain. A mail hostname is offered only when available.
+3. Read the notice: an existing certificate for that name will be replaced.
+4. Choose **Request**, then check the refreshed status and expiry date.
+
+A closed modal alone does not prove issuance succeeded; verify the result in the table. On failure, check DNS, reachability and any proxy or CAA settings first. Do not submit the same request repeatedly.
+
+<PortalScreenshot name="ssl" alt="SSL table with an active certificate and HTTPS switch" caption="Check status and expiry for each domain. This local demonstration contains no certificate keys." />
+
+## Enforce HTTPS
+
+Turn on **Enforce HTTPS** for the intended domain once a valid certificate is available. The change saves immediately. Test an `http://` address and check that the browser reaches the intended `https://` address.
+
+If you encounter a redirect loop, check application redirects and the HTTPS settings of an external proxy too. An HTTPS redirect does not repair an invalid certificate.
+
+## Install a custom certificate
+
+When **Install custom SSL** is available, you can install an existing certificate and its matching private key. Select the domain and paste the PEM contents or load the files. The file chooser accepts supported certificate and key files up to **64 KiB each**. Submit the installation and check the status afterwards.
+
+The certificate and key must match, and the certificate must cover the domain. Arrange renewal of a custom certificate yourself; uploading it does not request a new issuance.
+
+## View details
+
+**Details** opens the available certificate data, with separate web and mail sections where applicable. This view can also contain the **private key**. Do not share it in screenshots, tickets or chat messages. Close the details when finished.
+
+## A change was not confirmed
+
+A message that the security change was not confirmed means the panel could not reliably establish its final result. Refresh the current data first. Submit again only after checking that the intended change is still missing.
+
+## Other security options
+
+Depending on the web server, **ModSecurity** may appear here with a switch for each domain. Do not disable it to hide an application error; investigate the blocked request first. Manage Nginx blocks separately through [IP deny](./ip-deny.mdx). On Apache, this SSL page may display separate IP access controls.

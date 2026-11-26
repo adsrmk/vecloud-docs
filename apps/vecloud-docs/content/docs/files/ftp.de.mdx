@@ -1,0 +1,47 @@
+---
+title: FTP-Konten verwalten
+description: Verbinde einen externen FTP-Client mit dem passenden Website-Verzeichnis.
+icon: LockKeyhole
+---
+
+## FTP oder SFTP wählen
+
+Öffne **Domains → deine Website → FTP**. FTP-Konten haben eigene Zugangsdaten und lassen sich auf ein Verzeichnis beschränken. SFTP verwendet die [SSH-Zugangsdaten der Website](./ssh.mdx), kein FTP-Konto.
+
+<PortalScreenshot
+  name="ftp"
+  alt="Auf ein Verzeichnis beschränktes FTP-Konto"
+  caption="Auf ein Verzeichnis beschränktes FTP-Konto"
+/>
+
+## FTP-Konto hinzufügen
+
+<Steps>
+<Step title="Öffne Add FTP account">
+Die Schaltfläche ist verfügbar, wenn FTP für die Website aktiviert ist und dein Paket freie Kapazität hat.
+</Step>
+<Step title="Benutzername und Verzeichnis wählen">
+Gib den ersten Teil des Namens ein; das Formular ergänzt `@` und die Website-Domain. Trage bei **Folder** einen Pfad innerhalb der Website ein, etwa `public_html/assets`. Ein leerer Wert erlaubt Zugriff auf das Website-Stammverzeichnis `/`.
+</Step>
+<Step title="Passwort festlegen und speichern">
+Verwende mindestens zehn Zeichen mit Kleinbuchstabe, Großbuchstabe, Zahl und Sonderzeichen. Wähle **Add account** und prüfe die Kontoliste.
+</Step>
+</Steps>
+
+## Client verbinden
+
+Klicke auf den Kontonamen, um **Login details** zu öffnen. Übernimm den vollständigen Benutzernamen und **Host**; der angezeigte FTP-Port ist **21**. Nutze explizites FTP über TLS, wenn Client und Server dies unterstützen. SFTP ist ein anderes Protokoll und verwendet SSH auf Port 22.
+
+Speichere das Passwort in deinem Passwortmanager. Das Portal zeigt das bestehende Passwort nicht an. Mit **Change password** legst du ein neues fest; aktualisiere danach gespeicherte Verbindungen.
+
+## Verzeichniszugriff ändern
+
+Klicke auf den Stift bei **Directory access**, wähle das Verzeichnis und speichere. Die Wurzel `/` umfasst die Dateien dieser Website, nicht den gesamten Server. Gib Dienstleistern nur Zugriff auf das benötigte Verzeichnis.
+
+<Callout type="warn" title="Löschoption prüfen">
+Die Bestätigung **Delete FTP account** enthält eine eigene Option zum Löschen des Verzeichnisinhalts. Lass sie deaktiviert, wenn du nur den Zugriff entziehen möchtest. Das Löschen des Stammverzeichnisinhalts kann die Website unbrauchbar machen.
+</Callout>
+
+## Verbindungsprobleme
+
+Prüfe den vollständigen Kontonamen, aktuellen Host, Port und das Protokoll. FTP-Zugangsdaten funktionieren nicht für SFTP. Wenn die Anmeldung klappt, aber ein Ordner fehlt, prüfe den erlaubten Pfad und die [Dateirechte](./permissions.mdx).

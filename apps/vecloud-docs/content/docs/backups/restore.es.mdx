@@ -1,0 +1,50 @@
+---
+title: Restaurar una copia
+description: Comprueba el punto de recuperación y selecciona las bases de datos antes de sobrescribir contenido.
+icon: Archive
+---
+
+## Antes de empezar
+
+Comprueba el dominio en la barra superior y elige una copia finalizada anterior al problema. Si necesitas conservar datos recientes, guarda primero los archivos actuales y una exportación de la base de datos.
+
+<Callout type="warning" title="La restauración sobrescribe contenido">
+Puedes perder los cambios posteriores a la copia. Programa la restauración fuera de las horas de mayor actividad y evita nuevos pedidos u otros cambios mientras se ejecuta.
+</Callout>
+
+## Iniciar la restauración
+
+<Steps>
+<Step>
+### Abrir el punto de recuperación
+
+En **Backups**, pulsa **Restore** junto a la copia. La ventana **Backup details** muestra la fecha, la finalización, el almacenamiento y los componentes incluidos.
+</Step>
+<Step>
+### Comprobar el contenido
+
+Comprueba que los archivos se hayan incluido correctamente. Marca las **MariaDB databases** necesarias. **Select all** selecciona todas las bases de datos mostradas.
+
+La ventana actual incluye los archivos disponibles del sitio. No tiene un explorador para seleccionar un solo archivo. Los buzones pueden aparecer en los detalles; esa lista no es una selección independiente para restaurarlos.
+</Step>
+<Step>
+### Confirmar la acción
+
+Pulsa **Restore backup**. Lee la confirmación y revisa otra vez la fecha y el sitio. El mensaje de inicio confirma que la solicitud se ha aceptado, no que la restauración haya finalizado.
+</Step>
+<Step>
+### Revisar el sitio
+
+Espera a que termine antes de modificar el mismo sitio. Después comprueba la portada, la administración, los formularios y el carrito, si existe. Verifica que archivos y base de datos correspondan al mismo punto de recuperación.
+</Step>
+</Steps>
+
+<PortalScreenshot name="backup-restore" alt="Detalles de la copia con la base demo_wordpress seleccionada" caption="Selecciona las bases de datos de tu sitio en la ventana de restauración. El ejemplo solo contiene datos de demostración." />
+
+## WordPress después de restaurar
+
+Una base de datos anterior puede reemplazar publicaciones, cuentas y pedidos recientes. Restaura los archivos y la base apropiados juntos para recuperar una instalación completa. Vacía las cachés pertinentes si sigues viendo páginas antiguas.
+
+## Error o resultado incierto
+
+No inicies inmediatamente una segunda restauración. Comprueba primero el sitio actual y la información disponible. Anota el dominio, la fecha elegida y el error para soporte. Consulta [Problemas con las copias](./troubleshooting.mdx).

@@ -1,0 +1,40 @@
+---
+title: Filtres antispam et listes d’adresses
+description: Réglez les seuils de score et les expéditeurs précis pour votre adresse.
+icon: ShieldExclamationPoint
+---
+
+## Ouvrir les réglages
+
+Allez dans **Email → adresse → Manage → Spam settings**. Ces réglages concernent cette adresse. Un seuil plus bas agit plus tôt et est plus strict. Les curseurs affichent des valeurs entières de 0 à 20 ; ne supposez pas que zéro désactive le filtre.
+
+| Réglage | Effet au-dessus du seuil |
+| --- | --- |
+| Spam folder | Déplace le message dans le dossier spam, accessible par IMAP ou webmail |
+| Reject | Refuse le message ; il ne reste pas récupérable dans le dossier spam |
+| Greylist | Diffère temporairement la livraison ; le serveur expéditeur doit réessayer |
+
+<PortalScreenshot name="mail-spam" alt="Seuils antispam et expéditeurs d’une boîte de démonstration" caption="Les trois seuils ont des effets distincts. Les exemples ne constituent pas une politique recommandée pour tous les domaines." />
+
+## Modifier les seuils
+
+Notez les valeurs actuelles. Ajustez un seuil de façon ciblée, choisissez **Save spam thresholds** puis testez des messages ordinaires. Gardez des valeurs cohérentes : un rejet trop bas peut refuser un message avant sa consultation dans spam. Aucune valeur ne convient à toutes les organisations.
+
+Si les seuils sont indisponibles, utilisez **Try again**. Une valeur absente ne signifie pas zéro ; vérifiez d’abord ce qui a réellement été chargé.
+
+## Autoriser ou bloquer des expéditeurs
+
+**Allow/block list** contient deux listes :
+
+- **Allowed addresses** : expéditeurs à autoriser.
+- **Blocked addresses** : expéditeurs à exclure.
+
+Saisissez les adresses complètes, une par ligne, puis **Save address lists**. Retirez une ligne et enregistrez pour supprimer cette exception. Évitez de placer volontairement la même adresse dans les deux listes.
+
+Une adresse autorisée ne prouve pas qu’un message est sûr. Examinez les demandes de paiement inattendues, liens et pièces jointes même si l’expéditeur paraît connu.
+
+## Un message attendu manque
+
+Vérifiez spam, liste de blocage et seuil de rejet. Un message refusé peut ne jamais atteindre la boîte ; demandez l’erreur de livraison à l’expéditeur et un nouvel envoi après correction. Pour un diagnostic, partagez adresse, heure et code d’erreur, sans mot de passe ni contenu confidentiel.
+
+Si tous les expéditeurs sont touchés, contrôlez aussi [MX et routage](../dns-ssl/mail-routing.mdx). Un filtre ne corrige pas une mauvaise destination de livraison.

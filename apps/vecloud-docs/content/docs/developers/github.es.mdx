@@ -1,0 +1,38 @@
+---
+title: Desplegar desde GitHub
+description: Conecta un repositorio, configura la compilación y sigue los despliegues.
+icon: GitBranch
+---
+
+<PortalScreenshot name="github-connect" alt="Conectar un repositorio de demostración con un script de compilación y un directorio de publicación." caption="Conectar un repositorio de demostración con un script de compilación y un directorio de publicación." />
+
+## Requisitos
+
+Abre **Domains → tu sitio → GitHub**. La integración de tu organización necesita acceso al repositorio. Completa el registro e instalación ofrecidos en GitHub con una cuenta autorizada. Revisa qué repositorios permites utilizar.
+
+No puedes configurar despliegues mientras el sitio tenga aplicaciones instaladas. No elimines WordPress u otra instalación para evitar el aviso. Utiliza otro sitio adecuado o planifica antes conversión y copias.
+
+## Conectar el repositorio
+
+<Steps>
+<Step title="Elige repositorio y versión">
+Pulsa **Connect repository** y elige repositorio y **Branch or tag**. Si falta, puede que la app GitHub no tenga acceso. Comprueba la conexión y recarga las opciones.
+</Step>
+<Step title="Configura compilación y directorio">
+**Build script** se ejecuta desde el directorio de despliegue tras obtener el repositorio. Usa la orden del proyecto. **Publish directory** es relativo, por ejemplo `dist`; vacío publica todo el directorio. Una ruta incorrecta puede publicar archivos equivocados aunque la compilación termine bien.
+</Step>
+<Step title="Elige despliegue automático y worker opcional">
+**Automatic deployment** responde a pushes hacia la rama o etiqueta elegida. Una conexión nueva puede incluir un worker si está permitido. El script de compilación es distinto de la orden que mantiene un servidor en ejecución.
+</Step>
+<Step title="Comprueba el resultado">
+Confirma y revisa los resultados. Conexión, primer despliegue y worker son pasos separados; comprueba cuáles terminaron antes de repetir creaciones.
+</Step>
+</Steps>
+
+## Seguir los despliegues
+
+Usa **Deploy now** para desplegar manualmente. Revisa estado, commit y registros en **Deployments**. Solicitarlo no confirma publicación correcta. Comprueba después sitio y [worker](./workers.mdx).
+
+Puedes cancelar una compilación activa tras confirmar; no se activará su nuevo checkout. No revierte versiones ya publicadas. **Disconnect repository** elimina la conexión del sitio; revisa antes los efectos sobre la aplicación y despliegues automáticos.
+
+No incluyas contraseñas ni tokens en órdenes o registros. Mantén datos importantes y subidas fuera de flujos que sobrescriban sin control el despliegue.

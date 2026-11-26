@@ -1,0 +1,40 @@
+---
+title: Filtros de spam y listas de direcciones
+description: Configura umbrales de puntuación y remitentes específicos para tu dirección.
+icon: ShieldExclamationPoint
+---
+
+## Abrir los ajustes
+
+Ve a **Email → dirección → Manage → Spam settings**. Los ajustes corresponden a esta dirección. Un umbral más bajo actúa antes y es más estricto. Los controles muestran valores enteros de 0 a 20; no supongas que cero desactiva el filtro.
+
+| Ajuste | Efecto por encima del umbral |
+| --- | --- |
+| Spam folder | Mueve el mensaje a spam, visible mediante IMAP o webmail |
+| Reject | Rechaza el mensaje; no queda recuperable en la carpeta spam |
+| Greylist | Aplaza temporalmente la entrega; el servidor emisor debe reintentar |
+
+<PortalScreenshot name="mail-spam" alt="Umbrales y listas de remitentes de un buzón de demostración" caption="Los tres umbrales tienen efectos distintos. Los valores no son una política recomendada para todos los dominios." />
+
+## Cambiar umbrales
+
+Anota primero los valores actuales. Ajusta un umbral con un propósito concreto, pulsa **Save spam thresholds** y prueba mensajes normales. Mantén coherencia: un reject demasiado bajo puede rechazar correo antes de revisarlo en spam. Ningún valor es ideal para todas las organizaciones.
+
+Si no están disponibles, pulsa **Try again**. Un valor ausente no equivale a cero; comprueba qué configuración se cargó realmente.
+
+## Permitir o bloquear remitentes
+
+En **Allow/block list** hay dos listas:
+
+- **Allowed addresses**: remitentes que quieres permitir.
+- **Blocked addresses**: remitentes que quieres excluir.
+
+Introduce direcciones completas, una por línea, y pulsa **Save address lists**. Quita una línea y guarda para eliminar esa excepción. Evita poner deliberadamente la misma dirección en ambas listas.
+
+Una dirección permitida no demuestra que el mensaje sea seguro. Revisa pagos inesperados, enlaces y adjuntos aunque el remitente parezca conocido.
+
+## Falta un mensaje esperado
+
+Comprueba spam, la lista de bloqueo y el umbral de rechazo. Un mensaje rechazado puede no llegar al buzón; pide al remitente el error de entrega y que reenvíe tras corregir la causa. Para investigar comparte dirección, hora y código de error, sin contraseña ni contenido confidencial.
+
+Si afecta a todos los remitentes, revisa también [MX y enrutamiento](../dns-ssl/mail-routing.mdx). Un filtro no repara un destino de entrega incorrecto.

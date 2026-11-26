@@ -1,0 +1,43 @@
+---
+title: Staging verwalten und veröffentlichen
+description: Kopiere Inhalte auf neue oder bestehende Websites und unterscheide die Staging-Umwandlung.
+icon: Globe
+---
+
+## Ziel auswählen
+
+Öffne **Overview** einer bestehenden Staging-Website. Wenn Tarif und Rechte es erlauben, erscheint **Publish staging**. Die aktuelle Oberfläche zeigt dieses Menü bei Staging; eine normale Website hat hier keine Kopierschaltfläche.
+
+| Aktion | Ergebnis |
+| --- | --- |
+| To a new website | Erstellt eine getrennte Website mit kopiertem Inhalt. |
+| To an existing website | Kopiert auf ein gewähltes Ziel und kann Inhalte überschreiben. |
+| Promote to production | Wandelt die Staging-Website selbst in Produktion um, ohne auf eine andere Website zu kopieren. |
+
+## Auf eine neue Website kopieren
+
+1. Wähle im Menü die Option für eine neue Website.
+2. Wähle gegebenenfalls Abonnement sowie Produktions- oder Stagingtyp.
+3. Gib die neue Domain oder den Stagingnamen ein. Das Panel zeigt den konfigurierten Staging-Suffix.
+4. Prüfe WordPress search-and-replace bei einer Domainänderung.
+5. Bestätige und verfolge den Fortschritt.
+
+Die neue Website nutzt das jeweilige Website- oder Stagingkontingent. Eine neue Domain benötigt eventuell noch DNS und SSL für öffentlichen Zugriff.
+
+## Auf eine bestehende Website kopieren
+
+<Callout type="warning" title="Ziel prüfen">
+Das gewählte Ziel kann überschrieben werden. Bewahre aktuelle Inhalte und Bestellungen auf und sichere zuerst die Zielwebsite.
+</Callout>
+
+Wähle das Ziel. Prüfe ausgeschlossene Pfade, Datenbanken und Datenbankbenutzer. Beachte Optionen zum Löschen von Dateien, die nur am Ziel existieren, und zum Synchronisieren der PHP-Version.
+
+Für WordPress kann search-and-replace Verweise von der alten auf die neue Domain anpassen. Entscheide bewusst: Manche absoluten Verweise in der Datenbank sollen möglicherweise erhalten bleiben.
+
+## Staging in Produktion umwandeln
+
+**Promote to production** ändert den Typ der Staging-Website und nutzt einen normalen Websiteplatz. Domain und Inhalte bleiben bei derselben Website. Um Inhalte auf eine vorhandene Produktionswebsite zu übertragen, verwende die Kopie auf ein bestehendes Ziel und prüfe dieses.
+
+## Nach der Kopie
+
+Prüfe Ziel, wichtige Seiten, Administration, Formulare und Datenbankverbindung. Kontrolliere bei unklarem Ausgang zuerst Fortschritt und Websiteliste, bevor du erneut kopierst.

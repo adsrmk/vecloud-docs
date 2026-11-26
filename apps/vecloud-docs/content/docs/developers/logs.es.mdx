@@ -1,0 +1,36 @@
+---
+title: Usar registros para diagnosticar
+description: Encuentra el registro adecuado de PHP, WordPress, workers y otras operaciones.
+icon: ScrollText
+---
+
+## Registro de errores PHP
+
+Abre **Domains → tu sitio → Developer tools → PHP**. **PHP error log** muestra el texto disponible y cuándo se obtuvo. Si es grande, puede mostrarse solo la parte final; el portal lo indica.
+
+Anota la hora del fallo, repite una vez la acción si es seguro y vuelve a abrir los datos. Busca cerca de esa hora tipo de error, archivo y línea. **No PHP errors found** significa que el texto obtenido está vacío, no que todas las funciones estén bien.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="Registro PHP con entradas únicamente ficticias"
+  caption="Registro PHP con entradas únicamente ficticias"
+/>
+
+## Elegir la fuente
+
+| Problema | Dónde empezar |
+| --- | --- |
+| Fallo PHP o tras cambiar versión | PHP error log en Developer tools |
+| Depuración WordPress | [Ajustes Debug](../wordpress/debug.mdx) y registro escrito por WordPress |
+| Worker no arranca o falla | Registro de ese worker |
+| Despliegue GitHub | Registro del despliegue en la integración |
+| Migración | Progreso y registro de esa migración |
+| Importación SQL | Mensaje de importación y revisión de la base destino |
+
+Puede existir una carpeta `logs` en **Files**. Su contenido depende del entorno. No presupongas acceso a todos los registros del servidor ni un visor independiente de accesos en el portal.
+
+## Contactar con soporte
+
+Indica sitio, función, error exacto, hora y acción anterior. Comparte solo el fragmento relevante. Elimina contraseñas, tokens, enlaces de sesión y datos personales antes de enviarlo.
+
+Evita modificar varios ajustes a la vez para ocultar un error. Conserva valores originales, verifica tras cada cambio y utiliza una copia si necesitas recuperar datos. Un [gráfico de recursos](../performance/resources.mdx) puede relacionar un pico con la hora del fallo.

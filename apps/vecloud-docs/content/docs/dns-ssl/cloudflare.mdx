@@ -1,0 +1,40 @@
+---
+title: Cloudflare koppelen
+description: Koppel een API-token en synchroniseer per domein de DNS-records uit het portaal naar Cloudflare.
+icon: Cloud
+---
+
+## Bepaal waar je DNS beheert
+
+De integratie staat onder **Integrations → Cloudflare** en kan worden beheerd door een eigenaar of bevoegde beheerder. Bij synchronisatie zijn de **DNS-records in dit portaal leidend**. Rechtstreeks in Cloudflare ingevoerde records kunnen worden overschreven.
+
+<Callout type="warning" title="Controleer de volledige zone vóór synchronisatie">
+Vergelijk web-, mail- en verificatierecords en leg ontbrekende waarden eerst in het portaal vast. Koppel geen productiezone zolang belangrijke records alleen in Cloudflare staan.
+</Callout>
+
+<PortalScreenshot name="cloudflare" alt="Cloudflare-koppeling met demonstratiedomein en synchronisatiestatus" caption="Deze lokale weergave gebruikt fictieve gegevens en bevat geen werkend API-token." />
+
+## Een API-koppeling toevoegen
+
+1. Maak in je eigen Cloudflare-account een API-token met de door het formulier genoemde template **Edit zone DNS**, beperkt tot de gewenste zones.
+2. Open in het portaal **Add API token**.
+3. Geef de koppeling een herkenbare naam en plak het token in het afgeschermde veld.
+4. Kies **Save** en controleer de koppeling in de lijst.
+
+Gebruik hiervoor de link naar [API tokens in Cloudflare](https://dash.cloudflare.com/profile/api-tokens). Deel het token niet in een ticket of screenshot. Het bestaande token wordt niet teruggestuurd naar de browser.
+
+## Een domein synchroniseren
+
+Zoek het domein onder **Domain synchronization** en kies **Manage**. Selecteer de juiste koppeling, lees en bevestig dat het portaal leidend wordt, en kies **Enable synchronization**. Controleer daarna de domeinstatus, de laatste synchronisatietijd bij de koppeling en de feitelijke DNS-records.
+
+De koppeling registreert of verhuist je domein niet en wijzigt de nameserverdelegatie niet voor je. Het domein moet bij de juiste Cloudflare-zone en actieve nameservers horen. Proxy- en SSL-instellingen in Cloudflare blijven relevant voor de bereikbaarheid van je website.
+
+## Een token vervangen of synchronisatie stoppen
+
+Bij **Edit** kun je de naam veranderen of een vervangend token invoeren. **Een leeg tokenveld behoudt hier het bestaande token.** Dat verschilt van de providerkeys in de OpenClaw-toolkit.
+
+Om een domein los te koppelen kies je **Manage**, lees je de bevestiging en gebruik je **Stop synchronization**. Controleer daarna waar je volgende DNS-wijzigingen moet uitvoeren. Een API-koppeling verwijderen kan meerdere domeinen raken; de bevestiging vermeldt de betrokken domeinen.
+
+## Controle nodig of niet bijgewerkt
+
+Controleer of het token nog geldig is, toegang heeft tot de juiste zone en of de geselecteerde koppeling bij dit domein hoort. Vergelijk de actuele records aan beide kanten. Bij een niet bevestigd resultaat vernieuw je eerst de gegevens voordat je dezelfde wijziging herhaalt. De status **Connected** alleen bewijst niet dat ieder gewenst record correct staat.

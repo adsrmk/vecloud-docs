@@ -1,0 +1,38 @@
+---
+title: Cron jobs instellen
+description: Plan een terugkerende opdracht of URL-aanvraag voor je website.
+icon: CalendarClock
+---
+
+## Een taak toevoegen
+
+Open **Domains → je website → Developer tools → Cron jobs** en kies **Add cron job**. Selecteer **Command** of **Request URL** en een beschikbaar interval. De standaardkeuze is elke vijftien minuten; kies bewust een frequentie die bij je taak past.
+
+- **Command** voert een opdracht uit als de websitegebruiker. Vul de opdracht in zonder de vijf planningsvelden ervoor. Gebruik correcte paden naar programma en script.
+- **Request URL** roept de opgegeven URL via HTTP GET aan. Gebruik een URL die hiervoor bedoeld is; een gewone pagina laden voert niet vanzelf de gewenste achtergrondtaak uit.
+
+Kies **Save** en controleer de opgeslagen regel. Voorbeeld van een planning:
+
+```text
+*/15 * * * *
+```
+
+Dit staat voor elke vijftien minuten. De velden zijn minuut, uur, dag van de maand, maand en weekdag. Het portaal biedt geen aparte tijdzonekeuze bij de taak; controleer de tijdzone van de uitvoeromgeving als een exact tijdstip belangrijk is.
+
+<PortalScreenshot
+  name="cron-job"
+  alt="Een terugkerende GET-aanvraag plannen"
+  caption="Een terugkerende GET-aanvraag plannen"
+/>
+
+## Bewerken en verwijderen
+
+Gebruik **Edit** bij een bestaande regel. Een bestaande aangepaste planning kan afzonderlijke velden en eigen waarden tonen. Ook bestaande omgevingsvariabelen in de crontab kunnen worden bewerkt. De nieuwe-taakdialoog biedt de twee keuzes opdracht en URL, geen afzonderlijke knop om een nieuwe variabele aan te maken.
+
+**Delete** verwijdert de regel na bevestiging. Een opgeslagen planning bewijst niet dat het script succesvol draait: controleer het resultaat of een eigen log. Er is hier geen algemene **Run now**-knop of gegarandeerde uitvoerhistorie.
+
+## Bewerken vanuit de websitecontainer
+
+**Allow cron editing from the website container** laat PHP- en SSH-processen de crontab aanpassen. Zet dit alleen aan als de applicatie dit nodig heeft; ook kwaadwillende code zou taken kunnen toevoegen. Voor taken die je alleen in het portaal beheert is deze toestemming niet automatisch nodig.
+
+Voorkom overlappende taken, herhaalde e-mails of een dubbele factuurverwerking. Een URL of opdracht met een token kan zichtbaar zijn in configuratie en logs; gebruik een passende beveiliging en deel geen geheimen in screenshots.

@@ -1,0 +1,37 @@
+---
+title: WordPress debugging
+description: Record errors temporarily without exposing error details to visitors.
+icon: Bug
+---
+
+## Debug options
+
+Open **Apps → Toolkit → Debug** for the WordPress installation. The switches control three separate settings.
+
+| Setting | Purpose |
+| --- | --- |
+| WP_DEBUG | Enables WordPress debugging. |
+| WP_DEBUG_LOG | Writes debug messages to `wp-content/debug.log`. |
+| WP_DEBUG_DISPLAY | Displays debug messages in the HTML shown to visitors. |
+
+<PortalScreenshot name="wordpress-debug" alt="WordPress debug options with public error display disabled" caption="This local demonstration has logging enabled and public error display disabled. No log data is shown." />
+
+## Investigate a problem
+
+1. Record the error, URL and time.
+2. Temporarily enable **WP_DEBUG** and **WP_DEBUG_LOG**.
+3. Keep **WP_DEBUG_DISPLAY** off on a public website.
+4. Wait for confirmation of the changes and reproduce the failing action once.
+5. Open **Files**, browse to the WordPress installation directory and inspect `wp-content/debug.log` if it was created.
+
+Logs can contain paths, request data and other non-public details. Share only the relevant excerpt and remove sensitive values.
+
+## No log or no toolkit access
+
+A log file is created when something is logged. Check that logging is enabled, the problem was reproduced and you are viewing the correct installation directory.
+
+If WordPress cannot start correctly, parts of the toolkit may also fail to load. Check the PHP error log in **Developer tools**. This is a different source from the WordPress debug file.
+
+## After investigation
+
+Turn temporary debug options off and check the public website. Store required diagnostic data safely and remove logs you no longer need. Do not leave verbose logging or error display enabled unnecessarily.

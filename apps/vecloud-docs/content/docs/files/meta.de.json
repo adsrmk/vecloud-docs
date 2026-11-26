@@ -1,0 +1,10 @@
+{
+  "title": "Dateien & Zugriff",
+  "pages": [
+    "index",
+    "transfers",
+    "permissions",
+    "ftp",
+    "ssh"
+  ]
+}

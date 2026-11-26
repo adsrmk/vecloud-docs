@@ -1,0 +1,37 @@
+---
+title: Ouvrir phpMyAdmin
+description: Accédez à la gestion MySQL/MariaDB avec un nouveau lien de connexion depuis le portail.
+icon: TableProperties
+---
+
+## Ouvrir depuis la bonne base
+
+Accédez à **Domains → votre site → Databases**, puis sélectionnez **phpMyAdmin** à côté de la base souhaitée. Le bouton figure aussi dans sa page de gestion. Le portail ouvre un nouvel onglet et demande un nouveau lien de connexion.
+
+Vous n’avez pas à coller de mot de passe de base de données dans le portail pour cet accès. Ne partagez pas le lien et n’en faites pas un favori permanent ; démarrez une nouvelle session avec le bouton.
+
+<PortalScreenshot
+  name="database-manage"
+  alt="Connexion et phpMyAdmin pour une base de démonstration"
+  caption="Connexion et phpMyAdmin pour une base de démonstration"
+/>
+
+## Utilisations de phpMyAdmin
+
+Consultez les tables, vérifiez les données, exécutez du SQL et gérez imports ou exports. Vérifiez toujours la base sélectionnée avant toute modification. phpMyAdmin concerne MySQL/MariaDB, pas PostgreSQL.
+
+<Callout type="warn" title="Les requêtes agissent sur de vraies données">
+Une commande `DELETE`, `DROP` ou toute autre modification peut supprimer définitivement des données. Exportez ou sauvegardez d’abord et testez les requêtes inconnues sur une copie. L’ouverture de phpMyAdmin ne crée pas de sauvegarde automatique.
+</Callout>
+
+## L’onglet ne s’ouvre pas
+
+Si le navigateur bloque une fenêtre, autorisez celles du portail et réessayez. Un onglet initialement vide pendant la récupération du lien est normal ; il se ferme en cas d’échec.
+
+## Le lien ne peut temporairement pas être récupéré
+
+Vérifiez que la session du portail est active et que la base appartient toujours au site. Reconnectez-vous si la session a expiré, puis réessayez. Une erreur d’accès peut aussi indiquer un changement de rôle ou d’association.
+
+Si plusieurs sites restent concernés, transmettez au support le site, la base, l’heure et le message exact. Le service d’administration ou sa connexion peut nécessiter une intervention ; ne supprimez aucune base client et ne désactivez pas le pare-feu pour résoudre ce problème.
+
+Vous pouvez aussi utiliser l’[import et l’export SQL](./sql.mdx) du portail.

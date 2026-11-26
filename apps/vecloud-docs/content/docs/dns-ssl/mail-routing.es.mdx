@@ -1,0 +1,39 @@
+---
+title: Enrutamiento, SPF y DKIM
+description: Ajusta la entrega y la autenticación al proveedor de correo de tu dominio.
+icon: MailCheck
+---
+
+## Elegir dónde se recibe el correo
+
+Abre **DNS settings → Mail routing** en tu sitio. Elige **Local mail** si este alojamiento proporciona los buzones del dominio. Usa **External mail** para proveedores como Google Workspace o Microsoft 365. La selección se guarda al cambiarla.
+
+El enrutamiento indica al alojamiento cómo tratar el correo de este dominio. Los **registros MX** públicos indican a otros servidores dónde entregarlo. Ambos deben coincidir con el proveedor elegido. Cambiar solo MX puede no bastar para los mensajes generados en el propio servidor web.
+
+<PortalScreenshot name="mail-routing" alt="Confirmación de sustitución de MX por Google Workspace" caption="El aviso muestra los registros y la selección aparte de External mail. No se cambiaron registros públicos." />
+
+## Configurar MX de Google Workspace
+
+1. Revisa y conserva los valores MX actuales si necesitas volver atrás.
+2. Pulsa **Gmail records** en la tabla DNS.
+3. Comprueba qué MX se sustituirán y confirma solo después de preparar el dominio en Google Workspace.
+4. Selecciona por separado **External mail** en el enrutamiento.
+5. Prueba la recepción y un mensaje enviado desde el sitio.
+
+La acción sustituye los MX del dominio raíz y conserva los de subdominios. No crea una cuenta de Google ni un buzón. Si usas DNS externo sin sincronización, configura allí los registros.
+
+## Activar y validar DKIM
+
+En **Email authentication**, activa DKIM y consulta la validación. Si no está validado, copia el nombre `hostingcp._domainkey` y todo el valor TXT mostrado al proveedor DNS activo. Usa las acciones de copia para evitar valores incompletos.
+
+**Verified** indica que la comprobación DNS de DKIM funciona. No garantiza superar todos los filtros antispam. Si envías mediante otro proveedor, sigue también sus instrucciones DKIM.
+
+## SPF y DMARC
+
+Publica SPF como una única política TXT del dominio con todos los servicios de envío legítimos. No añadas otra política SPF independiente por cada servicio. Usa los valores de tu proveedor real; un ejemplo no es una configuración de producción.
+
+DMARC usa un TXT en `_dmarc`. Coordina su política con SPF y DKIM de los servicios de envío. No empieces rechazando estrictamente antes de comprobar que los remitentes legítimos se autentican correctamente.
+
+## No llega correo
+
+Revisa primero MX, enrutamiento local/remoto y proveedor DNS activo. Después comprueba que el buzón existe y que las reglas antispam no bloquean mensajes. Activar DKIM no arregla un MX incorrecto ni crea un buzón que falta.

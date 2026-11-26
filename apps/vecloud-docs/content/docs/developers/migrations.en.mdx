@@ -1,0 +1,31 @@
+---
+title: Server migrations for administrators
+description: Move eligible website roles between assigned servers and follow each job separately.
+icon: ArrowRightLeft
+---
+
+<PortalScreenshot name="server-migration" alt="Select a website and destination before starting a server migration." caption="Select a website and destination before starting a server migration." />
+
+## Availability and purpose
+
+Server migrations are restricted to authorised administrators of the master organisation. This is not an import wizard for an arbitrary external hosting provider. Ordinary customer accounts cannot use it to attach new servers. Ask an administrator or support to arrange a required move.
+
+## Prepare a migration
+
+Open **Server migrations** through the available administration action and choose **Select websites**. The website’s **Move server** action can preselect it. Filter by domain, source server and role if needed.
+
+Select websites and choose a destination for each available role: application, MySQL, email, backup or PostgreSQL. Unchanged roles stay on their current server. The destination must provide the role and be available. Some roles of management websites cannot be moved.
+
+Before starting, check backups and effects on availability, application connections and external DNS. The interface warns when a source server is decommissioned: recovery then uses the latest available backup, which may not include the newest changes.
+
+## Start and follow progress
+
+Choose **Start migration**, check the website-role count and confirm. The limit is one hundred website roles per request, not one hundred websites with unlimited roles. Related administration tools may temporarily be unavailable during a move.
+
+Follow the session in the overview. Individual jobs show queued, in-progress, failed or complete states. Open the appropriate group and job log. A successful start does not confirm that all roles finished; check partial outcomes per role.
+
+## Errors or missing confirmation
+
+Inspect the overview and logs before starting again. Do not restart already submitted roles from an old selection. Retain error, time, website, role and destination for support.
+
+After completion, test the website, database connections, email and backup access. Check DNS if a required public address changed. A server migration differs from [ownership transfer](../websites/ownership.mdx) or [plan reassignment](../websites/package.mdx).

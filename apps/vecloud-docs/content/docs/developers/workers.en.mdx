@@ -1,0 +1,36 @@
+---
+title: Manage worker processes
+description: Run an application process and route web traffic to the correct local port.
+icon: Blocks
+---
+
+<PortalScreenshot name="worker-create" alt="Prepare a Node.js worker with a working directory, port and HTTP proxy." caption="Prepare a Node.js worker with a working directory, port and HTTP proxy." />
+
+## Prepare a worker
+
+Open **Domains → your website → Worker processes**. Availability depends on the website environment. Make sure application files and dependencies exist. Creating a worker does not automatically upload an entire project.
+
+Choose the add action and a start mode:
+
+| Mode | Behaviour |
+| --- | --- |
+| Automatic (Production) | Starts automatically and restarts when the process stops |
+| Manual (Development) | Configures forwarding; you start the process yourself |
+
+Creation offers **Node.js**, **Custom**, **Laravel** and **PHP**. Node.js uses an offered version; PHP uses the website’s version. Check the suggested command rather than assuming it fits your project.
+
+## Command, directory and proxy
+
+Set **Start command** and **Working directory**. The process starts from that directory. For GitHub deployments, the directory must match the active deployment.
+
+Enable **HTTP Proxy** only if the worker should receive web traffic. Set the port and optional path. The application must listen on that port and `0.0.0.0`. Leave the path empty for the entire website, or enter it without a leading slash. This forwards the primary domain’s traffic to the worker and can replace existing routing.
+
+Enable **Allow WebSocket upgrades** when the application uses WebSockets. A queue worker without a webserver does not automatically need an HTTP proxy.
+
+## Verify after creation
+
+Check the worker card and log. Edit command, directory and proxy using their pencil buttons; Node.js version and start mode have separate selectors. A saved configuration does not prove the process is running successfully.
+
+Manual Node.js mode displays an SSH command to initialise the Node environment. Use the [website’s SSH access](../files/ssh.mdx) and the displayed details; manual mode does not start the process for you.
+
+**Delete** stops the worker and removes its proxy configuration after confirmation. Application files remain. OpenClaw workers use their own [toolkit](../applications/openclaw.mdx) where that action is available.

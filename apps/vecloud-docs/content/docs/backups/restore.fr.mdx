@@ -1,0 +1,50 @@
+---
+title: Restaurer une sauvegarde
+description: Vérifiez le point de récupération et les bases avant d’écraser le contenu existant.
+icon: Archive
+---
+
+## Avant de commencer
+
+Vérifiez le domaine dans la barre supérieure et choisissez une sauvegarde terminée antérieure au problème. Si nécessaire, conservez d’abord les fichiers actuels et un export de la base pour préserver les données récentes.
+
+<Callout type="warning" title="La restauration écrase le contenu existant">
+Les modifications postérieures à la sauvegarde peuvent disparaître. Planifiez l’opération hors des heures de pointe et empêchez les nouvelles commandes ou autres modifications pendant son exécution.
+</Callout>
+
+## Lancer la restauration
+
+<Steps>
+<Step>
+### Ouvrir le point de récupération
+
+Dans **Backups**, cliquez sur **Restore** à côté de la sauvegarde. La fenêtre **Backup details** indique la date, la fin de l’opération, le stockage et les composants inclus.
+</Step>
+<Step>
+### Vérifier le contenu
+
+Vérifiez que les fichiers du site ont été sauvegardés avec succès. Cochez les **MariaDB databases** nécessaires. **Select all** sélectionne toutes les bases affichées.
+
+La fenêtre actuelle inclut les fichiers disponibles du site. Elle ne propose pas d’explorateur pour sélectionner un fichier isolé. Des boîtes mail peuvent figurer dans les détails ; cette liste n’est pas un choix de restauration distinct.
+</Step>
+<Step>
+### Confirmer l’action
+
+Cliquez sur **Restore backup**. Lisez la confirmation et revérifiez la date et le site. Le message de démarrage confirme l’acceptation de la demande, pas la fin de la restauration.
+</Step>
+<Step>
+### Vérifier le site
+
+Laissez la restauration se terminer avant toute autre modification de ce site. Testez ensuite l’accueil, l’administration, les formulaires et le panier éventuel. Vérifiez que fichiers et base correspondent au même point de récupération.
+</Step>
+</Steps>
+
+<PortalScreenshot name="backup-restore" alt="Détails de sauvegarde avec la base demo_wordpress sélectionnée" caption="Sélectionnez les bases de votre site dans la fenêtre de restauration. Cet exemple contient uniquement des données de démonstration." />
+
+## WordPress après restauration
+
+Une ancienne base peut remplacer des publications, comptes et commandes récents. Restaurez les fichiers et la base appropriés ensemble pour récupérer une installation complète. Videz les caches concernés si d’anciennes pages s’affichent encore.
+
+## Erreur ou résultat incertain
+
+Ne lancez pas immédiatement une seconde restauration. Vérifiez d’abord le site actuel et les informations disponibles. Notez le domaine, la date choisie et l’erreur pour le support. Voir [Dépannage des sauvegardes](./troubleshooting.mdx).

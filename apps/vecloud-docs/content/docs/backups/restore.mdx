@@ -1,0 +1,50 @@
+---
+title: Een back-up herstellen
+description: Controleer het herstelmoment en selecteer de databases voordat je bestaande inhoud overschrijft.
+icon: Archive
+---
+
+## Voordat je begint
+
+Controleer het domein in de topbar en kies een afgeronde back-up van vóór het probleem. Bewaar zo nodig eerst de huidige bestanden en een database-export, zodat recente gegevens beschikbaar blijven.
+
+<Callout type="warning" title="Herstel overschrijft bestaande inhoud">
+Wijzigingen na het gekozen back-upmoment kunnen verdwijnen. Plan het herstel buiten drukke uren en voorkom nieuwe bestellingen of andere wijzigingen terwijl je herstelt.
+</Callout>
+
+## Herstel starten
+
+<Steps>
+<Step>
+### Open het herstelmoment
+
+Ga naar **Backups** en kies **Restore** bij de gewenste back-up. De modal **Backup details** toont de datum, afronding, opslag en opgenomen onderdelen.
+</Step>
+<Step>
+### Controleer de inhoud
+
+Controleer of de websitebestanden succesvol zijn opgenomen. Selecteer de benodigde **MariaDB databases** met de selectievakjes. **Select all** selecteert alle getoonde databases.
+
+De huidige herstelmodal neemt beschikbare websitebestanden mee. Deze modal bevat geen bestandsbrowser om één los bestand te selecteren. Mailboxen kunnen in de details worden vermeld; die vermelding is geen afzonderlijke herstelkeuze.
+</Step>
+<Step>
+### Bevestig de actie
+
+Kies **Restore backup**. Lees de bevestiging en controleer nogmaals de datum en website voordat je het herstel bevestigt. De melding dat herstel is gestart betekent dat de aanvraag is geaccepteerd, niet dat de website al volledig is teruggezet.
+</Step>
+<Step>
+### Controleer je website
+
+Laat de herstelactie afronden voordat je dezelfde website opnieuw wijzigt. Test daarna de homepage, beheeromgeving, formulieren en eventuele winkelwagen. Controleer ook of bestanden en database bij hetzelfde herstelmoment horen.
+</Step>
+</Steps>
+
+<PortalScreenshot name="backup-restore" alt="Back-updetails met de database demo_wordpress geselecteerd" caption="Selecteer in de herstelmodal de databases die bij je website horen. In dit voorbeeld worden uitsluitend demonstratiegegevens getoond." />
+
+## WordPress na herstel
+
+Een oudere database kan recente berichten, accounts en bestellingen vervangen. Herstel daarom bestanden en database bewust samen wanneer je een volledige WordPress-installatie terugzet. Leeg na afloop relevante caches als je nog oude pagina’s ziet.
+
+## Een foutmelding of onduidelijke uitkomst
+
+Start niet meteen een tweede herstel. Controleer eerst de actuele website en de beschikbare back-upinformatie. Noteer het domein, de gekozen datum en de foutmelding voor support. Zie [Problemen met back-ups](./troubleshooting.mdx).

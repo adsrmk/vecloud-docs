@@ -1,0 +1,41 @@
+---
+title: OpenClaw beheren
+description: Beheer gatewaytoegang, AI-providerkeys en apparaatgoedkeuring voor je OpenClaw-installatie.
+icon: Bot
+---
+
+## De toolkit openen
+
+Open **Apps** bij de website en kies **Toolkit** bij OpenClaw. De toolkit heeft **Gateway token**, **AI provider keys** en **Device authentication**. **Dashboard** opent de beschikbare OpenClaw-beheeromgeving.
+
+Is OpenClaw nog niet geïnstalleerd? Gebruik **Add application** wanneer deze applicatie in je abonnement beschikbaar is. OpenClaw vraagt niet om een WordPress- of Joomla-adminaccount.
+
+OpenClaw gebruikt een eigen websiteomgeving. Zolang OpenClaw op die website staat, kun je daar geen andere applicaties installeren. Gebruik voor WordPress of Joomla een andere website.
+
+<PortalScreenshot name="openclaw-gateway" alt="OpenClaw-gateway en providerinstellingen met afgeschermde velden" caption="Tokens blijven afgeschermd. De lokale demonstratie gebruikt geen werkende keys of klantgegevens." />
+
+## Gatewaytoken
+
+Het gatewaytoken geeft toegang tot je OpenClaw-gateway en dashboard. Kopieer het alleen naar je eigen vertrouwde client en bewaar het als een wachtwoord. Deel het niet in screenshots of supportberichten.
+
+Kies **Rotate token** om een nieuw token te genereren en lees de bevestiging. Het huidige token wordt ongeldig. Werk bestaande clients daarna bij met het nieuwe token; anders kunnen zij niet meer met het oude token aanmelden.
+
+## AI-providerkeys
+
+De toolkit biedt velden voor **OpenAI**, **xAI**, **Gemini**, **Claude** en **OpenRouter**. Vul de key van de gewenste provider in en controleer de overige velden voordat je **Save** kiest. Gebruik de herstelactie voor onopgeslagen wijzigingen als je het formulier niet wilt toepassen.
+
+<Callout type="warning" title="Een leeg veld verwijdert de bestaande key">
+Leeg betekent hier niet ‘ongewijzigd’. Controleer daarom alle providervelden voordat je opslaat, zodat je geen bestaande koppeling onbedoeld wist.
+</Callout>
+
+## Apparaten goedkeuren
+
+Bij handmatige apparaatgoedkeuring moeten nieuwe apparaten eerst worden goedgekeurd. Open je eigen dashboard om een aanvraag te laten verschijnen en vergelijk platform en apparaat-ID. Keur alleen een herkenbaar eigen apparaat goed.
+
+Aanvragen verlopen na korte tijd. Ontbreekt jouw aanvraag, open het dashboard opnieuw en vernieuw de gegevens. Gekoppelde apparaten staan apart; een gatewaytoken blijft nodig voor de aanmelding.
+
+## Apparaatverificatie wijzigen
+
+De toolkit toont of verificatie actief is. Uitschakelen laat nieuwe apparaten met alleen het gatewaytoken binnen zonder afzonderlijke goedkeuring. Lees de bevestiging en kies deze instelling bewust. Laat handmatige goedkeuring aan wanneer je deze extra controle wilt behouden.
+
+Bij toegangsproblemen controleer je token, providerconfiguratie en apparaatstatus afzonderlijk. Plaats geen keys of tokens in een diagnosebericht.

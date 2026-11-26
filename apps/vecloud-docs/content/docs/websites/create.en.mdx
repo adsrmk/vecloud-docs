@@ -1,0 +1,40 @@
+---
+title: Add a domain
+description: Create a separate website, subdomain or alias through the compact domain form.
+icon: Globe
+---
+
+## Before you start
+
+Use a domain you control and check that your hosting plan has capacity for another website. Adding a domain to the panel does not register it with a registrar. DNS must still point to the correct hosting afterwards.
+
+## Choose the type
+
+<Tabs items={['Addon', 'Subdomain', 'Alias']}>
+<Tab value="Addon">
+Use **Addon** for a separate website. Enter the full domain without a protocol, path or unwanted `www.` prefix. Creation provides webspace; install an application afterwards through **Apps**.
+</Tab>
+<Tab value="Subdomain">
+Use **Subdomain** for a name beneath an existing domain. Select the parent domain and enter only the new part, for example `shop`. Check the combined domain before creating it.
+</Tab>
+<Tab value="Alias">
+Use **Alias** when the additional domain should belong to an existing website. Select that destination and enter the alias domain. An alias maps an additional name to the same website; it is not an HTTP redirect to a different address.
+</Tab>
+</Tabs>
+
+## Create the domain
+
+1. Open **Domains** and choose **Add domain**.
+2. Choose the type and enter its domain details.
+3. Check the name and any destination website.
+4. Choose **Create** and wait for confirmation.
+
+<PortalScreenshot name="add-domain" alt="Domain form with Addon and the fictitious domain demo-site.test" caption="The creation form starts with Domain type and Domain. Choose an application later, from within the website." />
+
+## After creation
+
+Open the new website and check **DNS settings** and **SSL certificates**. Ensure public DNS points to the correct hosting before testing availability or requesting a certificate. Install WordPress or another supported application through **Apps → Add application**.
+
+## The form is blocked
+
+A full or inactive plan can prevent creation. An alias requires a suitable existing website. If **Create** gives an unclear error, check the domain list before trying to add the same domain again.

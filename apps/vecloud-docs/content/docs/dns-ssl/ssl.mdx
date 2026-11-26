@@ -1,0 +1,42 @@
+---
+title: SSL-certificaten en HTTPS
+description: Vraag een certificaat aan, controleer de geldigheid en stuur bezoekers veilig naar HTTPS.
+icon: LockKeyhole
+---
+
+## Een certificaat aanvragen
+
+Open je website en kies **SSL certificates**. De tabel toont per domein de status, uitgever, HTTPS-instelling en vervaldatum.
+
+1. Controleer of de publieke DNS en de bereikbaarheid van het domein kloppen.
+2. Kies **Request certificate** en selecteer de juiste domeinnaam. Een maildomein is alleen een keuze als het beschikbaar is.
+3. Lees de melding: een bestaand certificaat voor die naam wordt vervangen.
+4. Kies **Request** en controleer daarna de vernieuwde status en vervaldatum.
+
+Een aanvraag is niet geslaagd omdat de modal sluit; controleer het resultaat in de tabel. Bij een fout controleer je eerst DNS, bereikbaarheid en eventuele proxy- of CAA-instellingen. Dien niet achter elkaar dezelfde aanvraag in.
+
+<PortalScreenshot name="ssl" alt="SSL-tabel met actief certificaat en HTTPS-schakelaar" caption="Controleer de status en vervaldatum per domein. Deze lokale demonstratie bevat geen certificaatsleutels." />
+
+## HTTPS afdwingen
+
+Schakel **Enforce HTTPS** in bij het juiste domein zodra daarvoor een geldig certificaat beschikbaar is. De wijziging wordt direct opgeslagen. Test daarna een `http://`-adres en controleer dat de browser op het gewenste `https://`-adres uitkomt.
+
+Blijft een omleidingslus optreden? Controleer ook redirects in je applicatie en de HTTPS-instellingen van een externe proxy. Een HTTPS-redirect verhelpt een ongeldig certificaat niet.
+
+## Eigen certificaat installeren
+
+Als **Install custom SSL** beschikbaar is, kun je een bestaand certificaat met de bijbehorende privésleutel installeren. Selecteer het domein en plak de PEM-inhoud of lees de bestanden in. De bestandskeuze accepteert de ondersteunde certificaat- en sleutelbestanden tot **64 KiB per bestand**. Kies daarna de installatieactie en controleer de status.
+
+Zorg dat certificaat en sleutel bij elkaar horen en dat de domeinnaam gedekt is. Vernieuwing van een eigen certificaat moet je zelf organiseren; het uploaden ervan vraagt geen nieuwe uitgifte aan.
+
+## Details bekijken
+
+**Details** opent de beschikbare certificaatgegevens, eventueel apart voor web en mail. Deze weergave kan ook de **privésleutel** bevatten. Deel die niet in screenshots, tickets of chatberichten. Sluit de details als je klaar bent.
+
+## Aanvraag niet bevestigd
+
+Een melding dat de beveiligingswijziging niet bevestigd is, betekent dat het panel het eindresultaat niet betrouwbaar kon vaststellen. Vernieuw eerst de actuele gegevens. Vraag pas opnieuw aan nadat je hebt gecontroleerd dat de gewenste wijziging nog ontbreekt.
+
+## Andere beveiligingsopties
+
+Afhankelijk van de webserver verschijnt hier ook **ModSecurity**, met een schakelaar per domein. Schakel dit niet uit om een applicatiefout te verbergen; onderzoek eerst welke aanvraag wordt tegengehouden. Nginx-blokkeringen beheer je apart via [IP deny](./ip-deny.mdx). Op Apache kan deze SSL-pagina de aparte IP-toegangsinstellingen tonen.

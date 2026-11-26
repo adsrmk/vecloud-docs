@@ -1,0 +1,40 @@
+---
+title: Problemen oplossen
+description: Bepaal waar een probleem zit en verzamel de juiste informatie voordat je iets wijzigt.
+icon: LifeBuoy
+---
+
+## Begin met de context
+
+Controleer het domein in de bovenbalk, de ingelogde organisatie en je accountrechten. Een alias kan dezelfde websiteomgeving delen met een ander domein. Een portalsessie, WordPress-account, mailbox en databasegebruiker hebben ieder hun eigen toegang.
+
+Noteer de exacte melding en het tijdstip. Controleer daarna de actuele gegevens opnieuw. De algemene servicestatus in de bovenbalk is geen beschikbaarheidstest van iedere individuele website.
+
+## Kies het juiste onderzoek
+
+| Situatie | Controleer eerst |
+| --- | --- |
+| Website opent niet | [Actieve DNS-zone en records](../dns-ssl/index.mdx), juiste doelhost en website-status |
+| Certificaat ontbreekt of is verlopen | [SSL en HTTPS](../dns-ssl/ssl.mdx), domeinkeuze en publieke DNS |
+| Mail komt niet aan | [Mailroutering en MX](../dns-ssl/mail-routing.mdx), mailboxstatus, quota en [spamfilters](../email/spam.mdx) |
+| PHP-fout of witte pagina | [PHP-versie en extensies](../developers/php.mdx), [logs](../developers/logs.mdx) en recente codewijzigingen |
+| Oude pagina zichtbaar | [Cachelagen en uitsluitingen](../performance/cache.mdx), daarna browser- en eventuele externe cache |
+| Bestanden niet bereikbaar | Juiste map, [rechten](../files/permissions.mdx) en gebruikte [FTP/SSH-identiteit](../files/ssh.mdx) |
+| Databaseverbinding faalt | [Host, gebruiker, wachtwoord en privileges](../databases/index.mdx) |
+| Back-up of restore geeft een fout | [Back-updiagnose](../backups/troubleshooting.mdx) en actuele taakstatus |
+
+## Een wijziging is niet bevestigd
+
+Een timeout of melding dat een wijziging niet is bevestigd betekent dat de uitkomst onzeker kan zijn. De hostingdienst kan de wijziging al hebben ontvangen. Vernieuw de betrokken lijst of configuratie voordat je opnieuw toevoegt, verwijdert of een restore start.
+
+Als een VirtualHost-wijziging nog wordt verwerkt, laat je die afronden en controleer je de huidige configuratie. Open niet meerdere vensters om dezelfde wijziging te forceren. Bij een hersteltaak controleer je eerst of er al een restore loopt.
+
+## Een instelling ontbreekt
+
+Beschikbaarheid hangt af van rol, pakket, webserver en gekoppelde diensten. Een verborgen of uitgeschakelde optie is niet automatisch een laadfout. Vergelijk met de rechten en diensten van de gekozen website; vraag de accounteigenaar of support bij twijfel.
+
+## Support helpen met onderzoek
+
+Stuur domein, functie, tijdstip, exacte melding, verwachte uitkomst en de stappen om het probleem te reproduceren. Een relevant logfragment of screenshot helpt, mits wachtwoorden, tokens, privésleutels, sessielinks en persoonlijke gegevens zijn verwijderd. Geef aan of de website zelf is geraakt of alleen het portaalonderdeel.
+
+Bewaar voor herstel eerst de huidige toestand waar mogelijk. Verwijder geen database of website om een laadfout te verhelpen. Raadpleeg ook de [veelgestelde vragen](./faq.mdx).

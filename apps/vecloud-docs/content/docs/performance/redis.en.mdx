@@ -1,0 +1,35 @@
+---
+title: Redis for your website
+description: Enable Redis and connect your application to the local object cache.
+icon: Database
+---
+
+## Enable Redis
+
+Open **Domains → your website → Optimization → Redis**. The switch is available when the website environment supports Redis. Enable the service and wait for confirmation. The section then shows connection details and **Edit redis.conf**.
+
+The displayed address `127.0.0.1:6379` is for an application inside that website environment. It is not a public internet address for your laptop. Another server or website does not automatically have access to this local service.
+
+<PortalScreenshot
+  name="optimization"
+  alt="Redis and opcode caching in Optimization"
+  caption="Redis and opcode caching in Optimization"
+/>
+
+## Connect the application
+
+Enabling Redis does not automatically configure a WordPress plugin or other application. Use an appropriate Redis integration in the application. PHP may also require the Redis extension under **Developer tools → PHP extensions**.
+
+For WordPress, configure and enable a suitable object cache plugin according to its instructions. Check its connection status there. The portal’s enabled **Redis** switch confirms the service setting, not that WordPress is already storing data in it.
+
+## Edit redis.conf
+
+**Edit redis.conf** opens the configuration in the [file editor](../files/index.mdx). Retain the original contents and change only settings you understand. Invalid configuration can make Redis unavailable. Do not include the file in screenshots or shared tickets if it contains secrets.
+
+If an application container restart is needed, use **Developer tools → Restart**. This can interrupt other services in the website container too; it is not a general substitute for clearing caches.
+
+## Disable and troubleshoot
+
+Adjust the application integration before disabling Redis. Otherwise, the application may produce connection errors after the service is disabled. Check service status, host and port, PHP extension and application configuration when troubleshooting.
+
+Redis object caching differs from [FastCGI page caching and opcode caching](./cache.mdx). Do not treat cached data as a backup or the only storage for important information.

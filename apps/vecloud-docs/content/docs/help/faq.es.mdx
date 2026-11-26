@@ -1,0 +1,41 @@
+---
+title: Preguntas frecuentes
+description: Respuestas rápidas a preguntas habituales sobre el Control Panel.
+icon: CircleQuestionMark
+---
+
+<Accordions>
+<Accordion title="¿Por qué faltan algunos ajustes?">
+Dependen de rol, plan y servicios. Un Collaborator solo ve sitios asignados. Comprueba organización y dominio superior. Consulta [roles y acceso](../account/team.mdx).
+</Accordion>
+<Accordion title="¿Add domain registra mi dominio?">
+No. Crea la asignación de hosting. Registro, delegación, DNS y certificados son independientes. Sigue [crear un dominio](../websites/create.mdx) y comprueba después DNS.
+</Accordion>
+<Accordion title="¿Alias y redirección son lo mismo?">
+Un alias asocia el dominio a un entorno existente. Una redirección envía el navegador a otra URL. Consulta [tipos de dominio](../websites/create.mdx) o [redirecciones](../dns-ssl/redirects.mdx).
+</Accordion>
+<Accordion title="¿Los usuarios del portal y WordPress son iguales?">
+No. Los del portal controlan el hosting; los de WordPress pertenecen a una instalación. Buzones, cuentas FTP y usuarios de base de datos también tienen acceso propio.
+</Accordion>
+<Accordion title="¿Puedo elegir un archivo de una copia?">
+El diálogo actual ofrece archivos del sitio y bases MariaDB disponibles. No incluye selector de archivos individuales ni de buzones. Revisa la selección antes de [restaurar](../backups/restore.mdx).
+</Accordion>
+<Accordion title="¿Por qué sigo viendo contenido antiguo?">
+Comprueba el guardado y las capas de caché. Vaciar FastCGI no limpia navegador ni CDN externos. Consulta [caché y exclusiones](../performance/cache.mdx).
+</Accordion>
+<Accordion title="¿Activar Redis configura WordPress?">
+No. Activa el servicio; la aplicación necesita su integración. Comprueba la conexión en el plugin de caché de objetos. Consulta [Redis](../performance/redis.mdx).
+</Accordion>
+<Accordion title="¿Puedo importar SQL desde Files?">
+Files guarda archivos sin ejecutar SQL. Usa la importación MySQL/MariaDB, que acepta .sql, .gz y .zip hasta 500 MB. Consulta [importar SQL](../databases/sql.mdx).
+</Accordion>
+<Accordion title="¿Uso mi cuenta FTP para SFTP?">
+No. SFTP usa el usuario del sitio y SSH en el puerto 22. FTP usa cuentas propias y puerto 21. Consulta [FTP](../files/ftp.mdx) y [SSH/SFTP](../files/ssh.mdx).
+</Accordion>
+<Accordion title="¿Muchas solicitudes significan siempre un ataque?">
+No. Campañas, bots, actualizaciones y tareas pueden generar tráfico. Compara periodo, registros y recursos. Una [notificación de tráfico](../account/notifications.mdx) no bloquea IPs automáticamente.
+</Accordion>
+<Accordion title="¿Repito una acción tras un timeout?">
+Comprueba antes la lista o tarea actual. El cambio puede haberse aplicado sin confirmación. Es especialmente importante al eliminar, restaurar o crear. Consulta [resolver problemas](./index.mdx).
+</Accordion>
+</Accordions>

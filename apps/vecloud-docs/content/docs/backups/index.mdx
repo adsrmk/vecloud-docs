@@ -1,0 +1,38 @@
+---
+title: Back-ups
+description: Bekijk beschikbare herstelmomenten en bereid een veilig herstel van je website voor.
+icon: Archive
+---
+
+## Je back-ups vinden
+
+Open **Domains**, kies de website en ga naar **Backups**. Controleer het domein bovenin het panel. De lijst toont de back-ups van deze website.
+
+<PortalScreenshot name="backups" alt="Back-uplijst van de demonstratiewebsite example.test" caption="Het panel toont het startmoment, de opslag en de opgenomen bestanden en databases. Dit voorbeeld bevat alleen demonstratiedata. Klik om de afbeelding te vergroten." />
+
+## De lijst lezen
+
+| Kolom | Betekenis |
+| --- | --- |
+| Started | Het startmoment van de back-up. |
+| Website files | De gemelde bestandsgrootte en, indien beschikbaar, het aantal mailboxen. |
+| Databases | Het gemelde aantal databases in de back-up. |
+| Restore | Opent de details en de herstelactie. |
+
+Een streepje bij de grootte betekent dat deze informatie niet is aangeleverd. Het is geen bevestiging dat de back-up leeg is. Open de details om de inhoud te controleren.
+
+## Een back-up maken
+
+1. Kies **Create backup** als die knop beschikbaar is.
+2. Wacht op de bevestiging van de aanvraag.
+3. Controleer de back-up later opnieuw. Gebruik een herstelmoment pas nadat de benodigde onderdelen succesvol zijn afgerond.
+
+<Callout title="Voor een wijziging">
+Maak een nieuwe back-up voordat je een grote update, import of configuratiewijziging uitvoert. De beschikbare historie en bewaartermijn hangen af van je hostingomgeving; de lijst in het panel is leidend.
+</Callout>
+
+## Wat wil je terugzetten?
+
+Voor WordPress horen websitebestanden en de bijbehorende database bij elkaar. Bestanden bevatten bijvoorbeeld plugins en uploads; de database bevat onder andere berichten, instellingen en bestellingen.
+
+Volg [Een back-up herstellen](./restore.mdx) voor de selectie en bevestiging. Krijg je een lege lijst of foutmelding? Ga naar [Problemen met back-ups](./troubleshooting.mdx).

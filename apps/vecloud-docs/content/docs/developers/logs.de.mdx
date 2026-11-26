@@ -1,0 +1,36 @@
+---
+title: Logs zur Fehlersuche nutzen
+description: Finde die passende Protokollquelle für PHP, WordPress, Worker und weitere Vorgänge.
+icon: ScrollText
+---
+
+## PHP-Fehlerlog
+
+Öffne **Domains → deine Website → Developer tools → PHP**. **PHP error log** zeigt verfügbaren Logtext und Abrufzeit. Bei großen Logs kann nur der letzte Teil erscheinen; das Portal weist darauf hin.
+
+Notiere den Fehlerzeitpunkt, wiederhole die Aktion einmal, sofern sicher, und öffne die Daten erneut. Suche dort nach Fehlertyp, Datei und Zeilennummer. **No PHP errors found** bedeutet leeren abgerufenen Logtext, nicht eine vollständig fehlerfreie Website.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP-Fehlerlog mit ausschließlich fiktiven Einträgen"
+  caption="PHP-Fehlerlog mit ausschließlich fiktiven Einträgen"
+/>
+
+## Passende Quelle wählen
+
+| Problem | Ausgangspunkt |
+| --- | --- |
+| PHP-Fehler oder Fehler nach Versionswechsel | PHP error log in Developer tools |
+| WordPress-Debugging | [Debug-Einstellungen](../wordpress/debug.mdx) und WordPress-Log |
+| Worker startet nicht oder stürzt ab | Log des betroffenen Workers |
+| GitHub-Deployment | Deploymentlog der GitHub-Anbindung |
+| Migration | Fortschritt und Log dieser Migration |
+| SQL-Import | Importmeldung und Prüfung der Zieldatenbank |
+
+Auch unter **Files** kann ein Verzeichnis `logs` verfügbar sein. Sein Inhalt hängt vom Website-Umfeld ab. Erwarte keinen allgemeinen Zugriff auf alle Serverlogs oder einen gesonderten Access-Log-Viewer im Kundenportal.
+
+## Support kontaktieren
+
+Nenne Website, betroffene Funktion, genaue Fehlermeldung, Zeitpunkt und vorherige Aktion. Teile nur den relevanten Ausschnitt. Entferne Passwörter, Tokens, Sitzungslinks und personenbezogene Daten vor dem Teilen.
+
+Ändere nicht mehrere Einstellungen gleichzeitig, um Fehler zu verbergen. Bewahre Originalwerte auf, prüfe nach jeder Änderung und nutze bei Bedarf ein Backup. Ein [Ressourcendiagramm](../performance/resources.mdx) kann Spitzen mit dem Fehlerzeitpunkt verbinden.

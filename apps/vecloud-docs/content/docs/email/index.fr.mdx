@@ -1,0 +1,37 @@
+---
+title: Adresses et boîtes e-mail
+description: Créez des boîtes ou des transferts et gérez nom, quota, état et accès.
+icon: Mail
+---
+
+## Ouvrir votre courrier
+
+Choisissez **Email** dans le menu principal. Recherchez la bonne adresse et vérifiez son domaine. Dans le menu d’actions, choisissez **Manage**. Selon l’adresse, vous disposez de **Mailbox**, **Forwarders**, **Catch-all**, **Spam settings**, **Out of office** et **Email client settings**.
+
+## Créer une adresse
+
+1. Choisissez **Add email address**.
+2. Saisissez uniquement la partie avant `@` et sélectionnez le bon domaine.
+3. Choisissez **Mailbox** pour conserver les messages et utiliser webmail ou un client. Indiquez taille en MB/GB, nom identifiable et mot de passe fort.
+4. Choisissez **Forwarding only** pour transférer vers des adresses existantes sans boîte. Ajoutez au moins une destination valide ; cette option ne crée pas de mot de passe de boîte.
+5. Choisissez **Create email address** puis vérifiez la nouvelle ligne.
+
+Un nouveau mot de passe nécessite au moins dix caractères avec minuscule, majuscule, chiffre et caractère spécial. Conservez-le dans votre gestionnaire de mots de passe. Créer l’adresse ne modifie pas les MX externes ni le routage ; vérifiez aussi [routage et DNS](../dns-ssl/mail-routing.mdx).
+
+## Modifier les réglages
+
+Ouvrez **Manage → Mailbox** pour modifier nom, état, nouveau mot de passe facultatif, quota en MB et [alias](./forwarding.mdx). Choisissez **Save changes** pour appliquer les modifications.
+
+Un mot de passe vide conserve l’actuel. Un quota vide conserve la limite existante. Vérifiez l’utilisation avant de réduire un quota ; la capacité dépend aussi de l’espace d’hébergement disponible. Mettez vos clients à jour après un changement de mot de passe.
+
+<PortalScreenshot name="mailbox" alt="Réglages de boîte avec nom, quota et alias" caption="Un mot de passe vide conserve l’actuel. Toutes les données affichées sont fictives." />
+
+## Désactiver ou supprimer
+
+Le menu de la liste propose **Disable** et **Enable**. Une adresse suspendue peut être restreinte par l’administration ; demandez de l’aide si cet état ne peut pas être changé.
+
+**Permanently delete** supprime l’adresse et les données de la boîte après confirmation. Conservez d’abord les messages utiles, par exemple avec votre client. Préférez une désactivation temporaire pour garder la boîte.
+
+## Échec de création ou d’enregistrement
+
+Vérifiez domaine, capacité du forfait et champs obligatoires. Si le résultat est incertain, contrôlez la liste ou les réglages actuels avant de répéter. Pour configurer un client, consultez [connexion et webmail](./clients.mdx).

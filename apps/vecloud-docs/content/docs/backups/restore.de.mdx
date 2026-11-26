@@ -1,0 +1,50 @@
+---
+title: Ein Backup wiederherstellen
+description: Prüfe den Wiederherstellungspunkt und wähle Datenbanken vor dem Überschreiben aus.
+icon: Archive
+---
+
+## Vor dem Start
+
+Prüfe die Domain in der oberen Leiste und wähle ein abgeschlossenes Backup vor dem Auftreten des Problems. Sichere bei Bedarf zuerst die aktuellen Dateien und einen Datenbankexport, um neuere Daten zu behalten.
+
+<Callout type="warning" title="Eine Wiederherstellung überschreibt Inhalte">
+Änderungen nach dem gewählten Backup können verloren gehen. Plane die Wiederherstellung außerhalb stark besuchter Zeiten und verhindere neue Bestellungen oder andere Änderungen währenddessen.
+</Callout>
+
+## Wiederherstellung starten
+
+<Steps>
+<Step>
+### Wiederherstellungspunkt öffnen
+
+Wähle unter **Backups** bei dem gewünschten Backup **Restore**. Der Dialog **Backup details** zeigt Datum, Abschluss, Speicherort und enthaltene Bestandteile.
+</Step>
+<Step>
+### Inhalt prüfen
+
+Prüfe, ob die Website-Dateien erfolgreich gesichert wurden. Markiere die benötigten **MariaDB databases**. **Select all** wählt alle angezeigten Datenbanken aus.
+
+Der aktuelle Dialog bezieht verfügbare Website-Dateien ein. Er bietet keinen Dateibrowser für eine einzelne Datei. Postfächer können in den Details aufgeführt sein; diese Anzeige ist keine gesonderte Wiederherstellungsauswahl.
+</Step>
+<Step>
+### Aktion bestätigen
+
+Wähle **Restore backup**. Lies die Bestätigung und prüfe Datum und Website erneut. Die Meldung über den Start bestätigt die Annahme der Anfrage, nicht den Abschluss der Wiederherstellung.
+</Step>
+<Step>
+### Website prüfen
+
+Warte auf den Abschluss, bevor du dieselbe Website weiter änderst. Teste danach Startseite, Administration, Formulare und gegebenenfalls Warenkorb. Prüfe außerdem, ob Dateien und Datenbank zum gleichen Wiederherstellungspunkt gehören.
+</Step>
+</Steps>
+
+<PortalScreenshot name="backup-restore" alt="Backup-Details mit ausgewählter Datenbank demo_wordpress" caption="Wähle im Wiederherstellungsdialog die Datenbanken deiner Website. Das Beispiel enthält ausschließlich Demodaten." />
+
+## WordPress nach der Wiederherstellung
+
+Eine ältere Datenbank kann neuere Beiträge, Konten und Bestellungen ersetzen. Stelle die passenden Dateien und die Datenbank gemeinsam wieder her, wenn du eine vollständige WordPress-Installation zurücksetzt. Leere relevante Caches, falls noch alte Seiten angezeigt werden.
+
+## Fehler oder unklarer Ausgang
+
+Starte nicht sofort eine zweite Wiederherstellung. Prüfe zuerst die aktuelle Website und verfügbare Backup-Informationen. Notiere Domain, gewähltes Datum und Fehlermeldung für den Support. Siehe [Backup-Probleme beheben](./troubleshooting.mdx).

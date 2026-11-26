@@ -1,0 +1,37 @@
+---
+title: Trafic et bande passante
+description: Interprétez les statistiques d’hébergement sans confondre requêtes et personnes.
+icon: ChartColumn
+---
+
+## Ouvrir les statistiques
+
+Accédez à **Domains → votre site → Analytics**. **Bandwidth** et **Visitors** figurent en haut. Choisissez **Past week** ou **Past month** à côté du graphique de bande passante ; la même période s’applique aux visiteurs.
+
+<PortalScreenshot
+  name="analytics"
+  alt="Bande passante d’un site de démonstration"
+  caption="Bande passante d’un site de démonstration"
+/>
+
+## Comprendre les chiffres
+
+| Mesure | Signification |
+| --- | --- |
+| Total bandwidth | Trafic envoyé pendant la période, affiché en GB |
+| Total hits | Requêtes comptées dans les mesures fournies par l’hébergement |
+| Unique hits | Hits uniques fournis pour chaque période de mesure |
+
+Les hits ne correspondent pas nécessairement à des personnes. Un navigateur demande plusieurs fichiers, les robots génèrent des requêtes et une personne peut revenir sur plusieurs périodes. Additionner **Unique hits** ne donne donc pas un nombre définitif de personnes uniques sur le mois.
+
+Les valeurs peuvent différer d’un service externe utilisant d’autres méthodes, filtres et paramètres de consentement. Cette page n’ajoute pas automatiquement de code de suivi au site.
+
+## Examiner une hausse
+
+Comparez d’abord la même période et distinguez le nombre de requêtes du volume transféré. Des images volumineuses ou téléchargements consomment de la bande passante sans beaucoup de visites. Lors d’une hausse soudaine, cherchez changements récents, campagnes, robots ou URL répétées dans les journaux disponibles.
+
+Consultez l’[utilisation des ressources](./resources.mdx) pour vérifier CPU, mémoire et stockage. Les [notifications de trafic](../account/notifications.mdx) signalent des anomalies, mais ne bloquent pas le trafic et ne prouvent pas à elles seules une attaque.
+
+## Aucune donnée
+
+Un graphique vide indique l’absence actuelle de statistiques pour cette période. Il ne confirme ni une consommation nulle ni un site inaccessible. Vérifiez site, période et éventuel message d’erreur avant de modifier des réglages.

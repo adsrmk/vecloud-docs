@@ -1,0 +1,37 @@
+---
+title: Opcode- en paginacache
+description: Beheer PHP-opcodecache en Nginx FastCGI-cache met de juiste uitsluitingen.
+icon: Gauge
+---
+
+## Twee verschillende caches
+
+Open **Domains → je website → Optimization**. **Opcode caching** bewaart gecompileerde PHP-code. **FastCGI cache** bewaart gerenderde pagina’s op Nginx. Ze lossen verschillende soorten werk op; geen van beide vervangt een back-up.
+
+<PortalScreenshot
+  name="nginx-cache"
+  alt="FastCGI-cache en uitsluitingen per domein"
+  caption="FastCGI-cache en uitsluitingen per domein"
+/>
+
+## Opcode caching
+
+Schakel **Opcode caching** in of uit en wacht op bevestiging. Deze instelling gaat over `opcache.enable`, niet over het bewaren van volledige HTML-pagina’s. Controleer na een codewijziging of de actuele versie wordt uitgevoerd; herhaald een paginacache legen wijzigt geen foutieve PHP-code.
+
+## FastCGI-cache per domein
+
+Het blok **Nginx FCGI** verschijnt wanneer de webserver dit ondersteunt. Kies het juiste domein en wijzig **FastCGI cache**. Controleer een publieke pagina én dynamische delen van de site.
+
+Bij **Cache exclusions** voeg je URL-paden toe die niet uit de paginacache mogen komen. Denk aan inloggen, winkelmand, afrekenen of persoonlijke accountpagina’s. De paden moeten bij je applicatie passen; een voorbeeld zoals `/checkout/` is geen garantie dat alle dynamische pagina’s zijn afgedekt.
+
+Verwijderen bij een uitsluiting maakt het pad weer cachebaar volgens de overige instellingen. Controleer daarom waarom een bestaande uitsluiting was toegevoegd.
+
+## Cache legen
+
+Kies **Clear cache** bij het geselecteerde domein en bevestig. Hiermee verwijder je opgeslagen FastCGI-pagina’s van dat domein. Het leegt geen browsercache, extern CDN of alle caches van een WordPress-plugin. De eerste aanvraag kan daarna meer werk vragen omdat de pagina opnieuw wordt opgebouwd.
+
+## Webserver rewrites
+
+In hetzelfde Nginx-blok beheer je **Web server rewrites** met een bronpad en bestemmingspad naar een bestand. Bewerken en verwijderen staan in het rijmenu. Dit is interne routering en iets anders dan een [301/302-redirect](../dns-ssl/redirects.mdx) naar een andere URL. Behoud regels die je applicatie nodig heeft.
+
+Bij een melding over een wijziging die nog wordt verwerkt, vernieuw je eerst de actuele configuratie. Voer niet gelijktijdig dezelfde domeinconfiguratie vanuit meerdere vensters uit. Voor objectcache lees je [Redis](./redis.mdx).

@@ -1,0 +1,41 @@
+---
+title: Chargements, transferts et archives
+description: Gérez les transferts et conflits de noms et choisissez un accès adapté aux gros fichiers.
+icon: Upload
+---
+
+## Charger dans le bon dossier
+
+Ouvrez **Files**, rejoignez le dossier cible puis choisissez **Upload**. Vous pouvez aussi déposer des fichiers dans le gestionnaire. Vérifiez le chemin avant de commencer.
+
+Si des noms existent déjà, le panel affiche les conflits. Choisissez volontairement de conserver ou écraser l’existant. Les fichiers sont transférés individuellement ; gardez la page ouverte jusqu’à la fin de la sélection.
+
+La progression distingue transfert et traitement. **100 % envoyé** ne signifie pas que l’hébergement a terminé l’enregistrement. Attendez la confirmation finale puis vérifiez nom, taille et application concernée.
+
+## Copier ou déplacer
+
+1. Sélectionnez les fichiers ou dossiers souhaités.
+2. Choisissez **Copy** pour garder l’original ou **Cut** pour déplacer.
+3. Ouvrez le dossier cible puis **Paste**.
+4. Vérifiez les conflits avant de confirmer un remplacement.
+5. Contrôlez la destination et, pour un déplacement, l’emplacement d’origine.
+
+Ces actions restent dans le site actuel. Copier des fichiers ne clone pas bases de données, domaines et courrier.
+
+## Télécharger
+
+Utilisez l’action d’un fichier individuel. Une sélection est téléchargée en ZIP, limitée à **50 MB et 500 éléments**, contenus imbriqués inclus. Réduisez la sélection ou utilisez un client fichiers si nécessaire.
+
+Conservez exports de bases et configurations privées hors des chemins web publics. Charger un SQL dans Files ne l’importe pas dans une base.
+
+## Compresser et extraire
+
+**Compress** crée une archive sur l’hébergement à partir de la sélection. Vérifiez le résultat dans la liste. Pour une archive compatible, **Extract** ouvre une confirmation avec une option d’écrasement des conflits. Vérifiez la cible et laissez l’écrasement désactivé pour protéger l’existant.
+
+L’extraction peut demander beaucoup d’espace supplémentaire. Vérifiez le contenu avant de considérer une archive comme une copie exploitable.
+
+## Transferts volumineux ou interrompus
+
+Utilisez SFTP ou l’accès FTP disponible pour beaucoup de fichiers et les transferts longs. Le chargement web ne garantit ni taille ni durée illimitée ; connexion, stockage et traitement restent déterminants.
+
+Après une coupure, vérifiez d’abord si le fichier cible existe et est complet. Reprenez ou remplacez de façon ciblée plutôt que de tout renvoyer sans contrôle. Pour une restauration complète, utilisez [Backups](../backups/index.mdx).

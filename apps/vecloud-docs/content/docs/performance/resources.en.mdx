@@ -1,0 +1,38 @@
+---
+title: Website resource usage
+description: Investigate CPU, memory, swap, storage activity and processes in Analytics.
+icon: Cpu
+---
+
+## Choose a chart and period
+
+Open **Domains → your website → Analytics**, then scroll to **Resource usage**. Choose a metric and period: last hour, 24 hours, 7 days or 30 days. This period is independent of the traffic charts above. **Refresh resource usage** retrieves measurements again; the refresh time records when the data was fetched.
+
+<PortalScreenshot
+  name="resource-usage"
+  alt="CPU chart with demonstration measurements"
+  caption="CPU chart with demonstration measurements"
+/>
+
+## What does each chart show?
+
+| Metric | Interpretation |
+| --- | --- |
+| CPU | Processor usage; 100% represents one vCPU |
+| Memory | Memory used by the website environment |
+| Swap | Swap space in use |
+| Storage performance (I/O) | Bytes read and written per second |
+| Storage performance (IOPS) | Read and write operations per second |
+| Processes | Measured process count |
+
+For I/O and IOPS, select a storage device where available. Reads and writes are separate series. Below the chart, the limit from the latest measurement appears when available. **Unlimited** means no specific limit was recorded there, not that the physical server has infinite capacity.
+
+A short CPU spike may accompany an update or backup. Sustained high memory, swap or process counts call for investigation of the application and concurrent jobs. Memory usage is not the same as PHP’s `memory_limit` setting.
+
+## Missing or empty measurements
+
+CPU and I/O rates are calculated from consecutive measurements. A chart may remain empty without enough points; missing data does not mean zero usage. Choose another period or refresh. An error means measurements could not be retrieved, not necessarily that the website is offline.
+
+## Turn measurements into action
+
+Compare timestamps with traffic, scheduled jobs, updates and available logs. Change one thing at a time and compare the same period afterwards. These charts do not change resource limits or your package. For suitable limits or persistent errors, send support the metric, period and website address.

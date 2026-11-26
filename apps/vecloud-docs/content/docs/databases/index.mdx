@@ -1,0 +1,53 @@
+---
+title: MySQL en MariaDB beheren
+description: Maak databases en gebruikers aan, stel rechten in en controleer de verbindingsgegevens.
+icon: Database
+---
+
+## Database en gebruiker zijn afzonderlijk
+
+Open **Domains → je website → Databases**. Het MySQL-gedeelte beheert MySQL/MariaDB-databases. Een database bewaart de gegevens; een databasegebruiker heeft een eigen wachtwoord en rechten op één of meer databases. Dit is niet je portaal- of WordPress-account.
+
+<PortalScreenshot
+  name="databases"
+  alt="Databaseoverzicht met twee engines"
+  caption="Databaseoverzicht met twee engines"
+/>
+
+## Een database toevoegen
+
+<Steps>
+<Step title="Kies Add database">
+Vul een naam in met kleine letters, cijfers, `_` of `$`. Als het formulier een prefix toont, wordt die automatisch onderdeel van de volledige naam. De limiet is 64 tekens inclusief prefix.
+</Step>
+<Step title="Koppel een gebruiker">
+Selecteer bestaande gebruikers of kies **Create new user**. Een nieuwe gebruikersnaam is maximaal 32 tekens inclusief prefix. Gebruik een uniek wachtwoord van minimaal tien tekens met kleine letter, hoofdletter, cijfer en speciaal teken. Laat de authenticatiekeuze op de standaardwaarde tenzij je applicatie een specifieke plugin vereist.
+</Step>
+<Step title="Sla op en controleer de toegang">
+Controleer zowel de database als de gekoppelde gebruikers. Als de database of gebruiker wel is aangemaakt maar het toekennen van rechten mislukt, open je het beheer en herstel je die koppeling; maak niet opnieuw hetzelfde account aan.
+</Step>
+</Steps>
+
+## Rechten beheren
+
+Klik op een database. Bij **Users** kun je een bestaande gebruiker toevoegen, een nieuwe aanmaken en rechten bewerken. **All database privileges** geeft alle aangeboden rechten. Schakel dit uit om specifieke rechten te kiezen, bijvoorbeeld alleen `SELECT` voor lezen. **Revoke access** verwijdert de koppeling, niet de databasegebruiker zelf.
+
+Via het onderdeel **Users** in de databaselijst beheer je de gebruiker, het verborgen wachtwoord en de databases waartoe die toegang heeft. Na een wachtwoordreset moet je de applicatieconfiguratie bijwerken; anders kan de website geen verbinding meer maken.
+
+## Verbinden met de database
+
+De databasebeheerpagina toont onder **Connection details** het Unix-socketpad en het actuele TCP-adres. Neem die gegevens over voor je applicatie. Gebruik niet automatisch het webserver-IP of `localhost`: de juiste verbinding hangt af van waar de applicatie draait.
+
+Voor externe verbindingen open je de databasegebruiker en voeg je onder **IP addresses for external access** het specifieke publieke IPv4- of IPv6-adres van je client toe. Dit vervangt geen databaseprivileges en garandeert niet dat een externe firewall de verbinding toestaat. Verwijder toegang die niet meer nodig is.
+
+<Callout type="warn" title="Verwijderen is definitief">
+Database verwijderen wist alle gegevens in die database. Gebruiker verwijderen kan meerdere applicaties raken die hetzelfde account gebruiken. Maak eerst een [SQL-export](./sql.mdx) of controleer een bruikbare [back-up](../backups/index.mdx).
+</Callout>
+
+Voor tabellen en query’s gebruik je [phpMyAdmin](./phpmyadmin.mdx). PostgreSQL heeft [eigen beheer](./postgresql.mdx).
+
+<PortalScreenshot
+  name="database-add"
+  alt="Een database aan een bestaande gebruiker koppelen"
+  caption="Een database aan een bestaande gebruiker koppelen"
+/>

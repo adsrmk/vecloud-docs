@@ -1,0 +1,40 @@
+---
+title: VirtualHost-Konfiguration
+description: Verwalte eigene Webserver-Direktiven je Domain und vermeide Konflikte.
+icon: FileCode
+---
+
+## Wann verwenden?
+
+Nutze [Redirects](../dns-ssl/redirects.mdx) für Weiterleitungen, [IP deny](../dns-ssl/ip-deny.mdx) für Sperren und [Optimization](../performance/cache.mdx) für Caching. Der VirtualHost-Editor dient zusätzlichen Anwendungsdirektiven.
+
+Öffne **Domains → deine Website → Overview → Website actions → Manage overrides**. Wähle unter **VirtualHost configuration** im Menü der richtigen Domain **Edit configuration**. Dafür sind passende Verwaltungsrechte erforderlich.
+
+<PortalScreenshot
+  name="vhost-editor"
+  alt="VirtualHost-Editor mit reiner Demokonfiguration"
+  caption="VirtualHost-Editor mit reiner Demokonfiguration"
+/>
+
+## Änderung speichern
+
+1. Prüfe die Domain und bewahre die bisherige eigene Konfiguration auf.
+2. Ergänze nur im VirtualHost-Kontext gültige Direktiven, keine vollständige globale Serverkonfiguration.
+3. Wähle **Save** und warte auf die Bestätigung.
+4. Öffne den aktuellen Stand erneut und teste Website, Weiterleitungen und Sicherheitsregeln.
+
+<Callout type="warn" title="Ungültige Syntax kann den Webserver stören">
+Tippfehler oder ungültige Direktiven können die Website unerreichbar machen. Teste in einer geeigneten Testumgebung und bewahre ein wiederherstellbares Original auf. Speichern ist kein vollständiger Anwendungstest.
+</Callout>
+
+## Verwaltete Regeln erhalten
+
+Vom Portal verwaltete IP-Sperren und unterstützte Weiterleitungen haben eigene Funktionen. Ändere sie auf deren Seiten. Beim Speichern freier Konfiguration erhält das Portal verwaltete Nginx-IP-Sperren; manuelles Bearbeiten entfernt eine Sperre nicht zuverlässig.
+
+## Standard wiederherstellen
+
+**Reset to default** entfernt nach Bestätigung die eigene freie Domainkonfiguration. Verwaltete Regeln können bestehen bleiben. Die Aktion deaktiviert nicht allgemein alle Sperren oder Weiterleitungen und stellt keine Dateien oder Datenbanken wieder her.
+
+## Änderung läuft noch
+
+Warte und lies mit **Check status** den aktuellen Stand. Öffne bei einem Revisionskonflikt die neueste Version und wende dort die Änderung an. Überschreibe nicht wiederholt aus einem alten Editorstand. Vermeide parallele Änderungen in mehreren Fenstern oder Werkzeugen.

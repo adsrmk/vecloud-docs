@@ -1,0 +1,31 @@
+---
+title: Servermigrationen für Administratoren
+description: Verschiebe geeignete Website-Rollen zwischen Servern und verfolge jeden Auftrag.
+icon: ArrowRightLeft
+---
+
+<PortalScreenshot name="server-migration" alt="Website und Zielserver vor dem Start der Migration auswählen." caption="Website und Zielserver vor dem Start der Migration auswählen." />
+
+## Verfügbarkeit und Zweck
+
+Servermigrationen sind berechtigten Administratoren der Hauptorganisation vorbehalten. Das ist kein Importassistent für beliebige externe Hoster. Normale Kundenkonten können damit keine neuen Server anschließen. Lass einen nötigen Umzug durch Verwaltung oder Support organisieren.
+
+## Migration vorbereiten
+
+Öffne über die verfügbare Verwaltungsaktion **Server migrations** und **Select websites**. **Move server** kann eine Website vorwählen. Filtere nach Domain, Quellserver und Rolle.
+
+Wähle Websites und je verfügbarer Rolle ein Ziel: Anwendung, MySQL, E-Mail, Backup oder PostgreSQL. Unveränderte Rollen bleiben auf ihrem Server. Das Ziel muss die Rolle anbieten und verfügbar sein. Einige Rollen von Verwaltungswebsites sind nicht verschiebbar.
+
+Prüfe vorher Backups, Erreichbarkeit, Verbindungen und externes DNS. Bei einer stillgelegten Quelle warnt die Oberfläche: Die Wiederherstellung nutzt das letzte verfügbare Backup, das nicht zwingend neueste Änderungen enthält.
+
+## Starten und verfolgen
+
+Wähle **Start migration**, prüfe die Rollenanzahl und bestätige. Das Limit beträgt hundert Website-Rollen je Anfrage, nicht hundert Websites mit beliebig vielen Rollen. Betroffene Verwaltungswerkzeuge können vorübergehend nicht verfügbar sein.
+
+Verfolge danach die Sitzung im Überblick. Einzelaufträge sind wartend, aktiv, fehlgeschlagen oder abgeschlossen. Öffne passende Gruppe und Aufgabenlog. Ein erfolgreicher Start bestätigt nicht den Abschluss aller Rollen; prüfe Teilergebnisse einzeln.
+
+## Fehler oder fehlende Bestätigung
+
+Prüfe Überblick und Logs vor erneutem Start. Starte bereits übermittelte Rollen nicht aus einer alten Auswahl erneut. Bewahre Fehler, Zeit, Website, Rolle und Ziel für den Support auf.
+
+Teste nach Abschluss Website, Datenbankverbindungen, E-Mail und Backupzugriff. Prüfe DNS bei geänderter benötigter öffentlicher Adresse. Das ist getrennt von [Eigentumsübertragung](../websites/ownership.mdx) oder [Paketwechsel](../websites/package.mdx).

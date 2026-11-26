@@ -1,0 +1,31 @@
+---
+title: Serververplaatsingen voor beheerders
+description: Verplaats beschikbare website-rollen tussen gekoppelde servers en volg elke taak afzonderlijk.
+icon: ArrowRightLeft
+---
+
+<PortalScreenshot name="server-migration" alt="Een website en bestemmingsserver kiezen voordat de migratie wordt gestart." caption="Een website en bestemmingsserver kiezen voordat de migratie wordt gestart." />
+
+## Beschikbaarheid en doel
+
+Serververplaatsingen zijn alleen beschikbaar voor bevoegde beheerders van de hoofdorganisatie. Het is geen importwizard voor een willekeurige externe hostingprovider. Gewone klantaccounts kunnen hiermee niet zelf een nieuwe server aansluiten. Laat een noodzakelijke verplaatsing door de beheerder of support regelen.
+
+## Een verplaatsing voorbereiden
+
+Open **Server migrations** via de beschikbare beheeractie en kies **Select websites**. De websiteactie **Move server** kan een website vooraf selecteren. Filter zo nodig op domein, bronserver en rol.
+
+Selecteer de websites en kies per beschikbare rol een doelserver: applicatie, MySQL, e-mail, back-up of PostgreSQL. Rollen zonder wijziging blijven op hun huidige server. De doelserver moet de betreffende rol aanbieden en beschikbaar zijn. Voor beheerwebsites kunnen bepaalde rollen niet worden verplaatst.
+
+Controleer vóór de start de back-ups en gevolgen voor bereikbaarheid, applicatieverbindingen en externe DNS. De interface waarschuwt wanneer een bronserver buiten bedrijf is: herstel gebruikt dan de laatst beschikbare back-up, die niet noodzakelijk de allernieuwste wijzigingen bevat.
+
+## Starten en voortgang volgen
+
+Kies **Start migration**, controleer het aantal website-rollen en bevestig. De grens is honderd website-rollen per aanvraag, niet honderd willekeurige websites met onbeperkte rollen. Tijdens een verplaatsing kunnen de betrokken beheertools tijdelijk niet beschikbaar zijn.
+
+Volg daarna de sessie in het overzicht. Taken hebben afzonderlijk een status voor wachtrij, bezig, mislukt of voltooid. Open de passende groep en het taaklog. Een geslaagde start is geen bevestiging dat alle rollen klaar zijn; een gedeeltelijke uitkomst moet per rol worden gecontroleerd.
+
+## Fout of ontbrekende bevestiging
+
+Controleer eerst overzicht en logs voordat je opnieuw start. Begin reeds gestarte rollen niet opnieuw vanuit een oude selectie. Bewaar fouttekst, tijdstip, website, rol en doelserver voor support.
+
+Test na voltooiing website, databaseverbinding, e-mail en back-uptoegang. Controleer ook DNS als een benodigd openbaar adres is veranderd. Een serververplaatsing is iets anders dan [eigenaarschap overdragen](../websites/ownership.mdx) of [een pakket wijzigen](../websites/package.mdx).

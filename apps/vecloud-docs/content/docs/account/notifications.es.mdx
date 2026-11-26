@@ -1,0 +1,29 @@
+---
+title: Notificaciones y monitorización
+description: Consulta avisos de disponibilidad, SSL y tráfico inusual.
+icon: UserRound
+---
+
+## Ver notificaciones
+
+Abre **Notifications** en la barra lateral principal. **Current** muestra las actuales y **Archive** las archivadas. Cada fila indica hora, estado, descripción y sitio afectado. Los anuncios del panel aparecen encima.
+
+**Critical** requiere una revisión inmediata, por ejemplo si un sitio no está disponible. **Attention** señala algo que revisar, como un problema de certificado o un aumento inusual de tráfico. Abre el sitio afectado y comprueba la causa indicada.
+
+## Muchas solicitudes inusuales
+
+El panel compara horas completas con el tráfico habitual del sitio. La detección actual requiere al menos 1.000 solicitudes en una hora y un incremento de al menos cinco veces la referencia normal. Necesita historial suficiente, incluidas horas comparables de días anteriores.
+
+Una campaña, un bot, un rastreador o un abuso pueden causar el pico. El aviso no confirma un ataque ni bloquea tráfico automáticamente. Revisa **Analytics**, la hora y los cambios recientes antes de bloquear direcciones IP.
+
+## Archivar un aviso
+
+Utiliza la acción de archivo para retirarlo de la lista actual. Archivar no cambia el sitio ni el certificado. Resuelve la causa por separado.
+
+## Estado en la barra superior
+
+El estado de servicios enlaza con la página general de VECloud. Es distinto de la disponibilidad de un sitio concreto. Investiga un aviso del sitio aunque los servicios generales estén en línea.
+
+## Datos insuficientes
+
+Un sitio nuevo o mediciones ausentes pueden impedir una comparación fiable. La ausencia de avisos no garantiza que no haya problemas de tráfico o disponibilidad. Si persiste un problema, anota dominio, hora y mensaje para soporte.

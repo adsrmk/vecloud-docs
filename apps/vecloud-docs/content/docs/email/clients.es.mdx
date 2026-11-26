@@ -1,0 +1,41 @@
+---
+title: Clientes de correo y webmail
+description: Usa servidor, puertos y credenciales del buzón mostrados para acceder al correo.
+icon: MailOpen
+---
+
+## Encontrar los datos
+
+Abre **Email → dirección → Manage → Email client settings**. Usa la dirección completa del buzón como usuario, por ejemplo `hello@example.test`, y su contraseña. No tiene por qué coincidir con la contraseña de tu cuenta VECloud.
+
+Para un buzón alojado aquí, el panel muestra estas combinaciones. Con `hello@example.test` muestra `mail.example.test`; sustituye el ejemplo por el servidor de tu propia tabla.
+
+| Servicio | Puerto | Seguridad |
+| --- | --- | --- |
+| IMAP | 993 | SSL/TLS |
+| SMTP | 465 | SSL/TLS |
+| SMTP, alternativa | 587 | STARTTLS |
+| POP | 995 | SSL/TLS |
+
+Elige una combinación SMTP y activa autenticación con las credenciales del buzón. No combines el puerto 587 con el SSL/TLS implícito del 465.
+
+<PortalScreenshot name="mail-clients" alt="Ajustes IMAP, SMTP y POP de un buzón ficticio" caption="Copia servidor y usuario completo de tu cuenta. Usa una combinación SMTP adecuada." />
+
+## Configurar un cliente
+
+1. Añade una cuenta de correo existente en el programa.
+2. Elige IMAP para sincronizar mensajes y carpetas entre dispositivos.
+3. Introduce usuario, contraseña y los datos mostrados de entrada y salida.
+4. Prueba recepción y envío, y otro dispositivo si corresponde.
+
+POP puede descargar mensajes localmente; comprueba si conserva una copia en el servidor antes de usarlo. Una dirección solo de reenvío no tiene buzón propio para IMAP ni webmail.
+
+## Abrir webmail
+
+Usa la acción de webmail junto al buzón en la lista. El panel abre el acceso disponible en otra pestaña. Permite esa pestaña si el navegador la bloquea. Ante una sesión caducada, comprueba primero tu acceso al portal.
+
+## Errores de conexión o certificado
+
+Revisa usuario completo, contraseña actual, puerto y seguridad. Comprueba que el servidor mostrado resuelve correctamente en DNS y tiene un certificado correspondiente. No ignores avisos de certificado para usar un nombre incorrecto.
+
+Si el buzón está en otro proveedor, usa sus datos. Elegir **External mail** no da acceso al buzón externo mediante este servidor local. Consulta [enrutamiento](../dns-ssl/mail-routing.mdx).

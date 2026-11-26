@@ -1,0 +1,41 @@
+---
+title: Questions fréquentes
+description: Réponses rapides aux questions courantes sur le Control Panel.
+icon: CircleQuestionMark
+---
+
+<Accordions>
+<Accordion title="Pourquoi certains paramètres manquent-ils ?">
+Ils dépendent du rôle, de l’offre et des services. Un Collaborator voit uniquement les sites attribués. Vérifiez organisation et domaine en haut. Consultez [rôles et accès](../account/team.mdx).
+</Accordion>
+<Accordion title="Add domain enregistre-t-il mon nom de domaine ?">
+Non. Il crée l’association d’hébergement. Enregistrement, délégation, DNS et certificats restent distincts. Suivez [la création du domaine](../websites/create.mdx), puis vérifiez le DNS.
+</Accordion>
+<Accordion title="Un alias est-il une redirection ?">
+Un alias associe un domaine à un environnement existant. Une redirection envoie le navigateur vers une autre URL. Consultez [types de domaines](../websites/create.mdx) ou [redirections](../dns-ssl/redirects.mdx).
+</Accordion>
+<Accordion title="Les utilisateurs du portail et de WordPress sont-ils les mêmes ?">
+Non. Ceux du portail gèrent l’accès à l’hébergement ; ceux de WordPress appartiennent à une installation. Boîtes e-mail, comptes FTP et utilisateurs de base ont aussi leurs accès propres.
+</Accordion>
+<Accordion title="Puis-je choisir un fichier dans une sauvegarde ?">
+Le dialogue actuel propose les fichiers du site et les bases MariaDB disponibles. Il n’a ni sélection de fichier individuel ni sélection distincte de boîte e-mail. Vérifiez avant de [restaurer](../backups/restore.mdx).
+</Accordion>
+<Accordion title="Pourquoi l’ancien contenu reste-t-il visible ?">
+Vérifiez l’enregistrement et les caches actifs. Vider FastCGI ne vide pas le navigateur ni un CDN externe. Consultez [caches et exclusions](../performance/cache.mdx).
+</Accordion>
+<Accordion title="Activer Redis configure-t-il WordPress ?">
+Non. Cela active le service ; l’application nécessite sa propre intégration. Vérifiez la connexion dans le plugin de cache d’objets. Consultez [Redis](../performance/redis.mdx).
+</Accordion>
+<Accordion title="Puis-je importer du SQL via Files ?">
+Files conserve un fichier sans exécuter le SQL. Utilisez l’import MySQL/MariaDB, acceptant .sql, .gz et .zip jusqu’à 500 MB. Consultez [l’import SQL](../databases/sql.mdx).
+</Accordion>
+<Accordion title="Mon compte FTP sert-il pour SFTP ?">
+Non. SFTP utilise l’utilisateur du site et SSH sur le port 22. FTP utilise ses comptes et le port 21. Consultez [FTP](../files/ftp.mdx) et [SSH/SFTP](../files/ssh.mdx).
+</Accordion>
+<Accordion title="Beaucoup de requêtes indiquent-elles toujours une attaque ?">
+Non. Campagnes, robots, mises à jour et tâches peuvent générer du trafic. Comparez période, journaux et ressources. Une [notification de trafic](../account/notifications.mdx) ne bloque pas automatiquement les IP.
+</Accordion>
+<Accordion title="Faut-il répéter une action après un timeout ?">
+Vérifiez d’abord la liste ou tâche actuelle. Le changement peut avoir abouti sans confirmation. C’est essentiel pour suppression, restauration et création. Consultez [le diagnostic](./index.mdx).
+</Accordion>
+</Accordions>

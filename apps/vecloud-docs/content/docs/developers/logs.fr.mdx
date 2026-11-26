@@ -1,0 +1,36 @@
+---
+title: Utiliser les journaux de diagnostic
+description: Trouvez le journal adapté pour PHP, WordPress, workers et autres opérations.
+icon: ScrollText
+---
+
+## Journal d’erreurs PHP
+
+Ouvrez **Domains → votre site → Developer tools → PHP**. **PHP error log** affiche le texte disponible et sa date de récupération. Un journal volumineux peut être limité à sa fin ; le portail l’indique.
+
+Notez l’heure de l’erreur, reproduisez l’action une fois si elle est sans risque, puis rouvrez les données. Cherchez à cette heure type d’erreur, fichier et numéro de ligne. **No PHP errors found** signifie que le texte récupéré est vide, pas que toutes les fonctions du site sont correctes.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="Journal PHP contenant uniquement des entrées fictives"
+  caption="Journal PHP contenant uniquement des entrées fictives"
+/>
+
+## Choisir la bonne source
+
+| Problème | Point de départ |
+| --- | --- |
+| Erreur PHP ou après changement de version | PHP error log dans Developer tools |
+| Débogage WordPress | [Réglages Debug](../wordpress/debug.mdx) et journal écrit par WordPress |
+| Worker qui ne démarre pas ou plante | Journal du worker concerné |
+| Déploiement GitHub | Journal de déploiement de l’intégration |
+| Migration | Progression et journal de cette migration |
+| Import SQL | Message d’import et contrôle de la base cible |
+
+Un dossier `logs` peut aussi exister dans **Files**. Son contenu dépend de l’environnement. Ne supposez pas l’accès à tous les journaux du serveur ni un visualiseur distinct des accès dans le portail client.
+
+## Contacter le support
+
+Précisez site, fonction, erreur exacte, heure et action précédente. Partagez seulement l’extrait pertinent. Retirez mots de passe, tokens, liens de session et données personnelles avant l’envoi.
+
+Évitez de modifier plusieurs réglages à la fois pour masquer une erreur. Conservez les valeurs initiales, contrôlez après chaque changement et utilisez une sauvegarde si nécessaire. Un [graphique de ressources](../performance/resources.mdx) peut relier un pic à l’heure de l’incident.

@@ -1,0 +1,38 @@
+---
+title: Configure cron jobs
+description: Schedule a recurring command or URL request for your website.
+icon: CalendarClock
+---
+
+## Add a job
+
+Open **Domains → your website → Developer tools → Cron jobs**, then **Add cron job**. Choose **Command** or **Request URL** and an available interval. The default is every fifteen minutes; choose a frequency appropriate for the job.
+
+- **Command** runs as the website user. Enter the command without the five schedule fields before it. Use correct paths to the executable and script.
+- **Request URL** calls the supplied URL using HTTP GET. Use an endpoint intended for the job; loading an ordinary page does not automatically perform a background task.
+
+Select **Save** and check the stored entry. For example:
+
+```text
+*/15 * * * *
+```
+
+This runs every fifteen minutes. Fields represent minute, hour, day of month, month and weekday. The portal does not offer a separate timezone selector for the job; check the execution environment’s timezone when exact timing matters.
+
+<PortalScreenshot
+  name="cron-job"
+  alt="Schedule a recurring GET request"
+  caption="Schedule a recurring GET request"
+/>
+
+## Edit and delete
+
+Select **Edit** beside an existing entry. An existing custom schedule may expose separate fields and custom values. Existing crontab environment variables can also be edited. The new-job dialog offers command and URL choices, without a separate action to create a new variable.
+
+**Delete** removes an entry after confirmation. A saved schedule does not prove that the script succeeds: check its result or your own log. There is no general **Run now** action or guaranteed execution history here.
+
+## Editing from the website container
+
+**Allow cron editing from the website container** permits PHP and SSH processes to modify the crontab. Enable it only when required by the application; malicious code could add jobs too. Tasks managed only through the portal do not automatically require this permission.
+
+Avoid overlapping jobs, repeated emails or duplicate billing operations. A token embedded in a URL or command may appear in configuration and logs; use suitable protection and keep secrets out of screenshots.

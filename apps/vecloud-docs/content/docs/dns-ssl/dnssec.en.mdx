@@ -1,0 +1,35 @@
+---
+title: Configure DNSSEC
+description: Sign the DNS zone and publish the matching DS information at your domain registrar.
+icon: ShieldCheck
+---
+
+## What DNSSEC protects
+
+DNSSEC allows resolvers to verify the origin and integrity of DNS answers. It does not encrypt website traffic; use [SSL and HTTPS](./ssl.mdx) for that. A complete setup links the signed DNS zone to a DS record at the registrar.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC enabled with demonstration DS information" caption="Use only the DS information actually issued for your own setup. These values are fictitious." />
+
+## Enable DNSSEC
+
+1. Check which nameservers your domain actually uses.
+2. If this environment hosts the active zone, open the website’s **DNS settings → DNSSEC** and turn on **Enable DNSSEC**.
+3. Wait for confirmation. The panel shows the DS information to publish at your registrar.
+4. Copy **Key tag**, **Algorithm**, **Digest type** and **Digest** exactly for the correct domain.
+5. After publication, verify that DNS resolution succeeds with validation.
+
+<Callout type="info" title="The registrar and DNS provider may differ">
+The registrar handles registration and the DS delegation. The DNS provider hosts the signed zone. Adding a DS row to your own DNS zone does not replace publishing the DS at your registrar.
+</Callout>
+
+With external nameservers, such as Cloudflare, use the DNSSEC settings and DS information from that active DNS provider. Do not use keys from an unused zone in this panel.
+
+## Disable or move DNSSEC
+
+Remove the DS delegation at the registrar first and allow that change to propagate before disabling signing. Then turn DNSSEC off in the panel and read the confirmation. An old DS pointing to a key that no longer matches can make the entire domain unavailable to validating resolvers.
+
+During a nameserver move, delegation, signing and DS must remain consistent. Ask for help before switching if you cannot determine the correct sequence.
+
+## DNS fails after a change
+
+Check that the active nameservers sign the zone with the key referenced by the DS. Compare every DS field and look for an old key at the registrar. Repeatedly toggling the setting is not a reliable fix; restore a consistent configuration and verify again after caches refresh.

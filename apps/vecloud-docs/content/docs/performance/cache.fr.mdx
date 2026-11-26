@@ -1,0 +1,37 @@
+---
+title: Cache opcode et cache de pages
+description: Gérez le cache PHP et Nginx FastCGI avec les exclusions adaptées.
+icon: Gauge
+---
+
+## Deux caches distincts
+
+Ouvrez **Domains → votre site → Optimization**. **Opcode caching** conserve du code PHP compilé. **FastCGI cache** conserve des pages rendues dans Nginx. Ils évitent des traitements différents ; aucun ne remplace une sauvegarde.
+
+<PortalScreenshot
+  name="nginx-cache"
+  alt="Cache FastCGI et exclusions par domaine"
+  caption="Cache FastCGI et exclusions par domaine"
+/>
+
+## Cache opcode
+
+Activez ou désactivez **Opcode caching** et attendez la confirmation. Cette action contrôle `opcache.enable`, pas le stockage de pages HTML complètes. Après une modification de code, vérifiez l’exécution de la bonne version ; vider le cache de pages ne corrige pas un code PHP défectueux.
+
+## FastCGI par domaine
+
+Le bloc **Nginx FCGI** apparaît si le serveur web le prend en charge. Sélectionnez le domaine et modifiez **FastCGI cache**. Testez une page publique ainsi que les parties dynamiques.
+
+Dans **Cache exclusions**, ajoutez les chemins à ne pas servir depuis le cache : connexion, panier, paiement ou compte personnel selon l’application. Un exemple comme `/checkout/` ne garantit pas la couverture de toutes les pages dynamiques.
+
+Retirer une exclusion rend le chemin éligible selon les autres réglages. Vérifiez sa raison avant de la supprimer.
+
+## Vider le cache
+
+Sélectionnez **Clear cache** pour le domaine choisi et confirmez. Cette action retire ses pages FastCGI, pas les caches du navigateur, CDN externes ou tous les plugins WordPress. La requête suivante peut demander davantage de travail pour reconstruire la page.
+
+## Réécritures du serveur
+
+Le même bloc gère **Web server rewrites** avec chemin source et fichier de destination. Modification et suppression figurent dans le menu de la ligne. Il s’agit de routage interne, distinct d’une [redirection 301/302](../dns-ssl/redirects.mdx) vers une autre URL. Conservez les règles nécessaires à l’application.
+
+Si une modification est encore en cours, actualisez d’abord la configuration. Évitez les modifications simultanées du même domaine depuis plusieurs fenêtres. Pour le cache d’objets, consultez [Redis](./redis.mdx).

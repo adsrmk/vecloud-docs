@@ -1,0 +1,38 @@
+---
+title: Backups
+description: Prüfe verfügbare Wiederherstellungspunkte und bereite die Wiederherstellung vor.
+icon: Archive
+---
+
+## Backups finden
+
+Öffne **Domains**, wähle die Website und anschließend **Backups**. Prüfe die Domain in der oberen Leiste. Die Liste gehört zu dieser Website.
+
+<PortalScreenshot name="backups" alt="Backup-Verlauf der Demo-Website example.test" caption="Das Panel zeigt Startzeit, Speicherort und enthaltene Dateien und Datenbanken. Dieses Beispiel verwendet ausschließlich Demodaten. Zum Vergrößern anklicken." />
+
+## Die Liste lesen
+
+| Spalte | Bedeutung |
+| --- | --- |
+| Started | Startzeit des Backups. |
+| Website files | Gemeldete Dateigröße und, falls verfügbar, Anzahl der Postfächer. |
+| Databases | Gemeldete Anzahl der enthaltenen Datenbanken. |
+| Restore | Öffnet Details und Wiederherstellung. |
+
+Ein Strich bei der Größe bedeutet, dass diese Angabe nicht geliefert wurde. Er bestätigt kein leeres Backup. Öffne die Details und prüfe den Inhalt.
+
+## Ein Backup erstellen
+
+1. Wähle **Create backup**, wenn diese Aktion verfügbar ist.
+2. Warte auf die Bestätigung der angenommenen Anfrage.
+3. Prüfe das Backup später erneut. Nutze es erst, wenn alle benötigten Bestandteile erfolgreich abgeschlossen sind.
+
+<Callout title="Vor einer Änderung">
+Erstelle vor größeren Updates, Importen oder Konfigurationsänderungen ein aktuelles Backup. Verlauf und Aufbewahrung hängen von deiner Hostingumgebung ab; maßgeblich ist die Liste im Panel.
+</Callout>
+
+## Was soll wiederhergestellt werden?
+
+WordPress benötigt Dateien und Datenbank. Dateien enthalten beispielsweise Plugins und Uploads; die Datenbank enthält unter anderem Beiträge, Einstellungen und Bestellungen.
+
+Folge [Ein Backup wiederherstellen](./restore.mdx) für Auswahl und Bestätigung. Bei leerer Liste oder Fehlern hilft [Backup-Probleme beheben](./troubleshooting.mdx).

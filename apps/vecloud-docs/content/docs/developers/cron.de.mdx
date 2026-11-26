@@ -1,0 +1,38 @@
+---
+title: Cronjobs einrichten
+description: Plane wiederkehrende Befehle oder URL-Aufrufe für deine Website.
+icon: CalendarClock
+---
+
+## Aufgabe hinzufügen
+
+Öffne **Domains → deine Website → Developer tools → Cron jobs** und **Add cron job**. Wähle **Command** oder **Request URL** und ein verfügbares Intervall. Standard ist alle fünfzehn Minuten; passe die Häufigkeit an die Aufgabe an.
+
+- **Command** läuft als Website-Benutzer. Gib den Befehl ohne die fünf vorangestellten Zeitfelder ein. Nutze korrekte Pfade zu Programm und Skript.
+- **Request URL** ruft die URL per HTTP GET auf. Nutze einen dafür vorgesehenen Endpunkt; das Laden einer normalen Seite führt nicht automatisch die gewünschte Hintergrundaufgabe aus.
+
+Wähle **Save** und prüfe den gespeicherten Eintrag. Beispiel:
+
+```text
+*/15 * * * *
+```
+
+Das bedeutet alle fünfzehn Minuten. Die Felder stehen für Minute, Stunde, Tag im Monat, Monat und Wochentag. Eine eigene Zeitzonenauswahl gibt es nicht; prüfe bei exakten Uhrzeiten die Ausführungsumgebung.
+
+<PortalScreenshot
+  name="cron-job"
+  alt="Wiederkehrenden GET-Aufruf planen"
+  caption="Wiederkehrenden GET-Aufruf planen"
+/>
+
+## Bearbeiten und löschen
+
+Wähle **Edit** bei einem bestehenden Eintrag. Eine vorhandene individuelle Planung kann einzelne Felder und eigene Werte zeigen. Bestehende Umgebungsvariablen in der Crontab lassen sich ebenfalls bearbeiten. Der neue Dialog bietet Befehl und URL, keine gesonderte Aktion zum Anlegen einer Variablen.
+
+**Delete** entfernt einen Eintrag nach Bestätigung. Eine gespeicherte Planung beweist keine erfolgreiche Skriptausführung: Prüfe Ergebnis oder eigenes Log. Eine allgemeine **Run now**-Aktion oder garantierte Ausführungshistorie gibt es hier nicht.
+
+## Bearbeitung aus dem Container
+
+**Allow cron editing from the website container** erlaubt PHP- und SSH-Prozessen Änderungen an der Crontab. Aktiviere dies nur bei Bedarf der Anwendung; auch Schadcode könnte Aufgaben hinzufügen. Ausschließlich im Portal verwaltete Aufgaben benötigen diese Freigabe nicht automatisch.
+
+Vermeide überlappende Aufgaben, wiederholte E-Mails oder doppelte Abrechnung. Tokens in URLs oder Befehlen können in Konfiguration und Logs erscheinen; schütze sie und zeige sie nicht in Screenshots.

@@ -1,0 +1,48 @@
+---
+title: Backup troubleshooting
+description: Identify whether the list, backup contents or restore action needs attention.
+icon: Archive
+---
+
+## The list does not load
+
+1. Check that you are signed in and the correct domain is selected.
+2. Use **Try again** once after the error appears.
+3. If needed, reopen the website through **Domains**.
+4. If the problem continues, record the domain, time and exact error for support.
+
+A loading error does not prove that backups have been deleted. An empty list without an error means no available recovery points are currently shown for this website.
+
+## A backup is running or incomplete
+
+Open **Restore** to view the details. Check completion and the status of the components you need. A missing size or database entry does not justify treating a partial backup as complete.
+
+If uncertain, use an earlier successful recovery point or ask support to check the backup. Do not start a series of new backups to bypass an unclear status.
+
+## A database is missing from the modal
+
+The current modal lets you select MariaDB databases supplied in this backup. Check the website and date. If you expected another database or database type, ask support to confirm that it is included before continuing.
+
+## Restore started, but the website looks unchanged
+
+Confirmation of the request does not confirm completion. Wait for the outcome and check the website again. Then check caching and whether you restored the correct files and database.
+
+## The website fails after a restore
+
+First check the combination of files and database. Then review the PHP version, database connection and error log in **Developer tools**. Record what was restored and the current error. Do not share passwords, private keys or full configuration files in a support message.
+
+## Frequently asked questions
+
+<Accordions>
+<Accordion title="Can I choose one file in the restore modal?">
+The current modal has no file browser. It restores available website files with your database selection. Ask support about a targeted recovery if you only need one file.
+</Accordion>
+<Accordion title="How long are backups available?">
+History depends on the backup settings for your hosting environment. Use the recovery points actually shown; this documentation does not promise a fixed retention period.
+</Accordion>
+<Accordion title="Should I click again after an error?">
+Check the current outcome first. If a response is delayed or unclear, a restore may already have started. Ask support to check the status before overwriting content again.
+</Accordion>
+</Accordions>
+
+Return to [Backups](./index.mdx) or [Restore a backup](./restore.mdx).

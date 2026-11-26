@@ -1,0 +1,42 @@
+---
+title: Importer et exporter du SQL
+description: Transférez des données MySQL/MariaDB avec un fichier SQL et vérifiez le résultat.
+icon: FileCode
+---
+
+## Avant de commencer
+
+Ouvrez **Domains → votre site → Databases**, puis la base MySQL/MariaDB cible. L’import exécute le SQL sur cette base. Envoyer un fichier via **Files** ne l’importe pas dans une base de données.
+
+<Callout type="warn" title="Prévoyez une récupération">
+Un export SQL peut supprimer des tables ou remplacer des données. Vérifiez sa provenance et son contenu. Exportez ou sauvegardez une base remplie avant de la modifier. Pour une migration, utilisez de préférence une nouvelle base cible vide.
+</Callout>
+
+## Importer un fichier SQL
+
+<Steps>
+<Step title="Choisissez la bonne base cible">
+Vérifiez le site et le nom de la base. Le fichier doit être destiné à MySQL/MariaDB, pas à PostgreSQL.
+</Step>
+<Step title="Sélectionnez le fichier">
+Dans **Import SQL file**, choisissez un fichier `.sql`, `.gz` ou `.zip` de **500 MB** maximum. Une archive doit contenir un export SQL adapté ; une archive de site ou une extension renommée ne convient pas.
+</Step>
+<Step title="Lancez et attendez la confirmation">
+Sélectionnez **Import file**. Gardez la page ouverte jusqu’à confirmation. L’envoi et l’exécution SQL sont deux étapes distinctes ; un fichier volumineux peut encore être traité après son transfert.
+</Step>
+<Step title="Vérifiez les données et l’application">
+Contrôlez les tables et données attendues dans phpMyAdmin. Modifiez la connexion de l’application si la base ou l’utilisateur change. Testez ensuite le site.
+</Step>
+</Steps>
+
+Un import échoué ou interrompu peut laisser des modifications partielles. Ne supposez pas d’annulation automatique et ne relancez pas sans vérifier la même base remplie. Contrôlez son état, restaurez un export ou utilisez une nouvelle base vide.
+
+## Télécharger un export SQL
+
+Dans **Export SQL file**, sélectionnez **Download**. Le portail télécharge le contenu sous `nom-base.sql.gz`. Vérifiez la fin du téléchargement et conservez-le en sécurité : il peut contenir des données personnelles et secrets applicatifs.
+
+Cet export ne contient ni fichiers du site, ni envois, ni e-mails. Utilisez des [sauvegardes adaptées](../backups/index.mdx) pour restaurer l’ensemble du site.
+
+## Erreurs de fichier ou de connexion
+
+Vérifiez format, taille, compatibilité de l’export et espace disponible. Au-delà de la limite du portail, convenez d’une méthode avec le support. SFTP place seulement le fichier sur le site ; il reste à l’importer. N’utilisez pas l’import MySQL pour [PostgreSQL](./postgresql.mdx).

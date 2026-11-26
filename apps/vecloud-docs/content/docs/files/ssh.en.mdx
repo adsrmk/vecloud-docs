@@ -1,0 +1,45 @@
+---
+title: Use SSH and SFTP
+description: Connect securely to the website account with a public key or SSH password.
+icon: KeyRound
+---
+
+## Open SSH settings
+
+Go to **Domains → your website → Developer tools** and find **SSH key management**. SSH is available when included in your package. Access covers the entire website and its attached domains.
+
+The displayed login command contains the website user and server address. Use those details, not your portal login or an FTP account. This provides access to the website environment, not root access to the server.
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Add a public SSH key"
+  caption="Add a public SSH key"
+/>
+
+## Add a public key
+
+<Steps>
+<Step title="Create a key pair locally">
+Generate a key pair in your SSH application if you do not already have one. Keep the private key on your own device.
+</Step>
+<Step title="Add the public key">
+Select **Add SSH key**, enter a recognisable name and paste the complete public key. **Choose file** also accepts the public key file. Never provide your private key.
+</Step>
+<Step title="Test the connection">
+Select **Add**, check the key in the list and use the login command in your terminal. Verify the server’s host fingerprint before trusting a new connection; ask support to confirm it if unsure.
+</Step>
+</Steps>
+
+## Configure SFTP
+
+In your file client, choose **SFTP**, the server address and website user from the login command, and port **22**. Select the corresponding private key in your client. An FTP account containing `@domain` is not the same SSH identity.
+
+## Set an SSH password
+
+Under **SSH password authentication**, select **Reset password**. Set a unique password of at least ten characters with lowercase, uppercase, a number and a special character, then save. The existing password remains hidden. Update devices that use the old password.
+
+## Revoke access
+
+Select **Delete** beside a key and confirm. Its holder loses SSH and SFTP access through that key. Other keys and the SSH password provide separate access; review those too when someone should no longer have access.
+
+For larger transfers, see [uploads and downloads](./transfers.mdx). Never share private keys or passwords in a support ticket or screenshot.

@@ -1,0 +1,41 @@
+---
+title: Mail clients and webmail
+description: Use the displayed server, ports and mailbox credentials to access email.
+icon: MailOpen
+---
+
+## Find the correct settings
+
+Open **Email → the address → Manage → Email client settings**. Use the complete mailbox address as username, such as `hello@example.test`, and its mailbox password. That is not necessarily your VECloud account password.
+
+For a mailbox hosted here, the panel shows these combinations. For `hello@example.test`, the displayed server is `mail.example.test`; replace the example with the server in your own table.
+
+| Service | Port | Security |
+| --- | --- | --- |
+| IMAP | 993 | SSL/TLS |
+| SMTP | 465 | SSL/TLS |
+| SMTP, alternative | 587 | STARTTLS |
+| POP | 995 | SSL/TLS |
+
+Choose one SMTP combination and enable authentication with the mailbox credentials. Do not combine port 587 with the implicit SSL/TLS setting used on port 465.
+
+<PortalScreenshot name="mail-clients" alt="IMAP, SMTP and POP settings for a fictitious mailbox" caption="Copy the hostname and full username from your own account. Use one appropriate SMTP combination." />
+
+## Configure a mail client
+
+1. Add an existing email account in your mail client.
+2. Choose IMAP to synchronize messages and folders across devices.
+3. Enter the username, password and displayed incoming/outgoing server details.
+4. Test both receiving and sending, and another device if applicable.
+
+POP may download messages locally; check whether it keeps a server copy before using it. A forwarding-only address has no mailbox of its own to open through IMAP or webmail.
+
+## Open webmail
+
+Use the webmail action beside the mailbox in the email list. The panel opens available webmail access in a new tab. Allow that tab if the browser blocks it. If the session expired, check your portal sign-in first.
+
+## Connection or certificate errors
+
+Check the full username, current mailbox password, port and security method. Ensure the displayed mail hostname resolves correctly and uses a matching certificate. Do not ignore a certificate warning to make an incorrect hostname appear to work.
+
+For mailboxes hosted by an external provider, use that provider’s connection settings. Selecting **External mail** does not make an external mailbox accessible through this local mail host. See [mail routing](../dns-ssl/mail-routing.mdx).

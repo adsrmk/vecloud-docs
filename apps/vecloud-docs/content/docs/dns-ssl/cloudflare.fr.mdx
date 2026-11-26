@@ -1,0 +1,40 @@
+---
+title: Connecter Cloudflare
+description: Connectez un jeton API et synchronisez les DNS du portail vers Cloudflare pour chaque domaine.
+icon: Cloud
+---
+
+## Choisir où gérer le DNS
+
+Ouvrez **Integrations → Cloudflare**. L’intégration est gérée par un propriétaire ou administrateur autorisé. Pendant la synchronisation, **les enregistrements DNS du portail font référence**. Ceux saisis directement dans Cloudflare peuvent être écrasés.
+
+<Callout type="warning" title="Vérifier toute la zone avant synchronisation">
+Comparez les enregistrements web, courrier et vérification, puis ajoutez les valeurs manquantes au portail. Ne connectez pas une zone de production si des données importantes n’existent que dans Cloudflare.
+</Callout>
+
+<PortalScreenshot name="cloudflare" alt="Connexion Cloudflare avec domaine et état de démonstration" caption="Cette vue locale utilise des données fictives et aucun jeton API valide." />
+
+## Ajouter une connexion API
+
+1. Dans votre compte Cloudflare, créez un jeton avec le modèle **Edit zone DNS** indiqué par le formulaire, limité aux zones nécessaires.
+2. Dans le portail, choisissez **Add API token**.
+3. Donnez un nom identifiable et collez le jeton dans le champ masqué.
+4. Choisissez **Save** et vérifiez la liste.
+
+Utilisez le lien vers les [jetons API Cloudflare](https://dash.cloudflare.com/profile/api-tokens). Ne partagez pas le jeton dans un ticket ou une capture. Le jeton existant n’est jamais renvoyé au navigateur.
+
+## Synchroniser un domaine
+
+Recherchez le domaine sous **Domain synchronization** puis choisissez **Manage**. Sélectionnez la bonne connexion, lisez et confirmez que les données du portail feront référence, puis choisissez **Enable synchronization**. Vérifiez ensuite l’état du domaine, la dernière synchronisation de la connexion et les enregistrements réels.
+
+L’intégration n’enregistre ni ne transfère le domaine et ne change pas sa délégation. Il doit correspondre à la bonne zone Cloudflare et aux serveurs de noms actifs. Les réglages proxy et SSL de Cloudflare influencent toujours l’accessibilité du site.
+
+## Remplacer un jeton ou arrêter
+
+Utilisez **Edit** pour changer le nom ou saisir un nouveau jeton. **Un champ jeton vide conserve ici le jeton existant.** Ce comportement diffère des clés de fournisseurs OpenClaw.
+
+Pour déconnecter un domaine, choisissez **Manage**, lisez la confirmation puis **Stop synchronization**. Vérifiez où effectuer les prochaines modifications DNS. Supprimer une connexion API peut affecter plusieurs domaines ; la confirmation les répertorie.
+
+## Vérification nécessaire ou absence de mise à jour
+
+Vérifiez la validité du jeton, son accès à la bonne zone et la connexion choisie. Comparez les enregistrements actuels des deux côtés. Si le résultat n’est pas confirmé, actualisez avant de répéter. L’état **Connected** ne prouve pas à lui seul que chaque enregistrement souhaité est correct.

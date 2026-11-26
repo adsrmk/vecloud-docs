@@ -1,0 +1,41 @@
+---
+title: Frequently asked questions
+description: Quick answers to common Control Panel questions.
+icon: CircleQuestionMark
+---
+
+<Accordions>
+<Accordion title="Why are some settings missing?">
+Options depend on role, package and assigned services. Collaborators see assigned websites only. Check the organisation and top-bar domain first. See [roles and access](../account/team.mdx).
+</Accordion>
+<Accordion title="Does Add domain register my domain name?">
+No. It creates the hosting assignment. Registration, nameserver delegation, DNS and certificates are separate. Follow [domain creation](../websites/create.mdx), then check DNS.
+</Accordion>
+<Accordion title="Is an alias the same as a redirect?">
+An alias attaches a domain to an existing website environment. A redirect sends the browser to another URL. See [domain types](../websites/create.mdx) or [redirects](../dns-ssl/redirects.mdx).
+</Accordion>
+<Accordion title="Are portal users and WordPress users the same?">
+No. Portal users control hosting access; WordPress users belong to an individual installation. Mailboxes, FTP accounts and database users also have separate access.
+</Accordion>
+<Accordion title="Can I select one file from a backup?">
+The current restore dialog offers website files and available MariaDB databases. It has no individual file picker or separate mailbox selector. Check the selection before [starting a restore](../backups/restore.mdx).
+</Accordion>
+<Accordion title="Why do I still see old content after a change?">
+Check that the file was saved and identify active cache layers. Clearing FastCGI does not clear browser or external CDN caches. See [caching and exclusions](../performance/cache.mdx).
+</Accordion>
+<Accordion title="Does enabling Redis configure WordPress too?">
+No. It enables the service; the application needs its own integration. Check the connection in your object cache plugin. See [Redis](../performance/redis.mdx).
+</Accordion>
+<Accordion title="Can I import SQL through Files?">
+Files stores the file without executing SQL. Use the selected MySQL/MariaDB database’s import, accepting .sql, .gz and .zip up to 500 MB. See [SQL imports](../databases/sql.mdx).
+</Accordion>
+<Accordion title="Do I use an FTP account for SFTP?">
+No. SFTP uses the website user and SSH access on port 22. FTP uses its own accounts and port 21. See [FTP](../files/ftp.mdx) and [SSH/SFTP](../files/ssh.mdx).
+</Accordion>
+<Accordion title="Does a high request count always mean an attack?">
+No. Campaigns, bots, updates or recurring tasks can cause traffic. Compare the period, logs and resource usage. A [traffic notification](../account/notifications.mdx) does not automatically block IP addresses.
+</Accordion>
+<Accordion title="Should I repeat an action after a timeout?">
+Check the current list or job status first. A change may have completed without browser confirmation. This is particularly important for deletion, restores and creation. See [troubleshooting](./index.mdx).
+</Accordion>
+</Accordions>

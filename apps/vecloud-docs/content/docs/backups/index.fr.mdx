@@ -1,0 +1,38 @@
+---
+title: Sauvegardes
+description: Consultez les points disponibles et préparez la restauration de votre site.
+icon: Archive
+---
+
+## Trouver vos sauvegardes
+
+Ouvrez **Domains**, sélectionnez le site puis **Backups**. Vérifiez le domaine dans la barre supérieure. La liste concerne ce site.
+
+<PortalScreenshot name="backups" alt="Historique des sauvegardes du site de démonstration example.test" caption="Le panneau affiche la date, le stockage et les fichiers et bases inclus. Cet exemple utilise uniquement des données de démonstration. Cliquez pour agrandir." />
+
+## Lire la liste
+
+| Colonne | Signification |
+| --- | --- |
+| Started | Début de la sauvegarde. |
+| Website files | Taille des fichiers indiquée et nombre de boîtes mail, si disponible. |
+| Databases | Nombre de bases de données indiqué. |
+| Restore | Ouvre les détails et l’action de restauration. |
+
+Un tiret pour la taille signifie que cette information n’a pas été fournie. Il ne confirme pas que la sauvegarde est vide. Ouvrez les détails pour vérifier son contenu.
+
+## Créer une sauvegarde
+
+1. Cliquez sur **Create backup** si cette action est disponible.
+2. Attendez la confirmation de la prise en compte de la demande.
+3. Vérifiez la sauvegarde plus tard. Utilisez-la uniquement lorsque les composants nécessaires sont terminés avec succès.
+
+<Callout title="Avant une modification">
+Créez une sauvegarde récente avant une mise à jour importante, une importation ou un changement de configuration. L’historique et la conservation dépendent de votre hébergement ; référez-vous à la liste du panneau.
+</Callout>
+
+## Choisir quoi restaurer
+
+WordPress a besoin de ses fichiers et de sa base de données. Les fichiers comprennent les extensions et les médias ; la base contient notamment les publications, paramètres et commandes.
+
+Suivez [Restaurer une sauvegarde](./restore.mdx) pour sélectionner et confirmer. En cas de liste vide ou d’erreur, consultez [Dépannage des sauvegardes](./troubleshooting.mdx).

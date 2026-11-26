@@ -1,0 +1,37 @@
+---
+title: Gérer PostgreSQL
+description: Gérez les bases PostgreSQL, les utilisateurs et les accès si le service est disponible.
+icon: Database
+---
+
+## Disponibilité
+
+Ouvrez **Domains → votre site → Databases**. La section PostgreSQL apparaît lorsqu’un serveur PostgreSQL est associé au site. Un message indiquant que PostgreSQL n’est pas activé ne signifie pas que vos bases MySQL ont disparu.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="Accès PostgreSQL par base de données"
+  caption="Accès PostgreSQL par base de données"
+/>
+
+## Créer une base et un utilisateur
+
+Sélectionnez **Add database** dans PostgreSQL, indiquez un nom et enregistrez. Utilisez des minuscules, chiffres, `_` ou `$`, jusqu’à 64 caractères. Créez ensuite un utilisateur dans **Users** avec son propre mot de passe fort. Un identifiant PostgreSQL accepte au maximum 63 caractères. Sélectionnez les bases auxquelles il doit accéder.
+
+Vérifiez les associations après l’enregistrement. Un utilisateur peut exister même si une attribution d’accès ultérieure a échoué.
+
+## Accorder ou retirer un accès
+
+Ouvrez une base et ajoutez un utilisateur existant dans **Users with access**. Vous pouvez aussi associer une base depuis la gestion de l’utilisateur. Cette fonction accorde tous les droits par base ; elle ne propose pas la sélection de privilèges individuels de MySQL.
+
+Retirez une association pour révoquer l’accès à cette base. L’utilisateur et la base restent distincts. Leur suppression définitive nécessite une confirmation propre.
+
+## Connexions et mots de passe
+
+Utilisez l’adresse PostgreSQL affichée et les noms complets de base et d’utilisateur dans l’application. Celle-ci doit utiliser un pilote PostgreSQL ; les paramètres MySQL ne sont pas interchangeables. Réinitialisez le mot de passe depuis la gestion de l’utilisateur et mettez immédiatement l’application à jour.
+
+<Callout title="Import et administration">
+Les boutons d’import SQL, d’export SQL et phpMyAdmin de la section MySQL ne sont pas des outils PostgreSQL. Utilisez une application PostgreSQL compatible pour ses sauvegardes et demandez au support de confirmer les connexions possibles si nécessaire.
+</Callout>
+
+Avant une modification importante, réalisez un export adapté ou vérifiez une sauvegarde restaurable. Supprimer une base efface définitivement son contenu.

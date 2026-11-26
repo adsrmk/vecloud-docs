@@ -1,0 +1,53 @@
+---
+title: Gestionar MySQL y MariaDB
+description: Crea bases de datos y usuarios, asigna permisos y consulta la conexión.
+icon: Database
+---
+
+## La base de datos y el usuario son distintos
+
+Abre **Domains → tu sitio → Databases**. La sección MySQL gestiona bases MySQL/MariaDB. La base almacena datos; cada usuario tiene contraseña y permisos sobre una o varias bases. No es la cuenta del portal ni de WordPress.
+
+<PortalScreenshot
+  name="databases"
+  alt="Vista con dos motores de base de datos"
+  caption="Vista con dos motores de base de datos"
+/>
+
+## Añadir una base de datos
+
+<Steps>
+<Step title="Pulsa Add database">
+Usa minúsculas, números, `_` o `$`. El prefijo que muestre el formulario se añade al nombre completo. El límite es de 64 caracteres incluido el prefijo.
+</Step>
+<Step title="Asigna un usuario">
+Selecciona usuarios existentes o **Create new user**. Un usuario nuevo admite hasta 32 caracteres incluido el prefijo. Usa una contraseña única de al menos diez caracteres con minúscula, mayúscula, número y carácter especial. Mantén la autenticación predeterminada salvo que la aplicación requiera un plugin concreto.
+</Step>
+<Step title="Guarda y comprueba el acceso">
+Comprueba la base y los usuarios asociados. Si se crean pero falla la asignación de permisos, abre la gestión y corrige esa asociación; no vuelvas a crear la misma cuenta.
+</Step>
+</Steps>
+
+## Gestionar permisos
+
+Pulsa una base de datos. En **Users** puedes añadir un usuario existente, crear uno o modificar permisos. **All database privileges** concede todos los permisos disponibles. Desmárcalo para elegir permisos individuales, como `SELECT` para lectura. **Revoke access** elimina la asociación, no el usuario.
+
+La sección **Users** de la lista permite gestionar el usuario, su contraseña oculta y las bases accesibles. Tras restablecer la contraseña, actualiza la configuración de la aplicación para evitar errores de conexión.
+
+## Conectarse a la base de datos
+
+En **Connection details** aparecen la ruta del socket Unix y la dirección TCP actual. Utiliza esos datos en la aplicación. No des por válido el IP web ni `localhost`: depende de dónde se ejecute la aplicación.
+
+Para conexiones externas, abre el usuario y añade la dirección pública IPv4 o IPv6 concreta del cliente en **IP addresses for external access**. Esto no concede permisos de base de datos ni garantiza que un firewall externo permita la conexión. Retira los accesos innecesarios.
+
+<Callout type="warn" title="La eliminación es definitiva">
+Eliminar una base borra todos sus datos. Eliminar un usuario puede afectar a varias aplicaciones que compartan esa cuenta. Crea antes una [exportación SQL](./sql.mdx) o comprueba una [copia utilizable](../backups/index.mdx).
+</Callout>
+
+Utiliza [phpMyAdmin](./phpmyadmin.mdx) para tablas y consultas. PostgreSQL tiene [gestión independiente](./postgresql.mdx).
+
+<PortalScreenshot
+  name="database-add"
+  alt="Asociar una base nueva a un usuario existente"
+  caption="Asociar una base nueva a un usuario existente"
+/>

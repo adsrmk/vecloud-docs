@@ -1,0 +1,45 @@
+---
+title: Utilizar SSH y SFTP
+description: Accede de forma segura al usuario del sitio con una clave pública o contraseña SSH.
+icon: KeyRound
+---
+
+## Abrir los ajustes SSH
+
+Ve a **Domains → tu sitio → Developer tools** y busca **SSH key management**. SSH está disponible si lo incluye el plan. El acceso abarca todo el sitio y sus dominios asociados.
+
+El comando de conexión muestra el usuario del sitio y el servidor. Usa esos datos, no el acceso al portal ni una cuenta FTP. Permite acceder al entorno del sitio, no como root al servidor.
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Añadir una clave pública SSH"
+  caption="Añadir una clave pública SSH"
+/>
+
+## Añadir una clave pública
+
+<Steps>
+<Step title="Crea un par de claves localmente">
+Genera el par en tu aplicación SSH si aún no tienes uno. Conserva la clave privada en tu dispositivo.
+</Step>
+<Step title="Añade la clave pública">
+Pulsa **Add SSH key**, introduce un nombre reconocible y pega la clave pública completa. **Choose file** permite seleccionar el archivo público. Nunca facilites la clave privada.
+</Step>
+<Step title="Prueba la conexión">
+Pulsa **Add**, comprueba la lista y utiliza el comando en tu terminal. Verifica la huella del servidor antes de confiar en una conexión nueva; pide confirmación a soporte si tienes dudas.
+</Step>
+</Steps>
+
+## Configurar SFTP
+
+En el cliente de archivos, elige **SFTP**, el servidor y usuario del comando, y el puerto **22**. Selecciona la clave privada correspondiente en el cliente. Una cuenta FTP con `@dominio` no es el mismo usuario SSH.
+
+## Establecer una contraseña SSH
+
+En **SSH password authentication**, pulsa **Reset password**. Define una contraseña única de al menos diez caracteres con minúscula, mayúscula, número y carácter especial, y guarda. La contraseña actual permanece oculta. Actualiza los dispositivos que utilicen la anterior.
+
+## Retirar el acceso
+
+Pulsa **Delete** junto a una clave y confirma. Su titular pierde el acceso SSH y SFTP mediante esa clave. Otras claves y la contraseña SSH son vías independientes; revísalas también al retirar el acceso a una persona.
+
+Para transferencias grandes, consulta [subidas y descargas](./transfers.mdx). Nunca compartas claves privadas ni contraseñas en tickets o capturas.

@@ -1,0 +1,37 @@
+---
+title: Caché de opcode y de páginas
+description: Gestiona la caché PHP y Nginx FastCGI con exclusiones adecuadas.
+icon: Gauge
+---
+
+## Dos cachés distintas
+
+Abre **Domains → tu sitio → Optimization**. **Opcode caching** conserva código PHP compilado. **FastCGI cache** conserva páginas renderizadas en Nginx. Evitan trabajos distintos y ninguna sustituye a una copia de seguridad.
+
+<PortalScreenshot
+  name="nginx-cache"
+  alt="Caché FastCGI y exclusiones por dominio"
+  caption="Caché FastCGI y exclusiones por dominio"
+/>
+
+## Caché de opcode
+
+Activa o desactiva **Opcode caching** y espera la confirmación. Controla `opcache.enable`, no el almacenamiento de HTML completo. Tras cambiar código, comprueba que se ejecute la versión actual; vaciar una caché de páginas no corrige PHP defectuoso.
+
+## FastCGI por dominio
+
+**Nginx FCGI** aparece si el servidor web lo admite. Selecciona el dominio y cambia **FastCGI cache**. Prueba páginas públicas y partes dinámicas.
+
+En **Cache exclusions**, añade rutas que no deban servirse desde caché: acceso, carrito, pago o cuentas personales, según la aplicación. Un ejemplo como `/checkout/` no garantiza cubrir todas las páginas dinámicas.
+
+Eliminar una exclusión vuelve a permitir la caché según el resto de ajustes. Revisa por qué se añadió antes de quitarla.
+
+## Vaciar la caché
+
+Pulsa **Clear cache** para el dominio seleccionado y confirma. Elimina sus páginas FastCGI guardadas, no la caché del navegador, CDN externos ni todas las cachés de plugins WordPress. La siguiente petición puede requerir más trabajo al regenerar la página.
+
+## Reescrituras del servidor
+
+El mismo bloque permite **Web server rewrites** con ruta de origen y archivo de destino. Las acciones de editar y eliminar están en el menú de la fila. Es enrutamiento interno, distinto de una [redirección 301/302](../dns-ssl/redirects.mdx) a otra URL. Conserva las reglas necesarias para la aplicación.
+
+Si hay una modificación en curso, actualiza primero la configuración. Evita editar el mismo dominio desde varias ventanas a la vez. Para caché de objetos, consulta [Redis](./redis.mdx).

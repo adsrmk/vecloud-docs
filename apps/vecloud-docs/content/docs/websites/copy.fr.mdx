@@ -1,0 +1,43 @@
+---
+title: Gérer et publier le staging
+description: Copiez vers un site nouveau ou existant et distinguez la conversion du staging.
+icon: Globe
+---
+
+## Choisir la destination
+
+Ouvrez **Overview** d’un staging existant. Si vos droits et votre offre le permettent, **Publish staging** apparaît. L’interface actuelle affiche ce menu pour les stagings ; un site normal n’a pas de bouton de copie ici.
+
+| Action | Résultat |
+| --- | --- |
+| To a new website | Crée un site distinct avec le contenu copié. |
+| To an existing website | Copie vers un site sélectionné et peut écraser son contenu. |
+| Promote to production | Convertit le staging lui-même en production, sans copier vers un autre site. |
+
+## Copier vers un nouveau site
+
+1. Choisissez l’option de nouveau site dans le menu.
+2. Si demandé, sélectionnez l’abonnement et le type production ou staging.
+3. Saisissez le domaine ou nom de staging. Le panneau affiche le suffixe configuré.
+4. Vérifiez search-and-replace WordPress si le domaine change.
+5. Confirmez et suivez la progression.
+
+Le nouveau site consomme le quota approprié. Son domaine peut encore nécessiter DNS et SSL pour être accessible publiquement.
+
+## Copier vers un site existant
+
+<Callout type="warning" title="Vérifiez la destination">
+Le site sélectionné peut être écrasé. Conservez contenu et commandes récents et sauvegardez d’abord la destination.
+</Callout>
+
+Sélectionnez la destination. Vérifiez chemins exclus, bases et utilisateurs de base. Examinez les options de suppression des fichiers présents seulement sur la destination et de synchronisation PHP.
+
+Pour WordPress, search-and-replace peut adapter les références de l’ancien domaine au nouveau. Choisissez avec soin : des références absolues peuvent devoir rester inchangées.
+
+## Convertir le staging en production
+
+**Promote to production** change le type du staging et utilise un quota de site normal. Domaine et contenu restent sur ce même site. Pour envoyer le contenu vers une production existante, utilisez la copie vers un site existant et vérifiez la destination.
+
+## Après la copie
+
+Vérifiez destination, pages importantes, administration, formulaires et connexion à la base. En cas de résultat incertain, consultez progression et liste avant de relancer.

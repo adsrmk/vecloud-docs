@@ -1,0 +1,36 @@
+---
+title: Logs gebruiken bij problemen
+description: Vind het juiste log voor PHP, WordPress, workers en andere taken.
+icon: ScrollText
+---
+
+## PHP-foutenlog
+
+Open **Domains → je website → Developer tools → PHP**. Het blok **PHP error log** toont de beschikbare PHP-logtekst en wanneer die is opgehaald. Bij een groot log kan alleen het laatste deel zichtbaar zijn; het portaal vermeldt dat dan.
+
+Noteer het tijdstip van de fout, herhaal de handeling één keer als dat veilig is en open de gegevens opnieuw. Zoek rond dat tijdstip naar fouttype, bestand en regelnummer. De tekst **No PHP errors found** betekent dat de opgehaalde logtekst leeg is, niet dat elke websitefunctie correct werkt.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP-foutenlog met uitsluitend fictieve meldingen"
+  caption="PHP-foutenlog met uitsluitend fictieve meldingen"
+/>
+
+## Kies de juiste bron
+
+| Probleem | Waar je begint |
+| --- | --- |
+| PHP-fout of fout na versiewissel | PHP error log in Developer tools |
+| WordPress-debugging | [Debug-instellingen](../wordpress/debug.mdx) en het door WordPress geschreven debuglog |
+| Worker start of crasht | Het log bij de betreffende worker |
+| GitHub-deployment | Deploymentlog bij de GitHub-koppeling |
+| Migratietaak | Voortgang en log van die migratie |
+| SQL-import | De importmelding en controle van de doeldatabase |
+
+Een map `logs` kan ook via **Files** beschikbaar zijn. Welke bestanden daarin staan hangt van de websiteomgeving af. Ga niet uit van een universele toegang tot alle serverlogs of een afzonderlijke access-logviewer in het klantportaal.
+
+## Naar support sturen
+
+Vermeld website, betrokken functie, exacte fouttekst, tijdstip en wat je vlak daarvoor deed. Neem alleen het relevante logfragment mee. Verwijder wachtwoorden, tokens, sessielinks en persoonlijke gegevens voordat je iets deelt.
+
+Verander niet meerdere instellingen tegelijk om een fout te verbergen. Bewaar de oorspronkelijke waarde, controleer na elke wijziging en gebruik een back-up als herstel nodig is. Een [resourcegrafiek](../performance/resources.mdx) kan helpen een piek te koppelen aan het fouttijdstip.

@@ -1,0 +1,36 @@
+---
+title: Gestionar procesos worker
+description: Ejecuta una aplicación y dirige tráfico web a su puerto local.
+icon: Blocks
+---
+
+<PortalScreenshot name="worker-create" alt="Preparar un proceso Node.js con directorio de trabajo, puerto y proxy HTTP." caption="Preparar un proceso Node.js con directorio de trabajo, puerto y proxy HTTP." />
+
+## Preparar el worker
+
+Abre **Domains → tu sitio → Worker processes**. La disponibilidad depende del entorno. Prepara archivos y dependencias; crear un worker no sube automáticamente el proyecto completo.
+
+Elige añadir y un modo:
+
+| Modo | Funcionamiento |
+| --- | --- |
+| Automatic (Production) | Inicia automáticamente y reinicia si el proceso termina |
+| Manual (Development) | Configura el reenvío; tú inicias el proceso |
+
+Puedes crear **Node.js**, **Custom**, **Laravel** o **PHP**. Node.js utiliza una versión ofrecida; PHP usa la del sitio. Revisa la orden sugerida para tu proyecto.
+
+## Orden, directorio y proxy
+
+Configura **Start command** y **Working directory**. El proceso arranca en ese directorio. Con GitHub debe corresponder al despliegue activo.
+
+Activa **HTTP Proxy** solo si necesita recibir tráfico web. Indica puerto y ruta opcional. La aplicación debe escuchar en ese puerto y `0.0.0.0`. Deja la ruta vacía para todo el sitio o escríbela sin barra inicial. Reenvía tráfico del dominio principal y puede sustituir el enrutamiento existente.
+
+Activa **Allow WebSocket upgrades** si usa WebSockets. Un worker de cola sin servidor web no requiere automáticamente proxy HTTP.
+
+## Comprobar el resultado
+
+Revisa tarjeta y registro. Los lápices modifican orden, directorio y proxy; versión Node.js y modo tienen selectores propios. Guardar no demuestra que el proceso funcione.
+
+El modo manual Node.js muestra una orden SSH para inicializar el entorno. Usa el [acceso SSH del sitio](../files/ssh.mdx) y los datos indicados; el modo manual no arranca el proceso por ti.
+
+**Delete** detiene el worker y elimina su proxy tras confirmar. Los archivos permanecen. Los workers OpenClaw usan su [toolkit](../applications/openclaw.mdx) cuando se ofrece.

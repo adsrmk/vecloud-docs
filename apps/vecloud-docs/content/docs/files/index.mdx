@@ -1,0 +1,51 @@
+---
+title: Bestandsbeheer en editor
+description: Navigeer door je websitebestanden, maak items aan en bewerk tekst vanuit het portaal.
+icon: FolderOpen
+---
+
+## De juiste map openen
+
+Open **Domains → je website → Files**. **Home** is het begin van de bestandsruimte van deze website, niet de systeemroot van de server. Open een map via de naam en gebruik het kruimelpad om terug te gaan.
+
+De publieke website staat vaak onder `public_html`, maar een applicatie kan een andere installatiemap gebruiken. Controleer het pad van de bedoelde applicatie voordat je bestanden wijzigt.
+
+<PortalScreenshot
+  name="files"
+  alt="Bestandslijst van een demonstratiewebsite"
+  caption="Bestandslijst van een demonstratiewebsite"
+/>
+
+## Zoeken en selecteren
+
+Gebruik de zoekbalk met minimaal twee tekens om bestandsnamen te vinden. Zoekresultaten kunnen uit verschillende mappen komen; controleer het volledige pad. Als het resultaat begrensd is, verfijn de zoekterm. Wis de zoekopdracht om weer door mappen te bladeren.
+
+Je kunt wisselen tussen lijst en raster. Selectievakjes tonen acties voor meerdere items, zoals downloaden, kopiëren, knippen, comprimeren en verwijderen. Gebruik de paginering voor de overige items in een lange lijst.
+
+## Een bestand of map maken
+
+Kies **New file** of **New folder**, vul een naam in en bevestig. Het item wordt in de huidige map aangemaakt. Een nieuw bestand begint leeg. Gebruik herkenbare namen en controleer op een bestaande naam voordat je verdergaat.
+
+## Een tekstbestand bewerken
+
+1. Open het tekstbestand via de naam of de bewerkactie in het contextmenu.
+2. Controleer de bestandsnaam boven in de editor en de map waarin je het bestand hebt geopend en bewaar eerst een kopie als het bestand belangrijk is.
+3. Pas de tekst aan. De editor toont regelnummers en waar mogelijk syntaxisaccenten.
+4. Kies **Save**, of gebruik `Ctrl+S` op Windows/Linux en `⌘S` op macOS terwijl je in de editor werkt.
+5. Wacht op de bevestiging en controleer de website of configuratie die het bestand gebruikt.
+
+Niet-tekstbestanden, zoals afbeeldingen en archieven, worden gedownload in plaats van in deze teksteditor geopend. Gebruik voor grote codewijzigingen je eigen ontwikkelomgeving en een gecontroleerde deployment.
+
+## Sluiten en controleren
+
+Bij niet-opgeslagen wijzigingen vraagt **Close** of je wilt opslaan, wijzigingen wilt weggooien of terug wilt naar de editor. Opslaan wijzigt het bestand op de hosting; het publiceert niet automatisch een Git-commit en voert geen applicatietest uit.
+
+Na een onduidelijke opslagfout open je het actuele bestand opnieuw voordat je dezelfde wijziging herhaalt. Bewerk hetzelfde bestand niet gelijktijdig vanuit meerdere vensters.
+
+Bestanden vervangen, verplaatsen en archiveren staat bij [uploads en overdrachten](./transfers.mdx). Toegangsproblemen onderzoek je met [bestandsrechten](./permissions.mdx).
+
+<PortalScreenshot
+  name="file-editor"
+  alt="De editor voor een veilig demonstratiebestand"
+  caption="De editor voor een veilig demonstratiebestand"
+/>

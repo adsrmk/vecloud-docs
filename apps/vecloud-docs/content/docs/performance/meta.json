@@ -1,0 +1,9 @@
+{
+  "title": "Prestaties",
+  "pages": [
+    "index",
+    "resources",
+    "cache",
+    "redis"
+  ]
+}

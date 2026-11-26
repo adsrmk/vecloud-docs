@@ -29,9 +29,34 @@ const nl = {
       title: 'DNS & SSL',
       description: 'Stel DNS-records in en beveilig je website met HTTPS.',
     },
-    'bestanden-databases': {
-      title: 'Bestanden & databases',
-      description: 'Werk met bestanden, databasegebruikers en phpMyAdmin.',
+    account: {
+      title: 'Account en team',
+      description: 'Beheer je profiel, beveiliging, rollen en meldingen.',
+    },
+    applications: {
+      title: 'Apps',
+      description: 'Installeer en beheer WordPress, Joomla en OpenClaw.',
+    },
+    files: {
+      title: 'Bestanden en toegang',
+      description: 'Bewerk bestanden en regel uploads, FTP en SSH/SFTP.',
+    },
+    databases: {
+      title: 'Databases',
+      description: 'Beheer MySQL, PostgreSQL, rechten en SQL-bestanden.',
+    },
+    performance: {
+      title: 'Prestaties',
+      description: 'Onderzoek verkeer en resources, en stel caches in.',
+    },
+    developers: {
+      title: 'Ontwikkelaars',
+      description: 'Werk met PHP, cron, GitHub en worker processes.',
+    },
+    help: {
+      title: 'Hulp en antwoorden',
+      description:
+        'Los problemen op en vind antwoorden op veelgestelde vragen.',
     },
   },
 };
@@ -67,9 +92,34 @@ export const messages = {
         description:
           'Configure DNS records and secure your website with HTTPS.',
       },
-      'bestanden-databases': {
-        title: 'Files & databases',
-        description: 'Work with files, database users and phpMyAdmin.',
+      account: {
+        title: 'Account and team',
+        description: 'Manage your profile, security, roles and notifications.',
+      },
+      applications: {
+        title: 'Applications',
+        description: 'Install and manage WordPress, Joomla and OpenClaw.',
+      },
+      files: {
+        title: 'Files and access',
+        description: 'Edit files and manage uploads, FTP and SSH/SFTP.',
+      },
+      databases: {
+        title: 'Databases',
+        description: 'Manage MySQL, PostgreSQL, privileges and SQL files.',
+      },
+      performance: {
+        title: 'Performance',
+        description: 'Investigate traffic and resources, and configure caches.',
+      },
+      developers: {
+        title: 'Developers',
+        description: 'Work with PHP, cron, GitHub and worker processes.',
+      },
+      help: {
+        title: 'Help and answers',
+        description:
+          'Troubleshoot problems and find frequently asked questions.',
       },
     },
   },
@@ -104,10 +154,33 @@ export const messages = {
         description:
           'Configura los registros DNS y protege tu sitio con HTTPS.',
       },
-      'bestanden-databases': {
-        title: 'Archivos y bases de datos',
-        description:
-          'Trabaja con archivos, usuarios de bases de datos y phpMyAdmin.',
+      account: {
+        title: 'Cuenta y equipo',
+        description: 'Gestiona perfil, seguridad, roles y notificaciones.',
+      },
+      applications: {
+        title: 'Aplicaciones',
+        description: 'Instala y gestiona WordPress, Joomla y OpenClaw.',
+      },
+      files: {
+        title: 'Archivos y acceso',
+        description: 'Edita archivos y gestiona subidas, FTP y SSH/SFTP.',
+      },
+      databases: {
+        title: 'Bases de datos',
+        description: 'Gestiona MySQL, PostgreSQL, permisos y archivos SQL.',
+      },
+      performance: {
+        title: 'Rendimiento',
+        description: 'Investiga tráfico y recursos, y configura cachés.',
+      },
+      developers: {
+        title: 'Desarrolladores',
+        description: 'Trabaja con PHP, cron, GitHub y procesos worker.',
+      },
+      help: {
+        title: 'Ayuda y respuestas',
+        description: 'Resuelve problemas y consulta preguntas frecuentes.',
       },
     },
   },
@@ -143,10 +216,34 @@ export const messages = {
         description:
           'Configurez les enregistrements DNS et sécurisez votre site avec HTTPS.',
       },
-      'bestanden-databases': {
-        title: 'Fichiers et bases de données',
+      account: {
+        title: 'Compte et équipe',
+        description: 'Gérez profil, sécurité, rôles et notifications.',
+      },
+      applications: {
+        title: 'Applications',
+        description: 'Installez et gérez WordPress, Joomla et OpenClaw.',
+      },
+      files: {
+        title: 'Fichiers et accès',
+        description: 'Modifiez les fichiers et gérez envois, FTP et SSH/SFTP.',
+      },
+      databases: {
+        title: 'Bases de données',
+        description: 'Gérez MySQL, PostgreSQL, droits et fichiers SQL.',
+      },
+      performance: {
+        title: 'Performances',
+        description: 'Examinez trafic et ressources, puis réglez les caches.',
+      },
+      developers: {
+        title: 'Développeurs',
+        description: 'Utilisez PHP, cron, GitHub et les processus worker.',
+      },
+      help: {
+        title: 'Aide et réponses',
         description:
-          'Gérez les fichiers, les utilisateurs de bases de données et phpMyAdmin.',
+          'Résolvez les problèmes et consultez les questions fréquentes.',
       },
     },
   },
@@ -181,9 +278,35 @@ export const messages = {
         description:
           'Konfiguriere DNS-Einträge und sichere deine Website mit HTTPS.',
       },
-      'bestanden-databases': {
-        title: 'Dateien und Datenbanken',
-        description: 'Arbeite mit Dateien, Datenbankbenutzern und phpMyAdmin.',
+      account: {
+        title: 'Konto und Team',
+        description:
+          'Verwalte Profil, Sicherheit, Rollen und Benachrichtigungen.',
+      },
+      applications: {
+        title: 'Anwendungen',
+        description: 'Installiere und verwalte WordPress, Joomla und OpenClaw.',
+      },
+      files: {
+        title: 'Dateien und Zugriff',
+        description:
+          'Bearbeite Dateien und verwalte Uploads, FTP und SSH/SFTP.',
+      },
+      databases: {
+        title: 'Datenbanken',
+        description: 'Verwalte MySQL, PostgreSQL, Rechte und SQL-Dateien.',
+      },
+      performance: {
+        title: 'Leistung',
+        description: 'Prüfe Traffic und Ressourcen und richte Caches ein.',
+      },
+      developers: {
+        title: 'Entwicklung',
+        description: 'Arbeite mit PHP, Cron, GitHub und Worker-Prozessen.',
+      },
+      help: {
+        title: 'Hilfe und Antworten',
+        description: 'Behebe Probleme und finde häufig gestellte Fragen.',
       },
     },
   },

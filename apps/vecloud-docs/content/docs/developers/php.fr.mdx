@@ -1,0 +1,41 @@
+---
+title: Version et paramètres PHP
+description: Modifiez PHP, extensions et INI en vérifiant la compatibilité de l’application.
+icon: Code
+---
+
+## Changer la version PHP
+
+Ouvrez **Domains → votre site → Developer tools → PHP**. La liste indique les versions disponibles pour le site et l’offre. Choisissez-en une, lisez l’avis de compatibilité et confirmez. Vérifiez auparavant application, thèmes et extensions. Le site peut être brièvement indisponible pendant le changement.
+
+Les anciennes versions peuvent déclencher un avertissement d’authentification MariaDB incompatible. L’absence d’avertissement ne constitue pas un test complet. Contrôlez ensuite le site, l’administration et le [journal PHP](./logs.mdx).
+
+<PortalScreenshot
+  name="php-settings"
+  alt="Version PHP, extensions et journal d’exemple sans données sensibles"
+  caption="Version PHP, extensions et journal d’exemple sans données sensibles"
+/>
+
+## Extensions et IonCube
+
+Dans **PHP extensions**, activez ou désactivez les extensions optionnelles proposées. Les extensions intégrées sont distinctes des options configurables. Leur disponibilité dépend de l’environnement. L’extension PHP Redis diffère du [service Redis](../performance/redis.mdx).
+
+Le bloc **IonCube loader** concerne les applications nécessitant ce chargeur. Activez-le uniquement si l’application le requiert et si la version PHP le permet. L’interface précise son indisponibilité pour PHP 8.0.
+
+## PHP INI editor
+
+L’éditeur est disponible si votre offre l’autorise. Sélectionnez **Edit** sur une directive ou **Add directive** pour en ajouter une. Saisissez le nom exact, puis **Text** pour une valeur telle que `256M`, ou **Boolean** pour activer/désactiver. Enregistrez et vérifiez la valeur actuelle.
+
+**Inherited** indique une valeur héritée. Une valeur personnalisée constitue une surcharge du site. Supprimer cette surcharge rétablit l’héritage, sans nécessairement désactiver la fonction.
+
+`upload_max_filesize` et les paramètres similaires concernent l’application PHP. Ils ne définissent pas les limites distinctes du gestionnaire de fichiers ou de l’import SQL du portail.
+
+<Callout type="warn" title="Restart interrompt le conteneur">
+**Restart** redémarre le conteneur applicatif et peut interrompre Redis et Node.js. Le site peut être hors ligne pendant le redémarrage. Confirmez volontairement et testez ensuite l’application. Redémarrer ne répare ni code erroné ni fichiers manquants.
+</Callout>
+
+<PortalScreenshot
+  name="php-ini"
+  alt="Modifier une valeur PHP INI"
+  caption="Modifier une valeur PHP INI"
+/>

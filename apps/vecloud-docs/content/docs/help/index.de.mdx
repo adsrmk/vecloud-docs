@@ -1,0 +1,40 @@
+---
+title: Fehler beheben
+description: Grenze Probleme ein und sammle hilfreiche Angaben vor Einstellungsänderungen.
+icon: LifeBuoy
+---
+
+## Kontext prüfen
+
+Prüfe Domain in der oberen Leiste, Organisation und Kontorechte. Ein Alias kann dieselbe Umgebung wie eine andere Domain nutzen. Portalsitzung, WordPress-Konto, Postfach und Datenbankbenutzer haben getrennte Zugänge.
+
+Notiere genaue Meldung und Zeitpunkt und lade die aktuellen Daten neu. Der allgemeine Dienststatus prüft nicht die Erreichbarkeit jeder einzelnen Website.
+
+## Passende Prüfung wählen
+
+| Situation | Zuerst prüfen |
+| --- | --- |
+| Website öffnet sich nicht | [Aktive DNS-Zone und Einträge](../dns-ssl/index.mdx), Zielhost und Website-Status |
+| Zertifikat fehlt oder ist abgelaufen | [SSL und HTTPS](../dns-ssl/ssl.mdx), Domain und öffentliches DNS |
+| E-Mails kommen nicht an | [Mailrouting und MX](../dns-ssl/mail-routing.mdx), Status, Kontingent und [Spamfilter](../email/spam.mdx) |
+| PHP-Fehler oder weiße Seite | [PHP-Version und Erweiterungen](../developers/php.mdx), [Logs](../developers/logs.mdx) und Codeänderungen |
+| Alte Seite bleibt sichtbar | [Cacheebenen und Ausnahmen](../performance/cache.mdx), danach Browser und externe Caches |
+| Dateien nicht erreichbar | Verzeichnis, [Rechte](../files/permissions.mdx) und [FTP/SSH-Identität](../files/ssh.mdx) |
+| Datenbankverbindung scheitert | [Host, Benutzer, Passwort und Rechte](../databases/index.mdx) |
+| Backup oder Restore scheitert | [Backup-Diagnose](../backups/troubleshooting.mdx) und aktueller Aufgabenstatus |
+
+## Änderung nicht bestätigt
+
+Timeout oder fehlende Bestätigung können ein ungewisses Ergebnis bedeuten. Der Dienst kann die Änderung bereits erhalten haben. Lade Liste oder Konfiguration neu, bevor du erneut hinzufügst, löschst oder einen Restore startest.
+
+Läuft eine VirtualHost-Änderung, lass sie abschließen und prüfe den Stand. Erzwinge dieselbe Änderung nicht aus mehreren Fenstern. Prüfe vor einem Restore, ob bereits einer läuft.
+
+## Einstellung fehlt
+
+Die Verfügbarkeit hängt von Rolle, Paket, Webserver und zugewiesenen Diensten ab. Eine verborgene oder deaktivierte Option ist nicht automatisch ein Ladefehler. Prüfe Rechte und Dienste der Website; frage bei Bedarf Eigentümer oder Support.
+
+## Support unterstützen
+
+Nenne Domain, Funktion, Zeitpunkt, genaue Meldung, erwartetes Ergebnis und Schritte zur Wiederholung. Teile passende Logausschnitte oder Screenshots erst nach Entfernen von Passwörtern, Tokens, privaten Schlüsseln, Sitzungslinks und persönlichen Daten. Erkläre, ob die Website selbst oder nur das Portal betroffen ist.
+
+Bewahre vor einer Wiederherstellung nach Möglichkeit den aktuellen Zustand. Lösche keine Datenbank oder Website wegen eines Ladefehlers. Siehe auch [häufige Fragen](./faq.mdx).

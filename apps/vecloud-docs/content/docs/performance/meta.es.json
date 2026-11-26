@@ -1,0 +1,9 @@
+{
+  "title": "Rendimiento",
+  "pages": [
+    "index",
+    "resources",
+    "cache",
+    "redis"
+  ]
+}

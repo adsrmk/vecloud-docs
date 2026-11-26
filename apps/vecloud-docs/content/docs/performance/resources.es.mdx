@@ -1,0 +1,38 @@
+---
+title: Uso de recursos por sitio
+description: Investiga CPU, memoria, swap, almacenamiento y procesos desde Analytics.
+icon: Cpu
+---
+
+## Elegir gráfico y periodo
+
+Abre **Domains → tu sitio → Analytics** y baja a **Resource usage**. Elige una métrica y periodo: última hora, 24 horas, 7 días o 30 días. Este periodo es independiente de los gráficos de tráfico. **Refresh resource usage** vuelve a obtener las mediciones; la fecha indica cuándo se consultaron.
+
+<PortalScreenshot
+  name="resource-usage"
+  alt="Gráfico CPU con mediciones de demostración"
+  caption="Gráfico CPU con mediciones de demostración"
+/>
+
+## Interpretar las métricas
+
+| Métrica | Interpretación |
+| --- | --- |
+| CPU | Consumo de procesador; 100% equivale a una vCPU |
+| Memory | Memoria utilizada por el entorno del sitio |
+| Swap | Espacio swap utilizado |
+| Storage performance (I/O) | Bytes leídos y escritos por segundo |
+| Storage performance (IOPS) | Operaciones de lectura y escritura por segundo |
+| Processes | Número de procesos medido |
+
+En I/O e IOPS puedes elegir un dispositivo cuando esté disponible. Lectura y escritura son series distintas. Bajo el gráfico aparece el límite de la última medición, si existe. **Unlimited** indica que no se registró un límite específico, no capacidad física infinita.
+
+Un pico breve de CPU puede coincidir con una actualización o copia. Memoria, swap o procesos altos de forma continua requieren investigar la aplicación y tareas simultáneas. La memoria medida no equivale al ajuste PHP `memory_limit`.
+
+## Faltan mediciones
+
+Las tasas de CPU e I/O se calculan entre mediciones consecutivas. Sin puntos suficientes, el gráfico puede quedar vacío; los datos ausentes no significan consumo cero. Cambia de periodo o actualiza. Un error al obtener métricas no confirma que el sitio esté caído.
+
+## Actuar a partir de los datos
+
+Compara la hora con tráfico, tareas programadas, actualizaciones y registros. Cambia una cosa cada vez y compara después el mismo periodo. Los gráficos no modifican límites ni el plan. Para revisar límites o errores persistentes, facilita a soporte la métrica, periodo y sitio.

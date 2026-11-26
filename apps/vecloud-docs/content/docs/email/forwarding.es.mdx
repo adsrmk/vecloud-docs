@@ -1,0 +1,35 @@
+---
+title: Reenvíos, alias y catch-all
+description: Elige si los mensajes se reenvían o llegan mediante una dirección adicional.
+icon: Forward
+---
+
+## Gestionar destinos de reenvío
+
+Abre **Email → dirección → Manage → Forwarders**. Elige **Add forwarder** o **Manage forwarders**. Introduce direcciones completas, una por línea, y pulsa **Save forwarding addresses**.
+
+Revisa toda la lista antes de guardar. Para quitar un destino, elimina su línea y guarda. Una dirección sin buzón debe conservar al menos un destino.
+
+Envía una prueba desde otra dirección y comprueba el destino y cualquier buzón local. Evita direcciones que se reenvíen mutuamente; un bucle puede impedir la entrega.
+
+<PortalScreenshot name="mail-forwarding" alt="Formulario de reenvío con destino ficticio" caption="Introduce direcciones completas, una por línea, y guarda la lista revisada." />
+
+## Dirección solo de reenvío
+
+Al crearla, elige **Forwarding only** y añade al menos un destino existente. Recibe y reenvía sin almacenamiento ni acceso de buzón propio. Consulta [crear una dirección](./index.mdx).
+
+## Alias de buzón
+
+Abre **Mailbox → Aliases**, introduce las direcciones adicionales completas, una por línea, y pulsa **Save changes**. Usa solo dominios y direcciones cuyo correo gestiones. Un alias entrega mensajes para otro nombre en este buzón; no crea almacenamiento ni contraseña independientes.
+
+Para quitarlo, elimina la línea y guarda. Comprueba antes si formularios, páginas de contacto o remitentes aún lo usan. Configura el cliente con las credenciales del buzón real.
+
+## Catch-all
+
+En **Catch-all** puedes recibir mensajes dirigidos a direcciones inexistentes del dominio. El interruptor guarda de inmediato. Comprueba qué dirección debe recibirlos y prueba con un nombre sin crear del mismo dominio.
+
+También recoge errores de escritura y mucho spam. Déjalo desactivado si solo quieres recibir en direcciones creadas expresamente. Desactivarlo no elimina el buzón normal ni sus reenvíos.
+
+## No llega al destino
+
+Revisa la dirección y la carpeta de spam del destinatario. Comprueba [MX y enrutamiento local/externo](../dns-ssl/mail-routing.mdx). El reenvío puede afectar a la evaluación de autenticación externa; guardarlo no garantiza la entrega con todos los proveedores.

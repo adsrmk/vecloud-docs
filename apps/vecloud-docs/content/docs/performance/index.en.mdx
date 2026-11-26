@@ -1,0 +1,37 @@
+---
+title: Traffic and bandwidth
+description: Read hosting statistics and compare periods without confusing requests with people.
+icon: ChartColumn
+---
+
+## Open hosting statistics
+
+Go to **Domains → your website → Analytics**. **Bandwidth** and **Visitors** appear at the top. Choose **Past week** or **Past month** beside the bandwidth chart; the same period also applies to the visitors chart below it.
+
+<PortalScreenshot
+  name="analytics"
+  alt="Bandwidth for a demonstration website"
+  caption="Bandwidth for a demonstration website"
+/>
+
+## Understand the figures
+
+| Figure | Meaning |
+| --- | --- |
+| Total bandwidth | Outbound traffic during the selected period, displayed in GB |
+| Total hits | Requests counted in the supplied hosting measurements |
+| Unique hits | Unique hits supplied for each measurement period |
+
+Hits are not a guaranteed count of people. Browsers request several files, bots can generate requests, and the same visitor can return in multiple periods. Adding **Unique hits** therefore does not produce a definitive count of unique people for an entire month.
+
+Figures can differ from an external analytics service, which may use different measurement methods, filters and consent settings. This page does not automatically add tracking code to your website.
+
+## Investigate a rise
+
+First compare the same period and distinguish high request counts from high data transfer. Large images or downloads can use considerable bandwidth without many visits. For a sudden increase, investigate recent changes, campaigns, crawlers or repeated URLs in available logs.
+
+Use [resource usage](./resources.mdx) to see whether CPU, memory or storage activity also increases. [Traffic notifications](../account/notifications.mdx) flag anomalies but do not block traffic or establish that an attack is happening.
+
+## No data shown
+
+An empty chart means statistics are not yet available for the selected period. It does not confirm zero usage or an unavailable website. Check the selected website, period and any error message before changing settings.

@@ -1,0 +1,36 @@
+---
+title: Gérer les processus worker
+description: Exécutez une application et dirigez le trafic web vers son port local.
+icon: Blocks
+---
+
+<PortalScreenshot name="worker-create" alt="Préparer un processus Node.js avec un dossier de travail, un port et un proxy HTTP." caption="Préparer un processus Node.js avec un dossier de travail, un port et un proxy HTTP." />
+
+## Préparer un worker
+
+Ouvrez **Domains → votre site → Worker processes**. La disponibilité dépend de l’environnement. Préparez fichiers et dépendances ; créer un worker n’envoie pas automatiquement tout le projet.
+
+Choisissez l’ajout et un mode :
+
+| Mode | Fonctionnement |
+| --- | --- |
+| Automatic (Production) | Démarre automatiquement et redémarre si le processus s’arrête |
+| Manual (Development) | Configure le transfert ; vous démarrez le processus |
+
+Les choix sont **Node.js**, **Custom**, **Laravel** et **PHP**. Node.js utilise une version proposée ; PHP utilise celle du site. Vérifiez la commande suggérée pour votre projet.
+
+## Commande, répertoire et proxy
+
+Renseignez **Start command** et **Working directory**. Le processus démarre dans ce répertoire. Avec GitHub, il doit correspondre au déploiement actif.
+
+Activez **HTTP Proxy** seulement si le worker reçoit du trafic web. Indiquez port et chemin facultatif. L’application doit écouter sur ce port et `0.0.0.0`. Un chemin vide concerne tout le site ; sinon, saisissez-le sans slash initial. Cela transfère le trafic du domaine principal et peut remplacer un routage existant.
+
+Activez **Allow WebSocket upgrades** si l’application utilise WebSocket. Un worker de file d’attente sans serveur web ne nécessite pas automatiquement un proxy HTTP.
+
+## Vérifier après création
+
+Contrôlez fiche et journal. Les crayons modifient commande, répertoire et proxy ; version Node.js et mode ont leurs propres sélecteurs. Une configuration enregistrée ne prouve pas le bon fonctionnement.
+
+Le mode manuel Node.js affiche une commande SSH pour initialiser l’environnement. Utilisez l’[accès SSH du site](../files/ssh.mdx) et les indications ; ce mode ne démarre pas le processus à votre place.
+
+**Delete** arrête le worker et supprime son proxy après confirmation. Les fichiers restent. Les workers OpenClaw utilisent leur [toolkit](../applications/openclaw.mdx) lorsque proposé.

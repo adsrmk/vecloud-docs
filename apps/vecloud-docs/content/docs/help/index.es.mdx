@@ -1,0 +1,40 @@
+---
+title: Resolver problemas
+description: Localiza el problema y reúne la información útil antes de cambiar ajustes.
+icon: LifeBuoy
+---
+
+## Empieza por el contexto
+
+Comprueba el dominio de la barra superior, organización y permisos. Un alias puede compartir el entorno de otro dominio. Sesión del portal, cuenta WordPress, buzón y usuario de base de datos tienen accesos independientes.
+
+Anota mensaje exacto y hora; vuelve a consultar los datos actuales. El estado general de servicios no comprueba la disponibilidad de cada sitio.
+
+## Elegir la investigación
+
+| Situación | Primera comprobación |
+| --- | --- |
+| El sitio no abre | [Zona DNS activa y registros](../dns-ssl/index.mdx), destino y estado del sitio |
+| Certificado ausente o caducado | [SSL y HTTPS](../dns-ssl/ssl.mdx), dominio y DNS público |
+| No llega el correo | [Enrutamiento y MX](../dns-ssl/mail-routing.mdx), estado, cuota y [filtros](../email/spam.mdx) |
+| Error PHP o página blanca | [Versión y extensiones PHP](../developers/php.mdx), [registros](../developers/logs.mdx) y cambios recientes |
+| Sigue apareciendo una página antigua | [Capas de caché y exclusiones](../performance/cache.mdx), navegador y cachés externas |
+| Archivos inaccesibles | Directorio, [permisos](../files/permissions.mdx) e [identidad FTP/SSH](../files/ssh.mdx) |
+| Falla la conexión de base de datos | [Servidor, usuario, contraseña y permisos](../databases/index.mdx) |
+| Error de copia o restauración | [Diagnóstico de copias](../backups/troubleshooting.mdx) y tarea actual |
+
+## Cambio sin confirmar
+
+Un timeout o mensaje de cambio no confirmado puede dejar un resultado incierto. El servicio podría haber recibido la modificación. Actualiza la lista o configuración antes de añadir, borrar o iniciar otra restauración.
+
+Si un cambio VirtualHost sigue procesándose, deja que termine y revisa la configuración. No fuerces el mismo cambio desde varias ventanas. Antes de restaurar, comprueba si ya hay una tarea activa.
+
+## Falta un ajuste
+
+La disponibilidad depende de rol, plan, servidor y servicios asignados. Una opción oculta o desactivada no es necesariamente un error de carga. Comprueba permisos y servicios del sitio; consulta al propietario o soporte si tienes dudas.
+
+## Ayudar a soporte
+
+Incluye dominio, función, hora, error exacto, resultado esperado y pasos para reproducirlo. Comparte un fragmento o captura relevante tras retirar contraseñas, tokens, claves privadas, enlaces de sesión y datos personales. Indica si afecta al sitio o solo al portal.
+
+Conserva el estado actual antes de recuperar datos cuando sea posible. No elimines bases ni sitios para resolver errores de carga. Consulta también [preguntas frecuentes](./faq.mdx).

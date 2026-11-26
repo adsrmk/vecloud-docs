@@ -1,0 +1,37 @@
+---
+title: Direcciones y buzones de correo
+description: Crea buzones o direcciones de reenvío y gestiona nombre, cuota, estado y acceso.
+icon: Mail
+---
+
+## Abrir tu correo
+
+Elige **Email** en el menú principal. Busca la dirección correcta y comprueba su dominio. En el menú de acciones elige **Manage**. Según el tipo de dirección aparecen **Mailbox**, **Forwarders**, **Catch-all**, **Spam settings**, **Out of office** y **Email client settings**.
+
+## Crear una dirección
+
+1. Pulsa **Add email address**.
+2. Introduce solo la parte anterior a `@` y elige el dominio correcto.
+3. Usa **Mailbox** para guardar mensajes y entrar por webmail o un cliente. Introduce tamaño en MB/GB, nombre reconocible y contraseña segura.
+4. Usa **Forwarding only** para reenviar a direcciones existentes sin crear un buzón. Añade al menos un destino válido; esta opción no crea contraseña de buzón.
+5. Pulsa **Create email address** y comprueba la nueva fila.
+
+La contraseña nueva requiere diez caracteres como mínimo, con minúscula, mayúscula, número y carácter especial. Guárdala en tu gestor de contraseñas. Crear la dirección no cambia MX externos ni enrutamiento; revisa también [enrutamiento y DNS](../dns-ssl/mail-routing.mdx).
+
+## Cambiar ajustes
+
+Abre **Manage → Mailbox** para modificar nombre, estado, contraseña opcional, cuota en MB y [alias](./forwarding.mdx). Pulsa **Save changes** para guardar.
+
+Una contraseña nueva vacía conserva la actual. La cuota vacía conserva el límite. Revisa el uso antes de reducirlo; la capacidad también depende del espacio disponible del alojamiento. Actualiza tus clientes después de cambiar la contraseña.
+
+<PortalScreenshot name="mailbox" alt="Ajustes del buzón con nombre, cuota y alias" caption="Una contraseña vacía conserva la actual. Todos los datos mostrados son ficticios." />
+
+## Desactivar o eliminar
+
+El menú de la lista ofrece **Disable** y **Enable**. Una dirección suspendida puede estar limitada por el administrador; pide ayuda si no puedes cambiar ese estado.
+
+**Permanently delete** elimina la dirección y los datos del buzón tras confirmar. Conserva antes los mensajes necesarios, por ejemplo mediante tu cliente. Usa una desactivación temporal si quieres mantener el buzón.
+
+## Fallos al crear o guardar
+
+Comprueba dominio, capacidad del plan y campos obligatorios. Si el resultado es incierto, consulta primero la lista o los ajustes actuales antes de repetir. Para configurar un cliente sigue con [conexiones y webmail](./clients.mdx).

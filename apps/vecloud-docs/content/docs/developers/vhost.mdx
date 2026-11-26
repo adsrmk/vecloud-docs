@@ -1,0 +1,40 @@
+---
+title: VirtualHost-configuratie
+description: Beheer eigen webserverdirectives per domein en voorkom conflicterende wijzigingen.
+icon: FileCode
+---
+
+## Wanneer gebruik je dit?
+
+Gebruik voor normale doorsturingen [Redirects](../dns-ssl/redirects.mdx), voor blokkades [IP deny](../dns-ssl/ip-deny.mdx) en voor caching [Optimization](../performance/cache.mdx). De VirtualHost-editor is voor aanvullende webserverconfiguratie die je applicatie nodig heeft.
+
+Open **Domains → je website → Overview → Website actions → Manage overrides**. Ga naar **VirtualHost configuration**, open het rijmenu van het juiste domein en kies **Edit configuration**. Deze beheerfunctie vereist passende rechten.
+
+<PortalScreenshot
+  name="vhost-editor"
+  alt="VirtualHost-editor met uitsluitend demonstratieconfiguratie"
+  caption="VirtualHost-editor met uitsluitend demonstratieconfiguratie"
+/>
+
+## Een wijziging opslaan
+
+1. Controleer het domein en bewaar de bestaande eigen configuratie.
+2. Voeg alleen directives toe die in de bedoelde VirtualHost-context geldig zijn. Plak geen volledige globale serverconfiguratie.
+3. Kies **Save** en wacht op bevestiging.
+4. Open de actuele configuratie opnieuw en test website, redirects en beveiligingsregels.
+
+<Callout type="warn" title="Ongeldige syntaxis kan de webserver verstoren">
+Een typefout of onjuiste directive kan de website onbereikbaar maken. Test op een geschikte testomgeving en houd een herstelbare oorspronkelijke configuratie bij de hand. Opslaan is geen volledige functionele test van je applicatie.
+</Callout>
+
+## Beheerde regels behouden
+
+Regels die het portaal voor IP deny en ondersteunde redirects beheert, hebben een eigen functie. Wijzig die via hun eigen pagina’s. Het portaal bewaart de beheerde Nginx IP-blokkades bij het opslaan van vrije configuratie; een handmatige wijziging daar is geen betrouwbare manier om een blokkade te verwijderen.
+
+## Standaardinstellingen herstellen
+
+**Reset to default** verwijdert de eigen vrije configuratie van het domein na bevestiging. Beheerde regels kunnen daarbij behouden blijven. Het is geen algemene knop om alle IP-blokkades of redirects uit te schakelen, en herstelt geen websitebestanden of database.
+
+## Wijziging nog in verwerking
+
+Wacht en gebruik **Check status** om de actuele configuratie te lezen. Bij een revisieconflict open je de nieuwste versie en pas je de bedoelde wijziging daarop toe. Overschrijf een oudere editorversie niet opnieuw zonder controle. Bewerk hetzelfde domein niet tegelijk via meerdere vensters of andere beheertools.

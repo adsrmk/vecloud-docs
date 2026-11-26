@@ -1,0 +1,42 @@
+---
+title: Certificats SSL et HTTPS
+description: Demandez un certificat, vérifiez sa validité et dirigez les visiteurs vers HTTPS.
+icon: LockKeyhole
+---
+
+## Demander un certificat
+
+Ouvrez votre site puis **SSL certificates**. La table indique pour chaque domaine l’état, l’émetteur, le réglage HTTPS et la date d’expiration.
+
+1. Vérifiez le DNS public et l’accessibilité du domaine.
+2. Choisissez **Request certificate** puis le domaine souhaité. Un nom de courrier n’est proposé que s’il est disponible.
+3. Lisez l’avertissement : le certificat existant pour ce nom sera remplacé.
+4. Choisissez **Request** puis vérifiez l’état et l’expiration actualisés.
+
+La fermeture de la fenêtre ne prouve pas que l’émission a réussi ; contrôlez la table. En cas d’échec, vérifiez d’abord DNS, accessibilité et éventuels réglages proxy ou CAA. Ne répétez pas la même demande en boucle.
+
+<PortalScreenshot name="ssl" alt="Table SSL avec certificat actif et interrupteur HTTPS" caption="Vérifiez état et expiration par domaine. La démonstration ne contient aucune clé de certificat." />
+
+## Imposer HTTPS
+
+Activez **Enforce HTTPS** pour le bon domaine dès qu’un certificat valide est disponible. La modification s’enregistre immédiatement. Testez une adresse `http://` et vérifiez l’arrivée sur l’adresse `https://` attendue.
+
+En cas de boucle, vérifiez également les redirections de l’application et les réglages HTTPS du proxy externe. Une redirection HTTPS ne répare pas un certificat invalide.
+
+## Installer un certificat personnalisé
+
+Si **Install custom SSL** est disponible, vous pouvez installer un certificat existant et sa clé privée correspondante. Choisissez le domaine puis collez le contenu PEM ou chargez les fichiers. Le sélecteur accepte les fichiers de certificat et de clé compatibles jusqu’à **64 KiB chacun**. Lancez l’installation puis vérifiez l’état.
+
+Le certificat et la clé doivent correspondre, et le domaine doit être couvert. Organisez vous-même le renouvellement d’un certificat personnalisé ; son chargement ne demande pas une nouvelle émission.
+
+## Consulter les détails
+
+**Details** affiche les données disponibles, séparément pour le web et le courrier si nécessaire. Cette vue peut aussi contenir la **clé privée**. Ne la partagez pas dans une capture, un ticket ou un message. Fermez les détails après consultation.
+
+## Modification non confirmée
+
+Un message indiquant que la modification de sécurité n’a pas été confirmée signifie que le panel n’a pas pu établir son résultat final avec certitude. Actualisez d’abord les données. Réessayez uniquement après avoir vérifié que le changement manque encore.
+
+## Autres options de sécurité
+
+Selon le serveur, **ModSecurity** peut apparaître ici avec un interrupteur par domaine. Ne le désactivez pas pour masquer une erreur applicative ; examinez d’abord la requête bloquée. Gérez les blocages Nginx dans [IP deny](./ip-deny.mdx). Sur Apache, cette page SSL peut afficher des contrôles distincts d’accès IP.

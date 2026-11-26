@@ -1,0 +1,35 @@
+---
+title: Configurer DNSSEC
+description: Signez la zone DNS et publiez les données DS correspondantes chez votre bureau d’enregistrement.
+icon: ShieldCheck
+---
+
+## Ce que protège DNSSEC
+
+DNSSEC permet de vérifier l’origine et l’intégrité des réponses DNS. Il ne chiffre pas le trafic web ; utilisez [SSL et HTTPS](./ssl.mdx) pour cela. Une configuration complète relie la zone signée à un enregistrement DS chez le bureau d’enregistrement.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC activé avec données DS de démonstration" caption="Utilisez uniquement les données DS réellement émises pour votre configuration. Ces valeurs sont fictives." />
+
+## Activer DNSSEC
+
+1. Vérifiez les serveurs de noms réellement utilisés par le domaine.
+2. Si cette plateforme héberge la zone active, ouvrez **DNS settings → DNSSEC** sur le site et activez **Enable DNSSEC**.
+3. Attendez la confirmation. Le panel affiche les données DS à publier chez le bureau d’enregistrement.
+4. Recopiez exactement **Key tag**, **Algorithm**, **Digest type** et **Digest** pour le bon domaine.
+5. Après publication, vérifiez que la résolution DNS avec validation fonctionne.
+
+<Callout type="info" title="Deux prestataires peuvent intervenir">
+Le bureau d’enregistrement gère l’enregistrement du domaine et la délégation DS. Le fournisseur DNS héberge la zone signée. Ajouter une ligne DS dans votre zone ne remplace pas sa publication chez le bureau d’enregistrement.
+</Callout>
+
+Avec des serveurs externes, comme Cloudflare, utilisez les réglages DNSSEC et les données DS du fournisseur actif. N’utilisez pas les clés d’une zone inutilisée dans ce panel.
+
+## Désactiver ou déplacer
+
+Supprimez d’abord le DS chez le bureau d’enregistrement et laissez cette modification se propager avant de désactiver la signature. Désactivez ensuite DNSSEC dans le panel et lisez la confirmation. Un ancien DS associé à une clé qui ne correspond plus peut rendre tout le domaine inaccessible aux résolveurs validants.
+
+Lors d’un changement de serveurs de noms, délégation, signature et DS doivent rester cohérents. Demandez de l’aide avant le changement si vous ne connaissez pas l’ordre adapté.
+
+## Le DNS ne répond plus correctement
+
+Vérifiez que les serveurs actifs signent la zone avec la clé référencée par le DS. Comparez chaque champ et recherchez une ancienne clé chez le bureau d’enregistrement. Activer et désactiver plusieurs fois n’est pas une solution fiable ; rétablissez une configuration cohérente puis vérifiez après renouvellement des caches.

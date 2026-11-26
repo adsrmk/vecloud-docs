@@ -1,0 +1,31 @@
+---
+title: Migraciones de servidor para administradores
+description: Mueve roles de sitios entre servidores asignados y sigue cada tarea.
+icon: ArrowRightLeft
+---
+
+<PortalScreenshot name="server-migration" alt="Elegir un sitio y un servidor de destino antes de iniciar la migración." caption="Elegir un sitio y un servidor de destino antes de iniciar la migración." />
+
+## Disponibilidad y finalidad
+
+Solo los administradores autorizados de la organización principal pueden migrar servidores. No es un asistente de importación desde cualquier proveedor externo. Los clientes normales no pueden añadir servidores mediante esta función. Solicita el traslado al administrador o soporte.
+
+## Preparar la migración
+
+Abre **Server migrations** desde la acción administrativa disponible y **Select websites**. **Move server** de un sitio puede preseleccionarlo. Filtra por dominio, servidor de origen y rol.
+
+Selecciona sitios y destino por rol disponible: aplicación, MySQL, correo, copias o PostgreSQL. Los roles sin cambio permanecen. El destino debe ofrecer el rol y estar disponible. Algunos roles de sitios de administración no se pueden trasladar.
+
+Comprueba antes copias, disponibilidad, conexiones y DNS externo. Si el origen está fuera de servicio, la interfaz avisa: se recupera desde la última copia disponible, que puede no contener los cambios más recientes.
+
+## Iniciar y seguir
+
+Pulsa **Start migration**, revisa el número de roles y confirma. El máximo es cien roles por solicitud, no cien sitios con roles ilimitados. Las herramientas asociadas pueden quedar temporalmente indisponibles.
+
+Sigue la sesión en el resumen. Cada tarea puede estar en cola, activa, fallida o completa. Abre el grupo y registro correspondiente. Iniciar correctamente no confirma que todos los roles hayan terminado; revisa cada resultado parcial.
+
+## Errores o falta de confirmación
+
+Revisa resumen y registros antes de repetir. No vuelvas a iniciar roles ya enviados desde una selección antigua. Conserva error, hora, sitio, rol y destino para soporte.
+
+Al terminar, prueba sitio, bases, correo y acceso a copias. Revisa DNS si cambió una dirección pública necesaria. No es lo mismo que [transferir propiedad](../websites/ownership.mdx) o [cambiar plan](../websites/package.mdx).

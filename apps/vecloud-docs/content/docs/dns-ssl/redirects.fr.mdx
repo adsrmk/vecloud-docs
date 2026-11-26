@@ -1,0 +1,35 @@
+---
+title: Gérer les redirections
+description: Transférez un domaine ou un chemin avec une redirection HTTP temporaire ou permanente.
+icon: ArrowRightLeft
+---
+
+## Ajouter une redirection
+
+Ouvrez votre site puis **Redirects → Add redirect**. Les règles appartiennent au site sélectionné ; choisissez uniquement les domaines concernés dans le formulaire.
+
+1. Choisissez **301** pour un déplacement permanent ou **302** pour une redirection temporaire.
+2. Vérifiez les domaines. Avec un seul domaine, la sélection est fixe ; avec plusieurs, choisissez ceux concernés.
+3. Saisissez le chemin. Le formulaire fournit déjà `/` ; `ancien` représente `/ancien`. Laissez vide pour la racine `/`.
+4. Choisissez le protocole de destination et saisissez le reste de l’adresse. Ne répétez pas `https://` si le protocole est déjà choisi séparément.
+5. Enregistrez et testez l’URL d’origine dans une nouvelle fenêtre privée.
+
+Un alias permet à un autre domaine d’utiliser le même site. Une redirection transfère le navigateur et modifie son adresse. Utilisez [un alias](../websites/create.mdx) si vous ne souhaitez pas de transfert.
+
+<PortalScreenshot name="redirects" alt="Formulaire de redirection avec chemin et destination" caption="Le protocole et le reste de l’adresse sont séparés. Domaines et URL sont des données de démonstration." />
+
+## Modifier et supprimer
+
+Choisissez **Edit** sur la bonne règle, modifiez puis enregistrez. **Delete** demande confirmation. Testez ensuite l’URL d’origine. Le navigateur peut mémoriser un ancien 301 malgré la modification ; un test vierge évite un résultat trompeur.
+
+## Avertissements de boucle
+
+Le panel peut signaler une boucle possible ou une chaîne impossible à vérifier entièrement. Lisez les adresses affichées. Corrigez une destination qui revient à sa source, directement ou via d’autres règles. N’enregistrez malgré l’avertissement que si vous en comprenez les conséquences.
+
+Vérifiez aussi WordPress, HTTPS imposé et les proxys externes. L’absence d’avertissement ne garantit pas le contrôle de toutes les règles externes ou applicatives.
+
+## Réécritures avancées
+
+Si des règles internes ou non standard existent, une section dépliable de réécritures avancées apparaît. Elle permet de modifier motifs, substitutions, flags et conditions. Ces règles peuvent être indispensables au routage de l’application ; ne les supprimez pas seulement pour retirer une redirection visible.
+
+Si la configuration a changé ou reste en cours de traitement, actualisez les règles avant de continuer. N’écrasez pas une configuration récente avec un ancien brouillon.

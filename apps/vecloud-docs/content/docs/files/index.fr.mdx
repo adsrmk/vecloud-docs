@@ -1,0 +1,51 @@
+---
+title: Gestionnaire de fichiers et éditeur
+description: Parcourez les fichiers du site, créez des éléments et modifiez du texte dans le portail.
+icon: FolderOpen
+---
+
+## Ouvrir le bon dossier
+
+Ouvrez **Domains → votre site → Files**. **Home** est le début de l’espace fichiers de ce site, pas la racine système du serveur. Ouvrez un dossier par son nom et revenez avec le fil d’Ariane.
+
+Les fichiers publics sont souvent sous `public_html`, mais une application peut utiliser un autre dossier. Vérifiez son chemin avant toute modification.
+
+<PortalScreenshot
+  name="files"
+  alt="Liste des fichiers d’un site de démonstration"
+  caption="Liste des fichiers d’un site de démonstration"
+/>
+
+## Rechercher et sélectionner
+
+Saisissez au moins deux caractères pour rechercher un nom. Les résultats peuvent provenir de plusieurs dossiers ; vérifiez leur chemin complet. Affinez la recherche si elle est limitée et effacez-la pour naviguer à nouveau.
+
+Passez entre liste et grille. Les cases de sélection affichent les actions multiples : télécharger, copier, couper, compresser et supprimer. Utilisez la pagination pour les longues listes.
+
+## Créer un fichier ou dossier
+
+Choisissez **New file** ou **New folder**, saisissez un nom puis confirmez. L’élément est créé dans le dossier actuel. Un nouveau fichier est vide. Utilisez un nom identifiable et vérifiez s’il existe déjà.
+
+## Modifier un fichier texte
+
+1. Ouvrez-le par son nom ou l’action de modification du menu contextuel.
+2. Vérifiez le nom du fichier et le dossier depuis lequel vous l’avez ouvert et conservez une copie des fichiers importants.
+3. Modifiez le texte. L’éditeur affiche numéros de ligne et coloration si disponible.
+4. Choisissez **Save**, `Ctrl+S` sous Windows/Linux ou `⌘S` sous macOS dans l’éditeur.
+5. Attendez la confirmation et vérifiez le site ou la configuration concernée.
+
+Images, archives et autres formats non textuels sont téléchargés. Pour de grands changements de code, utilisez votre environnement de développement et un déploiement contrôlé.
+
+## Fermer et vérifier
+
+Avec des modifications non enregistrées, **Close** propose d’enregistrer, abandonner ou revenir à l’éditeur. Enregistrer modifie le fichier hébergé ; cela ne crée pas automatiquement de commit Git et ne teste pas l’application.
+
+Après un échec incertain, rouvrez le fichier actuel avant de répéter. Évitez les modifications simultanées du même fichier dans plusieurs fenêtres.
+
+Pour remplacer, déplacer ou archiver, consultez [chargements et transferts](./transfers.mdx). Pour l’accès, voyez les [permissions](./permissions.mdx).
+
+<PortalScreenshot
+  name="file-editor"
+  alt="Éditeur affichant un fichier de démonstration sans données sensibles"
+  caption="Éditeur affichant un fichier de démonstration sans données sensibles"
+/>

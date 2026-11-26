@@ -1,0 +1,37 @@
+---
+title: WordPress users
+description: Manage the login accounts for one WordPress installation through the toolkit.
+icon: Users
+---
+
+## Open the correct user list
+
+Open **Apps → Toolkit → Users** for the installation. These are WordPress users, not VECloud panel team members. Manage panel access under [Team and access](../account/team.mdx).
+
+Use search to find the account. Check its username and email before making a change.
+
+<PortalScreenshot name="wordpress-users" alt="WordPress user list with the action menu open" caption="The menu contains edit and removal actions for this account. The email address is fictitious." />
+
+## Add a user
+
+1. Choose **Add user**.
+2. Enter a username, email and unique password.
+3. Use the permitted letters, numbers, dots, hyphens and underscores in the username.
+4. Store the password securely and confirm creation.
+5. Check the new account and its permissions within WordPress itself.
+
+The toolkit form does not offer a separate role selector. Use WordPress administration for roles and additional settings not shown in the toolkit.
+
+## Edit account details
+
+Open the user’s action menu. You can edit the username or email, or set a new password. Check the account and save. Update any stored details in your password manager or integration afterwards if needed.
+
+**Default SSO** identifies the account marked as the default for administration access. Use **Admin** next to the installation to open available access. Do not share a temporary sign-in link.
+
+## Delete a user
+
+Read the confirmation and check whether the account is still needed for administration or content. Review associated author content and permissions within WordPress before deleting. Do not remove your last usable administrator account without checking another route in.
+
+## A change fails
+
+Reopen the user list to check current data. An expired panel session requires signing in again. If the installation itself has errors, check the PHP error log and [WordPress debugging](./debug.mdx).

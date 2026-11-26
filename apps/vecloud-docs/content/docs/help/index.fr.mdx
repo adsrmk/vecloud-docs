@@ -1,0 +1,40 @@
+---
+title: Résoudre les problèmes
+description: Localisez le problème et rassemblez les informations utiles avant de modifier les réglages.
+icon: LifeBuoy
+---
+
+## Vérifier le contexte
+
+Contrôlez domaine de la barre supérieure, organisation et droits. Un alias peut partager l’environnement d’un autre domaine. Session du portail, compte WordPress, boîte e-mail et utilisateur de base disposent d’accès distincts.
+
+Notez message exact et heure, puis rechargez les données actuelles. L’état général des services ne teste pas la disponibilité de chaque site.
+
+## Choisir la bonne vérification
+
+| Situation | Vérifier d’abord |
+| --- | --- |
+| Le site ne s’ouvre pas | [Zone DNS active et enregistrements](../dns-ssl/index.mdx), destination et état du site |
+| Certificat absent ou expiré | [SSL et HTTPS](../dns-ssl/ssl.mdx), domaine choisi et DNS public |
+| E-mails non reçus | [Routage et MX](../dns-ssl/mail-routing.mdx), état, quota et [filtres](../email/spam.mdx) |
+| Erreur PHP ou page blanche | [Version et extensions PHP](../developers/php.mdx), [journaux](../developers/logs.mdx) et changements récents |
+| Ancienne page encore visible | [Caches et exclusions](../performance/cache.mdx), puis navigateur et caches externes |
+| Fichiers inaccessibles | Répertoire, [permissions](../files/permissions.mdx) et [identité FTP/SSH](../files/ssh.mdx) |
+| Échec de connexion à la base | [Hôte, utilisateur, mot de passe et droits](../databases/index.mdx) |
+| Échec de sauvegarde ou restauration | [Diagnostic des sauvegardes](../backups/troubleshooting.mdx) et tâche actuelle |
+
+## Modification non confirmée
+
+Un délai dépassé ou une modification non confirmée peut laisser une issue incertaine. Le service peut déjà l’avoir reçue. Rechargez la liste ou configuration avant d’ajouter, supprimer ou relancer une restauration.
+
+Si une modification VirtualHost est en cours, attendez sa fin et vérifiez la configuration. Ne forcez pas le même changement depuis plusieurs fenêtres. Avant une restauration, vérifiez qu’aucune n’est déjà active.
+
+## Paramètre absent
+
+La disponibilité dépend du rôle, de l’offre, du serveur web et des services associés. Une option masquée ou inactive n’est pas forcément une erreur de chargement. Vérifiez droits et services du site ; interrogez le propriétaire ou le support si nécessaire.
+
+## Aider le support
+
+Précisez domaine, fonction, heure, erreur exacte, résultat attendu et étapes de reproduction. Partagez un extrait ou une capture pertinente après retrait des mots de passe, tokens, clés privées, liens de session et données personnelles. Indiquez si le site lui-même est touché ou seulement le portail.
+
+Préservez l’état actuel avant récupération si possible. Ne supprimez pas de base ou de site pour corriger un chargement. Consultez aussi les [questions fréquentes](./faq.mdx).

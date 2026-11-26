@@ -1,0 +1,43 @@
+---
+title: Gestionar y publicar staging
+description: Copia contenido a un sitio nuevo o existente y distingue la conversión de staging.
+icon: Globe
+---
+
+## Elegir el destino
+
+Abre **Overview** de un sitio de staging existente. Si tu plan y permisos lo permiten, aparece **Publish staging**. La interfaz actual muestra este menú en staging; un sitio normal no tiene aquí un botón de copia.
+
+| Acción | Resultado |
+| --- | --- |
+| To a new website | Crea un sitio independiente con contenido copiado. |
+| To an existing website | Copia a un sitio seleccionado y puede sobrescribirlo. |
+| Promote to production | Convierte el propio staging en producción. No copia a otro sitio. |
+
+## Copiar a un sitio nuevo
+
+1. Elige la opción de sitio nuevo en el menú.
+2. Si se solicita, selecciona suscripción y tipo de producción o staging.
+3. Introduce el dominio o nombre de staging. El panel muestra el sufijo configurado para staging.
+4. Revisa search-and-replace de WordPress al cambiar de dominio.
+5. Confirma y sigue el progreso.
+
+El nuevo sitio consume la cuota correspondiente de sitios o staging. El dominio puede necesitar DNS y SSL antes de funcionar públicamente.
+
+## Copiar a un sitio existente
+
+<Callout type="warning" title="Comprueba el destino">
+Puedes sobrescribir el sitio seleccionado. Conserva contenido y pedidos recientes y crea antes una copia del destino.
+</Callout>
+
+Selecciona el destino. Revisa rutas excluidas, bases de datos y usuarios. Comprueba las opciones para borrar archivos que solo existen en el destino y sincronizar la versión PHP.
+
+En WordPress, search-and-replace puede adaptar referencias del dominio antiguo al nuevo. Elige conscientemente: la base también puede contener referencias absolutas que quieras conservar.
+
+## Convertir staging en producción
+
+**Promote to production** cambia el tipo del propio sitio y consume una plaza normal. Dominio y contenido permanecen en ese sitio. Para enviar contenido a otro sitio de producción ya existente, utiliza la copia a sitio existente y revisa el destino.
+
+## Después de copiar
+
+Comprueba destino, páginas importantes, administración, formularios y conexión de base de datos. Si el resultado es incierto, revisa progreso y lista de sitios antes de volver a copiar.

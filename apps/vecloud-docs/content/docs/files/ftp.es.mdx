@@ -1,0 +1,47 @@
+---
+title: Gestionar cuentas FTP
+description: Conecta un cliente FTP externo al directorio correcto del sitio.
+icon: LockKeyhole
+---
+
+## Elegir FTP o SFTP
+
+Abre **Domains → tu sitio → FTP**. Las cuentas FTP tienen credenciales propias y se pueden limitar a un directorio. SFTP utiliza las [credenciales SSH del sitio](./ssh.mdx), no una cuenta FTP.
+
+<PortalScreenshot
+  name="ftp"
+  alt="Cuenta FTP limitada a un directorio"
+  caption="Cuenta FTP limitada a un directorio"
+/>
+
+## Añadir una cuenta FTP
+
+<Steps>
+<Step title="Abre Add FTP account">
+El botón está disponible si FTP está habilitado para el sitio y hay capacidad en el plan.
+</Step>
+<Step title="Elige el usuario y el directorio">
+Introduce la primera parte del nombre; el formulario añade `@` y el dominio del sitio. En **Folder**, indica una ruta dentro del sitio, como `public_html/assets`. Un valor vacío permite acceder a la raíz del sitio `/`.
+</Step>
+<Step title="Establece una contraseña y guarda">
+Usa al menos diez caracteres con minúscula, mayúscula, número y carácter especial. Pulsa **Add account** y comprueba la lista.
+</Step>
+</Steps>
+
+## Conectar el cliente
+
+Pulsa el nombre de la cuenta para abrir **Login details**. Copia el usuario completo y **Host**; el puerto FTP indicado es **21**. Utiliza FTP explícito sobre TLS si el cliente y el servidor lo admiten. SFTP es otro protocolo y utiliza SSH en el puerto 22.
+
+Guarda la contraseña en tu gestor. El portal no muestra la contraseña actual. **Change password** permite establecer otra; actualiza después las conexiones guardadas.
+
+## Cambiar el acceso al directorio
+
+Pulsa el lápiz junto a **Directory access**, elige la carpeta y guarda. La raíz `/` abarca los archivos de este sitio, no todo el servidor. Limita el acceso de terceros al directorio necesario.
+
+<Callout type="warn" title="Revisa la opción de eliminación">
+La confirmación de **Delete FTP account** incluye una opción independiente para borrar el contenido del directorio. Déjala desmarcada para retirar solo el acceso. Borrar el contenido de la raíz puede inutilizar el sitio.
+</Callout>
+
+## Problemas de conexión
+
+Comprueba el usuario completo, servidor, puerto y protocolo. Las credenciales FTP no sirven para SFTP. Si puedes entrar pero falta una carpeta, revisa el directorio asignado y los [permisos de archivos](./permissions.mdx).

@@ -1,0 +1,38 @@
+---
+title: Copias de seguridad
+description: Consulta los puntos disponibles y prepara la restauración de tu sitio.
+icon: Archive
+---
+
+## Buscar tus copias
+
+Abre **Domains**, selecciona el sitio y entra en **Backups**. Comprueba el dominio en la barra superior. La lista corresponde a ese sitio.
+
+<PortalScreenshot name="backups" alt="Historial de copias del sitio de demostración example.test" caption="El panel muestra la fecha, el almacenamiento y los archivos y bases de datos incluidos. Solo se utilizan datos de demostración. Haz clic para ampliar." />
+
+## Interpretar la lista
+
+| Columna | Significado |
+| --- | --- |
+| Started | Momento en que comenzó la copia. |
+| Website files | Tamaño de archivos indicado y número de buzones, si está disponible. |
+| Databases | Número de bases de datos indicado. |
+| Restore | Abre los detalles y la acción de restauración. |
+
+Un guion en el tamaño significa que no se ha recibido ese dato. No confirma que la copia esté vacía. Abre los detalles para comprobar el contenido.
+
+## Crear una copia
+
+1. Pulsa **Create backup** cuando esté disponible.
+2. Espera la confirmación de que la solicitud se ha aceptado.
+3. Comprueba la copia más tarde. Úsala solo cuando los componentes necesarios hayan finalizado correctamente.
+
+<Callout title="Antes de un cambio">
+Crea una copia reciente antes de una actualización importante, importación o cambio de configuración. El historial y la retención dependen del entorno de alojamiento; consulta la lista del panel.
+</Callout>
+
+## Elegir qué restaurar
+
+WordPress necesita sus archivos y su base de datos. Los archivos incluyen plugins y contenido subido; la base de datos contiene publicaciones, ajustes y pedidos, entre otros datos.
+
+Consulta [Restaurar una copia](./restore.mdx) para seleccionar y confirmar. Si la lista está vacía o aparece un error, consulta [Problemas con las copias](./troubleshooting.mdx).

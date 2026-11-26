@@ -1,0 +1,40 @@
+---
+title: Spamfilter und Adresslisten
+description: Lege Bewertungsgrenzen und bestimmte Absender für deine E-Mail-Adresse fest.
+icon: ShieldExclamationPoint
+---
+
+## Einstellungen öffnen
+
+Gehe zu **Email → Adresse → Manage → Spam settings**. Die Werte gelten für diese Adresse. Ein niedriger Grenzwert greift früher ein und ist strenger. Die Regler zeigen ganze Werte von 0 bis 20; nimm nicht an, dass null den Filter abschaltet.
+
+| Einstellung | Wirkung oberhalb des Grenzwerts |
+| --- | --- |
+| Spam folder | Verschiebt die Nachricht nach Spam, erreichbar per IMAP oder Webmail |
+| Reject | Lehnt die Nachricht ab; sie liegt nicht wiederherstellbar im Spamordner |
+| Greylist | Verzögert die Zustellung vorübergehend; der sendende Server muss erneut versuchen |
+
+<PortalScreenshot name="mail-spam" alt="Spamgrenzen und Absenderlisten eines Demo-Postfachs" caption="Die drei Grenzen wirken unterschiedlich. Beispielwerte sind keine empfohlene Richtlinie für jede Domain." />
+
+## Grenzwerte ändern
+
+Notiere zuerst die bisherigen Werte. Passe einen Grenzwert gezielt an, wähle **Save spam thresholds** und teste normale Nachrichten. Halte die Werte schlüssig: Eine zu niedrige Ablehnungsgrenze kann Nachrichten vor einer Prüfung im Spamordner zurückweisen. Kein Wert passt zu jeder Organisation.
+
+Nutze bei fehlenden Grenzwerten **Try again**. Ein fehlender Wert ist nicht gleich null; prüfe zuerst, welche Einstellungen tatsächlich geladen wurden.
+
+## Absender zulassen oder sperren
+
+**Allow/block list** enthält zwei Listen:
+
+- **Allowed addresses**: gewünschte zugelassene Absender.
+- **Blocked addresses**: auszuschließende Absender.
+
+Gib vollständige Absenderadressen je Zeile ein und wähle **Save address lists**. Entferne eine Zeile und speichere zum Aufheben der Ausnahme. Trage dieselbe Adresse nicht absichtlich in beide Listen ein.
+
+Eine zugelassene Adresse beweist nicht die Sicherheit einer Nachricht. Prüfe unerwartete Zahlungswünsche, Links und Anhänge auch bei scheinbar bekannten Absendern.
+
+## Erwartete Nachricht fehlt
+
+Prüfe Spamordner, Sperrliste und Ablehnungsgrenze. Abgelehnte Nachrichten erreichen das Postfach möglicherweise nie; bitte den Absender um die Fehlermeldung und erneutes Senden nach Behebung. Teile für die Diagnose Adresse, Sendezeit und Fehlercode, ohne Passwort oder vertraulichen Inhalt.
+
+Sind alle Absender betroffen, prüfe auch [MX und Mailrouting](../dns-ssl/mail-routing.mdx). Spamfilter korrigieren kein falsches Zustellziel.

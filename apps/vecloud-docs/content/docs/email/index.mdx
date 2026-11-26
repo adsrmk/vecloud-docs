@@ -1,0 +1,37 @@
+---
+title: E-mailadressen en mailboxen
+description: Maak mailboxen of doorstuuradressen aan en beheer hun naam, quota, status en toegang.
+icon: Mail
+---
+
+## Je e-mail openen
+
+Open **Email** in het hoofdmenu. Zoek het juiste adres en controleer het bijbehorende domein. Via het actiemenu kies je **Manage**. De e-mailomgeving heeft onderdelen voor **Mailbox**, **Forwarders**, **Catch-all**, **Spam settings**, **Out of office** en **Email client settings**, voor zover beschikbaar voor het adres.
+
+## Een adres aanmaken
+
+1. Kies **Add email address**.
+2. Vul alleen het deel vóór `@` in en kies het juiste domein.
+3. Kies **Mailbox** als je berichten wilt bewaren en wilt aanmelden met webmail of een mailprogramma. Vul de mailboxgrootte met MB/GB, een herkenbare naam en een sterk wachtwoord in.
+4. Kies **Forwarding only** als berichten alleen naar bestaande adressen moeten worden doorgestuurd. Voeg minimaal één geldig doeladres toe; hiervoor maak je geen mailboxwachtwoord aan.
+5. Kies **Create email address** en controleer de nieuwe rij in de lijst.
+
+Voor een nieuw mailboxwachtwoord vereist het formulier minimaal tien tekens met kleine letter, hoofdletter, cijfer en speciaal teken. Bewaar het in je wachtwoordmanager. Een adres aanmaken regelt geen externe MX- of routeringswijziging; controleer ook [mailroutering en DNS](../dns-ssl/mail-routing.mdx).
+
+## Mailboxinstellingen wijzigen
+
+Open **Manage → Mailbox**. Hier wijzig je de naam, status, eventueel een nieuw wachtwoord, quota in MB en [aliassen](./forwarding.mdx). Kies **Save changes** om de ingevulde wijzigingen op te slaan.
+
+Een leeg nieuw wachtwoord behoudt het bestaande wachtwoord. Een leeg quotaveld behoudt de huidige limiet. Controleer het getoonde gebruik voordat je een quota verlaagt; mailboxruimte is ook afhankelijk van de beschikbare hostingruimte. Na een wachtwoordwijziging moet je mailprogramma’s opnieuw van het juiste wachtwoord voorzien.
+
+<PortalScreenshot name="mailbox" alt="Mailboxinstellingen met naam, quota en alias" caption="Een leeg wachtwoord behoudt het bestaande wachtwoord. Alle getoonde mailboxgegevens zijn fictief." />
+
+## Uitschakelen of verwijderen
+
+Het actiemenu in de e-maillijst biedt **Disable** en **Enable**. Een opgeschort adres kan door hostingbeheer beperkt zijn; neem contact op als je die status niet kunt veranderen.
+
+**Permanently delete** verwijdert het adres en de bijbehorende mailboxgegevens na bevestiging. Bewaar benodigde mail vooraf, bijvoorbeeld met je mailprogramma. Schakel een adres liever tijdelijk uit als je de bestaande mailbox wilt behouden.
+
+## Aanmaken of opslaan lukt niet
+
+Controleer het domein, de beschikbare abonnementsruimte en de verplichte velden. Bij een onduidelijke fout controleer je eerst de actuele lijst of instellingen voordat je dezelfde opdracht opnieuw verstuurt. Voor gebruik in een mailprogramma ga je verder met [verbinding en webmail](./clients.mdx).

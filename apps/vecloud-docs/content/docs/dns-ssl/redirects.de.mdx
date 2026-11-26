@@ -1,0 +1,35 @@
+---
+title: Weiterleitungen verwalten
+description: Leite eine Domain oder einen URL-Pfad mit einer temporären oder dauerhaften HTTP-Weiterleitung um.
+icon: ArrowRightLeft
+---
+
+## Weiterleitung hinzufügen
+
+Öffne deine Website und **Redirects → Add redirect**. Die Regeln gehören zur gewählten Website; wähle im Formular nur die vorgesehenen Domains.
+
+1. Nutze **301** für einen dauerhaften Umzug oder **302** für eine temporäre Weiterleitung.
+2. Prüfe die Domains. Bei nur einer Domain ist die Auswahl fest; bei mehreren kannst du gezielt wählen.
+3. Gib den Pfad ein. `/` steht bereits am Feld; `alt` beschreibt `/alt`. Lasse das Feld für den Hauptpfad `/` leer.
+4. Wähle das Zielprotokoll und gib den übrigen Zieladressenteil ein. Wiederhole `https://` nicht, wenn es bereits separat ausgewählt ist.
+5. Speichere und teste die ursprüngliche URL in einem neuen privaten Fenster.
+
+Ein Alias lässt eine zusätzliche Domain dieselbe Website verwenden. Eine Weiterleitung schickt den Browser weiter und ändert seine Adresse. Nutze [einen Alias](../websites/create.mdx), wenn du keine Umleitung möchtest.
+
+<PortalScreenshot name="redirects" alt="Weiterleitungsformular mit Pfad und Zieladresse" caption="Protokoll und restliche Adresse stehen in getrennten Feldern. Domains und URLs sind Demodaten." />
+
+## Bearbeiten und löschen
+
+Wähle **Edit** an der richtigen Regel, ändere die Werte und speichere. **Delete** erfordert eine Bestätigung. Teste danach die ursprüngliche URL. Browser können sich einen früheren 301 trotz Änderung merken; ein frischer Test verhindert irreführende Ergebnisse.
+
+## Warnungen vor Schleifen
+
+Das Panel kann vor einer möglichen Schleife oder einer nicht vollständig prüfbaren Kette warnen. Lies die angezeigten Adressen. Korrigiere ein Ziel, das direkt oder über andere Regeln zur Quelle zurückführt. Speichere trotz Warnung nur, wenn du die Folgen verstehst.
+
+Prüfe bei Schleifen auch WordPress, erzwungenes HTTPS und externe Proxys. Eine fehlende Warnung garantiert nicht, dass alle externen oder anwendungsinternen Regeln geprüft wurden.
+
+## Erweiterte Rewrite-Regeln
+
+Existieren interne oder andere nicht standardisierte Regeln, erscheint ein aufklappbarer Bereich für erweiterte Rewrites. Dort bearbeitest du Muster, Ersetzungen, Flags und Bedingungen. Diese Regeln können für das Anwendungsrouting nötig sein; entferne sie nicht nur zum Beseitigen einer sichtbaren Weiterleitung.
+
+Meldet das Panel eine geänderte oder noch verarbeitete Konfiguration, aktualisiere zuerst die Regeln. Überschreibe keine neuere Konfiguration mit einem alten Entwurf.

@@ -1,0 +1,38 @@
+---
+title: Configurar tareas cron
+description: Programa una orden o solicitud URL recurrente para tu sitio.
+icon: CalendarClock
+---
+
+## Añadir una tarea
+
+Abre **Domains → tu sitio → Developer tools → Cron jobs** y **Add cron job**. Elige **Command** o **Request URL** y un intervalo disponible. El predeterminado es cada quince minutos; ajusta la frecuencia a la tarea.
+
+- **Command** se ejecuta como usuario del sitio. Introduce la orden sin los cinco campos de planificación delante. Usa rutas correctas al programa y al script.
+- **Request URL** llama a la URL mediante HTTP GET. Usa un endpoint destinado a la tarea; cargar una página cualquiera no ejecuta automáticamente un proceso de fondo.
+
+Pulsa **Save** y comprueba la regla guardada. Ejemplo:
+
+```text
+*/15 * * * *
+```
+
+Significa cada quince minutos. Los campos son minuto, hora, día del mes, mes y día de la semana. No hay selector de zona horaria independiente; comprueba la del entorno cuando importe la hora exacta.
+
+<PortalScreenshot
+  name="cron-job"
+  alt="Programar una solicitud GET recurrente"
+  caption="Programar una solicitud GET recurrente"
+/>
+
+## Editar y eliminar
+
+Pulsa **Edit** en una regla existente. Una planificación personalizada existente puede mostrar campos separados y valores propios. También puedes editar variables de entorno ya presentes en crontab. El diálogo nuevo solo ofrece orden y URL, no una acción para crear variables.
+
+**Delete** elimina tras confirmar. Guardar una planificación no prueba que el script funcione: comprueba su resultado o un registro propio. Aquí no hay una acción general **Run now** ni un historial de ejecuciones garantizado.
+
+## Edición desde el contenedor
+
+**Allow cron editing from the website container** permite modificar crontab a procesos PHP y SSH. Actívalo solo si lo requiere la aplicación; código malicioso también podría añadir tareas. Gestionar tareas únicamente desde el portal no requiere automáticamente ese permiso.
+
+Evita tareas solapadas, correos repetidos o cobros duplicados. Los tokens en URLs u órdenes pueden aparecer en configuración y registros; protégelos y no los incluyas en capturas.

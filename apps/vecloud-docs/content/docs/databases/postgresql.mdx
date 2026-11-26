@@ -1,0 +1,37 @@
+---
+title: PostgreSQL beheren
+description: Beheer PostgreSQL-databases, gebruikers en toegang wanneer deze dienst voor je website beschikbaar is.
+icon: Database
+---
+
+## Beschikbaarheid
+
+Open **Domains → je website → Databases**. Het PostgreSQL-gedeelte verschijnt wanneer een PostgreSQL-server aan de website is gekoppeld. Een melding dat PostgreSQL niet is ingeschakeld betekent niet dat je MySQL-databases ontbreken.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL-toegang per database"
+  caption="PostgreSQL-toegang per database"
+/>
+
+## Database en gebruiker aanmaken
+
+Kies in het PostgreSQL-gedeelte **Add database**, vul de naam in en sla op. Gebruik kleine letters, cijfers, `_` of `$`, maximaal 64 tekens. Maak daarna bij **Users** een gebruiker aan met een eigen sterk wachtwoord. Een PostgreSQL-gebruikersnaam is maximaal 63 tekens. Selecteer de databases waartoe de nieuwe gebruiker toegang moet krijgen.
+
+Controleer na opslaan de daadwerkelijke koppelingen. Een aangemaakte gebruiker kan bestaan terwijl een afzonderlijke toegangstoekenning is mislukt.
+
+## Toegang toekennen of intrekken
+
+Open een database en voeg bij **Users with access** een bestaande gebruiker toe. Je kunt ook vanuit een gebruiker een database toevoegen. De portaalfunctie geeft volledige rechten per database; er is hier geen MySQL-achtige selectie van individuele privileges.
+
+Gebruik de verwijderactie bij een koppeling om toegang tot die database in te trekken. Gebruiker en database blijven daarbij afzonderlijke objecten. Het verwijderen van een gebruiker of database zelf vraagt een eigen bevestiging.
+
+## Verbinden en wachtwoorden
+
+Neem het getoonde PostgreSQL-serveradres en de volledige database- en gebruikersnaam over in je applicatie. De applicatie moet een PostgreSQL-driver gebruiken; MySQL-instellingen zijn niet uitwisselbaar. Reset een gebruikerswachtwoord vanuit het gebruikersbeheer en werk de applicatieconfiguratie meteen bij.
+
+<Callout title="Import en beheer">
+De SQL-import, SQL-export en phpMyAdmin-knoppen in het MySQL-gedeelte zijn geen PostgreSQL-tools. Gebruik voor een PostgreSQL-dump een passend PostgreSQL-programma en laat toegestane verbindingsmogelijkheden zo nodig door support bevestigen.
+</Callout>
+
+Maak voor een ingrijpende wijziging een passende export of controleer een herstelbare back-up. Database verwijderen wist de inhoud definitief.

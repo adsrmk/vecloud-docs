@@ -1,0 +1,39 @@
+---
+title: Gestionar WordPress
+description: Usa el toolkit para versiones, URL, actualizaciones automáticas y mantenimiento.
+icon: Blocks
+---
+
+## Abrir el toolkit
+
+Abre el sitio y entra en **Apps**. Pulsa **Toolkit** junto a la instalación correcta. Incluye **General**, **Plugins**, **Themes**, **Users** y **Debug**. **Admin** abre la administración de WordPress cuando hay acceso disponible.
+
+Si falta una instalación existente, utiliza **Scan apps**. No reinstales WordPress sobre archivos existentes solo para que aparezca el toolkit.
+
+## Actualizar WordPress
+
+1. Crea una [copia](../backups/index.mdx) de archivos y base de datos.
+2. Abre **General** y comprueba las versiones instalada y disponible.
+3. Pulsa **Update** y lee la confirmación.
+4. Espera a que termine. El sitio puede entrar temporalmente en mantenimiento.
+5. Revisa sitio, administración y formularios importantes.
+
+WordPress, plugins, tema y PHP deben ser compatibles. Prueba primero un cambio importante en staging cuando sea necesario.
+
+## Actualizaciones automáticas del núcleo
+
+Edita la programación en **Automatic updates**. **Always update to the latest available version** sigue todas las versiones disponibles. **Minor versions only** limita las actualizaciones automáticas del núcleo a versiones menores. Guarda la elección.
+
+Esta programación afecta a WordPress. Gestiona las actualizaciones de plugins y temas en sus propias secciones.
+
+<PortalScreenshot name="wordpress-schedule" alt="Programación de actualizaciones de WordPress" caption="Elige y guarda la programación. La instalación mostrada utiliza datos de demostración." />
+
+## Cambiar la URL
+
+La acción junto a **Site URL** cambia `siteurl` y `home` de WordPress. Revisa antes asociación del dominio, DNS y SSL del nuevo destino. No reemplaza automáticamente todos los enlaces antiguos del contenido.
+
+Conserva acceso al panel y una copia antes de cambiarla. Una URL incorrecta puede impedir el acceso o la carga de páginas.
+
+## Mantenimiento
+
+**Maintenance mode** activa o desactiva el mantenimiento de la instalación. Úsalo conscientemente y desactívalo al terminar. Comprueba el sitio público tras la confirmación.

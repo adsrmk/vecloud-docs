@@ -1,0 +1,37 @@
+---
+title: Utilisateurs WordPress
+description: Gérez les comptes de connexion d’une installation depuis le toolkit.
+icon: Users
+---
+
+## Ouvrir la bonne liste
+
+Ouvrez **Apps → Toolkit → Users** pour l’installation. Il s’agit d’utilisateurs WordPress, pas des membres du panneau VECloud. Gérez l’accès au panneau dans [Équipe et accès](../account/team.mdx).
+
+Recherchez le compte et vérifiez son identifiant et son adresse avant modification.
+
+<PortalScreenshot name="wordpress-users" alt="Liste des utilisateurs WordPress avec le menu ouvert" caption="Le menu propose modification et suppression de ce compte. L’adresse e-mail est fictive." />
+
+## Ajouter un utilisateur
+
+1. Cliquez sur **Add user**.
+2. Saisissez identifiant, e-mail et mot de passe unique.
+3. Utilisez les lettres, chiffres, points, tirets et underscores autorisés.
+4. Conservez le mot de passe en sécurité puis confirmez.
+5. Vérifiez le compte et ses droits dans WordPress.
+
+Le formulaire du toolkit ne propose pas de choix de rôle distinct. Utilisez l’administration WordPress pour les rôles et réglages supplémentaires absents du toolkit.
+
+## Modifier les données
+
+Le menu du compte permet de changer identifiant, e-mail ou mot de passe. Vérifiez le compte puis enregistrez. Actualisez si nécessaire les données conservées dans votre gestionnaire ou intégration.
+
+**Default SSO** identifie le compte désigné par défaut pour l’accès administratif. Utilisez **Admin** à côté de l’installation pour ouvrir l’accès disponible. Ne partagez pas de lien temporaire de connexion.
+
+## Supprimer un utilisateur
+
+Lisez la confirmation et vérifiez si le compte reste nécessaire pour l’administration ou le contenu. Examinez son contenu d’auteur et ses droits dans WordPress avant suppression. Ne supprimez pas votre dernier administrateur utilisable sans vérifier un autre accès.
+
+## Une modification échoue
+
+Rouvrez la liste pour consulter les données actuelles. Reconnectez-vous si la session du panneau a expiré. Si l’installation elle-même échoue, consultez le journal PHP et [Déboguer WordPress](./debug.mdx).

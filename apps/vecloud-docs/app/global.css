@@ -87,6 +87,25 @@
 .prose li a:hover {
   text-decoration: underline;
 }
+.portal-screenshot {
+  margin-block: 28px;
+}
+.portal-screenshot > a {
+  overflow: hidden;
+  border: 1px solid var(--color-fd-border);
+  border-radius: 6px;
+}
+.portal-screenshot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.portal-screenshot figcaption {
+  margin-top: 10px;
+  color: var(--color-fd-muted-foreground);
+  font-size: 13px;
+  line-height: 1.6;
+}
 html {
   scrollbar-gutter: stable;
 }

@@ -1,0 +1,37 @@
+---
+title: Gestionar PostgreSQL
+description: Gestiona bases PostgreSQL, usuarios y acceso cuando el servicio esté disponible.
+icon: Database
+---
+
+## Disponibilidad
+
+Abre **Domains → tu sitio → Databases**. La sección PostgreSQL aparece si el sitio tiene un servidor PostgreSQL asignado. Que PostgreSQL no esté habilitado no significa que falten las bases MySQL.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="Acceso PostgreSQL por base de datos"
+  caption="Acceso PostgreSQL por base de datos"
+/>
+
+## Crear una base y un usuario
+
+Pulsa **Add database** en PostgreSQL, introduce un nombre y guarda. Utiliza minúsculas, números, `_` o `$`, hasta 64 caracteres. Crea después un usuario en **Users** con una contraseña segura propia. El usuario PostgreSQL admite hasta 63 caracteres. Selecciona las bases a las que debe acceder.
+
+Comprueba las asociaciones tras guardar. El usuario puede haberse creado aunque una asignación de acceso posterior falle.
+
+## Conceder o retirar acceso
+
+Abre una base y añade un usuario existente en **Users with access**. También puedes añadir una base desde la gestión del usuario. Esta función concede permisos completos por base; no ofrece la selección individual de privilegios de MySQL.
+
+Elimina una asociación para retirar el acceso a esa base. El usuario y la base siguen siendo objetos independientes. Eliminarlos definitivamente requiere su propia confirmación.
+
+## Conexiones y contraseñas
+
+Usa la dirección PostgreSQL mostrada y los nombres completos de base y usuario en la aplicación. Necesitas un controlador PostgreSQL; los ajustes MySQL no son intercambiables. Restablece la contraseña desde la gestión del usuario y actualiza inmediatamente la aplicación.
+
+<Callout title="Importaciones y administración">
+Los botones de importación SQL, exportación SQL y phpMyAdmin de MySQL no son herramientas PostgreSQL. Utiliza una aplicación PostgreSQL compatible para sus volcados y consulta a soporte las conexiones disponibles si lo necesitas.
+</Callout>
+
+Antes de cambios importantes, crea una exportación adecuada o verifica una copia restaurable. Eliminar una base borra definitivamente su contenido.

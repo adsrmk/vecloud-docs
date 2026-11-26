@@ -1,0 +1,48 @@
+---
+title: Problemas con las copias
+description: Identifica si el problema está en la lista, el contenido o la restauración.
+icon: Archive
+---
+
+## La lista no carga
+
+1. Comprueba que la sesión siga abierta y el dominio sea correcto.
+2. Pulsa **Try again** una vez cuando aparezca el error.
+3. Si hace falta, vuelve a abrir el sitio desde **Domains**.
+4. Si continúa, anota el dominio, la hora y el error exacto para soporte.
+
+Un error de carga no demuestra que se hayan eliminado las copias. Una lista vacía sin error indica que no se muestran puntos disponibles para ese sitio en ese momento.
+
+## Copia en curso o incompleta
+
+Abre **Restore** para ver los detalles. Revisa la finalización y el estado de los componentes necesarios. La ausencia de un tamaño o una base no permite considerar completa una copia parcial.
+
+Si tienes dudas, utiliza un punto anterior finalizado correctamente o pide a soporte que lo revise. No crees una serie de copias nuevas para evitar un estado incierto.
+
+## Falta una base de datos
+
+La ventana actual permite seleccionar las bases MariaDB recibidas en esa copia. Revisa el sitio y la fecha. Si esperabas otra base o un tipo distinto, pide a soporte que confirme que está incluida antes de continuar.
+
+## El sitio parece igual tras iniciar la restauración
+
+La confirmación de la solicitud no confirma su finalización. Espera el resultado y revisa el sitio. Después comprueba la caché y que se hayan restaurado los archivos y la base correctos.
+
+## El sitio falla después de restaurarlo
+
+Comprueba primero la combinación de archivos y base. Después revisa la versión de PHP, la conexión de base de datos y el registro de errores en **Developer tools**. Indica qué restauraste y el error actual. No compartas contraseñas, claves privadas ni configuraciones completas con soporte.
+
+## Preguntas frecuentes
+
+<Accordions>
+<Accordion title="¿Puedo elegir un solo archivo en la ventana?">
+La ventana actual no tiene explorador de archivos. Restaura los archivos disponibles con tu selección de bases. Consulta a soporte si necesitas recuperar únicamente un archivo.
+</Accordion>
+<Accordion title="¿Cuánto tiempo se guardan las copias?">
+Depende de la configuración del alojamiento. Consulta los puntos que se muestran; esta documentación no promete un periodo fijo de retención.
+</Accordion>
+<Accordion title="¿Debo pulsar de nuevo después de un error?">
+Comprueba primero el resultado actual. Una respuesta incierta o tardía puede significar que la restauración ya se inició. Pide a soporte que verifique el estado antes de volver a sobrescribir contenido.
+</Accordion>
+</Accordions>
+
+Volver a [Copias de seguridad](./index.mdx) o [Restaurar una copia](./restore.mdx).

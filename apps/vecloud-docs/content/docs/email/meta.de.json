@@ -1,0 +1,10 @@
+{
+  "title": "E-Mail",
+  "pages": [
+    "index",
+    "forwarding",
+    "spam",
+    "autoresponder",
+    "clients"
+  ]
+}

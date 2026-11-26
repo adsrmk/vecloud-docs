@@ -1,0 +1,41 @@
+---
+title: Cargas, transferencias y archivos comprimidos
+description: Gestiona transferencias y conflictos de nombres y usa la vía adecuada para archivos grandes.
+icon: Upload
+---
+
+## Cargar en la carpeta correcta
+
+Abre **Files**, navega primero al destino y pulsa **Upload**. También puedes arrastrar archivos al área del gestor. Comprueba la ruta antes de empezar.
+
+Si hay nombres existentes, el panel muestra conflictos. Elige conscientemente omitir o sobrescribir. Los archivos se transfieren individualmente; mantén la página abierta hasta que termine toda la selección.
+
+El progreso distingue carga y procesamiento. **100% enviado** no significa que el alojamiento haya terminado de guardarlo. Espera la confirmación final y comprueba nombre, tamaño y aplicación afectada.
+
+## Copiar o mover
+
+1. Selecciona los archivos o carpetas.
+2. Usa **Copy** para conservar originales o **Cut** para moverlos.
+3. Abre el destino y pulsa **Paste**.
+4. Revisa los conflictos antes de confirmar sustituciones.
+5. Comprueba destino y, si mueves, también el origen.
+
+Las acciones operan dentro de este sitio. Copiar archivos no clona bases de datos, dominios ni correo.
+
+## Descargar
+
+Usa la acción de descarga de un archivo. Una selección se descarga como ZIP, con límite de **50 MB y 500 elementos**, incluidos los contenidos anidados incorporados. Reduce la selección o usa un cliente de archivos si es demasiado grande.
+
+Guarda exportaciones de bases de datos y configuraciones privadas fuera de rutas web públicas. Subir un SQL a Files no lo importa a una base de datos.
+
+## Comprimir y extraer
+
+**Compress** crea un archivo comprimido alojado con los elementos seleccionados. Comprueba el resultado en la lista. **Extract** abre una confirmación para formatos compatibles, con opción de sobrescribir conflictos. Revisa el destino y desactiva sobrescritura para proteger el contenido existente.
+
+La extracción puede necesitar mucho espacio adicional. Comprueba el contenido antes de considerar un archivo comprimido una copia útil.
+
+## Transferencias grandes o interrumpidas
+
+Usa SFTP o el acceso FTP disponible para muchas entradas o transferencias largas. La carga web no garantiza tamaño ni duración ilimitados; dependen de conexión, espacio y procesamiento.
+
+Si se corta, comprueba primero si el archivo ya existe y está completo. Reanuda o sustituye con criterio sin reenviar todo a ciegas. Para recuperación completa usa [Backups](../backups/index.mdx).

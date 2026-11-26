@@ -1,0 +1,39 @@
+---
+title: Mailroutering, SPF en DKIM
+description: Stem mailaflevering en e-mailauthenticatie af op de provider die je domein gebruikt.
+icon: MailCheck
+---
+
+## Kies waar mail wordt ontvangen
+
+Open je website en ga naar **DNS settings → Mail routing**. Kies **Local mail** als deze hosting de mailboxen voor het domein verzorgt. Kies **External mail** als de mailboxen bijvoorbeeld bij Google Workspace of Microsoft 365 staan. De selectie wordt opgeslagen zodra je die wijzigt.
+
+De routering vertelt de hosting hoe mail voor dit domein moet worden afgehandeld. De publieke **MX-records** vertellen andere mailservers waar ze moeten afleveren. Zorg dat beide naar dezelfde gekozen mailomgeving verwijzen. Alleen MX veranderen is niet altijd voldoende voor berichten die op de hostingserver zelf ontstaan.
+
+<PortalScreenshot name="mail-routing" alt="Bevestiging voor het vervangen van MX-records door Google Workspace-records" caption="De melding benoemt de te vervangen records en de aparte keuze voor External mail. Er zijn geen publieke records gewijzigd." />
+
+## Google Workspace-MX instellen
+
+1. Controleer de bestaande MX-records en leg ze vast als je moet kunnen terugkeren.
+2. Kies **Gmail records** in de DNS-recordtabel.
+3. Lees welke MX-records worden vervangen en bevestig alleen als je het domein voor Google Workspace hebt ingericht.
+4. Kies daarna afzonderlijk **External mail** bij de mailroutering.
+5. Test ontvangst en een bericht vanuit je website.
+
+De actie vervangt de MX-records van het hoofddomein. MX-records van subdomeinen blijven staan. Zij maakt geen Google-account of mailbox aan. Bij externe DNS zonder synchronisatie moet je de records daar instellen.
+
+## DKIM inschakelen en valideren
+
+Onder **Email authentication** kun je DKIM inschakelen. Het panel toont de validatiestatus. Is DKIM nog niet gevalideerd, neem dan de getoonde recordnaam `hostingcp._domainkey` en de volledige TXT-waarde over bij de actieve DNS-provider. Gebruik de kopieeracties om afgebroken of onvolledige waarden te voorkomen.
+
+**Verified** betekent dat de DKIM-DNS-controle slaagt. Het bewijst niet dat ieder verzonden bericht de spamfilter passeert. Als je mail via een andere provider verstuurt, gebruik je ook de DKIM-instructies van die provider.
+
+## SPF en DMARC
+
+Publiceer SPF als één TXT-beleid voor het domein en neem daarin alle legitieme verzenddiensten op. Voeg niet voor iedere dienst een tweede los SPF-beleid toe. Gebruik de waarden van je werkelijke mailprovider; een voorbeeldwaarde is geen productieconfiguratie.
+
+DMARC wordt als TXT-record op `_dmarc` ingesteld. Stem het beleid af op de SPF- en DKIM-configuratie van je verzenddiensten. Begin niet met streng weigeren voordat je hebt gecontroleerd dat legitieme afzenders correct authenticeren.
+
+## Mail komt niet aan
+
+Controleer MX, lokale/externe routering en de actieve DNS-provider eerst. Controleer daarna of de mailbox bestaat en of de spamregels mail blokkeren. DKIM aanzetten corrigeert geen verkeerd MX-record en maakt geen ontbrekende mailbox aan.

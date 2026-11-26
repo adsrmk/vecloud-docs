@@ -1,0 +1,41 @@
+---
+title: Uploads, transfers and archives
+description: Manage transfers and name conflicts, and choose a suitable route for larger files.
+icon: Upload
+---
+
+## Upload to the correct directory
+
+Open **Files**, navigate to the destination first, then choose **Upload**. You can also drag files into the file area. Check the path before starting.
+
+If names already exist, the panel lists conflicts. Deliberately choose whether to skip or overwrite existing files. Multiple files transfer individually; keep the page open until the whole selection finishes.
+
+Progress distinguishes uploading from processing. **100% sent** does not mean the hosting has finished storing the file. Wait for final confirmation, then check its name, size and the application using it.
+
+## Copy or move
+
+1. Select the intended files or directories.
+2. Choose **Copy** to retain the originals or **Cut** to move them.
+3. Navigate to the destination and choose **Paste**.
+4. Review name conflicts before confirming replacement.
+5. Check the destination and, for a move, the original location too.
+
+These actions operate within the current website. Copying files is not a full website clone containing databases, domain settings and email.
+
+## Download
+
+Use an individual file’s download action. A selection downloads as ZIP, limited to **50 MB and 500 items**, including included nested contents. Reduce the selection or use a file client when it is too large.
+
+Keep database exports and private configuration outside public web paths. Uploading an SQL file into Files does not import it into a database.
+
+## Compress and extract
+
+**Compress** creates a hosted archive from selected items. Check the resulting archive in the list. For a supported archive, **Extract** opens a confirmation with an overwrite-conflicts option. Check the destination and leave overwrite off to protect existing contents.
+
+Extraction can require substantial additional storage. An archive is a useful copy only after you verify it includes the required contents.
+
+## Large or interrupted transfers
+
+Use SFTP or available FTP access for large numbers of files and long transfers. Web upload does not guarantee unlimited size or duration; connection, available storage and hosting processing still apply.
+
+If the connection drops, check whether the destination file already exists and is complete first. Resume or replace deliberately rather than blindly resending an entire selection. For full recovery, use [Backups](../backups/index.mdx).

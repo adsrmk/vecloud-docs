@@ -1,0 +1,38 @@
+---
+title: Resourcegebruik per website
+description: Onderzoek CPU, geheugen, swap, opslagactiviteit en processen vanuit Analytics.
+icon: Cpu
+---
+
+## Grafiek en periode kiezen
+
+Open **Domains → je website → Analytics** en scrol naar **Resource usage**. Kies een meting en een periode: afgelopen uur, 24 uur, 7 dagen of 30 dagen. Deze periodekeuze staat los van de verkeersgrafieken erboven. **Refresh resource usage** haalt de metingen opnieuw op; de verversdatum toont wanneer de gegevens zijn opgehaald.
+
+<PortalScreenshot
+  name="resource-usage"
+  alt="CPU-grafiek met voorbeeldmetingen"
+  caption="CPU-grafiek met voorbeeldmetingen"
+/>
+
+## Wat meet elke grafiek?
+
+| Meting | Interpretatie |
+| --- | --- |
+| CPU | Processorverbruik; 100% staat voor één vCPU |
+| Memory | Gebruikt geheugen van de websiteomgeving |
+| Swap | Gebruikte swapruimte |
+| Storage performance (I/O) | Gelezen en geschreven bytes per seconde |
+| Storage performance (IOPS) | Lees- en schrijfbewerkingen per seconde |
+| Processes | Het gemeten aantal processen |
+
+Bij I/O en IOPS kies je zo nodig een opslagapparaat. Lees- en schrijflijnen zijn verschillende meetreeksen. Onder de grafiek staat, waar beschikbaar, de limiet uit de laatste meting. **Unlimited** betekent dat daar geen specifieke limiet is vastgelegd; het betekent niet dat de fysieke server oneindige capaciteit heeft.
+
+Een korte CPU-piek kan bij een update of back-up horen. Aanhoudend hoog geheugen, swap of veel processen vraagt onderzoek naar de applicatie en gelijktijdige taken. De geheugenmeting is niet hetzelfde als de PHP-instelling `memory_limit`.
+
+## Ontbrekende of lege metingen
+
+CPU- en I/O-snelheden worden berekend uit opeenvolgende metingen. Zonder voldoende meetpunten kan een grafiek leeg blijven; ontbrekende data is geen nulverbruik. Kies een andere periode of vernieuw. Een foutmelding betekent dat de meetgegevens niet konden worden opgehaald, niet automatisch dat je website offline is.
+
+## Van meting naar actie
+
+Vergelijk het tijdstip met verkeer, geplande taken, updates en beschikbare logs. Test één aanpassing tegelijk en vergelijk dezelfde periode daarna opnieuw. Deze grafieken wijzigen geen resourcegrenzen of pakket. Voor passende limieten of aanhoudende fouten neem je de meting, periode en het websiteadres mee naar support.

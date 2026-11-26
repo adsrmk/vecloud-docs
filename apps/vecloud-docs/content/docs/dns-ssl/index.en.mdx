@@ -1,0 +1,56 @@
+---
+title: Manage DNS records
+description: Connect your domain to hosting, email and external services with the correct DNS records.
+icon: Globe
+---
+
+## Check who hosts your DNS
+
+Open **Domains → your website → DNS settings**. The page shows zones for domains attached to this website. Saved changes become public only when the active nameservers serve this zone, or when it is synchronized through the [Cloudflare integration](./cloudflare.mdx).
+
+With external nameservers and no synchronization, edit records at that external provider. Adding an NS record in this table does not change the nameserver delegation at your registrar.
+
+<PortalScreenshot name="dns-records" alt="DNS records for a demonstration domain" caption="The zone contains only fictitious domains and documentation IP addresses." />
+
+## Add a record
+
+<Steps>
+<Step>
+### Open the form
+Choose **Add record** in the correct domain’s DNS table.
+</Step>
+<Step>
+### Enter the type, hostname and value
+Use `@` for the root domain or a name such as `www` for a subdomain. Copy the value supplied by the service you want to connect. MX records have priority and mail server fields; SRV records have priority, weight, port and target fields.
+</Step>
+<Step>
+### Choose the TTL and save
+Use the default TTL, or turn that option off and enter seconds. Choose **Add record** and check the new row.
+</Step>
+</Steps>
+
+<PortalScreenshot name="dns-add" alt="Add an A record for blog.example.test" caption="This example points to a reserved documentation IP. Use the actual server address from your hosting details." />
+
+## Choose a record type
+
+| Type | Purpose |
+| --- | --- |
+| A / AAAA | Hostname to an IPv4 or IPv6 address |
+| CNAME | Hostname to another hostname, without a protocol or URL path |
+| MX | Receiving mail server and priority |
+| TXT | Domain verification, SPF, DKIM or DMARC |
+| SRV | Host and port for a particular service |
+| CAA | Permitted certificate authorities |
+| NS / DS / PTR | Delegation, DNSSEC or reverse DNS information where applicable |
+
+SPF is also available as a type. Use a TXT record for a new SPF policy. A PTR record in an ordinary domain zone does not change reverse DNS for a hosting IP; its IP operator controls that.
+
+## Edit, delete and verify
+
+Use **Edit** on the intended row and save the new values. Deletion requires confirmation. Keep a copy of the old value before replacing a working record. DNS caches may continue returning old answers until the previous TTL expires; saving repeatedly does not speed that up.
+
+## SOA settings
+
+The zone also shows its responsible nameserver, administrative address and **Expires**, **Refresh**, **Retry** and **TTL** values. The edit action opens the SOA form; times are in seconds. Change these advanced values only when required by your DNS setup. Editing SOA does not move your domain to different nameservers.
+
+For email, use [routing and authentication](./mail-routing.mdx). To forward a web address, use [Redirects](./redirects.mdx), not a DNS record.

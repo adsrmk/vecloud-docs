@@ -1,0 +1,38 @@
+---
+title: Deployen vanuit GitHub
+description: Koppel een repository, kies de buildinstellingen en volg deployments vanuit de website.
+icon: GitBranch
+---
+
+<PortalScreenshot name="github-connect" alt="Een demonstratierepository koppelen met een buildscript en publicatiemap." caption="Een demonstratierepository koppelen met een buildscript en publicatiemap." />
+
+## Voorwaarden
+
+Open **Domains → je website → GitHub**. Een GitHub-koppeling voor je organisatie moet toegang hebben tot de repository. Rond de aangeboden registratie en installatie op GitHub af met een bevoegde GitHub-gebruiker. Controleer daar welke repositories je beschikbaar maakt.
+
+GitHub-deployment kan niet worden ingesteld zolang de website geïnstalleerde applicaties heeft. Verwijder geen bestaande WordPress- of andere installatie alleen om deze melding te omzeilen. Gebruik een geschikte afzonderlijke website of stem de omzetting en back-up eerst af.
+
+## Repository koppelen
+
+<Steps>
+<Step title="Kies repository en versie">
+Kies **Connect repository** en selecteer de repository en de gewenste **Branch or tag**. Een ontbrekende repository kan betekenen dat de GitHub-app er geen toegang toe heeft. Controleer de koppeling en laad de keuzes opnieuw.
+</Step>
+<Step title="Stel de build en publicatiemap in">
+**Build script** draait na het ophalen vanuit de deploymap. Gebruik de opdracht van je project. **Publish directory** is relatief aan die map, bijvoorbeeld `dist`; leeg betekent de hele deploymap. Een verkeerde publicatiemap kan een werkende build toch onjuist publiceren.
+</Step>
+<Step title="Kies automatische deployment en eventuele worker">
+**Automatic deployment** reageert op een GitHub-push naar de gekozen branch of tag. Bij een nieuwe koppeling kun je, indien toegestaan, ook een worker instellen. Een buildscript is niet hetzelfde als de startopdracht van een blijvend serverproces.
+</Step>
+<Step title="Controleer de uitkomst">
+Bevestig de koppeling en bekijk de resultaten. Een repositorykoppeling, eerste deployment en optionele worker zijn afzonderlijke stappen; controleer welke zijn gelukt voordat je iets opnieuw aanmaakt.
+</Step>
+</Steps>
+
+## Deployments volgen
+
+Gebruik **Deploy now** voor een handmatige deployment. Volg de status, commitinformatie en het log onder **Deployments**. Een aangevraagde deployment is nog geen geslaagde publicatie. Controleer daarna ook de website en eventueel de [worker](./workers.mdx).
+
+Een lopende build kan na bevestiging worden geannuleerd; de nieuwe checkout wordt dan niet geactiveerd. Dit is geen rollbackknop voor een reeds gepubliceerde versie. **Disconnect repository** verbreekt de websitekoppeling; controleer de gevolgen voor automatische publicatie en je applicatie voordat je dit bevestigt.
+
+Plaats geen wachtwoorden of tokens in buildopdrachten of logs. Bewaar belangrijke data en uploads buiten een onbeheerd overschrijfbare deploymentworkflow.

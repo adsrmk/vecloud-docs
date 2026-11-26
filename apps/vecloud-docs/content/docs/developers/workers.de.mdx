@@ -1,0 +1,36 @@
+---
+title: Worker-Prozesse verwalten
+description: Starte Anwendungsprozesse und leite Webverkehr an den passenden lokalen Port.
+icon: Blocks
+---
+
+<PortalScreenshot name="worker-create" alt="Einen Node.js-Prozess mit Arbeitsverzeichnis, Port und HTTP-Proxy vorbereiten." caption="Einen Node.js-Prozess mit Arbeitsverzeichnis, Port und HTTP-Proxy vorbereiten." />
+
+## Worker vorbereiten
+
+Öffne **Domains → deine Website → Worker processes**. Die Verfügbarkeit hängt vom Umfeld ab. Stelle Dateien und Abhängigkeiten bereit; das Erstellen lädt kein vollständiges Projekt hoch.
+
+Wähle Hinzufügen und einen Startmodus:
+
+| Modus | Verhalten |
+| --- | --- |
+| Automatic (Production) | Startet automatisch und nach Prozessende erneut |
+| Manual (Development) | Richtet Weiterleitung ein; du startest den Prozess selbst |
+
+Zur Erstellung stehen **Node.js**, **Custom**, **Laravel** und **PHP** bereit. Node.js nutzt eine angebotene Version, PHP die Website-Version. Prüfe den vorgeschlagenen Befehl für dein Projekt.
+
+## Befehl, Verzeichnis und Proxy
+
+Setze **Start command** und **Working directory**. Der Prozess startet in diesem Verzeichnis. Bei GitHub muss es zum aktiven Deployment passen.
+
+Aktiviere **HTTP Proxy** nur für Webverkehr. Lege Port und optionalen Pfad fest. Die Anwendung muss auf diesem Port und `0.0.0.0` lauschen. Ein leerer Pfad betrifft die ganze Website; andere Pfade ohne führenden Slash eingeben. Das leitet Verkehr der primären Domain an den Worker und kann vorhandenes Routing ersetzen.
+
+Aktiviere **Allow WebSocket upgrades** für WebSockets. Ein Queue-Worker ohne Webserver benötigt nicht automatisch einen HTTP-Proxy.
+
+## Nach Erstellung prüfen
+
+Prüfe Karte und Log. Befehl, Verzeichnis und Proxy bearbeitest du per Stift; Node.js-Version und Startmodus haben eigene Auswahlen. Gespeicherte Konfiguration beweist keinen fehlerfreien Prozess.
+
+Der manuelle Node.js-Modus zeigt einen SSH-Befehl zur Initialisierung. Verwende den [Website-SSH-Zugang](../files/ssh.mdx) und die Angaben; der manuelle Modus startet den Prozess nicht selbst.
+
+**Delete** stoppt nach Bestätigung den Worker und entfernt seinen Proxy. Anwendungsdateien bleiben erhalten. OpenClaw-Worker nutzen ihr [Toolkit](../applications/openclaw.mdx), sofern angeboten.

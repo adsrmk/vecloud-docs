@@ -1,0 +1,40 @@
+---
+title: Cloudflare verbinden
+description: Verbinde ein API-Token und synchronisiere DNS-Einträge des Portals je Domain zu Cloudflare.
+icon: Cloud
+---
+
+## DNS-Verwaltung festlegen
+
+Öffne **Integrations → Cloudflare**. Die Integration wird vom Inhaber oder einem berechtigten Administrator verwaltet. Bei der Synchronisierung sind **die DNS-Einträge dieses Portals maßgeblich**. Direkt in Cloudflare eingetragene Werte können überschrieben werden.
+
+<Callout type="warning" title="Gesamte Zone vor der Synchronisierung prüfen">
+Vergleiche Web-, Mail- und Verifizierungseinträge und ergänze fehlende Werte zuerst im Portal. Verbinde keine Produktionszone, solange wichtige Einträge nur in Cloudflare existieren.
+</Callout>
+
+<PortalScreenshot name="cloudflare" alt="Cloudflare-Verbindung mit Demo-Domain und Synchronisierungsstatus" caption="Diese lokale Ansicht verwendet fiktive Daten und kein gültiges API-Token." />
+
+## API-Verbindung hinzufügen
+
+1. Erstelle in deinem Cloudflare-Konto ein Token mit der im Formular genannten Vorlage **Edit zone DNS**, begrenzt auf die benötigten Zonen.
+2. Wähle im Portal **Add API token**.
+3. Vergib einen erkennbaren Namen und füge das Token in das verdeckte Feld ein.
+4. Wähle **Save** und prüfe die Liste.
+
+Nutze den Link zu den [Cloudflare-API-Tokens](https://dash.cloudflare.com/profile/api-tokens). Teile das Token nicht in Tickets oder Screenshots. Ein vorhandenes Token wird niemals an den Browser zurückgegeben.
+
+## Domain synchronisieren
+
+Suche die Domain unter **Domain synchronization** und wähle **Manage**. Wähle die richtige Verbindung, lies und bestätige den Vorrang der Portaleinträge und klicke **Enable synchronization**. Prüfe anschließend Domainstatus, letzten Synchronisierungszeitpunkt der Verbindung und tatsächliche DNS-Einträge.
+
+Die Integration registriert oder transferiert keine Domain und ändert ihre Nameserverdelegation nicht. Die Domain muss zur richtigen Cloudflare-Zone und den aktiven Nameservern gehören. Proxy- und SSL-Einstellungen von Cloudflare beeinflussen weiterhin die Erreichbarkeit.
+
+## Token ersetzen oder Synchronisierung stoppen
+
+Mit **Edit** änderst du den Namen oder gibst ein neues Token ein. **Ein leeres Tokenfeld behält hier das vorhandene Token bei.** Das unterscheidet sich von den Anbieterschlüsseln im OpenClaw-Toolkit.
+
+Zum Trennen einer Domain wählst du **Manage**, liest die Bestätigung und nutzt **Stop synchronization**. Prüfe anschließend, wo weitere DNS-Änderungen erfolgen sollen. Das Löschen einer API-Verbindung kann mehrere Domains betreffen; die Bestätigung nennt diese.
+
+## Prüfung nötig oder keine Aktualisierung
+
+Prüfe Tokengültigkeit, Zugriff auf die richtige Zone und die gewählte Verbindung. Vergleiche aktuelle Einträge auf beiden Seiten. Aktualisiere bei unbestätigtem Ergebnis zuerst die Daten, bevor du die Änderung wiederholst. **Connected** allein belegt nicht, dass jeder gewünschte Eintrag stimmt.

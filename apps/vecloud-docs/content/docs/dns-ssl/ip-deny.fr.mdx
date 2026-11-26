@@ -1,0 +1,46 @@
+---
+title: Bloquer des adresses IP
+description: Limitez l’accès à un site Nginx avec des adresses individuelles ou des réseaux CIDR.
+icon: ShieldBan
+---
+
+## Portée du blocage
+
+Ouvrez votre site puis **IP deny** dans la barre latérale, sous **SSL certificates**. Cette fonction gère les refus Nginx pour les domaines rattachés à ce site. Ce n’est pas un pare-feu pour tout le serveur et elle ne bloque pas les connexions mail ou SSH.
+
+<PortalScreenshot name="ip-deny" alt="IP deny avec une adresse ou un réseau par ligne" caption="Les adresses sont des exemples documentaires. Utilisez uniquement l’adresse ou le réseau réellement visé." />
+
+## Ajouter des adresses
+
+1. Choisissez **Add IP addresses** à côté du titre.
+2. Saisissez une adresse IPv4, IPv6 ou un réseau CIDR par ligne.
+3. Vérifiez surtout la portée des CIDR. Un réseau entier peut aussi contenir des visiteurs légitimes.
+4. Choisissez **Add IP addresses** puis vérifiez la table.
+
+Ces valeurs sont uniquement des exemples documentaires :
+
+```text
+192.0.2.40
+198.51.100.0/24
+2001:db8::/32
+```
+
+La liste accepte jusqu’à **250 adresses ou règles réseau**. Les réseaux CIDR peuvent apparaître normalisés après enregistrement. N’utilisez ni domaine, ni URL, ni nom d’hôte.
+
+## Retirer un blocage
+
+Choisissez **Delete** à côté de l’adresse puis confirmez. Vérifiez la disparition de la ligne et testez l’accès depuis ce réseau. Retirer cette règle n’annule pas un blocage distinct dans un pare-feu ou proxy externe.
+
+Si les domaines ont des listes différentes, le panel affiche un avertissement et une action pour appliquer la liste combinée à tous. Vérifiez d’abord que toutes les adresses doivent réellement être bloquées sur chaque domaine.
+
+## Configuration en cours ou non confirmée
+
+IP deny et les modifications manuelles VirtualHost utilisent la même configuration. Ne les modifiez pas simultanément dans plusieurs onglets. Si un changement reste en cours ou non confirmé, actualisez d’abord les données. Vérifiez si la règle est déjà présente ou retirée avant de réenregistrer.
+
+Ne modifiez pas manuellement le bloc IP géré par le panel dans VirtualHost. Utilisez cette page pour les ajouts et retraits.
+
+## Autres serveurs et proxys
+
+**IP deny** est disponible pour Nginx. Apache peut proposer des règles distinctes d’autorisation ou blocage sous **SSL certificates → IP access**. Autoriser uniquement certaines adresses exclut tous les autres visiteurs et diffère d’une simple liste de blocage.
+
+Avec un proxy externe, le serveur doit identifier la véritable IP du visiteur. Ne bloquez pas une adresse partagée du proxy pour exclure une personne ; demandez de l’aide si vous ignorez l’adresse vue par le serveur.

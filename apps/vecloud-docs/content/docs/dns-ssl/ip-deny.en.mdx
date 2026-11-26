@@ -1,0 +1,46 @@
+---
+title: Block IP addresses
+description: Restrict a Nginx website using individual IP addresses or CIDR networks.
+icon: ShieldBan
+---
+
+## What does a block affect?
+
+Open your website and choose **IP deny** in the sidebar, immediately below **SSL certificates**. This manages Nginx deny rules for this website’s attached domains. It is not a server-wide firewall and does not block email or SSH sign-ins.
+
+<PortalScreenshot name="ip-deny" alt="IP deny with one address or network per line" caption="The entered addresses are documentation examples. Use only the intended visitor address or network in your own environment." />
+
+## Add addresses
+
+1. Choose **Add IP addresses** beside the page title.
+2. Enter one IPv4 address, IPv6 address or CIDR network per line.
+3. Review the range of each CIDR rule carefully. Blocking a whole network may also exclude legitimate visitors.
+4. Choose **Add IP addresses** and check that the addresses appear in the table.
+
+These are documentation examples only:
+
+```text
+192.0.2.40
+198.51.100.0/24
+2001:db8::/32
+```
+
+The list supports up to **250 addresses or network rules**. CIDR networks may appear in normalized form after saving. Do not enter domains, URLs or hostnames.
+
+## Remove a block
+
+Choose **Delete** beside the address and confirm. Check that its row disappears, then test access from that network. Removing a rule does not clear a separate block in an external firewall or proxy.
+
+If attached domains have different lists, the panel shows a warning and an action to apply the combined list to all domains. First check that every displayed address really should be blocked everywhere.
+
+## Configuration processing or unconfirmed
+
+IP deny and manual VirtualHost edits use the same website configuration. Do not edit them concurrently in different tabs. If a message reports an ongoing change or an unconfirmed result, refresh the current data first. Check whether the intended rule is already present or absent before saving again.
+
+Do not manually edit the panel-managed IP block in the VirtualHost configuration. Use this page to add and remove addresses.
+
+## Other web servers and proxies
+
+**IP deny** is available for Nginx websites. Apache may instead expose separate allow/block rules under **SSL certificates → IP access**. Allowing only selected addresses excludes other visitors and is different from an ordinary deny list.
+
+With an external proxy, the web server must correctly identify the actual visitor IP. Do not block a shared proxy address to exclude one visitor; ask for help if you cannot establish which address the server uses.

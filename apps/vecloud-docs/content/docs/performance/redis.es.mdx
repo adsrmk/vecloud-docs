@@ -1,0 +1,35 @@
+---
+title: Redis para tu sitio
+description: Activa Redis y conecta la aplicación con la caché de objetos local.
+icon: Database
+---
+
+## Activar Redis
+
+Abre **Domains → tu sitio → Optimization → Redis**. El interruptor está disponible si el entorno admite Redis. Actívalo y espera la confirmación. Aparecerán la conexión y **Edit redis.conf**.
+
+La dirección `127.0.0.1:6379` es para la aplicación dentro del entorno del sitio. No es una dirección pública para conectarte desde tu portátil. Otro servidor o sitio no obtiene acceso automático a este servicio local.
+
+<PortalScreenshot
+  name="optimization"
+  alt="Redis y caché opcode en Optimization"
+  caption="Redis y caché opcode en Optimization"
+/>
+
+## Conectar la aplicación
+
+Activar Redis no configura automáticamente un plugin WordPress ni otra aplicación. Utiliza una integración Redis adecuada. PHP también puede necesitar la extensión Redis de **Developer tools → PHP extensions**.
+
+En WordPress, configura y activa un plugin de caché de objetos compatible siguiendo sus instrucciones. Comprueba allí la conexión. El interruptor **Redis** activado confirma el servicio, no que WordPress ya lo utilice.
+
+## Editar redis.conf
+
+**Edit redis.conf** abre la configuración en el [editor de archivos](../files/index.mdx). Conserva el contenido original y cambia solo ajustes que conozcas. Una configuración incorrecta puede inutilizar Redis. No compartas capturas del archivo ni tickets con su contenido si incluye secretos.
+
+Si necesitas reiniciar el contenedor, usa **Developer tools → Restart**. Puede interrumpir también otros servicios del sitio; no sustituye de forma general al vaciado de caché.
+
+## Desactivar y diagnosticar
+
+Adapta primero la integración de la aplicación antes de desactivar Redis. De lo contrario puede producir errores de conexión. Revisa estado, host y puerto, extensión PHP y configuración de la aplicación.
+
+La caché de objetos Redis es distinta de [FastCGI y opcode](./cache.mdx). No trates sus datos como una copia de seguridad ni como almacenamiento único de información importante.

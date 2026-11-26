@@ -1,0 +1,42 @@
+---
+title: Import and export SQL
+description: Move MySQL/MariaDB data with a SQL file and verify the result.
+icon: FileCode
+---
+
+## Before you start
+
+Open **Domains → your website → Databases**, then click the target MySQL/MariaDB database. Importing executes SQL on this database. Uploading a file through **Files** does not import it into a database.
+
+<Callout type="warn" title="Prepare a recovery option">
+A SQL dump can drop tables or replace existing data. Check its source and contents. Export or back up a populated database before changing it. For a migration, preferably start with a new, empty target database.
+</Callout>
+
+## Import a SQL file
+
+<Steps>
+<Step title="Choose the correct target database">
+Check the website and database name. The dump must be intended for MySQL/MariaDB, not PostgreSQL.
+</Step>
+<Step title="Select your file">
+Under **Import SQL file**, choose one `.sql`, `.gz` or `.zip` file of up to **500 MB**. A compressed file must contain a suitable SQL dump; a website archive or a renamed extension does not make a SQL file.
+</Step>
+<Step title="Start and wait for confirmation">
+Select **Import file**. Keep the page open until the import is confirmed. Uploading and executing the SQL are separate parts of the operation; a large file may still be processing after transmission finishes.
+</Step>
+<Step title="Check the data and application">
+Check the tables and expected data in phpMyAdmin. Update the application’s connection settings if moving to another database or user. Then test the website.
+</Step>
+</Steps>
+
+A failed or interrupted import can leave partial changes. Do not assume an automatic rollback or blindly retry against the same populated database. Inspect its state, restore an export or use a new empty database.
+
+## Download a SQL export
+
+Under **Export SQL file**, select **Download**. The portal downloads the database contents as `database-name.sql.gz`. Check that the download finished and store it securely: it may contain personal data and application secrets.
+
+A database export does not include website files, uploads or email. Use suitable [backups](../backups/index.mdx) to recover the combined website state.
+
+## File or connection errors
+
+Check format, file size, dump compatibility and available storage. For files above the portal limit, agree a suitable import method with support. SFTP only places a file on the website; it still needs to be imported into the database. Do not use the MySQL importer for [PostgreSQL](./postgresql.mdx).

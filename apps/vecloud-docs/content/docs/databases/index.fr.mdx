@@ -1,0 +1,53 @@
+---
+title: Gérer MySQL et MariaDB
+description: Créez des bases et utilisateurs, attribuez les droits et vérifiez la connexion.
+icon: Database
+---
+
+## Base de données et utilisateur sont distincts
+
+Ouvrez **Domains → votre site → Databases**. La section MySQL gère les bases MySQL/MariaDB. Une base stocke les données ; un utilisateur possède son propre mot de passe et des droits sur une ou plusieurs bases. Il est distinct du compte du portail ou de WordPress.
+
+<PortalScreenshot
+  name="databases"
+  alt="Vue des deux moteurs de bases de données"
+  caption="Vue des deux moteurs de bases de données"
+/>
+
+## Ajouter une base de données
+
+<Steps>
+<Step title="Sélectionnez Add database">
+Utilisez des minuscules, chiffres, `_` ou `$`. Le préfixe affiché par le formulaire fait automatiquement partie du nom complet. La limite est de 64 caractères, préfixe compris.
+</Step>
+<Step title="Associez un utilisateur">
+Choisissez des utilisateurs existants ou **Create new user**. Un nouvel identifiant accepte au maximum 32 caractères, préfixe compris. Utilisez un mot de passe unique d’au moins dix caractères avec minuscule, majuscule, chiffre et caractère spécial. Gardez l’authentification par défaut sauf exigence précise de l’application.
+</Step>
+<Step title="Enregistrez et vérifiez l’accès">
+Vérifiez la base et les utilisateurs associés. Si la création réussit mais l’attribution des droits échoue, ouvrez la gestion pour corriger l’association ; ne recréez pas le même compte.
+</Step>
+</Steps>
+
+## Gérer les droits
+
+Cliquez sur une base. Dans **Users**, ajoutez un utilisateur existant, créez-en un ou modifiez les droits. **All database privileges** accorde tous les droits proposés. Décochez cette option pour choisir des droits précis, par exemple `SELECT` pour la lecture. **Revoke access** retire l’association, pas l’utilisateur lui-même.
+
+La section **Users** de la liste donne accès à la gestion de l’utilisateur, de son mot de passe masqué et de ses bases autorisées. Après une réinitialisation du mot de passe, mettez à jour la configuration de l’application pour préserver sa connexion.
+
+## Se connecter à la base
+
+**Connection details** affiche le chemin du socket Unix et l’adresse TCP actuelle. Utilisez ces données pour votre application. Ne supposez pas que l’IP du serveur web ou `localhost` convient : cela dépend de l’emplacement de l’application.
+
+Pour une connexion externe, ouvrez l’utilisateur et ajoutez l’adresse IPv4 ou IPv6 publique précise du client dans **IP addresses for external access**. Cela n’accorde pas de droits sur les bases et ne garantit pas qu’un pare-feu externe autorise la connexion. Retirez les accès devenus inutiles.
+
+<Callout type="warn" title="La suppression est définitive">
+Supprimer une base efface toutes ses données. Supprimer un utilisateur peut affecter plusieurs applications partageant ce compte. Créez d’abord un [export SQL](./sql.mdx) ou vérifiez une [sauvegarde exploitable](../backups/index.mdx).
+</Callout>
+
+Utilisez [phpMyAdmin](./phpmyadmin.mdx) pour les tables et requêtes. PostgreSQL dispose d’une [gestion distincte](./postgresql.mdx).
+
+<PortalScreenshot
+  name="database-add"
+  alt="Associer une nouvelle base à un utilisateur existant"
+  caption="Associer une nouvelle base à un utilisateur existant"
+/>

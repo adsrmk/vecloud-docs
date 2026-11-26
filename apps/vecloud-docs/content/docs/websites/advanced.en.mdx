@@ -1,0 +1,37 @@
+---
+title: Advanced website settings
+description: Inspect overrides, PHP-FPM and resource limits with the appropriate administration rights.
+icon: Settings2
+---
+
+## Open overrides
+
+Open the website through **Domains**, go to **Overview** and open the three-dot website actions menu. Select **Manage overrides**. These actions require an authorised administration role such as Owner or Superadmin. A Collaborator does not automatically have the same capabilities.
+
+The page contains website backups, PHP-FPM, system resources and [VirtualHost configuration](../developers/vhost.mdx). Seeing a value does not mean you can change every setting.
+
+<PortalScreenshot
+  name="website-overrides"
+  alt="Advanced settings with restricted administration rights"
+  caption="Advanced settings with restricted administration rights"
+/>
+
+## PHP-FPM settings
+
+Add a directive or edit an existing value. A custom value overrides the inherited setting for this website. Remove a custom override to return to the inherited value. Retain the original value and check the application after saving.
+
+PHP-FPM settings control PHP process handling. They differ from the [PHP INI editor](../developers/php.mdx), including `memory_limit`, and from total container limits. Do not raise several limits at once without examining measured usage.
+
+## System and disk limits
+
+These changes are restricted to the master organisation. The page may show memory, swap, virtual CPUs, IOPS, I/O bandwidth and process count. Disk space and inodes are separate limits: many small files can exhaust inodes while storage remains available.
+
+Use each field’s displayed unit, such as MB or MB/s. An unset specific limit does not imply infinite physical capacity. Customer accounts should arrange necessary changes through their administrator or support. First compare [resource usage](../performance/resources.mdx).
+
+## Disable backups
+
+The **Disable backups** switch is also writable only by the master organisation. When enabled, this override stops automatic and manual website and email backups for Enhance and S3. Do not use it to fix a temporary backup-list loading problem.
+
+## Uncertain changes
+
+Use **Check status** if a change was not confirmed. Read the current value before saving again. Avoid concurrent edits to the same configuration in several windows.

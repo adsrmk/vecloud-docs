@@ -1,0 +1,36 @@
+---
+title: Worker processes beheren
+description: Laat een applicatieproces draaien en stuur webverkeer naar de juiste lokale poort.
+icon: Blocks
+---
+
+<PortalScreenshot name="worker-create" alt="Een Node.js-worker voorbereiden met werkmap, poort en HTTP-proxy." caption="Een Node.js-worker voorbereiden met werkmap, poort en HTTP-proxy." />
+
+## Een worker voorbereiden
+
+Open **Domains → je website → Worker processes**. Beschikbaarheid hangt af van de websiteomgeving. Zorg dat de applicatiebestanden en afhankelijkheden aanwezig zijn. Een worker aanmaken uploadt niet automatisch je volledige project.
+
+Kies de toevoegactie en selecteer een startmodus:
+
+| Modus | Werking |
+| --- | --- |
+| Automatic (Production) | Start de worker automatisch en start opnieuw als het proces stopt |
+| Manual (Development) | Configureert doorsturing; je start het proces zelf |
+
+De aanmaakkeuzes zijn **Node.js**, **Custom**, **Laravel** en **PHP**. Bij Node.js kies je een aangeboden versie; de PHP-variant gebruikt de websiteversie. Controleer de voorgestelde opdracht in plaats van te veronderstellen dat die voor jouw project klopt.
+
+## Opdracht, werkmap en proxy
+
+Vul **Start command** en **Working directory** in. Het proces start vanuit die map. Bij een GitHub-deployment moet de werkmap bij de actieve deployment passen.
+
+Schakel **HTTP Proxy** alleen in als de worker webverkeer moet ontvangen. Kies poort en eventueel pad. De applicatie moet op de opgegeven poort en `0.0.0.0` luisteren. Laat het pad leeg voor de hele website of vul een pad zonder slash aan het begin in. Dit stuurt verkeer van het primaire domein naar de worker en kan bestaande routering vervangen.
+
+**Allow WebSocket upgrades** is nodig als de applicatie WebSocket-verbindingen gebruikt. Een queue-worker zonder webserver heeft niet automatisch een HTTP-proxy nodig.
+
+## Na aanmaken controleren
+
+Controleer de workerkaart en het log. Bewerk opdracht, werkmap en proxy via de potloden; Node.js-versie en startmodus hebben eigen keuzelijsten. Een opgeslagen configuratie bewijst niet dat het proces zonder fouten draait.
+
+Bij handmatige Node.js-modus toont het portaal een SSH-opdracht om de Node-omgeving te initialiseren. Gebruik de [SSH-toegang van de website](../files/ssh.mdx) en volg de getoonde gegevens; handmatige modus start het proces niet voor je.
+
+**Delete** stopt de worker en verwijdert zijn proxyconfiguratie na bevestiging. De applicatiebestanden blijven behouden. OpenClaw-workers worden via hun eigen [toolkit](../applications/openclaw.mdx) beheerd waar die actie wordt aangeboden.

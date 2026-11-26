@@ -1,0 +1,37 @@
+---
+title: Opcode and page caching
+description: Manage PHP opcode caching and Nginx FastCGI caching with suitable exclusions.
+icon: Gauge
+---
+
+## Two different caches
+
+Open **Domains → your website → Optimization**. **Opcode caching** stores compiled PHP code. **FastCGI cache** stores rendered pages in Nginx. They avoid different types of work; neither replaces a backup.
+
+<PortalScreenshot
+  name="nginx-cache"
+  alt="FastCGI cache and exclusions per domain"
+  caption="FastCGI cache and exclusions per domain"
+/>
+
+## Opcode caching
+
+Switch **Opcode caching** on or off and wait for confirmation. This controls `opcache.enable`, not storage of complete HTML pages. After changing code, check that the current version executes; repeatedly clearing a page cache does not correct broken PHP code.
+
+## FastCGI caching per domain
+
+The **Nginx FCGI** section appears when supported by the webserver. Select the correct domain and change **FastCGI cache**. Test a public page as well as dynamic parts of the site.
+
+Under **Cache exclusions**, add URL paths that should not be served from the page cache. These may include login, cart, checkout or personal account pages. Paths must match your application; an example such as `/checkout/` does not guarantee all dynamic pages are covered.
+
+Removing an exclusion makes the path eligible for caching under the remaining settings. Check why an existing exclusion was added before removing it.
+
+## Clear the cache
+
+Select **Clear cache** for the selected domain and confirm. This removes its stored FastCGI pages. It does not clear browser caches, external CDNs or every WordPress plugin cache. The next request may do more work while the page is rebuilt.
+
+## Webserver rewrites
+
+The same Nginx section manages **Web server rewrites** with a source path and destination file path. Edit and delete actions are in the row menu. These are internal routing rules, distinct from a [301/302 redirect](../dns-ssl/redirects.mdx) to another URL. Preserve rules required by your application.
+
+If a change is still being processed, refresh the current configuration first. Avoid changing the same domain configuration concurrently in multiple windows. For object caching, see [Redis](./redis.mdx).

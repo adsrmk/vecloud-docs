@@ -1,0 +1,40 @@
+---
+title: Connect Cloudflare
+description: Connect an API token and synchronize portal DNS records to Cloudflare for each domain.
+icon: Cloud
+---
+
+## Decide where to manage DNS
+
+Open **Integrations → Cloudflare**. An owner or authorized administrator can manage this integration. When synchronization is enabled, **DNS records in this portal are the source of truth**. Records entered directly in Cloudflare may be overwritten.
+
+<Callout type="warning" title="Review the entire zone before synchronizing">
+Compare web, mail and verification records, then add missing values to the portal first. Do not connect a production zone while important records exist only in Cloudflare.
+</Callout>
+
+<PortalScreenshot name="cloudflare" alt="Cloudflare connection with a demonstration domain and sync status" caption="This local view uses fictitious data and contains no working API token." />
+
+## Add an API connection
+
+1. In your own Cloudflare account, create a token using the form’s **Edit zone DNS** template, restricted to the intended zones.
+2. In the portal, choose **Add API token**.
+3. Give the connection a recognizable name and paste the token into the masked field.
+4. Choose **Save** and check the connection list.
+
+Use the form’s link to [Cloudflare API tokens](https://dash.cloudflare.com/profile/api-tokens). Do not share a token in a ticket or screenshot. The existing token is never returned to the browser.
+
+## Synchronize a domain
+
+Find the domain under **Domain synchronization** and choose **Manage**. Select the correct connection, read and confirm that portal records become authoritative for synchronization, then choose **Enable synchronization**. Check the domain status, the connection’s last synchronization time and the actual DNS records afterwards.
+
+The integration does not register or transfer a domain or change its nameserver delegation for you. The domain must belong to the correct Cloudflare zone and active nameservers. Cloudflare proxy and SSL settings still affect website reachability.
+
+## Replace a token or stop synchronization
+
+Use **Edit** to change the name or enter a replacement token. **An empty token field here keeps the existing token.** This differs from provider keys in the OpenClaw toolkit.
+
+To disconnect a domain, choose **Manage**, read the confirmation and use **Stop synchronization**. Check where subsequent DNS changes should be made. Deleting an API connection may affect multiple domains; the confirmation lists the affected domains.
+
+## Attention required or records not updated
+
+Check token validity, access to the correct zone and the selected connection for the domain. Compare current records on both sides. If the result was not confirmed, refresh the data before repeating the change. A **Connected** status alone does not prove that every desired record is correct.

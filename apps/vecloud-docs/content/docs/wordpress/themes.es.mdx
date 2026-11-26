@@ -1,0 +1,36 @@
+---
+title: Gestionar temas
+description: Instala y actualiza temas y comprueba las consecuencias antes de activar otro.
+icon: Palette
+---
+
+## Abrir los temas
+
+Ve a **Apps → Toolkit → Themes**. Busca el tema y comprueba la versión instalada. El estado identifica el tema activo.
+
+<PortalScreenshot name="wordpress-themes" alt="Lista de temas y acciones de actualización" caption="El estado identifica el tema activo. Las actualizaciones automáticas tienen una acción propia. Son datos de demostración." />
+
+## Instalar
+
+Pulsa **Install**, busca en el catálogo y selecciona el tema. Espera a que termine y revisa la lista. Instalar y activar son acciones distintas: un tema instalado no tiene que estar activo.
+
+Para temas propios o comerciales, sigue el método del proveedor dentro de WordPress. Un tema hijo necesita que su tema padre siga disponible.
+
+## Activar un tema
+
+1. Crea antes una [copia](../backups/index.mdx).
+2. Abre la acción del tema y pulsa **Activate**.
+3. Lee la confirmación: el sitio utilizará ese tema y cambiará su apariencia.
+4. Revisa el sitio en escritorio y móvil, incluidos menús, widgets y formularios.
+
+Prueba los cambios importantes en staging cuando sea posible. Los ajustes y bloques pueden depender del tema anterior.
+
+## Actualizar
+
+Pulsa **Update** cuando haya una actualización. Espera la confirmación y comprueba el sitio. Conserva los cambios propios con un flujo de desarrollo adecuado; los archivos del tema actualizado pueden reemplazarse.
+
+Utiliza **Enable automatic updates** o **Disable automatic updates** junto al tema para cambiar sus actualizaciones automáticas. Es independiente de la programación del núcleo de WordPress.
+
+## Limpiar
+
+Elimina solo temas que ya no necesites y revisa dependencias, incluidos temas hijos. Lee la confirmación. Si el resultado es incierto, consulta primero la lista actual antes de repetir.

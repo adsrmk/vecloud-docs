@@ -1,0 +1,35 @@
+---
+title: DNSSEC einrichten
+description: Signiere die DNS-Zone und hinterlege passende DS-Angaben beim Domainregistrar.
+icon: ShieldCheck
+---
+
+## Was DNSSEC schützt
+
+DNSSEC ermöglicht die Prüfung von Herkunft und Integrität einer DNS-Antwort. Websiteverkehr wird dadurch nicht verschlüsselt; dafür nutzt du [SSL und HTTPS](./ssl.mdx). Die vollständige Einrichtung verbindet die signierte Zone mit einem DS-Eintrag beim Registrar.
+
+<PortalScreenshot name="dnssec" alt="Aktiviertes DNSSEC mit DS-Demodaten" caption="Übernimm nur die tatsächlich für deine Konfiguration ausgestellten DS-Angaben. Diese Werte sind fiktiv." />
+
+## DNSSEC aktivieren
+
+1. Prüfe, welche Nameserver deine Domain tatsächlich verwendet.
+2. Stellt diese Umgebung die aktive Zone bereit, öffne **DNS settings → DNSSEC** der Website und aktiviere **Enable DNSSEC**.
+3. Warte auf die Bestätigung. Das Panel zeigt die DS-Angaben für deinen Registrar.
+4. Übernimm **Key tag**, **Algorithm**, **Digest type** und **Digest** exakt für die richtige Domain.
+5. Prüfe nach der Veröffentlichung, ob die DNS-Auflösung mit Validierung funktioniert.
+
+<Callout type="info" title="Registrar und DNS-Anbieter können verschieden sein">
+Der Registrar verwaltet die Registrierung und die DS-Delegation. Der DNS-Anbieter stellt die signierte Zone bereit. Eine DS-Zeile in deiner eigenen Zone ersetzt den DS-Eintrag beim Registrar nicht.
+</Callout>
+
+Bei externen Nameservern, etwa Cloudflare, verwendest du deren DNSSEC-Einstellungen und DS-Angaben. Verwende keine Schlüssel einer ungenutzten Zone aus diesem Panel.
+
+## Deaktivieren oder umziehen
+
+Entferne zuerst den DS-Eintrag beim Registrar und lass diese Änderung wirksam werden, bevor du die Signierung abschaltest. Deaktiviere danach DNSSEC im Panel und lies die Bestätigung. Ein alter DS mit nicht mehr passendem Schlüssel kann die gesamte Domain für validierende Resolver unerreichbar machen.
+
+Bei einem Nameserverwechsel müssen Delegation, Signierung und DS zusammenpassen. Bitte vor dem Wechsel um Hilfe, wenn du die richtige Reihenfolge nicht bestimmen kannst.
+
+## DNS funktioniert nach der Änderung nicht
+
+Prüfe, ob die aktiven Nameserver mit dem im DS referenzierten Schlüssel signieren. Vergleiche alle DS-Felder und suche beim Registrar nach einem alten Schlüssel. Wiederholtes Umschalten ist keine verlässliche Lösung; stelle eine konsistente Konfiguration her und prüfe nach Aktualisierung der Caches erneut.

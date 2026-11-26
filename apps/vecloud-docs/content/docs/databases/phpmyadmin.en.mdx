@@ -1,0 +1,37 @@
+---
+title: Open phpMyAdmin
+description: Launch MySQL/MariaDB administration using a fresh sign-in link from the portal.
+icon: TableProperties
+---
+
+## Open it from the correct database
+
+Go to **Domains → your website → Databases**, then select **phpMyAdmin** beside the intended database. The button is also available inside its management page. The portal opens a new tab and requests a fresh sign-in link.
+
+You do not need to paste a database password into the portal for this route. Do not share the sign-in link or keep it as a permanent bookmark; start a new session using the button.
+
+<PortalScreenshot
+  name="database-manage"
+  alt="Connection details and phpMyAdmin for a demo database"
+  caption="Connection details and phpMyAdmin for a demo database"
+/>
+
+## What can you do in phpMyAdmin?
+
+Browse tables, inspect data, execute SQL and manage imports or exports. Always check the selected database before making changes. phpMyAdmin is for MySQL/MariaDB, not PostgreSQL.
+
+<Callout type="warn" title="Queries affect real data">
+A `DELETE`, `DROP` or other modifying statement can permanently remove data. Export or back up first, and test unfamiliar queries on a copy. Opening phpMyAdmin does not create an automatic backup.
+</Callout>
+
+## The tab does not open
+
+If your browser blocks a pop-up, allow pop-ups for the portal and click again. An initially blank tab while the link is retrieved is expected; it closes if the request fails.
+
+## The link could temporarily not be retrieved
+
+Check that your portal session is active and the database still belongs to this website. Sign in again if the session expired, then retry the button. An access error can also mean your role or database assignment has changed.
+
+If several websites remain affected, send support the website, database name, time and exact error text. The administration service or server connection may need attention; do not delete a customer database or disable firewall protections yourself to solve this.
+
+For a dump, you can also use the portal’s [SQL import and export](./sql.mdx).

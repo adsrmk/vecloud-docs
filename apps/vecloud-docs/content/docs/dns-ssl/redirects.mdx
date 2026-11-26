@@ -1,0 +1,35 @@
+---
+title: Redirects beheren
+description: Stuur een domein of URL-pad door met een tijdelijke of permanente HTTP-redirect.
+icon: ArrowRightLeft
+---
+
+## Een redirect toevoegen
+
+Open je website en kies **Redirects → Add redirect**. De regels horen bij de geselecteerde website; selecteer binnen het formulier alleen de domeinen waarvoor de nieuwe regel bedoeld is.
+
+1. Kies **301** voor een permanente verhuizing of **302** voor een tijdelijke omleiding.
+2. Controleer de domeinselectie. Bij één domein ligt die keuze vast; bij meerdere kun je gericht selecteren.
+3. Vul het pad in. De `/` staat al voor het invoerveld; `oud` beschrijft bijvoorbeeld `/oud`. Laat het veld leeg voor het hoofdpad `/`.
+4. Kies het bestemmingsprotocol en vul het resterende bestemmingsadres in. Voeg niet nogmaals `https://` toe als dat al in de protocolkeuze staat.
+5. Sla op en test de oorspronkelijke URL in een nieuw privévenster.
+
+Een alias laat een extra domein dezelfde website gebruiken. Een redirect stuurt de browser door en verandert het adres. Gebruik [een alias](../websites/create.mdx) als je geen doorsturing wilt.
+
+<PortalScreenshot name="redirects" alt="Redirectformulier met pad en bestemmingsadres" caption="Het protocol en het resterende adres hebben aparte velden. De domeinen en URL’s zijn demonstratiegegevens." />
+
+## Bewerken en verwijderen
+
+Gebruik **Edit** bij de betreffende regel, pas de waarden aan en sla op. **Delete** vraagt bevestiging. Controleer daarna de oorspronkelijke URL opnieuw. Browsers kunnen een eerdere permanente 301 onthouden, ook nadat je de regel hebt gewijzigd; een schone test voorkomt een verkeerde conclusie.
+
+## Waarschuwing voor een lus
+
+Het panel kan waarschuwen voor een mogelijke redirectlus of een niet volledig te controleren keten. Lees de getoonde adressen. Een doel dat terugverwijst naar de bron, rechtstreeks of via andere regels, moet je corrigeren. Gebruik de actie om toch op te slaan alleen als je de gevolgen begrijpt.
+
+Controleer bij een lus ook WordPress, HTTPS-afdwingen en een externe proxy. Het ontbreken van een waarschuwing garandeert niet dat iedere externe of applicatieregel is gecontroleerd.
+
+## Geavanceerde rewrite-regels
+
+Als er interne of andere niet-standaardregels bestaan, toont de pagina een uitklapbaar onderdeel voor geavanceerde rewrites. Daar bewerk je patroon, substitutie, flags en voorwaarden. Deze regels kunnen nodig zijn voor de routering van je applicatie; verwijder ze niet om alleen een zichtbare redirect op te ruimen.
+
+Krijg je een melding dat de configuratie is veranderd of nog wordt verwerkt, vernieuw dan eerst de actuele regels. Sla een oude versie niet opnieuw over de nieuwe heen.

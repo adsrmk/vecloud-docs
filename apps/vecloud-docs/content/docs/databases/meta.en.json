@@ -1,0 +1,9 @@
+{
+  "title": "Databases",
+  "pages": [
+    "index",
+    "postgresql",
+    "sql",
+    "phpmyadmin"
+  ]
+}

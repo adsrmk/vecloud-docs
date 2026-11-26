@@ -1,0 +1,51 @@
+---
+title: File manager and editor
+description: Browse website files, create items and edit text from the portal.
+icon: FolderOpen
+---
+
+## Open the correct directory
+
+Open **Domains → your website → Files**. **Home** is the start of this website’s file space, not the server’s system root. Open a folder by its name and use the breadcrumb to go back.
+
+Public website files often live in `public_html`, but an application may use a different installation directory. Check the intended application’s path before editing.
+
+<PortalScreenshot
+  name="files"
+  alt="File list for a demonstration website"
+  caption="File list for a demonstration website"
+/>
+
+## Search and select
+
+Use at least two characters in the search field to find filenames. Results may come from different directories; check their full paths. Refine the query if results are limited. Clear search to browse folders again.
+
+Switch between list and grid views. Selecting checkboxes exposes actions for multiple items, including download, copy, cut, compress and delete. Use pagination for the remaining entries in a long list.
+
+## Create a file or directory
+
+Choose **New file** or **New folder**, enter a name and confirm. The item is created in the current directory. New files start empty. Use recognizable names and check for an existing name first.
+
+## Edit a text file
+
+1. Open the text file by name or through the context menu’s edit action.
+2. Check the filename at the top of the editor and the directory you opened it from and retain a copy of important files first.
+3. Edit the contents. The editor displays line numbers and syntax accents where available.
+4. Choose **Save**, or use `Ctrl+S` on Windows/Linux or `⌘S` on macOS while working in the editor.
+5. Wait for confirmation and check the website or configuration that uses the file.
+
+Non-text files, including images and archives, download instead of opening in this editor. Use your own development environment and a controlled deployment for major code changes.
+
+## Close and verify
+
+With unsaved changes, **Close** asks whether to save, discard changes or return to the editor. Saving changes the hosted file; it does not automatically make a Git commit or test the application.
+
+After an unclear save failure, reopen the current file before repeating the change. Avoid editing the same file concurrently in multiple windows.
+
+For replacement, movement and archiving, read [uploads and transfers](./transfers.mdx). Investigate access problems using [file permissions](./permissions.mdx).
+
+<PortalScreenshot
+  name="file-editor"
+  alt="Editor showing a safe demonstration file"
+  caption="Editor showing a safe demonstration file"
+/>

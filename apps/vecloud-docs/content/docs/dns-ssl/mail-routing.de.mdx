@@ -1,0 +1,39 @@
+---
+title: Mailrouting, SPF und DKIM
+description: Stimme Zustellung und Authentifizierung auf den E-Mail-Anbieter deiner Domain ab.
+icon: MailCheck
+---
+
+## Empfangsort wählen
+
+Öffne **DNS settings → Mail routing** deiner Website. Nutze **Local mail**, wenn dieses Hosting die Postfächer der Domain bereitstellt. Wähle **External mail** bei Anbietern wie Google Workspace oder Microsoft 365. Die Auswahl wird bei Änderung gespeichert.
+
+Das Routing sagt dem Hosting, wie es Nachrichten für diese Domain behandeln soll. Öffentliche **MX-Einträge** sagen anderen Mailservern, wohin sie zustellen sollen. Beides muss zum gewählten Anbieter passen. Nur MX zu ändern kann für Nachrichten vom Hostingserver selbst unzureichend sein.
+
+<PortalScreenshot name="mail-routing" alt="Bestätigung zum Ersetzen von MX durch Google Workspace" caption="Der Hinweis nennt betroffene Einträge und die separate Auswahl External mail. Öffentliches DNS wurde nicht geändert." />
+
+## Google-Workspace-MX einrichten
+
+1. Prüfe und sichere die bisherigen MX-Werte für einen möglichen Rückweg.
+2. Wähle **Gmail records** in der DNS-Tabelle.
+3. Prüfe die zu ersetzenden MX und bestätige erst nach Einrichtung der Domain in Google Workspace.
+4. Wähle separat **External mail** beim Mailrouting.
+5. Teste eingehende Mail und eine Nachricht von deiner Website.
+
+Die Aktion ersetzt MX der Hauptdomain und behält Subdomain-MX bei. Sie erstellt kein Google-Konto oder Postfach. Bei externem DNS ohne Synchronisierung legst du die Einträge dort an.
+
+## DKIM aktivieren und validieren
+
+Aktiviere DKIM unter **Email authentication** und prüfe den Validierungsstatus. Ist es nicht validiert, übernimm den angezeigten Namen `hostingcp._domainkey` und den vollständigen TXT-Wert beim aktiven DNS-Anbieter. Nutze die Kopieraktionen gegen abgeschnittene Werte.
+
+**Verified** bedeutet, dass die DKIM-DNS-Prüfung erfolgreich ist. Es garantiert nicht das Bestehen jedes Spamfilters. Versendest du über einen anderen Anbieter, beachte auch dessen DKIM-Anleitung.
+
+## SPF und DMARC
+
+Veröffentliche eine einzige SPF-Richtlinie als TXT für die Domain und berücksichtige alle legitimen Versanddienste. Lege nicht je Dienst eine zweite eigenständige SPF-Richtlinie an. Verwende die Angaben deines tatsächlichen Anbieters; ein Beispielwert ist keine Produktionskonfiguration.
+
+DMARC wird als TXT unter `_dmarc` eingerichtet. Stimme die Richtlinie mit SPF und DKIM deiner Versanddienste ab. Beginne nicht mit strikter Ablehnung, bevor legitime Absender nachweislich korrekt authentifizieren.
+
+## Mail kommt nicht an
+
+Prüfe zuerst MX, lokales/externes Routing und den aktiven DNS-Anbieter. Kontrolliere anschließend das Postfach und blockierende Spamregeln. DKIM zu aktivieren korrigiert keinen falschen MX-Eintrag und erstellt kein fehlendes Postfach.

@@ -1,0 +1,40 @@
+---
+title: Spamfilters en allow/block-lijsten
+description: Stel scoregrenzen in en beheer specifieke afzenders voor je e-mailadres.
+icon: ShieldExclamationPoint
+---
+
+## De spaminstellingen openen
+
+Ga naar **Email → het adres → Manage → Spam settings**. De beschikbare instellingen gelden voor dit e-mailadres. Een lagere scoregrens grijpt eerder in en is dus strenger. De schuifregelaars tonen hele waarden van 0 tot 20; gebruik nul niet als veronderstelde uitstand.
+
+| Instelling | Effect boven de ingestelde score |
+| --- | --- |
+| Spam folder | Bericht wordt naar de spammap verplaatst, zichtbaar via IMAP of webmail |
+| Reject | Bericht wordt geweigerd en verschijnt niet als terug te halen bericht in de spammap |
+| Greylist | Aflevering wordt tijdelijk uitgesteld; de verzendende mailserver moet later opnieuw proberen |
+
+<PortalScreenshot name="mail-spam" alt="Spamgrenzen en afzenderlijsten van een demomailbox" caption="De drie drempels hebben verschillende effecten. De voorbeeldwaarden zijn geen aanbevolen beleid voor ieder domein." />
+
+## Scoregrenzen wijzigen
+
+Noteer de huidige waarden. Pas één grens gericht aan, kies **Save spam thresholds** en test met normale berichten. Houd de grenzen logisch: een te lage rejectwaarde kan berichten weigeren voordat je ze in de spammap kunt beoordelen. Er is geen waarde die voor iedere organisatie optimaal is.
+
+Als de drempels niet beschikbaar zijn, gebruik **Try again**. Een ontbrekende waarde is geen score nul; ga eerst na welke instellingen werkelijk zijn geladen.
+
+## Afzenders toestaan of blokkeren
+
+Onder **Allow/block list** staan twee lijsten:
+
+- **Allowed addresses**: afzenders die je wilt toestaan.
+- **Blocked addresses**: afzenders die je wilt weren.
+
+Voer volledige afzenderadressen in, één per regel, en kies **Save address lists**. Verwijder een regel om die uitzondering op te heffen en sla opnieuw op. Zet hetzelfde adres niet bewust in beide lijsten; houd de bedoeling eenduidig.
+
+Een toegestaan adres is geen bewijs dat een bericht veilig is. Controleer onverwachte betaalverzoeken, links en bijlagen ook als de afzender bekend lijkt.
+
+## Een verwacht bericht ontbreekt
+
+Controleer eerst de spammap, daarna de block-lijst en de ingestelde rejectgrens. Een geweigerd bericht staat mogelijk niet in je mailbox; vraag de afzender om de bezorgmelding en een nieuwe verzending nadat de oorzaak is verholpen. Deel bij onderzoek adres, verzendtijd en foutcode, zonder mailboxwachtwoord of vertrouwelijke berichtinhoud.
+
+Controleer bij problemen met alle afzenders ook [MX en mailroutering](../dns-ssl/mail-routing.mdx). Een spaminstelling herstelt geen verkeerd afleveradres.

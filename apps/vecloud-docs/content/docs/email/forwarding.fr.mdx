@@ -1,0 +1,35 @@
+---
+title: Transferts, alias et catch-all
+description: Choisissez de transférer les messages ou de les recevoir sous une adresse supplémentaire.
+icon: Forward
+---
+
+## Gérer les transferts
+
+Ouvrez **Email → adresse → Manage → Forwarders**. Choisissez **Add forwarder** ou **Manage forwarders**. Saisissez des destinations complètes, une par ligne, puis **Save forwarding addresses**.
+
+Vérifiez toute la liste avant d’enregistrer. Pour retirer une destination, supprimez sa ligne puis enregistrez. Une adresse sans boîte doit conserver au moins une destination.
+
+Envoyez un test depuis une autre adresse et vérifiez la destination ainsi que l’éventuelle boîte locale. Évitez deux adresses qui se retransfèrent mutuellement les messages ; une boucle peut perturber la livraison.
+
+<PortalScreenshot name="mail-forwarding" alt="Formulaire de transfert avec destination fictive" caption="Saisissez des adresses complètes, une par ligne, puis enregistrez la liste vérifiée." />
+
+## Adresse réservée au transfert
+
+À la création, choisissez **Forwarding only** avec au moins une destination existante. Cette adresse reçoit et transfère sans stockage ni connexion de boîte propre. Consultez [créer une adresse](./index.mdx).
+
+## Alias d’une boîte
+
+Ouvrez **Mailbox → Aliases**, saisissez les adresses supplémentaires complètes, une par ligne, puis **Save changes**. Utilisez uniquement des adresses dont vous gérez le domaine et le courrier. Un alias livre les messages d’un autre nom dans cette boîte ; il n’a ni stockage ni mot de passe indépendant.
+
+Pour retirer un alias, supprimez sa ligne et enregistrez. Vérifiez d’abord les formulaires, pages de contact et expéditeurs qui l’utilisent encore. Configurez le client avec les identifiants de la véritable boîte.
+
+## Catch-all
+
+Sous **Catch-all**, activez la réception pour les adresses inexistantes de ce domaine. L’interrupteur enregistre immédiatement. Vérifiez l’adresse destinataire prévue puis testez avec un nom non créé sur ce même domaine.
+
+Cette option reçoit aussi les fautes de frappe et beaucoup de spam. Laissez-la désactivée pour ne recevoir que sur les adresses créées explicitement. La désactivation ne supprime ni boîte habituelle ni transferts.
+
+## Le message n’arrive pas
+
+Vérifiez la destination et le dossier spam du destinataire. Contrôlez aussi [MX et routage local/externe](../dns-ssl/mail-routing.mdx). Le transfert peut modifier l’évaluation d’authentification chez un destinataire externe ; son enregistrement ne garantit pas la livraison chez tous les fournisseurs.

@@ -1,0 +1,31 @@
+---
+title: Migrations de serveur pour administrateurs
+description: Déplacez les rôles éligibles entre serveurs et suivez chaque tâche.
+icon: ArrowRightLeft
+---
+
+<PortalScreenshot name="server-migration" alt="Choisir un site et un serveur de destination avant de démarrer la migration." caption="Choisir un site et un serveur de destination avant de démarrer la migration." />
+
+## Disponibilité et objectif
+
+La migration est réservée aux administrateurs autorisés de l’organisation principale. Ce n’est pas un assistant d’import depuis un hébergeur externe quelconque. Les comptes clients ordinaires ne peuvent pas y raccorder de serveurs. Faites organiser le déplacement par l’administrateur ou le support.
+
+## Préparer la migration
+
+Ouvrez **Server migrations** depuis l’action administrative disponible, puis **Select websites**. **Move server** peut présélectionner un site. Filtrez par domaine, serveur source et rôle.
+
+Choisissez les sites et un serveur cible par rôle disponible : application, MySQL, e-mail, sauvegarde ou PostgreSQL. Les rôles inchangés restent sur place. La cible doit proposer le rôle et être disponible. Certains rôles des sites d’administration ne peuvent pas être déplacés.
+
+Vérifiez sauvegardes, disponibilité, connexions et DNS externe avant le départ. Si la source est hors service, l’interface avertit que la récupération utilise la dernière sauvegarde disponible, pas nécessairement les modifications les plus récentes.
+
+## Démarrer et suivre
+
+Sélectionnez **Start migration**, vérifiez le nombre de rôles et confirmez. La limite est de cent rôles par demande, pas cent sites avec un nombre illimité de rôles. Les outils associés peuvent être temporairement indisponibles.
+
+Suivez la session dans l’aperçu. Chaque tâche peut être en file, active, échouée ou terminée. Ouvrez groupe et journal correspondants. Un démarrage réussi ne confirme pas la fin de tous les rôles ; contrôlez les résultats partiels.
+
+## Erreur ou absence de confirmation
+
+Consultez aperçu et journaux avant de relancer. Ne redémarrez pas des rôles déjà soumis depuis une ancienne sélection. Conservez erreur, heure, site, rôle et destination pour le support.
+
+Après achèvement, testez site, bases, e-mail et sauvegardes. Vérifiez le DNS si une adresse publique nécessaire change. Cela diffère d’un [transfert de propriété](../websites/ownership.mdx) ou [changement d’offre](../websites/package.mdx).

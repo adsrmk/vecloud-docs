@@ -1,0 +1,35 @@
+---
+title: Weiterleitungen, Aliasse und Catch-all
+description: Leite Nachrichten an andere Postfächer weiter oder empfange sie unter zusätzlichen Adressen.
+icon: Forward
+---
+
+## Weiterleitungsziele verwalten
+
+Öffne **Email → Adresse → Manage → Forwarders**. Wähle **Add forwarder** oder **Manage forwarders**. Trage vollständige Zieladressen ein, eine je Zeile, und wähle **Save forwarding addresses**.
+
+Prüfe vor dem Speichern die gesamte Liste. Entferne ein Ziel durch Löschen seiner Zeile und erneutes Speichern. Eine Adresse ohne Postfach braucht weiterhin mindestens ein Ziel.
+
+Sende einen Test von einer anderen Adresse und prüfe Ziel sowie mögliches lokales Postfach. Vermeide gegenseitige Weiterleitungen; Schleifen können die Zustellung stören.
+
+<PortalScreenshot name="mail-forwarding" alt="Weiterleitungsformular mit fiktivem Ziel" caption="Gib vollständige Adressen je Zeile ein und speichere die geprüfte Liste." />
+
+## Reine Weiterleitungsadresse
+
+Wähle beim Erstellen **Forwarding only** und mindestens ein bestehendes Ziel. Die Adresse empfängt und leitet weiter, besitzt aber keinen eigenen Postfachspeicher oder Login. Siehe [Adresse erstellen](./index.mdx).
+
+## Postfachaliase
+
+Öffne **Mailbox → Aliases**, gib zusätzliche vollständige Adressen je Zeile ein und wähle **Save changes**. Nutze nur Adressen, deren Domain und Mailverwaltung du kontrollierst. Ein Alias liefert Nachrichten für einen weiteren Namen in dieses Postfach; er besitzt keinen eigenen Speicher oder ein eigenes Passwort.
+
+Zum Entfernen löschst du die Zeile und speicherst. Prüfe vorher Formulare, Kontaktseiten und Absender, die diese Adresse noch verwenden. Nutze im Mailprogramm die Zugangsdaten des eigentlichen Postfachs.
+
+## Catch-all
+
+Unter **Catch-all** aktivierst du den Empfang für sonst nicht vorhandene Adressen dieser Domain. Der Schalter speichert sofort. Prüfe die vorgesehene Empfängeradresse und teste mit einem nicht angelegten Namen derselben Domain.
+
+Catch-all empfängt auch Tippfehler und viel Spam. Lass es aus, wenn nur ausdrücklich angelegte Adressen empfangen sollen. Das Abschalten löscht weder das normale Postfach noch dessen Weiterleitungen.
+
+## Nachricht kommt nicht an
+
+Prüfe Zieladresse und Spamordner des Empfängers sowie [MX und lokales/externes Routing](../dns-ssl/mail-routing.mdx). Weiterleitungen können die Authentifizierungsbewertung beim externen Empfänger beeinflussen; eine gespeicherte Weiterleitung garantiert keine Zustellung bei jedem Anbieter.

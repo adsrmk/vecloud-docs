@@ -1,0 +1,12 @@
+{
+  "title": "Developers",
+  "pages": [
+    "php",
+    "cron",
+    "vhost",
+    "github",
+    "workers",
+    "logs",
+    "migrations"
+  ]
+}

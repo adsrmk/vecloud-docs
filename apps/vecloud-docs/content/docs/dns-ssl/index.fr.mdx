@@ -1,0 +1,56 @@
+---
+title: Gérer les enregistrements DNS
+description: Reliez votre domaine à l’hébergement, au courrier et aux services externes avec les bons enregistrements.
+icon: Globe
+---
+
+## Vérifier qui héberge le DNS
+
+Ouvrez **Domains → votre site → DNS settings**. La page affiche les zones des domaines rattachés au site. Les modifications enregistrées deviennent publiques si les serveurs de noms actifs servent cette zone, ou si elle est synchronisée par l’[intégration Cloudflare](./cloudflare.mdx).
+
+Avec des serveurs externes sans synchronisation, modifiez les enregistrements chez ce fournisseur. Ajouter un NS dans cette table ne change pas la délégation chez le bureau d’enregistrement.
+
+<PortalScreenshot name="dns-records" alt="Enregistrements DNS d’un domaine de démonstration" caption="La zone contient uniquement des domaines fictifs et des IP de documentation." />
+
+## Ajouter un enregistrement
+
+<Steps>
+<Step>
+### Ouvrir le formulaire
+Choisissez **Add record** dans la table du bon domaine.
+</Step>
+<Step>
+### Saisir type, nom et valeur
+Utilisez `@` pour le domaine racine ou, par exemple, `www` pour un sous-domaine. Reprenez la valeur fournie par le service à connecter. MX possède des champs priorité et serveur ; SRV possède priorité, poids, port et cible.
+</Step>
+<Step>
+### Choisir le TTL et enregistrer
+Gardez le TTL par défaut, ou désactivez cette option et saisissez des secondes. Choisissez **Add record** puis vérifiez la nouvelle ligne.
+</Step>
+</Steps>
+
+<PortalScreenshot name="dns-add" alt="Ajouter un enregistrement A pour blog.example.test" caption="L’exemple utilise une IP réservée à la documentation. Utilisez l’adresse réelle indiquée par votre hébergement." />
+
+## Types courants
+
+| Type | Utilisation |
+| --- | --- |
+| A / AAAA | Nom vers une adresse IPv4 ou IPv6 |
+| CNAME | Nom vers un autre nom, sans protocole ni chemin URL |
+| MX | Serveur de réception du courrier et priorité |
+| TXT | Vérification de domaine, SPF, DKIM ou DMARC |
+| SRV | Serveur et port d’un service |
+| CAA | Autorités autorisées à émettre des certificats |
+| NS / DS / PTR | Délégation, DNSSEC ou DNS inverse selon le contexte |
+
+Le type SPF est également proposé. Pour une nouvelle politique SPF, utilisez TXT. Un PTR dans une zone ordinaire ne modifie pas le DNS inverse d’une IP d’hébergement ; cela dépend de l’opérateur de l’IP.
+
+## Modifier, supprimer et vérifier
+
+Utilisez **Edit** sur la bonne ligne. La suppression demande confirmation. Conservez l’ancienne valeur avant de remplacer un enregistrement fonctionnel. Les caches peuvent conserver les anciennes réponses jusqu’à expiration du TTL précédent ; enregistrer plusieurs fois ne les accélère pas.
+
+## Réglages SOA
+
+La zone affiche le serveur responsable, l’adresse administrative et **Expires**, **Refresh**, **Retry** et **TTL**. L’action de modification ouvre le formulaire SOA ; les durées sont en secondes. Modifiez ces valeurs avancées uniquement si votre configuration le nécessite. Modifier SOA ne change pas la délégation des serveurs de noms.
+
+Pour le courrier, consultez [routage et authentification](./mail-routing.mdx). Pour transférer une adresse web, utilisez [Redirects](./redirects.mdx), pas un enregistrement DNS.

@@ -1,0 +1,56 @@
+---
+title: DNS-Einträge verwalten
+description: Verbinde deine Domain über passende DNS-Einträge mit Hosting, E-Mail und externen Diensten.
+icon: Globe
+---
+
+## Prüfe den zuständigen DNS-Anbieter
+
+Öffne **Domains → deine Website → DNS settings**. Die Seite zeigt die Zonen der zugeordneten Domains. Gespeicherte Änderungen werden öffentlich verwendet, wenn die aktiven Nameserver diese Zone bereitstellen oder sie über die [Cloudflare-Integration](./cloudflare.mdx) synchronisiert wird.
+
+Bei externen Nameservern ohne Synchronisierung bearbeitest du die Einträge beim externen Anbieter. Ein NS-Eintrag in dieser Tabelle ändert die Delegation beim Registrar nicht.
+
+<PortalScreenshot name="dns-records" alt="DNS-Einträge einer Demo-Domain" caption="Die Zone enthält nur fiktive Domains und Dokumentations-IP-Adressen." />
+
+## Eintrag hinzufügen
+
+<Steps>
+<Step>
+### Formular öffnen
+Wähle **Add record** in der DNS-Tabelle der richtigen Domain.
+</Step>
+<Step>
+### Typ, Hostname und Wert eingeben
+Verwende `@` für die Hauptdomain oder etwa `www` für eine Subdomain. Übernimm den Wert des gewünschten Dienstes. Bei MX gibst du Priorität und Mailserver an, bei SRV Priorität, Gewicht, Port und Ziel.
+</Step>
+<Step>
+### TTL wählen und speichern
+Nutze die Standard-TTL oder deaktiviere diese Option und gib Sekunden ein. Wähle **Add record** und prüfe die neue Zeile.
+</Step>
+</Steps>
+
+<PortalScreenshot name="dns-add" alt="A-Eintrag für blog.example.test hinzufügen" caption="Das Beispiel nutzt eine reservierte Dokumentations-IP. Übernimm die tatsächliche Serveradresse aus deinen Hostingdaten." />
+
+## Häufige Typen
+
+| Typ | Verwendung |
+| --- | --- |
+| A / AAAA | Hostname zu einer IPv4- oder IPv6-Adresse |
+| CNAME | Hostname zu einem anderen Hostnamen, ohne Protokoll oder URL-Pfad |
+| MX | Empfangender Mailserver mit Priorität |
+| TXT | Domainprüfung, SPF, DKIM oder DMARC |
+| SRV | Host und Port für einen Dienst |
+| CAA | Zugelassene Zertifizierungsstellen |
+| NS / DS / PTR | Delegation, DNSSEC oder Reverse-DNS-Angaben je nach Kontext |
+
+SPF wird ebenfalls als Typ angeboten. Verwende für eine neue SPF-Richtlinie einen TXT-Eintrag. Ein PTR in einer normalen Domainzone ändert nicht das Reverse DNS einer Hosting-IP; das verwaltet deren Betreiber.
+
+## Bearbeiten, löschen und prüfen
+
+Wähle **Edit** an der richtigen Zeile. Löschen erfordert eine Bestätigung. Bewahre den bisherigen Wert auf, bevor du einen funktionierenden Eintrag ersetzt. Caches können bis zum Ablauf der bisherigen TTL alte Antworten liefern; wiederholtes Speichern beschleunigt das nicht.
+
+## SOA-Einstellungen
+
+Die Zone zeigt den verantwortlichen Nameserver, die Verwaltungsadresse sowie **Expires**, **Refresh**, **Retry** und **TTL**. Über Bearbeiten öffnest du das SOA-Formular; Zeitwerte sind Sekunden. Ändere diese erweiterten Werte nur bei Bedarf deiner DNS-Konfiguration. SOA-Bearbeitung ändert die Nameserverdelegation nicht.
+
+Für E-Mail nutze [Routing und Authentifizierung](./mail-routing.mdx). Eine Webadresse leitest du über [Redirects](./redirects.mdx) weiter, nicht über einen DNS-Eintrag.

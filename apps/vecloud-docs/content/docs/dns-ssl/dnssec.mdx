@@ -1,0 +1,35 @@
+---
+title: DNSSEC instellen
+description: Onderteken de DNS-zone en koppel de juiste DS-gegevens bij je domeinregistrar.
+icon: ShieldCheck
+---
+
+## Wat DNSSEC beschermt
+
+DNSSEC maakt het mogelijk om de herkomst en integriteit van DNS-antwoorden te controleren. Het versleutelt geen websiteverkeer; daarvoor gebruik je [SSL en HTTPS](./ssl.mdx). Een complete configuratie verbindt de ondertekende DNS-zone met een DS-record bij de registrar.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC ingeschakeld met demonstratiegegevens voor het DS-record" caption="Neem in je eigen configuratie uitsluitend de werkelijk uitgegeven DS-gegevens over. Deze waarden zijn fictief." />
+
+## Inschakelen
+
+1. Controleer eerst welke nameservers je domein daadwerkelijk gebruikt.
+2. Beheert deze omgeving de actieve zone? Open de website, **DNS settings → DNSSEC** en schakel **Enable DNSSEC** in.
+3. Wacht op de bevestiging. Het panel toont de DS-gegevens die je bij je domeinregistrar moet toevoegen.
+4. Neem **Key tag**, **Algorithm**, **Digest type** en **Digest** exact over voor de juiste domeinnaam.
+5. Controleer na publicatie of DNS-resolutie met validatie werkt.
+
+<Callout type="info" title="Registrar en DNS-provider kunnen verschillen">
+De registrar beheert de registratie en de DS-koppeling. De DNS-provider beheert de ondertekende zone. Een DS-record toevoegen als gewone rij in je eigen DNS-zone vervangt de DS-koppeling bij de registrar niet.
+</Callout>
+
+Bij externe nameservers, bijvoorbeeld Cloudflare, gebruik je de DNSSEC-instellingen en DS-gegevens van die actieve DNS-provider. Gebruik niet de sleutelgegevens van een ongebruikte zone in dit panel.
+
+## Uitschakelen of verhuizen
+
+Verwijder eerst de DS-koppeling bij de registrar en laat de wijziging doorwerken voordat je de ondertekening uitschakelt. Zet daarna DNSSEC in het panel uit en lees de bevestiging. Een oude DS-koppeling met een niet langer passende sleutel kan het hele domein onbereikbaar maken voor validerende resolvers.
+
+Bij een nameserververhuizing moeten delegatie, ondertekening en DS bij elkaar blijven passen. Vraag hulp voordat je wisselt wanneer je de juiste volgorde niet kunt bepalen.
+
+## DNS werkt niet na de wijziging
+
+Controleer of de actieve nameservers dezelfde zone ondertekenen als waarnaar de DS verwijst. Vergelijk alle DS-velden en controleer op een oude sleutel bij de registrar. Herhaald schakelen genereert geen betrouwbare oplossing; herstel de consistente combinatie en controleer opnieuw na het verversen van caches.

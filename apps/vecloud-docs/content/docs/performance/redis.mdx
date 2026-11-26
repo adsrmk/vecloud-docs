@@ -1,0 +1,35 @@
+---
+title: Redis voor je website
+description: Schakel de Redis-dienst in en verbind je applicatie met de lokale objectcache.
+icon: Database
+---
+
+## Redis inschakelen
+
+Open **Domains → je website → Optimization → Redis**. De schakelaar is beschikbaar als Redis door de websiteomgeving wordt ondersteund. Schakel de dienst in en wacht op bevestiging. Het blok toont dan de verbindingsgegevens en **Edit redis.conf**.
+
+Het getoonde adres `127.0.0.1:6379` is bedoeld voor de applicatie binnen die websiteomgeving. Het is geen publiek internetadres om vanaf je eigen laptop mee te verbinden. Een andere server of website heeft niet automatisch toegang tot deze lokale dienst.
+
+<PortalScreenshot
+  name="optimization"
+  alt="Redis en opcodecache in Optimization"
+  caption="Redis en opcodecache in Optimization"
+/>
+
+## De applicatie koppelen
+
+Redis inschakelen configureert niet automatisch je WordPress-plugin of andere applicatie. Zorg dat de applicatie een geschikte Redis-koppeling gebruikt. Voor PHP kan ook de Redis-extensie onder **Developer tools → PHP extensions** nodig zijn.
+
+Bij WordPress configureer en activeer je een passende objectcache-plugin volgens de instructies van die plugin. Controleer daar de verbindingsstatus. Alleen de portaalstatus **Redis** aan betekent dat de dienst is ingeschakeld, niet dat WordPress er al gegevens in bewaart.
+
+## redis.conf bewerken
+
+**Edit redis.conf** opent het configuratiebestand in de [bestandseditor](../files/index.mdx). Bewaar de oorspronkelijke inhoud en wijzig alleen instellingen die je begrijpt. Ongeldige configuratie kan de Redis-dienst onbruikbaar maken. Open het bestand niet in screenshots of gedeelde tickets als er geheimen in staan.
+
+Een eventuele applicatiecontainerherstart doe je via **Developer tools → Restart**. Die actie kan ook andere diensten in de websitecontainer onderbreken; gebruik haar niet als algemene vervanging voor cache legen.
+
+## Uitschakelen en problemen onderzoeken
+
+Pas eerst de applicatiekoppeling aan wanneer je Redis niet meer wilt gebruiken. Anders kan de applicatie na uitschakelen verbindingsfouten geven. Controleer bij problemen de dienststatus, de gebruikte host/poort, PHP-extensie en de applicatieconfiguratie.
+
+Redis-objectcache is iets anders dan [FastCGI-paginacache of opcodecache](./cache.mdx). Behandel cachegegevens niet als een back-up of als de enige opslag van belangrijke informatie.

@@ -1,0 +1,45 @@
+---
+title: SSH en SFTP gebruiken
+description: Verbind veilig met het websiteaccount via een openbare sleutel of SSH-wachtwoord.
+icon: KeyRound
+---
+
+## Open de SSH-instellingen
+
+Ga naar **Domains → je website → Developer tools** en zoek **SSH key management**. SSH is beschikbaar als je pakket deze functie ondersteunt. De toegang geldt voor de hele website met de bijbehorende domeinen.
+
+De getoonde loginopdracht bevat de websitegebruiker en het serveradres. Gebruik die gegevens, niet je portaalaccount of een FTP-account. Dit is toegang tot je websiteomgeving, geen roottoegang tot de server.
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Een openbare SSH-sleutel toevoegen"
+  caption="Een openbare SSH-sleutel toevoegen"
+/>
+
+## Een openbare sleutel toevoegen
+
+<Steps>
+<Step title="Maak lokaal een sleutelpaar">
+Genereer een sleutelpaar in je SSH-programma als je dat nog niet hebt. Bewaar de privésleutel op je eigen apparaat.
+</Step>
+<Step title="Voeg de openbare sleutel toe">
+Kies **Add SSH key**, geef een herkenbare naam en plak de volledige openbare sleutel. Via **Choose file** kun je ook het openbare sleutelbestand selecteren. Gebruik nooit je privésleutel.
+</Step>
+<Step title="Test de verbinding">
+Kies **Add**, controleer de sleutel in de lijst en gebruik de loginopdracht in je terminal. Controleer bij een nieuwe serververbinding de hostfingerprint voordat je die vertrouwt; vraag bij twijfel bevestiging aan support.
+</Step>
+</Steps>
+
+## SFTP instellen
+
+Gebruik in je bestandsprogramma het protocol **SFTP**, het serveradres en de websitegebruiker uit de loginopdracht, en poort **22**. Selecteer de bijbehorende privésleutel in je programma. Een FTP-account met `@domein` is niet dezelfde SSH-identiteit.
+
+## Een SSH-wachtwoord instellen
+
+Bij **SSH password authentication** kies je **Reset password**. Stel een uniek wachtwoord van minimaal tien tekens met kleine letter, hoofdletter, cijfer en speciaal teken in en sla op. Het bestaande wachtwoord blijft verborgen. Werk apparaten die het oude wachtwoord gebruiken bij.
+
+## Toegang intrekken
+
+Gebruik **Delete** bij een sleutel en bevestig. De houder verliest SSH- en SFTP-toegang via die sleutel. Andere sleutels en het SSH-wachtwoord zijn afzonderlijke toegangswegen; controleer die ook wanneer iemand geen toegang meer mag hebben.
+
+Lees voor grote transfers ook [uploaden en downloaden](./transfers.mdx). Deel nooit privésleutels of wachtwoorden in een supportticket of screenshot.

@@ -1,0 +1,40 @@
+---
+title: Eine Domain hinzufügen
+description: Erstelle eine eigene Website, Subdomain oder einen Alias im kompakten Formular.
+icon: Globe
+---
+
+## Vor dem Start
+
+Nutze eine Domain unter deiner Kontrolle und prüfe freie Websiteplätze im Tarif. Das Hinzufügen im Panel registriert keine Domain beim Registrar. Anschließend muss DNS auf das richtige Hosting zeigen.
+
+## Typ auswählen
+
+<Tabs items={['Addon', 'Subdomain', 'Alias']}>
+<Tab value="Addon">
+Nutze **Addon** für eine getrennte Website. Gib die vollständige Domain ohne Protokoll, Pfad oder unerwünschtes `www.` ein. Es wird Webspace angelegt; installiere danach eine Anwendung über **Apps**.
+</Tab>
+<Tab value="Subdomain">
+Nutze **Subdomain** für einen Namen unter einer bestehenden Domain. Wähle die übergeordnete Domain und gib nur den neuen Teil ein, etwa `shop`. Prüfe den zusammengesetzten Namen vor dem Anlegen.
+</Tab>
+<Tab value="Alias">
+Nutze **Alias** für eine weitere Domain derselben Website. Wähle die Zielwebsite und gib die Alias-Domain ein. Ein Alias ordnet derselben Website einen weiteren Namen zu und ist keine HTTP-Weiterleitung zu einer anderen Adresse.
+</Tab>
+</Tabs>
+
+## Domain anlegen
+
+1. Öffne **Domains → Add domain**.
+2. Wähle den Typ und gib die passenden Daten ein.
+3. Prüfe Name und gegebenenfalls Zielwebsite.
+4. Wähle **Create** und warte auf die Bestätigung.
+
+<PortalScreenshot name="add-domain" alt="Addon-Formular mit der fiktiven Domain demo-site.test" caption="Das Formular beginnt mit Domain type und Domain. Eine Anwendung wählst du später innerhalb der Website." />
+
+## Nach dem Anlegen
+
+Öffne die Website und prüfe **DNS settings** und **SSL certificates**. Öffentliches DNS muss auf das richtige Hosting zeigen, bevor du Erreichbarkeit testest oder ein Zertifikat anforderst. Installiere WordPress oder eine andere unterstützte Anwendung unter **Apps → Add application**.
+
+## Das Formular ist gesperrt
+
+Ein voller oder inaktiver Tarif kann die Erstellung verhindern. Ein Alias benötigt eine geeignete vorhandene Website. Prüfe bei einem unklaren Fehler nach **Create** erst die Liste, bevor du dieselbe Domain erneut hinzufügst.

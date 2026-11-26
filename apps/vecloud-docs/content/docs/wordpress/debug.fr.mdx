@@ -1,0 +1,37 @@
+---
+title: Déboguer WordPress
+description: Enregistrez temporairement les erreurs sans exposer leurs détails aux visiteurs.
+icon: Bug
+---
+
+## Options de débogage
+
+Ouvrez **Apps → Toolkit → Debug** pour l’installation. Les interrupteurs contrôlent trois réglages distincts.
+
+| Réglage | Fonction |
+| --- | --- |
+| WP_DEBUG | Active le débogage WordPress. |
+| WP_DEBUG_LOG | Écrit les messages dans `wp-content/debug.log`. |
+| WP_DEBUG_DISPLAY | Affiche les messages dans le HTML destiné aux visiteurs. |
+
+<PortalScreenshot name="wordpress-debug" alt="Options de débogage sans affichage public des erreurs" caption="Cette démonstration locale active les journaux sans affichage public. Aucune donnée de journal n’est montrée." />
+
+## Examiner un problème
+
+1. Notez erreur, URL et heure.
+2. Activez temporairement **WP_DEBUG** et **WP_DEBUG_LOG**.
+3. Gardez **WP_DEBUG_DISPLAY** désactivé sur un site public.
+4. Attendez la confirmation puis reproduisez une fois l’action défaillante.
+5. Ouvrez **Files**, accédez au dossier d’installation et consultez `wp-content/debug.log` s’il a été créé.
+
+Les journaux peuvent contenir chemins, données de requêtes et autres détails privés. Partagez uniquement l’extrait utile après suppression des valeurs sensibles.
+
+## Aucun journal ou toolkit inaccessible
+
+Un fichier est créé lorsqu’un message est enregistré. Vérifiez l’activation, la reproduction du problème et le bon dossier d’installation.
+
+Si WordPress démarre mal, des parties du toolkit peuvent aussi échouer. Consultez alors le journal PHP dans **Developer tools**, distinct du fichier de débogage WordPress.
+
+## Après le diagnostic
+
+Désactivez les options temporaires et vérifiez le site public. Conservez les données utiles en sécurité et supprimez les journaux devenus inutiles. Ne laissez pas inutilement actifs les journaux détaillés ou l’affichage des erreurs.

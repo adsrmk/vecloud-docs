@@ -1,0 +1,38 @@
+---
+title: Déployer depuis GitHub
+description: Connectez un dépôt, configurez sa construction et suivez les déploiements.
+icon: GitBranch
+---
+
+<PortalScreenshot name="github-connect" alt="Connecter un dépôt de démonstration avec un script de compilation et un dossier de publication." caption="Connecter un dépôt de démonstration avec un script de compilation et un dossier de publication." />
+
+## Conditions
+
+Ouvrez **Domains → votre site → GitHub**. L’intégration GitHub de l’organisation doit accéder au dépôt. Terminez l’enregistrement et l’installation proposés sur GitHub avec un compte autorisé. Vérifiez les dépôts que vous rendez accessibles.
+
+Le déploiement ne peut être configuré tant que le site possède des applications installées. Ne supprimez pas WordPress ou une autre installation pour contourner l’avis. Utilisez un site distinct adapté ou préparez conversion et sauvegardes.
+
+## Connecter le dépôt
+
+<Steps>
+<Step title="Choisissez dépôt et version">
+Sélectionnez **Connect repository**, le dépôt et **Branch or tag**. Si un dépôt manque, l’application GitHub peut ne pas y avoir accès. Vérifiez la connexion et rechargez les choix.
+</Step>
+<Step title="Configurez construction et publication">
+**Build script** s’exécute depuis le répertoire de déploiement après récupération du dépôt. Utilisez la commande du projet. **Publish directory** est relatif, par exemple `dist` ; vide publie tout le répertoire. Un chemin erroné peut publier les mauvais fichiers malgré une construction réussie.
+</Step>
+<Step title="Choisissez l’automatisation et un worker éventuel">
+**Automatic deployment** réagit aux pushes vers la branche ou le tag choisi. Une nouvelle connexion peut aussi configurer un worker si autorisé. Le script de construction diffère de la commande d’un serveur persistant.
+</Step>
+<Step title="Vérifiez le résultat">
+Confirmez et examinez les résultats. Connexion, premier déploiement et worker sont des étapes distinctes ; vérifiez lesquelles ont réussi avant de recréer quoi que ce soit.
+</Step>
+</Steps>
+
+## Suivre les déploiements
+
+Utilisez **Deploy now** pour un lancement manuel. Consultez état, commit et journaux dans **Deployments**. Une demande n’est pas une publication réussie confirmée. Vérifiez ensuite site et [worker](./workers.mdx).
+
+Une construction active peut être annulée après confirmation ; son nouveau checkout n’est pas activé. Cela ne restaure pas une version déjà publiée. **Disconnect repository** retire la connexion du site ; vérifiez auparavant les conséquences applicatives et automatiques.
+
+Ne placez pas de mots de passe ou tokens dans commandes et journaux. Gardez données importantes et envois hors d’un flux écrasant sans contrôle les fichiers déployés.

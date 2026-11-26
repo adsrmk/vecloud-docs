@@ -1,0 +1,43 @@
+---
+title: Bestandsrechten en CHMOD
+description: Lees en wijzig rechten voor eigenaar, groep en overige gebruikers.
+icon: LockKeyhole
+---
+
+## De huidige rechten bekijken
+
+Open **Files** en controleer de rechten bij het juiste bestand of de juiste map. Het contextmenu biedt **File information** en **Permissions (CHMOD)**. Op desktop open je dit menu met een rechtsklik op het item.
+
+Rechten bepalen welke gebruikers mogen lezen, schrijven en uitvoeren. Ze zijn iets anders dan het eigenaarschap van een bestand.
+
+| Waarde | Recht |
+| --- | --- |
+| 4 | Lezen |
+| 2 | Schrijven |
+| 1 | Uitvoeren; bij een map ook toegang om die te doorlopen |
+
+Tel de rechten op per categorie. Bijvoorbeeld `6` is lezen en schrijven, `5` is lezen en uitvoeren. De drie cijfers horen bij **Owner**, **Group** en **Everyone**.
+
+<PortalScreenshot
+  name="file-permissions"
+  alt="Bestandsrechten voor README.txt"
+  caption="Bestandsrechten voor README.txt"
+/>
+
+## Rechten wijzigen
+
+1. Noteer de bestaande waarde en het volledige pad.
+2. Open **Permissions (CHMOD)**.
+3. Kies de cijfers voor eigenaar, groep en overige gebruikers.
+4. Controleer de weergegeven CHMOD-waarde en kies **Save permissions**.
+5. Controleer daarna de toegang van de applicatie en het bestandsbeheer.
+
+Gebruik rechten die passen bij je applicatie en hostingomgeving. `644` voor een bestand en `755` voor een map zijn veelgebruikte voorbeelden, geen universele herstelopdracht.
+
+## Recursief toepassen
+
+**Apply recursively** is alleen beschikbaar bij mappen en kan veel onderliggende items wijzigen. Een map heeft andere toegangsbehoeften dan een gewoon tekstbestand. Pas niet zomaar dezelfde waarde op een hele website toe; `644` op mappen kan bijvoorbeeld het doorlopen van die mappen blokkeren.
+
+## Een wijziging verhelpt het probleem niet
+
+Controleer het juiste pad, de eigenaar en de maprechten boven het bestand. Geef niet standaard iedereen schrijfrechten met `777`. Als de eigenaar verkeerd is of de hosting schrijven beperkt, vraag dan ondersteuning met het pad en de foutmelding. Deel geen inhoud van configuratiebestanden met wachtwoorden.

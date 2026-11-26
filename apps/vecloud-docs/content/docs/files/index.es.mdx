@@ -1,0 +1,51 @@
+---
+title: Gestor de archivos y editor
+description: Navega por los archivos del sitio, crea elementos y edita texto desde el portal.
+icon: FolderOpen
+---
+
+## Abrir la carpeta correcta
+
+Abre **Domains → tu sitio → Files**. **Home** es el inicio del espacio de archivos del sitio, no la raíz del sistema del servidor. Abre una carpeta por su nombre y vuelve mediante la ruta de navegación.
+
+La web pública suele estar en `public_html`, pero una aplicación puede usar otra carpeta. Comprueba su ruta antes de editar.
+
+<PortalScreenshot
+  name="files"
+  alt="Lista de archivos de un sitio de demostración"
+  caption="Lista de archivos de un sitio de demostración"
+/>
+
+## Buscar y seleccionar
+
+Usa al menos dos caracteres para buscar nombres. Los resultados pueden proceder de distintas carpetas; revisa sus rutas completas. Refina la búsqueda si está limitada y bórrala para navegar de nuevo.
+
+Puedes cambiar entre lista y cuadrícula. Las casillas muestran acciones para varios elementos: descargar, copiar, cortar, comprimir y eliminar. Usa la paginación en listas largas.
+
+## Crear archivos y carpetas
+
+Pulsa **New file** o **New folder**, introduce un nombre y confirma. Se crea en la carpeta actual. Los archivos nuevos están vacíos. Usa nombres reconocibles y comprueba si ya existen.
+
+## Editar texto
+
+1. Abre el archivo por su nombre o mediante editar en el menú contextual.
+2. Comprueba la ruta superior y conserva una copia de archivos importantes.
+3. Modifica el texto. El editor muestra números de línea y resaltado cuando está disponible.
+4. Pulsa **Save**, `Ctrl+S` en Windows/Linux o `⌘S` en macOS mientras estás en el editor.
+5. Espera la confirmación y comprueba la web o configuración afectada.
+
+Las imágenes, archivos comprimidos y otros formatos no textuales se descargan. Para cambios de código grandes, usa tu entorno de desarrollo y un despliegue controlado.
+
+## Cerrar y verificar
+
+Con cambios pendientes, **Close** permite guardar, descartar o volver al editor. Guardar modifica el archivo alojado; no crea automáticamente un commit Git ni prueba la aplicación.
+
+Ante un error incierto, vuelve a abrir el archivo actual antes de repetir. No edites el mismo archivo simultáneamente en varias ventanas.
+
+Para sustituir, mover o comprimir consulta [cargas y transferencias](./transfers.mdx). Para acceso consulta [permisos](./permissions.mdx).
+
+<PortalScreenshot
+  name="file-editor"
+  alt="Editor con un archivo de demostración seguro"
+  caption="Editor con un archivo de demostración seguro"
+/>

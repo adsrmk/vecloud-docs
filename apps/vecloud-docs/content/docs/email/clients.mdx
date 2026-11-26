@@ -1,0 +1,41 @@
+---
+title: Mailprogramma en webmail
+description: Gebruik de getoonde server, poorten en mailboxgegevens om je e-mail te openen.
+icon: MailOpen
+---
+
+## De juiste gegevens vinden
+
+Open **Email → het adres → Manage → Email client settings**. Gebruik het volledige mailboxadres als gebruikersnaam, bijvoorbeeld `hello@example.test`, en het mailboxwachtwoord. Dat is niet automatisch het wachtwoord van je VECloud-account.
+
+Voor een mailbox op deze hosting toont het panel onderstaande combinaties. Bij `hello@example.test` is de getoonde server `mail.example.test`; vervang de voorbeeldnaam door de server uit jouw eigen tabel.
+
+| Dienst | Poort | Beveiliging |
+| --- | --- | --- |
+| IMAP | 993 | SSL/TLS |
+| SMTP | 465 | SSL/TLS |
+| SMTP, alternatief | 587 | STARTTLS |
+| POP | 995 | SSL/TLS |
+
+Gebruik voor SMTP één van de twee combinaties en schakel aanmelden met de mailboxgegevens in. Combineer poort 587 niet met de instelling voor impliciete SSL/TLS op poort 465.
+
+<PortalScreenshot name="mail-clients" alt="Mailclienttabel met IMAP, SMTP en POP voor een fictieve mailbox" caption="Kopieer de hostnaam en volledige gebruikersnaam uit je eigen account. Gebruik één passende SMTP-combinatie." />
+
+## Een mailprogramma instellen
+
+1. Voeg een bestaand e-mailaccount toe in je mailprogramma.
+2. Kies IMAP voor synchronisatie van berichten en mappen tussen apparaten.
+3. Vul gebruikersnaam, wachtwoord en de getoonde inkomende en uitgaande servergegevens in.
+4. Test zowel ontvangen als verzenden. Controleer ook een tweede apparaat als je die gebruikt.
+
+POP kan berichten lokaal downloaden; controleer de instellingen voor het behouden van een serverkopie voordat je dit gebruikt. Een adres dat alleen doorstuurt heeft geen eigen mailbox om via IMAP of webmail te openen.
+
+## Webmail openen
+
+Gebruik de webmailactie naast de mailbox in de e-maillijst. Het panel opent de beschikbare webmailtoegang in een nieuw tabblad. Sta het openen van dat tabblad toe als je browser het tegenhoudt. Controleer bij een verlopen sessie eerst je aanmelding in het portaal.
+
+## Geen verbinding of certificaatfout
+
+Controleer de volledige gebruikersnaam, het actuele mailboxwachtwoord, de poort en de gekozen beveiligingsmethode. Controleer of de getoonde mailhost correct in DNS staat en een passend certificaat gebruikt. Negeer geen certificaatwaarschuwing om een verkeerde hostnaam werkend te laten lijken.
+
+Staan je mailboxen bij een externe provider, gebruik dan diens verbindingsgegevens. Het instellen van **External mail** maakt een externe mailbox niet toegankelijk via deze lokale mailhost. Zie [mailroutering](../dns-ssl/mail-routing.mdx).

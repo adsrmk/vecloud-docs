@@ -1,0 +1,41 @@
+---
+title: PHP-Version und Einstellungen
+description: Ändere PHP, Erweiterungen und INI-Werte mit Blick auf Anwendungskompatibilität.
+icon: Code
+---
+
+## PHP-Version ändern
+
+Öffne **Domains → deine Website → Developer tools → PHP**. Die Auswahl zeigt die für Website und Paket verfügbaren Versionen. Wähle eine Version, lies die Kompatibilitätsmeldung und bestätige. Prüfe zuvor Anwendung, Themes und Erweiterungen. Beim Wechsel kann die Website kurz nicht verfügbar sein.
+
+Ältere Versionen können vor inkompatibler MariaDB-Authentifizierung warnen. Ohne Warnung ist dennoch kein vollständiger Anwendungstest erfolgt. Prüfe danach Website, Verwaltung und [PHP-Fehlerlog](./logs.mdx).
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP-Version, Erweiterungen und sicheres Beispiellog"
+  caption="PHP-Version, Erweiterungen und sicheres Beispiellog"
+/>
+
+## Erweiterungen und IonCube
+
+Unter **PHP extensions** schaltest du angebotene optionale Erweiterungen ein oder aus. Integrierte Erweiterungen sind nicht dieselbe Liste wie einstellbare Optionen. Die Verfügbarkeit hängt vom Umfeld ab. Die PHP-Redis-Erweiterung ist vom [Redis-Dienst](../performance/redis.mdx) getrennt.
+
+**IonCube loader** unterstützt Anwendungen, die diesen Loader benötigen. Aktiviere ihn nur bei entsprechender Anforderung und unterstützter PHP-Version. Die Oberfläche weist darauf hin, dass er für PHP 8.0 nicht verfügbar ist.
+
+## PHP INI editor
+
+Der Editor steht bei passendem Paket zur Verfügung. Wähle **Edit** bei einer Direktive oder **Add directive** für eine neue. Trage den exakten Namen ein und nutze **Text** für Werte wie `256M` oder **Boolean** für Ein/Aus. Speichere und prüfe den aktuellen Wert.
+
+**Inherited** kennzeichnet einen geerbten Wert. Ein eigener Wert überschreibt ihn für die Website. Das Löschen dieser Überschreibung stellt den geerbten Wert wieder her und deaktiviert die Funktion nicht zwangsläufig.
+
+`upload_max_filesize` und ähnliche PHP-Werte betreffen die PHP-Anwendung. Sie bestimmen nicht die eigenständigen Limits von Portal-Dateimanager oder SQL-Importer.
+
+<Callout type="warn" title="Restart unterbricht den Website-Container">
+**Restart** startet den Anwendungscontainer neu und kann Redis sowie Node.js unterbrechen. Die Website kann dabei offline sein. Bestätige bewusst und prüfe danach die Anwendung. Ein Neustart repariert weder fehlerhaften Code noch fehlende Dateien.
+</Callout>
+
+<PortalScreenshot
+  name="php-ini"
+  alt="PHP-INI-Wert bearbeiten"
+  caption="PHP-INI-Wert bearbeiten"
+/>

@@ -1,0 +1,43 @@
+---
+title: Manage and publish staging
+description: Copy content to a new or existing website and distinguish this from converting staging.
+icon: Globe
+---
+
+## Choose your destination
+
+Open an existing staging website’s **Overview**. When your plan and permissions allow it, you see **Publish staging**. The current interface shows this menu for staging websites; a normal website has no copy button here.
+
+| Action | Result |
+| --- | --- |
+| To a new website | Creates a separate website with copied content. |
+| To an existing website | Copies to a selected website and can overwrite its content. |
+| Promote to production | Converts the staging website itself to production. It does not copy content to another website. |
+
+## Copy to a new website
+
+1. Choose the new-website option in the copy menu.
+2. If requested, select a subscription and a production or staging website type.
+3. Enter the new domain or staging name. For staging, the panel shows the configured suffix.
+4. Review WordPress search-and-replace when changing the domain.
+5. Confirm the copy and follow its progress.
+
+The new website uses the relevant website or staging allowance. A new domain may still need DNS and SSL before working publicly.
+
+## Copy to an existing website
+
+<Callout type="warning" title="Check the destination">
+The selected destination can be overwritten. Preserve recent content and orders and create a destination backup first.
+</Callout>
+
+Select the destination. Review excluded paths, databases and database users. Check the options for deleting files that only exist at the destination and synchronizing the PHP version.
+
+For WordPress, search-and-replace can update references from the old domain to the new one. Choose deliberately: a database can also contain absolute references you want to keep.
+
+## Convert staging to production
+
+**Promote to production** changes the staging website’s type and uses a regular website allowance. Its domain and content stay with the same website. To send content to an existing production website, use the existing-website copy option and check that destination.
+
+## After copying
+
+Check the destination, important pages, administration area, forms and database connection. If the outcome is unclear, review progress and the website list before starting another copy.

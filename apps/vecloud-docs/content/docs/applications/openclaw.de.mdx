@@ -1,0 +1,41 @@
+---
+title: OpenClaw verwalten
+description: Verwalte Gatewayzugriff, KI-Anbieterschlüssel und Gerätefreigaben.
+icon: Bot
+---
+
+## Toolkit öffnen
+
+Öffne **Apps** und **Toolkit** bei OpenClaw. Es enthält **Gateway token**, **AI provider keys** und **Device authentication**. **Dashboard** öffnet die verfügbare OpenClaw-Verwaltung.
+
+Fehlt die Installation, nutze **Add application**, wenn dein Tarif OpenClaw anbietet. Es wird kein WordPress- oder Joomla-Administratorkonto verlangt.
+
+OpenClaw nutzt eine eigene Website-Umgebung. Solange es dort installiert ist, kannst du keine anderen Anwendungen hinzufügen. Nutze für WordPress oder Joomla eine andere Website.
+
+<PortalScreenshot name="openclaw-gateway" alt="OpenClaw-Gateway und Anbieter mit verdeckten Feldern" caption="Tokens bleiben verdeckt. Die lokale Demo verwendet keine gültigen Schlüssel oder Kundendaten." />
+
+## Gatewaytoken
+
+Das Token gewährt Zugriff auf Gateway und Dashboard. Kopiere es nur in deinen vertrauenswürdigen Client und bewahre es wie ein Passwort auf. Teile es nicht in Screenshots oder Supportnachrichten.
+
+**Rotate token** erzeugt nach Bestätigung ein neues Token. Das bisherige wird ungültig. Aktualisiere danach bestehende Clients; mit dem alten Token können sie sich nicht mehr anmelden.
+
+## KI-Anbieterschlüssel
+
+Es gibt Felder für **OpenAI**, **xAI**, **Gemini**, **Claude** und **OpenRouter**. Gib den gewünschten Schlüssel ein und prüfe alle übrigen Felder vor **Save**. Mit der Verwerfen-Aktion setzt du ungespeicherte Änderungen zurück, ohne den Entwurf anzuwenden.
+
+<Callout type="warning" title="Ein leeres Feld entfernt den vorhandenen Schlüssel">
+Leer bedeutet hier nicht unverändert. Prüfe alle Anbieterfelder, bevor du speicherst, um keine bestehende Verbindung versehentlich zu entfernen.
+</Callout>
+
+## Geräte freigeben
+
+Bei manueller Freigabe müssen neue Geräte zuerst bestätigt werden. Öffne dein Dashboard, um eine Anfrage auszulösen, und vergleiche Plattform und Geräte-ID. Genehmige nur ein eigenes, erkennbares Gerät.
+
+Anfragen laufen nach kurzer Zeit ab. Fehlt deine Anfrage, öffne das Dashboard erneut und aktualisiere die Daten. Gekoppelte Geräte stehen separat; ein Gatewaytoken bleibt zur Anmeldung erforderlich.
+
+## Geräteverifikation ändern
+
+Das Toolkit zeigt den aktuellen Zustand. Deaktivieren erlaubt neuen Geräten mit Gatewaytoken den Zugang ohne eigene Freigabe. Lies die Bestätigung und entscheide bewusst. Lasse manuelle Freigaben an, wenn du diese zusätzliche Prüfung behalten möchtest.
+
+Prüfe bei Zugriffsproblemen Token, Anbieterkonfiguration und Gerätestatus getrennt. Teile keine Schlüssel oder Tokens in Diagnosenachrichten.

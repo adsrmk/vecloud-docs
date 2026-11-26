@@ -1,0 +1,41 @@
+---
+title: Gestionar OpenClaw
+description: Gestiona acceso al gateway, claves de proveedores de IA y aprobación de dispositivos.
+icon: Bot
+---
+
+## Abrir el toolkit
+
+Abre **Apps** y pulsa **Toolkit** junto a OpenClaw. Incluye **Gateway token**, **AI provider keys** y **Device authentication**. **Dashboard** abre la administración disponible de OpenClaw.
+
+Si aún no está instalado, utiliza **Add application** cuando tu plan lo permita. No solicita una cuenta administrativa de WordPress o Joomla.
+
+OpenClaw utiliza su propio entorno de sitio. Mientras esté instalado, no puedes instalar otras aplicaciones allí. Usa otro sitio para WordPress o Joomla.
+
+<PortalScreenshot name="openclaw-gateway" alt="Gateway de OpenClaw y proveedores con campos ocultos" caption="Los tokens permanecen ocultos. La demostración local no usa claves reales ni datos de clientes." />
+
+## Token del gateway
+
+El token da acceso al gateway y dashboard de OpenClaw. Cópialo solo en tu cliente de confianza y guárdalo como una contraseña. No lo incluyas en capturas o mensajes de soporte.
+
+**Rotate token** genera otro token tras confirmar. El actual deja de ser válido. Actualiza los clientes existentes con el nuevo; ya no podrán entrar con el antiguo.
+
+## Claves de proveedores de IA
+
+Hay campos para **OpenAI**, **xAI**, **Gemini**, **Claude** y **OpenRouter**. Introduce la clave del proveedor elegido y revisa los demás campos antes de **Save**. La acción para descartar cambios recupera los valores del formulario sin guardar el borrador.
+
+<Callout type="warning" title="Un campo vacío elimina la clave existente">
+Vacío no significa sin cambios. Revisa todos los proveedores antes de guardar para no borrar una conexión por error.
+</Callout>
+
+## Aprobar dispositivos
+
+Con aprobación manual activa, cada dispositivo nuevo necesita autorización. Abre tu dashboard para generar una solicitud y compara plataforma e ID. Aprueba solo dispositivos propios que reconozcas.
+
+Las solicitudes caducan pronto. Si falta la tuya, vuelve a abrir el dashboard y actualiza los datos. Los dispositivos vinculados se muestran aparte; el token sigue siendo necesario para entrar.
+
+## Cambiar la verificación
+
+El toolkit muestra si está activa. Desactivarla permite entrar a nuevos dispositivos que tengan el token, sin aprobación individual. Lee la confirmación y decide conscientemente. Mantén la aprobación manual si quieres conservar esta comprobación.
+
+Ante problemas de acceso, revisa por separado token, configuración del proveedor y dispositivo. No incluyas claves ni tokens en un diagnóstico.

@@ -1,0 +1,37 @@
+---
+title: Usuarios de WordPress
+description: Gestiona los accesos de una instalación de WordPress desde el toolkit.
+icon: Users
+---
+
+## Abrir la lista correcta
+
+Abre **Apps → Toolkit → Users** en la instalación. Son usuarios de WordPress, no miembros del equipo del panel. El acceso al panel se gestiona en [Equipo y acceso](../account/team.mdx).
+
+Busca la cuenta y comprueba usuario y correo antes de cambiar algo.
+
+<PortalScreenshot name="wordpress-users" alt="Lista de usuarios WordPress con el menú abierto" caption="El menú ofrece acciones para editar o eliminar esta cuenta. El correo es ficticio." />
+
+## Añadir un usuario
+
+1. Pulsa **Add user**.
+2. Introduce usuario, correo y una contraseña única.
+3. Utiliza letras, cifras, puntos, guiones y guiones bajos permitidos.
+4. Guarda la contraseña de forma segura y confirma la creación.
+5. Revisa la cuenta y sus permisos dentro de WordPress.
+
+El formulario del toolkit no ofrece un selector de rol independiente. Usa la administración de WordPress para roles y ajustes adicionales que no aparezcan aquí.
+
+## Editar datos
+
+Abre el menú del usuario para editar su nombre o correo, o establecer otra contraseña. Comprueba la cuenta y guarda. Actualiza después los datos guardados en tu gestor o integración cuando corresponda.
+
+**Default SSO** identifica la cuenta marcada como predeterminada para el acceso administrativo. Usa **Admin** junto a la instalación para abrir el acceso disponible. No compartas enlaces temporales de acceso.
+
+## Eliminar un usuario
+
+Lee la confirmación y comprueba si la cuenta aún sirve para administrar o publicar. Revisa contenido de autor y permisos dentro de WordPress antes de eliminar. No elimines el último administrador utilizable sin comprobar otra vía de acceso.
+
+## Falla un cambio
+
+Vuelve a abrir la lista para comprobar los datos actuales. Si caducó la sesión del panel, entra de nuevo. Si falla la propia instalación, consulta el registro PHP y [Depuración de WordPress](./debug.mdx).

@@ -1,0 +1,41 @@
+---
+title: Manage OpenClaw
+description: Manage gateway access, AI provider keys and device approval for your installation.
+icon: Bot
+---
+
+## Open the toolkit
+
+Open the website’s **Apps** and choose **Toolkit** next to OpenClaw. It contains **Gateway token**, **AI provider keys** and **Device authentication**. **Dashboard** opens the available OpenClaw administration interface.
+
+Not installed yet? Use **Add application** when OpenClaw is available in your plan. It does not request a WordPress or Joomla administrator account.
+
+OpenClaw uses its own website environment. While it is installed on a website, you cannot install other applications there. Use a different website for WordPress or Joomla.
+
+<PortalScreenshot name="openclaw-gateway" alt="OpenClaw gateway and provider settings with masked fields" caption="Tokens remain hidden. The local demonstration uses no working keys or customer information." />
+
+## Gateway token
+
+The gateway token grants access to your OpenClaw gateway and dashboard. Copy it only to your own trusted client and store it like a password. Do not include it in screenshots or support messages.
+
+Choose **Rotate token** to generate a new token and read the confirmation. The current token becomes invalid. Update existing clients with the new token afterwards; they can no longer sign in with the old one.
+
+## AI provider keys
+
+The toolkit provides fields for **OpenAI**, **xAI**, **Gemini**, **Claude** and **OpenRouter**. Enter the desired provider’s key and review the other fields before choosing **Save**. Use the discard action to restore unsaved changes if you do not want to apply the draft.
+
+<Callout type="warning" title="An empty field removes the existing key">
+Empty does not mean unchanged here. Check every provider field before saving to avoid unintentionally removing an existing connection.
+</Callout>
+
+## Approve devices
+
+With manual device approval enabled, new devices need approval first. Open your own dashboard to generate a request and compare its platform and device ID. Approve only a device you recognize as yours.
+
+Requests expire after a short time. If yours is missing, reopen the dashboard and refresh the data. Paired devices are listed separately; a gateway token is still required to sign in.
+
+## Change device verification
+
+The toolkit shows whether verification is enabled. Disabling it allows new devices with the gateway token to enter without separate approval. Read the confirmation and choose deliberately. Keep manual approval enabled when you want this additional check.
+
+For access problems, check the token, provider configuration and device status separately. Do not include keys or tokens in a diagnostic message.

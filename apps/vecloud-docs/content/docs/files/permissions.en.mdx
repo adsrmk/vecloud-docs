@@ -1,0 +1,43 @@
+---
+title: File permissions and CHMOD
+description: Read and change permissions for owner, group and other users.
+icon: LockKeyhole
+---
+
+## Inspect current permissions
+
+Open **Files** and check the intended file or directory. Its context menu offers **File information** and **Permissions (CHMOD)**. On desktop, right-click the item to open that menu.
+
+Permissions control reading, writing and execution. They are different from file ownership.
+
+| Value | Permission |
+| --- | --- |
+| 4 | Read |
+| 2 | Write |
+| 1 | Execute; for a directory, also permission to traverse it |
+
+Add values for each category. For example, `6` means read and write, while `5` means read and execute. The three digits correspond to **Owner**, **Group** and **Everyone**.
+
+<PortalScreenshot
+  name="file-permissions"
+  alt="File permissions for README.txt"
+  caption="File permissions for README.txt"
+/>
+
+## Change permissions
+
+1. Note the current value and full path.
+2. Open **Permissions (CHMOD)**.
+3. Choose the owner, group and other-user digits.
+4. Check the displayed CHMOD value and choose **Save permissions**.
+5. Check application and file-manager access afterwards.
+
+Use permissions suitable for the application and hosting environment. `644` for a file and `755` for a directory are common examples, not a universal repair command.
+
+## Apply recursively
+
+**Apply recursively** is available only for directories and can change many nested items. Directories have different access requirements from ordinary text files. Do not blindly apply the same value across a website; `644` on directories can prevent traversal, for example.
+
+## Permissions did not fix the problem
+
+Check the path, owner and permissions of parent directories. Do not give everyone write access with `777` as a general fix. If ownership is wrong or hosting restricts writes, ask support with the path and error message. Do not share configuration contents containing passwords.

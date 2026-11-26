@@ -1,0 +1,45 @@
+---
+title: SSH und SFTP verwenden
+description: Verbinde dich per öffentlichem Schlüssel oder SSH-Passwort mit dem Website-Konto.
+icon: KeyRound
+---
+
+## SSH-Einstellungen öffnen
+
+Öffne **Domains → deine Website → Developer tools** und suche **SSH key management**. SSH ist verfügbar, wenn dein Paket es enthält. Der Zugriff gilt für die gesamte Website und ihre zugeordneten Domains.
+
+Der angezeigte Anmeldebefehl enthält Website-Benutzer und Serveradresse. Verwende diese Angaben, nicht dein Portalkonto oder ein FTP-Konto. Du erhältst Zugriff auf die Website-Umgebung, keinen Root-Zugriff auf den Server.
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Öffentlichen SSH-Schlüssel hinzufügen"
+  caption="Öffentlichen SSH-Schlüssel hinzufügen"
+/>
+
+## Öffentlichen Schlüssel hinzufügen
+
+<Steps>
+<Step title="Schlüsselpaar lokal erstellen">
+Erzeuge bei Bedarf ein Schlüsselpaar in deinem SSH-Programm. Bewahre den privaten Schlüssel auf deinem Gerät auf.
+</Step>
+<Step title="Öffentlichen Schlüssel hinzufügen">
+Wähle **Add SSH key**, vergib einen erkennbaren Namen und füge den vollständigen öffentlichen Schlüssel ein. **Choose file** lädt dessen Datei. Übermittle niemals den privaten Schlüssel.
+</Step>
+<Step title="Verbindung testen">
+Wähle **Add**, prüfe die Liste und verwende den Anmeldebefehl im Terminal. Prüfe den Host-Fingerprint, bevor du einer neuen Serververbindung vertraust; frage im Zweifel beim Support nach.
+</Step>
+</Steps>
+
+## SFTP einrichten
+
+Wähle im Dateiprogramm **SFTP**, die Serveradresse und den Website-Benutzer aus dem Anmeldebefehl sowie Port **22**. Wähle im Client den passenden privaten Schlüssel. Ein FTP-Konto mit `@domain` ist nicht dieselbe SSH-Identität.
+
+## SSH-Passwort festlegen
+
+Wähle unter **SSH password authentication** die Aktion **Reset password**. Lege ein einzigartiges Passwort mit mindestens zehn Zeichen, Kleinbuchstabe, Großbuchstabe, Zahl und Sonderzeichen fest und speichere. Das bestehende Passwort bleibt verborgen. Aktualisiere Geräte, die das alte Passwort verwenden.
+
+## Zugriff entziehen
+
+Wähle **Delete** neben einem Schlüssel und bestätige. Dessen Inhaber verliert den SSH- und SFTP-Zugriff über diesen Schlüssel. Weitere Schlüssel und das SSH-Passwort sind eigenständige Zugänge; prüfe sie ebenfalls, wenn jemand keinen Zugriff mehr haben soll.
+
+Für größere Übertragungen siehe [Uploads und Downloads](./transfers.mdx). Teile niemals private Schlüssel oder Passwörter in Supporttickets oder Screenshots.

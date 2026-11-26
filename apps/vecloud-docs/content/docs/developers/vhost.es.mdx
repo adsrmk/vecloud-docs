@@ -1,0 +1,40 @@
+---
+title: Configuración VirtualHost
+description: Gestiona directivas propias por dominio y evita cambios en conflicto.
+icon: FileCode
+---
+
+## Cuándo utilizarla
+
+Usa [Redirects](../dns-ssl/redirects.mdx) para redirecciones, [IP deny](../dns-ssl/ip-deny.mdx) para bloqueos y [Optimization](../performance/cache.mdx) para caché. VirtualHost sirve para configuración adicional que requiera la aplicación.
+
+Abre **Domains → tu sitio → Overview → Website actions → Manage overrides**. En **VirtualHost configuration**, abre el menú del dominio correcto y **Edit configuration**. Requiere permisos administrativos adecuados.
+
+<PortalScreenshot
+  name="vhost-editor"
+  alt="Editor VirtualHost solo con configuración de demostración"
+  caption="Editor VirtualHost solo con configuración de demostración"
+/>
+
+## Guardar cambios
+
+1. Comprueba el dominio y conserva la configuración propia actual.
+2. Añade solo directivas válidas para ese contexto VirtualHost. No pegues una configuración global completa.
+3. Pulsa **Save** y espera confirmación.
+4. Vuelve a abrir la configuración y prueba sitio, redirecciones y reglas de seguridad.
+
+<Callout type="warn" title="La sintaxis incorrecta puede interrumpir el servidor web">
+Un error o directiva inválida puede dejar el sitio inaccesible. Prueba en un entorno adecuado y conserva una configuración original recuperable. Guardar no constituye una prueba funcional completa.
+</Callout>
+
+## Conservar reglas gestionadas
+
+Las reglas del portal para IP deny y redirecciones compatibles cumplen funciones propias. Cámbialas en sus páginas. El portal conserva los bloqueos Nginx gestionados al guardar configuración libre; editarlos manualmente no es una forma fiable de retirar un bloqueo.
+
+## Restaurar valores predeterminados
+
+**Reset to default** elimina la configuración libre propia del dominio tras confirmar. Las reglas gestionadas pueden conservarse. No desactiva de forma general todos los bloqueos o redirecciones ni restaura archivos o bases.
+
+## Cambio aún en proceso
+
+Espera y usa **Check status** para consultar el estado. Si hay conflicto de revisión, abre la versión reciente y aplica allí el cambio. No sobrescribas desde una versión antigua sin comprobar. Evita cambios simultáneos en varias ventanas o herramientas.

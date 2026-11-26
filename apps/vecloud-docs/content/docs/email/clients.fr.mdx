@@ -1,0 +1,41 @@
+---
+title: Clients e-mail et webmail
+description: Utilisez le serveur, les ports et les identifiants de boîte affichés pour accéder au courrier.
+icon: MailOpen
+---
+
+## Trouver les bons réglages
+
+Ouvrez **Email → adresse → Manage → Email client settings**. Utilisez l’adresse complète comme identifiant, par exemple `hello@example.test`, et le mot de passe de cette boîte. Ce n’est pas nécessairement celui de votre compte VECloud.
+
+Pour une boîte hébergée ici, le panel affiche les combinaisons suivantes. Pour `hello@example.test`, le serveur affiché est `mail.example.test` ; remplacez l’exemple par celui de votre propre table.
+
+| Service | Port | Sécurité |
+| --- | --- | --- |
+| IMAP | 993 | SSL/TLS |
+| SMTP | 465 | SSL/TLS |
+| SMTP, alternative | 587 | STARTTLS |
+| POP | 995 | SSL/TLS |
+
+Choisissez une combinaison SMTP et activez l’authentification avec les identifiants de boîte. Ne combinez pas 587 avec le SSL/TLS implicite utilisé sur 465.
+
+<PortalScreenshot name="mail-clients" alt="Réglages IMAP, SMTP et POP d’une boîte fictive" caption="Copiez serveur et identifiant complet depuis votre compte. Utilisez une combinaison SMTP adaptée." />
+
+## Configurer un client
+
+1. Ajoutez un compte existant dans votre logiciel.
+2. Choisissez IMAP pour synchroniser messages et dossiers entre appareils.
+3. Saisissez identifiant, mot de passe et réglages entrants/sortants affichés.
+4. Testez réception et envoi, puis un autre appareil si nécessaire.
+
+POP peut télécharger les messages localement ; vérifiez la conservation d’une copie serveur avant de l’utiliser. Une adresse uniquement de transfert n’a pas de boîte propre accessible en IMAP ou webmail.
+
+## Ouvrir le webmail
+
+Utilisez l’action webmail à côté de la boîte dans la liste. Le panel ouvre l’accès disponible dans un nouvel onglet. Autorisez cet onglet si le navigateur le bloque. Si la session a expiré, vérifiez d’abord votre connexion au portail.
+
+## Erreur de connexion ou certificat
+
+Vérifiez identifiant complet, mot de passe actuel, port et méthode de sécurité. Le serveur affiché doit résoudre correctement en DNS et disposer d’un certificat adapté. N’ignorez pas un avertissement pour utiliser un mauvais nom de serveur.
+
+Pour une boîte chez un fournisseur externe, utilisez ses réglages. Choisir **External mail** ne rend pas cette boîte accessible via l’hôte local. Consultez [routage du courrier](../dns-ssl/mail-routing.mdx).

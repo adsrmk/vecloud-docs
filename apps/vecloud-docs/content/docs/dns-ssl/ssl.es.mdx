@@ -1,0 +1,42 @@
+---
+title: Certificados SSL y HTTPS
+description: Solicita certificados, comprueba su validez y dirige a los visitantes hacia HTTPS.
+icon: LockKeyhole
+---
+
+## Solicitar un certificado
+
+Abre tu sitio y elige **SSL certificates**. La tabla muestra estado, emisor, ajuste HTTPS y caducidad de cada dominio.
+
+1. Comprueba el DNS público y la accesibilidad del dominio.
+2. Pulsa **Request certificate** y selecciona el dominio. Solo aparece una opción para correo si está disponible.
+3. Lee el aviso: se sustituirá cualquier certificado existente para ese nombre.
+4. Pulsa **Request** y comprueba el estado y la caducidad actualizados.
+
+Que la ventana se cierre no demuestra que la emisión haya funcionado; verifica la tabla. Ante un error revisa DNS, accesibilidad y posibles ajustes de proxy o CAA. No repitas la misma solicitud continuamente.
+
+<PortalScreenshot name="ssl" alt="Tabla SSL con certificado activo e interruptor HTTPS" caption="Comprueba estado y caducidad por dominio. La demostración no muestra claves de certificados." />
+
+## Forzar HTTPS
+
+Activa **Enforce HTTPS** en el dominio correcto cuando tenga un certificado válido. El cambio se guarda de inmediato. Prueba una dirección `http://` y comprueba que llega al destino `https://` esperado.
+
+Si hay un bucle de redirecciones, revisa también la aplicación y los ajustes HTTPS del proxy externo. Una redirección HTTPS no repara un certificado inválido.
+
+## Instalar un certificado propio
+
+Si aparece **Install custom SSL**, puedes instalar un certificado existente con su clave privada correspondiente. Selecciona el dominio y pega el contenido PEM o carga los archivos. El selector acepta archivos compatibles de certificado y clave de hasta **64 KiB cada uno**. Envía la instalación y comprueba después su estado.
+
+La clave y el certificado deben corresponderse y cubrir el dominio. Organiza tú la renovación de un certificado propio; cargarlo no solicita una nueva emisión.
+
+## Consultar detalles
+
+**Details** abre los datos disponibles, separados para web y correo cuando corresponda. La vista también puede mostrar la **clave privada**. No la compartas en capturas, tickets ni mensajes. Cierra los detalles al terminar.
+
+## Cambio no confirmado
+
+Si el panel indica que no pudo confirmar el cambio de seguridad, no pudo determinar su resultado final de forma fiable. Actualiza primero los datos. Repite la solicitud solo después de comprobar que el cambio sigue pendiente.
+
+## Otras opciones de seguridad
+
+Según el servidor web, puede aparecer **ModSecurity** con un interruptor por dominio. No lo desactives para ocultar un fallo de la aplicación; investiga primero la petición bloqueada. Los bloqueos de Nginx se gestionan en [IP deny](./ip-deny.mdx). En Apache, esta página SSL puede mostrar controles independientes de acceso por IP.

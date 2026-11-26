@@ -1,0 +1,10 @@
+{
+  "title": "Konto und Team",
+  "pages": [
+    "navigation",
+    "profile",
+    "security",
+    "team",
+    "notifications"
+  ]
+}

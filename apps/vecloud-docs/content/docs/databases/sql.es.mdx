@@ -1,0 +1,42 @@
+---
+title: Importar y exportar SQL
+description: Transfiere datos MySQL/MariaDB mediante un archivo SQL y verifica el resultado.
+icon: FileCode
+---
+
+## Antes de empezar
+
+Abre **Domains → tu sitio → Databases** y pulsa la base MySQL/MariaDB de destino. La importación ejecuta SQL sobre esa base. Subir un archivo mediante **Files** no lo importa a la base de datos.
+
+<Callout type="warn" title="Prepara una opción de recuperación">
+Un volcado SQL puede eliminar tablas o sustituir datos. Revisa su origen y contenido. Exporta o respalda una base con datos antes de modificarla. Para migrar, utiliza preferiblemente una base de destino nueva y vacía.
+</Callout>
+
+## Importar un archivo SQL
+
+<Steps>
+<Step title="Elige la base de destino correcta">
+Comprueba el sitio y la base. El volcado debe ser para MySQL/MariaDB, no PostgreSQL.
+</Step>
+<Step title="Selecciona el archivo">
+En **Import SQL file**, elige un único archivo `.sql`, `.gz` o `.zip` de hasta **500 MB**. El comprimido debe contener un volcado SQL adecuado; un archivo del sitio o una extensión renombrada no sirve.
+</Step>
+<Step title="Inicia y espera la confirmación">
+Pulsa **Import file**. Mantén la página abierta hasta recibir confirmación. La transferencia y la ejecución SQL son fases distintas; un archivo grande puede seguir procesándose después de enviarse.
+</Step>
+<Step title="Comprueba los datos y la aplicación">
+Revisa las tablas y datos esperados en phpMyAdmin. Actualiza la conexión de la aplicación si cambias de base o usuario. Prueba después el sitio.
+</Step>
+</Steps>
+
+Una importación fallida o interrumpida puede dejar cambios parciales. No supongas una reversión automática ni repitas sin revisar la misma base con datos. Comprueba su estado, restaura una exportación o utiliza otra base vacía.
+
+## Descargar una exportación SQL
+
+En **Export SQL file**, pulsa **Download**. El portal descarga el contenido como `nombre-base.sql.gz`. Verifica que finalice y guárdalo de forma segura: puede contener datos personales y secretos de la aplicación.
+
+La exportación no incluye archivos del sitio, subidas ni correo. Utiliza [copias adecuadas](../backups/index.mdx) para recuperar el conjunto del sitio.
+
+## Errores de archivo o conexión
+
+Comprueba formato, tamaño, compatibilidad del volcado y espacio disponible. Para superar el límite del portal, acuerda un método con soporte. SFTP solo coloca el archivo en el sitio; aún necesita importarse a la base. No uses el importador MySQL para [PostgreSQL](./postgresql.mdx).

@@ -1,0 +1,35 @@
+---
+title: Forwarders, aliassen en catch-all
+description: Kies of berichten naar een andere mailbox gaan of onder een extra adres binnenkomen.
+icon: Forward
+---
+
+## Doorstuuradressen beheren
+
+Open **Email → het adres → Manage → Forwarders**. Kies **Add forwarder** of **Manage forwarders**. Voer volledige doeladressen in, één per regel, en kies **Save forwarding addresses**.
+
+Controleer de volledige lijst voordat je opslaat. Verwijder een doel door de bijbehorende regel uit het formulier te halen en opnieuw op te slaan. Een adres zonder mailbox moet minimaal één doorstuurdoel behouden.
+
+Stuur een proefbericht vanaf een ander adres en controleer de bestemming én eventuele lokale mailbox. Voorkom dat adressen naar elkaar terugsturen; een doorstuurlus kan bezorging verstoren.
+
+<PortalScreenshot name="mail-forwarding" alt="Forwarderformulier met een fictief doeladres" caption="Voer volledige adressen in, één per regel, en sla de gecontroleerde lijst op." />
+
+## Een adres dat alleen doorstuurt
+
+Kies bij het aanmaken **Forwarding only** en voeg minstens één bestaand doeladres toe. Zo ontstaat een ontvangst- en doorstuuradres zonder eigen mailboxopslag of mailboxaanmelding. Meer uitleg staat bij [een e-mailadres aanmaken](./index.mdx).
+
+## Aliassen op een mailbox
+
+Open **Mailbox → Aliases**, voer de extra volledige e-mailadressen in, één per regel, en kies **Save changes**. Gebruik alleen adressen waarvoor je domein en mailafhandeling beheert. Een alias laat mail voor een extra naam bij deze mailbox uitkomen; het is geen aparte mailbox met eigen opslag en wachtwoord.
+
+Om een alias te verwijderen haal je de betreffende regel weg en sla je op. Controleer vooraf of formulieren, contactpagina’s of afzenders dat adres nog gebruiken. Voor een mailprogramma gebruik je de aanmeldgegevens van de eigenlijke mailbox.
+
+## Catch-all
+
+Onder **Catch-all** schakel je ontvangst voor niet-bestaande adressen op dit domein in. De schakelaar slaat direct op. Controleer welk adres als catch-all hoort te dienen en test met een niet-bestaand adres op hetzelfde domein.
+
+Een catch-all vangt ook typefouten en veel spam op. Laat deze optie uit als je alleen expliciet aangemaakte adressen wilt ontvangen. Uitschakelen verwijdert de gewone mailbox of diens forwarders niet.
+
+## Een bericht bereikt de bestemming niet
+
+Controleer het doeladres en de spammap van de ontvanger. Controleer daarnaast [MX en lokale/externe routering](../dns-ssl/mail-routing.mdx). Doorsturen kan de authenticatiebeoordeling bij een externe ontvanger beïnvloeden; een opgeslagen forwarder is geen garantie op aflevering bij iedere provider.

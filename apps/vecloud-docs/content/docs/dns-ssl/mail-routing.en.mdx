@@ -1,0 +1,39 @@
+---
+title: Mail routing, SPF and DKIM
+description: Align mail delivery and authentication with the provider used by your domain.
+icon: MailCheck
+---
+
+## Choose where mail is received
+
+Open your website’s **DNS settings → Mail routing**. Choose **Local mail** when this hosting provides the domain’s mailboxes. Choose **External mail** for mailboxes at a provider such as Google Workspace or Microsoft 365. The selection saves when you change it.
+
+Routing tells the hosting environment how to handle mail for this domain. Public **MX records** tell other mail servers where to deliver it. Both should match your chosen mail provider. Changing MX alone may be insufficient for messages originating on the hosting server itself.
+
+<PortalScreenshot name="mail-routing" alt="Confirmation for replacing MX records with Google Workspace records" caption="The notice lists replaced records and the separate External mail setting. No public records were changed." />
+
+## Configure Google Workspace MX
+
+1. Review and retain the existing MX values if you need a rollback.
+2. Choose **Gmail records** in the DNS table.
+3. Read which MX records will be replaced and confirm only after setting up your domain for Google Workspace.
+4. Separately choose **External mail** under mail routing.
+5. Test incoming mail and a message from your website.
+
+This action replaces root-domain MX records. Subdomain MX records remain. It does not create a Google account or mailbox. With external DNS and no synchronization, configure records there instead.
+
+## Enable and validate DKIM
+
+Under **Email authentication**, enable DKIM and check the validation status. If it is not validated, copy the displayed name `hostingcp._domainkey` and complete TXT value to the active DNS provider. Use the copy actions to avoid incomplete or truncated values.
+
+**Verified** means the DKIM DNS check succeeds. It does not guarantee every sent message will pass spam filtering. If you send through another provider, also follow that provider’s DKIM instructions.
+
+## SPF and DMARC
+
+Publish SPF as one TXT policy for the domain, containing all legitimate sending services. Do not add a second separate SPF policy for each service. Use the values supplied by your actual mail provider; an example value is not a production configuration.
+
+Configure DMARC as a TXT record at `_dmarc`. Align its policy with SPF and DKIM for your sending services. Do not start with strict rejection before checking that legitimate senders authenticate correctly.
+
+## Mail is not arriving
+
+Check MX, local/remote routing and the active DNS provider first. Then check that the mailbox exists and spam rules are not blocking mail. Enabling DKIM does not correct an incorrect MX record or create a missing mailbox.

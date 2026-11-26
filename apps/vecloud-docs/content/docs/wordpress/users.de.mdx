@@ -1,0 +1,37 @@
+---
+title: WordPress-Benutzer
+description: Verwalte die Anmeldekonten einer WordPress-Installation im Toolkit.
+icon: Users
+---
+
+## Richtige Benutzerliste öffnen
+
+Öffne **Apps → Toolkit → Users** der Installation. Das sind WordPress-Benutzer, keine Teammitglieder des VECloud-Panels. Panelzugriff verwaltest du unter [Team und Zugriff](../account/team.mdx).
+
+Suche das Konto und prüfe Benutzername und E-Mail-Adresse vor Änderungen.
+
+<PortalScreenshot name="wordpress-users" alt="WordPress-Benutzerliste mit geöffnetem Aktionsmenü" caption="Das Menü enthält Bearbeitungs- und Löschaktionen für dieses Konto. Die E-Mail-Adresse ist fiktiv." />
+
+## Benutzer hinzufügen
+
+1. Wähle **Add user**.
+2. Gib Benutzername, E-Mail und ein einzigartiges Passwort ein.
+3. Nutze erlaubte Buchstaben, Zahlen, Punkte, Bindestriche und Unterstriche.
+4. Bewahre das Passwort sicher auf und bestätige die Erstellung.
+5. Prüfe Konto und Rechte innerhalb von WordPress.
+
+Das Toolkitformular bietet keine eigene Rollenauswahl. Nutze die WordPress-Administration für Rollen und weitere dort nicht angezeigte Kontoeinstellungen.
+
+## Daten ändern
+
+Im Aktionsmenü bearbeitest du Benutzername oder E-Mail oder setzt ein neues Passwort. Prüfe das Konto und speichere. Aktualisiere danach gegebenenfalls gespeicherte Daten im Passwortmanager oder einer Integration.
+
+**Default SSO** kennzeichnet das als Standard für den Verwaltungszugriff markierte Konto. Öffne den verfügbaren Zugang über **Admin** bei der Installation. Teile keine temporären Anmeldelinks.
+
+## Benutzer löschen
+
+Lies die Bestätigung und prüfe, ob das Konto noch für Verwaltung oder Inhalte benötigt wird. Prüfe zugehörige Autoreninhalte und Rechte in WordPress. Entferne nicht den letzten nutzbaren Administrator, ohne einen anderen Zugang zu prüfen.
+
+## Eine Änderung schlägt fehl
+
+Öffne die Liste erneut und prüfe aktuelle Daten. Bei abgelaufener Panelsitzung melde dich neu an. Hat die Installation selbst Fehler, prüfe das PHP-Fehlerlog und [WordPress-Debugging](./debug.mdx).

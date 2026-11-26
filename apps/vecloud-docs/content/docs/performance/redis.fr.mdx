@@ -1,0 +1,35 @@
+---
+title: Redis pour votre site
+description: Activez Redis et connectez l’application au cache d’objets local.
+icon: Database
+---
+
+## Activer Redis
+
+Ouvrez **Domains → votre site → Optimization → Redis**. Le commutateur est disponible si l’environnement le prend en charge. Activez le service et attendez la confirmation. Le bloc affiche alors la connexion et **Edit redis.conf**.
+
+L’adresse `127.0.0.1:6379` concerne l’application à l’intérieur de cet environnement. Ce n’est pas une adresse internet publique pour votre ordinateur. Un autre serveur ou site n’accède pas automatiquement à ce service local.
+
+<PortalScreenshot
+  name="optimization"
+  alt="Redis et cache opcode dans Optimization"
+  caption="Redis et cache opcode dans Optimization"
+/>
+
+## Connecter l’application
+
+Activer Redis ne configure pas automatiquement un plugin WordPress ou une autre application. Utilisez une intégration Redis adaptée. PHP peut aussi nécessiter l’extension Redis dans **Developer tools → PHP extensions**.
+
+Pour WordPress, configurez et activez un plugin de cache d’objets adapté selon ses instructions. Vérifiez-y la connexion. Le commutateur **Redis** actif confirme le service, pas son utilisation effective par WordPress.
+
+## Modifier redis.conf
+
+**Edit redis.conf** ouvre la configuration dans l’[éditeur de fichiers](../files/index.mdx). Conservez l’original et modifiez uniquement des paramètres maîtrisés. Une configuration invalide peut rendre Redis indisponible. Ne partagez pas ce fichier en capture ou ticket s’il contient des secrets.
+
+Si un redémarrage du conteneur est nécessaire, utilisez **Developer tools → Restart**. Il peut aussi interrompre d’autres services du site ; ce n’est pas un remplacement général du vidage des caches.
+
+## Désactiver et diagnostiquer
+
+Adaptez d’abord l’intégration de l’application avant de désactiver Redis. Sinon, des erreurs de connexion peuvent apparaître. Vérifiez état du service, hôte et port, extension PHP et configuration applicative.
+
+Le cache d’objets Redis diffère des [caches FastCGI et opcode](./cache.mdx). Ne traitez pas ses données comme une sauvegarde ou le seul stockage d’informations importantes.

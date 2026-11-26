@@ -1,0 +1,41 @@
+---
+title: PHP-versie en instellingen
+description: Wijzig PHP, extensies en INI-instellingen met aandacht voor compatibiliteit.
+icon: Code
+---
+
+## PHP-versie wijzigen
+
+Open **Domains → je website → Developer tools → PHP**. De keuzelijst toont de beschikbare versies voor deze website en je pakket. Kies een versie, lees de compatibiliteitsmelding en bevestig. Test eerst of je applicatie, thema’s en extensies die versie ondersteunen. Tijdens het wisselen kan de website kort niet beschikbaar zijn.
+
+Bij oudere versies kan het portaal waarschuwen voor een niet-passende MariaDB-authenticatiemethode. Een ontbrekende waarschuwing is geen volledige applicatiecompatibiliteitstest. Controleer na de wijziging website, beheeromgeving en [PHP-foutenlog](./logs.mdx).
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP-versie, extensies en een veilig voorbeeldlog"
+  caption="PHP-versie, extensies en een veilig voorbeeldlog"
+/>
+
+## Extensies en IonCube
+
+Onder **PHP extensions** schakel je aangeboden optionele extensies in of uit. Standaard ingebouwde extensies zijn niet dezelfde lijst van instelbare opties. Welke extensies beschikbaar zijn, hangt van de omgeving af. Redis als PHP-extensie is bovendien iets anders dan de [Redis-dienst](../performance/redis.mdx).
+
+Het afzonderlijke blok **IonCube loader** bedient ondersteuning voor applicaties die deze loader nodig hebben. Gebruik dit alleen als de applicatie dit vereist en de PHP-versie het ondersteunt. De interface vermeldt dat de loader niet beschikbaar is voor PHP 8.0.
+
+## PHP INI editor
+
+De editor is beschikbaar als je pakket dit toestaat. Kies **Edit** bij een richtlijn of **Add directive** voor een nieuwe. Vul de exacte richtlijnnaam in en gebruik **Text** voor een waarde zoals `256M`, of **Boolean** voor aan/uit. Sla op en controleer de actuele waarde.
+
+Een label **Inherited** betekent dat een waarde wordt overgenomen. Een eigen waarde is een website-override. Het verwijderen van een override herstelt de overgeërfde waarde; het schakelt niet noodzakelijk de functie uit.
+
+`upload_max_filesize` en vergelijkbare PHP-instellingen gelden voor je PHP-applicatie. Ze bepalen niet de afzonderlijke uploadgrenzen van de portaalbestandsmanager of SQL-import.
+
+<Callout type="warn" title="Restart onderbreekt de websitecontainer">
+**Restart** herstart de applicatiecontainer en kan ook Redis en Node.js onderbreken. De website kan tijdens de herstart offline zijn. Bevestig dit bewust en controleer daarna de applicatie. Een herstart herstelt geen foutieve code of verdwenen bestanden.
+</Callout>
+
+<PortalScreenshot
+  name="php-ini"
+  alt="Een PHP-INI-waarde bewerken"
+  caption="Een PHP-INI-waarde bewerken"
+/>

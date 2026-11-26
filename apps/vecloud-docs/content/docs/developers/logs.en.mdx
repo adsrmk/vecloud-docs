@@ -1,0 +1,36 @@
+---
+title: Use logs to investigate problems
+description: Find the relevant log for PHP, WordPress, workers and other operations.
+icon: ScrollText
+---
+
+## PHP error log
+
+Open **Domains → your website → Developer tools → PHP**. **PHP error log** shows available PHP log text and when it was retrieved. For a large log, only the final part may be shown; the portal indicates this.
+
+Record the failure time, repeat the action once if safe, then reopen the data. Look near that time for the error type, file and line number. **No PHP errors found** means the retrieved log text is empty, not that every website feature works correctly.
+
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP error log containing only fictitious entries"
+  caption="PHP error log containing only fictitious entries"
+/>
+
+## Choose the relevant source
+
+| Problem | Start here |
+| --- | --- |
+| PHP failure or issue after a version change | PHP error log in Developer tools |
+| WordPress debugging | [Debug settings](../wordpress/debug.mdx) and the log written by WordPress |
+| Worker fails to start or crashes | The affected worker’s log |
+| GitHub deployment | Deployment log in the GitHub integration |
+| Migration job | Progress and log for that migration |
+| SQL import | Import message and inspection of the target database |
+
+A `logs` directory may also be available in **Files**. Its contents depend on the website environment. Do not assume universal access to all server logs or a separate access-log viewer in the customer portal.
+
+## Contact support
+
+Include the website, affected feature, exact error, time and preceding action. Share only the relevant log excerpt. Remove passwords, tokens, session links and personal data before sharing.
+
+Avoid changing multiple settings at once to hide an error. Retain original values, check after each change and use a backup if recovery is required. A [resource chart](../performance/resources.mdx) can help correlate a spike with the failure time.

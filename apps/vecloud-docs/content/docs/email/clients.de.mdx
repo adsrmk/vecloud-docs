@@ -1,0 +1,41 @@
+---
+title: Mailprogramme und Webmail
+description: Nutze die angezeigten Server, Ports und Postfachdaten für deinen E-Mail-Zugang.
+icon: MailOpen
+---
+
+## Richtige Angaben finden
+
+Öffne **Email → Adresse → Manage → Email client settings**. Nutze die vollständige Adresse als Benutzername, etwa `hello@example.test`, und das Postfachpasswort. Es entspricht nicht automatisch deinem VECloud-Kontopasswort.
+
+Für ein hier gehostetes Postfach zeigt das Panel diese Kombinationen. Bei `hello@example.test` ist der Server `mail.example.test`; ersetze das Beispiel durch den Server deiner eigenen Tabelle.
+
+| Dienst | Port | Sicherheit |
+| --- | --- | --- |
+| IMAP | 993 | SSL/TLS |
+| SMTP | 465 | SSL/TLS |
+| SMTP, Alternative | 587 | STARTTLS |
+| POP | 995 | SSL/TLS |
+
+Wähle eine SMTP-Kombination und aktiviere die Anmeldung mit Postfachdaten. Kombiniere Port 587 nicht mit der impliziten SSL/TLS-Einstellung von Port 465.
+
+<PortalScreenshot name="mail-clients" alt="IMAP-, SMTP- und POP-Daten eines fiktiven Postfachs" caption="Kopiere Hostname und vollständigen Benutzernamen aus deinem Konto. Nutze eine passende SMTP-Kombination." />
+
+## Mailprogramm einrichten
+
+1. Füge im Programm ein bestehendes E-Mail-Konto hinzu.
+2. Wähle IMAP zur Synchronisierung von Nachrichten und Ordnern zwischen Geräten.
+3. Gib Benutzername, Passwort und angezeigte Eingangs-/Ausgangsserverdaten ein.
+4. Teste Empfang und Versand sowie gegebenenfalls ein weiteres Gerät.
+
+POP kann Nachrichten lokal herunterladen; prüfe vorher, ob eine Serverkopie erhalten bleibt. Eine reine Weiterleitungsadresse hat kein eigenes Postfach für IMAP oder Webmail.
+
+## Webmail öffnen
+
+Nutze die Webmailaktion neben dem Postfach in der Liste. Das Panel öffnet den verfügbaren Zugang in einem neuen Tab. Erlaube den Tab, falls der Browser ihn blockiert. Prüfe bei abgelaufener Sitzung zuerst deine Portalanmeldung.
+
+## Verbindungs- oder Zertifikatsfehler
+
+Prüfe vollständigen Benutzernamen, aktuelles Passwort, Port und Sicherheitsmethode. Der angezeigte Mailhost muss korrekt auflösen und ein passendes Zertifikat verwenden. Ignoriere keine Zertifikatswarnung, um einen falschen Hostnamen scheinbar nutzbar zu machen.
+
+Bei extern gehosteten Postfächern nutzt du deren Verbindungsangaben. **External mail** macht ein externes Postfach nicht über diesen lokalen Host erreichbar. Siehe [Mailrouting](../dns-ssl/mail-routing.mdx).

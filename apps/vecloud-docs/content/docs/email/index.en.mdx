@@ -1,0 +1,37 @@
+---
+title: Email addresses and mailboxes
+description: Create mailboxes or forwarding addresses and manage names, quotas, status and access.
+icon: Mail
+---
+
+## Open your email
+
+Choose **Email** in the main menu. Find the intended address and check its domain. Open the action menu and choose **Manage**. Available sections include **Mailbox**, **Forwarders**, **Catch-all**, **Spam settings**, **Out of office** and **Email client settings**, depending on the address.
+
+## Create an address
+
+1. Choose **Add email address**.
+2. Enter only the part before `@` and choose the correct domain.
+3. Choose **Mailbox** to store messages and sign in through webmail or a mail client. Enter the mailbox size in MB/GB, a recognizable name and a strong password.
+4. Choose **Forwarding only** to send messages to existing addresses without creating a mailbox. Add at least one valid destination; this option does not create a mailbox password.
+5. Choose **Create email address** and check the new row in the list.
+
+A new mailbox password requires at least ten characters including lowercase, uppercase, a number and a special character. Store it in your password manager. Creating an address does not configure external MX or routing changes; also check [mail routing and DNS](../dns-ssl/mail-routing.mdx).
+
+## Change mailbox settings
+
+Open **Manage → Mailbox** to change the name, status, optional new password, quota in MB and [aliases](./forwarding.mdx). Choose **Save changes** to apply the draft.
+
+A blank new-password field keeps the current password. A blank quota field keeps its current limit. Check displayed usage before reducing a quota; mailbox capacity also depends on available hosting storage. Update your mail clients after a password change.
+
+<PortalScreenshot name="mailbox" alt="Mailbox settings with name, quota and alias" caption="A blank password keeps the existing password. All mailbox information shown is fictitious." />
+
+## Disable or delete
+
+The email list’s action menu provides **Disable** and **Enable**. A suspended address may be restricted by hosting administration; contact support if you cannot change that status.
+
+**Permanently delete** removes the address and associated mailbox data after confirmation. Preserve required messages first, for example using your mail client. Disable the address temporarily instead when you want to retain the mailbox.
+
+## Creation or saving fails
+
+Check the domain, available plan capacity and required fields. If the result is unclear, inspect the current list or settings before submitting the same operation again. Continue with [connections and webmail](./clients.mdx) to use a mail client.

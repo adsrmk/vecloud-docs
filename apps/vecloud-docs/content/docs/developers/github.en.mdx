@@ -1,0 +1,38 @@
+---
+title: Deploy from GitHub
+description: Connect a repository, configure its build and follow website deployments.
+icon: GitBranch
+---
+
+<PortalScreenshot name="github-connect" alt="Connect a demonstration repository with a build script and publish directory." caption="Connect a demonstration repository with a build script and publish directory." />
+
+## Requirements
+
+Open **Domains → your website → GitHub**. Your organisation’s GitHub integration needs access to the repository. Complete the offered registration and installation on GitHub using an authorised GitHub account. Review which repositories you make available there.
+
+GitHub deployment cannot be configured while the website has installed applications. Do not delete an existing WordPress or other installation simply to bypass this message. Use an appropriate separate website, or plan conversion and backups first.
+
+## Connect a repository
+
+<Steps>
+<Step title="Choose repository and version">
+Select **Connect repository**, then the repository and **Branch or tag**. A missing repository may mean the GitHub app lacks access. Check the connection and reload the choices.
+</Step>
+<Step title="Configure build and publish directory">
+**Build script** runs from the deployment directory after fetching the repository. Use your project’s command. **Publish directory** is relative to that directory, for example `dist`; leaving it empty publishes the entire deployment directory. An incorrect path can publish the wrong files despite a successful build.
+</Step>
+<Step title="Choose automatic deployment and an optional worker">
+**Automatic deployment** responds to a GitHub push to the selected branch or tag. A new connection can also configure a worker when allowed. A build script differs from the start command of a persistent server process.
+</Step>
+<Step title="Check the outcome">
+Confirm the connection and inspect the results. Repository connection, first deployment and optional worker are separate steps; check which succeeded before creating anything again.
+</Step>
+</Steps>
+
+## Follow deployments
+
+Use **Deploy now** for a manual deployment. Follow status, commit information and logs under **Deployments**. A requested deployment is not a confirmed successful publication. Check the website and any [worker](./workers.mdx) afterwards.
+
+A running build can be cancelled after confirmation; its new checkout is then not activated. This does not roll back an already published version. **Disconnect repository** removes the website connection; review the effects on automatic deployment and the application before confirming.
+
+Keep passwords and tokens out of build commands and logs. Keep important data and uploads out of an unmanaged workflow that overwrites deployment contents.

@@ -1,0 +1,53 @@
+---
+title: MySQL und MariaDB verwalten
+description: Erstelle Datenbanken und Benutzer, vergib Rechte und prüfe Verbindungsdaten.
+icon: Database
+---
+
+## Datenbank und Benutzer sind getrennt
+
+Öffne **Domains → deine Website → Databases**. Der MySQL-Bereich verwaltet MySQL/MariaDB-Datenbanken. Eine Datenbank speichert Daten; ein Benutzer hat ein eigenes Passwort und Rechte auf eine oder mehrere Datenbanken. Er ist unabhängig vom Portal- oder WordPress-Konto.
+
+<PortalScreenshot
+  name="databases"
+  alt="Übersicht mit zwei Datenbank-Engines"
+  caption="Übersicht mit zwei Datenbank-Engines"
+/>
+
+## Datenbank hinzufügen
+
+<Steps>
+<Step title="Wähle Add database">
+Nutze Kleinbuchstaben, Zahlen, `_` oder `$`. Ein angezeigtes Präfix wird automatisch Teil des vollständigen Namens. Die Grenze beträgt 64 Zeichen einschließlich Präfix.
+</Step>
+<Step title="Benutzer zuordnen">
+Wähle bestehende Benutzer oder **Create new user**. Ein neuer Benutzername darf einschließlich Präfix höchstens 32 Zeichen haben. Verwende ein einzigartiges Passwort mit mindestens zehn Zeichen, Kleinbuchstabe, Großbuchstabe, Zahl und Sonderzeichen. Behalte die Standardauthentifizierung, sofern die Anwendung kein bestimmtes Plugin benötigt.
+</Step>
+<Step title="Speichern und Zugriff prüfen">
+Prüfe Datenbank und zugeordnete Benutzer. Wenn die Erstellung gelingt, die Rechtevergabe aber fehlschlägt, korrigiere die Zuordnung in der Verwaltung; erstelle dasselbe Konto nicht erneut.
+</Step>
+</Steps>
+
+## Rechte verwalten
+
+Klicke auf eine Datenbank. Unter **Users** kannst du bestehende Benutzer hinzufügen, neue erstellen und Rechte bearbeiten. **All database privileges** gewährt alle angebotenen Rechte. Deaktiviere die Option für einzelne Rechte, etwa `SELECT` zum Lesen. **Revoke access** entfernt die Zuordnung, nicht den Benutzer selbst.
+
+Der Bereich **Users** in der Datenbankliste öffnet die Benutzerverwaltung mit verborgenem Passwort und zugänglichen Datenbanken. Aktualisiere nach einer Passwortänderung die Anwendungskonfiguration, damit die Website ihre Verbindung behält.
+
+## Datenbankverbindung
+
+Unter **Connection details** zeigt die Datenbankverwaltung Unix-Socketpfad und aktuelle TCP-Adresse. Übernimm diese Angaben für die Anwendung. Webserver-IP oder `localhost` sind nicht automatisch richtig: Das hängt vom Ausführungsort der Anwendung ab.
+
+Öffne für externe Verbindungen den Benutzer und ergänze unter **IP addresses for external access** die konkrete öffentliche IPv4- oder IPv6-Adresse deines Clients. Das vergibt keine Datenbankrechte und garantiert keine Freigabe durch eine externe Firewall. Entferne nicht mehr benötigte Zugänge.
+
+<Callout type="warn" title="Löschen ist endgültig">
+Das Löschen einer Datenbank entfernt sämtliche enthaltenen Daten. Ein gelöschter Benutzer kann mehrere Anwendungen betreffen, die dasselbe Konto nutzen. Erstelle vorher einen [SQL-Export](./sql.mdx) oder prüfe ein nutzbares [Backup](../backups/index.mdx).
+</Callout>
+
+Für Tabellen und Abfragen nutze [phpMyAdmin](./phpmyadmin.mdx). PostgreSQL hat eine [eigene Verwaltung](./postgresql.mdx).
+
+<PortalScreenshot
+  name="database-add"
+  alt="Neue Datenbank einem bestehenden Benutzer zuordnen"
+  caption="Neue Datenbank einem bestehenden Benutzer zuordnen"
+/>

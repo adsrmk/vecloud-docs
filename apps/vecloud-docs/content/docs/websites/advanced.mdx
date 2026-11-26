@@ -1,0 +1,37 @@
+---
+title: Geavanceerde website-instellingen
+description: Bekijk overrides, PHP-FPM en resourcegrenzen met de juiste beheerrechten.
+icon: Settings2
+---
+
+## Overrides openen
+
+Open je website via **Domains**, ga naar **Overview** en open het menu met drie punten bij de websiteacties. Kies **Manage overrides**. Deze beheeracties vereisen een bevoegde beheerrol, zoals Owner of Superadmin. Een Collaborator heeft niet automatisch dezelfde mogelijkheden.
+
+De pagina bevat websiteback-ups, PHP-FPM, systeemresources en [VirtualHost-configuratie](../developers/vhost.mdx). Zichtbare waarden betekenen niet dat je ze allemaal mag wijzigen.
+
+<PortalScreenshot
+  name="website-overrides"
+  alt="Geavanceerde instellingen met beperkte beheerrechten"
+  caption="Geavanceerde instellingen met beperkte beheerrechten"
+/>
+
+## PHP-FPM-instellingen
+
+Voeg een richtlijn toe of bewerk een bestaande waarde. Een eigen waarde overschrijft de overgeërfde instelling voor deze website. Verwijder een eigen override om terug te gaan naar de overgeërfde waarde. Bewaar de oorspronkelijke waarde en controleer de applicatie na opslaan.
+
+PHP-FPM-instellingen regelen de PHP-procesafhandeling. Ze zijn niet hetzelfde als de [PHP INI editor](../developers/php.mdx), bijvoorbeeld `memory_limit`, en ook niet hetzelfde als de totale containergrenzen. Verhoog niet meerdere limieten tegelijk zonder de gemeten belasting te bekijken.
+
+## Systeem- en schijflimieten
+
+Deze wijzigingen zijn alleen voor de hoofdorganisatie. De pagina kan geheugen, swap, virtuele CPU’s, IOPS, I/O-bandbreedte en procesaantal tonen. Schijfruimte en inodes zijn aparte grenzen: veel kleine bestanden kunnen de inodegrens bereiken terwijl er nog opslagruimte over is.
+
+Neem de eenheid bij elk veld over, zoals MB of MB/s. Een instelling zonder specifieke grens betekent geen oneindige fysieke servercapaciteit. Voor klantaccounts regel je een noodzakelijke aanpassing via de beheerder of support. Vergelijk eerst het [resourcegebruik](../performance/resources.mdx).
+
+## Back-ups uitschakelen
+
+De schakelaar **Disable backups** is eveneens alleen wijzigbaar door de hoofdorganisatie. Ingeschakeld stopt deze override automatische en handmatige website- en e-mailback-ups voor Enhance en S3. Gebruik hem niet als oplossing voor een tijdelijk laadprobleem van de back-uplijst.
+
+## Onzekere wijziging
+
+Gebruik **Check status** als een wijziging niet bevestigd is. Lees de actuele waarde voordat je opnieuw opslaat. Werk niet gelijktijdig met dezelfde configuratie in meerdere vensters.

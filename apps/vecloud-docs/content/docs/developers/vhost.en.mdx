@@ -1,0 +1,40 @@
+---
+title: VirtualHost configuration
+description: Manage custom webserver directives per domain and avoid conflicting edits.
+icon: FileCode
+---
+
+## When to use it
+
+Use [Redirects](../dns-ssl/redirects.mdx) for ordinary forwarding, [IP deny](../dns-ssl/ip-deny.mdx) for blocking and [Optimization](../performance/cache.mdx) for caching. The VirtualHost editor is for additional webserver configuration required by an application.
+
+Open **Domains → your website → Overview → Website actions → Manage overrides**. Under **VirtualHost configuration**, open the intended domain’s row menu and choose **Edit configuration**. This administration feature requires suitable rights.
+
+<PortalScreenshot
+  name="vhost-editor"
+  alt="VirtualHost editor containing demonstration configuration only"
+  caption="VirtualHost editor containing demonstration configuration only"
+/>
+
+## Save a change
+
+1. Check the domain and retain the existing custom configuration.
+2. Add only directives valid in the intended VirtualHost context. Do not paste an entire global server configuration.
+3. Select **Save** and wait for confirmation.
+4. Reopen the current configuration and test the website, redirects and security rules.
+
+<Callout type="warn" title="Invalid syntax can disrupt the webserver">
+A typo or invalid directive can make the website unavailable. Test in an appropriate test environment and retain a recoverable original configuration. Saving is not a complete functional test of the application.
+</Callout>
+
+## Preserve managed rules
+
+Rules managed by the portal for IP deny and supported redirects serve separate functions. Change them through their own pages. The portal preserves managed Nginx IP blocks when saving custom configuration; manually editing them is not a reliable way to remove a block.
+
+## Restore defaults
+
+**Reset to default** removes the domain’s custom free-form configuration after confirmation. Managed rules may remain. It is not a general switch to disable every IP block or redirect, and does not restore website files or databases.
+
+## Change still processing
+
+Wait, then use **Check status** to read the current configuration. For a revision conflict, open the latest version and apply the intended change to it. Do not repeatedly overwrite from an older editor version without checking. Avoid simultaneous changes to the same domain in several windows or other administration tools.

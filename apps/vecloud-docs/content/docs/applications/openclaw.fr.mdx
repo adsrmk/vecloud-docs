@@ -1,0 +1,41 @@
+---
+title: Gérer OpenClaw
+description: Gérez accès à la passerelle, clés des fournisseurs IA et approbation des appareils.
+icon: Bot
+---
+
+## Ouvrir le toolkit
+
+Ouvrez **Apps** puis **Toolkit** à côté d’OpenClaw. Il contient **Gateway token**, **AI provider keys** et **Device authentication**. **Dashboard** ouvre l’administration disponible d’OpenClaw.
+
+Si l’application manque, utilisez **Add application** lorsqu’elle est proposée par votre offre. Aucun compte administrateur WordPress ou Joomla n’est demandé.
+
+OpenClaw utilise son propre environnement de site. Tant qu’il y est installé, vous ne pouvez pas y installer d’autres applications. Utilisez un autre site pour WordPress ou Joomla.
+
+<PortalScreenshot name="openclaw-gateway" alt="Passerelle OpenClaw et fournisseurs avec champs masqués" caption="Les jetons restent masqués. La démonstration locale n’utilise aucune clé réelle ni donnée client." />
+
+## Jeton de passerelle
+
+Le jeton donne accès à la passerelle et au dashboard OpenClaw. Copiez-le uniquement dans votre client de confiance et conservez-le comme un mot de passe. Ne l’incluez pas dans des captures ou messages de support.
+
+**Rotate token** génère un nouveau jeton après confirmation. L’actuel devient invalide. Mettez ensuite à jour les clients existants ; l’ancien jeton ne permet plus la connexion.
+
+## Clés des fournisseurs IA
+
+Des champs sont disponibles pour **OpenAI**, **xAI**, **Gemini**, **Claude** et **OpenRouter**. Saisissez la clé souhaitée et vérifiez les autres champs avant **Save**. L’action d’abandon des modifications rétablit les valeurs non enregistrées sans appliquer le brouillon.
+
+<Callout type="warning" title="Un champ vide supprime la clé existante">
+Vide ne signifie pas inchangé. Vérifiez tous les fournisseurs avant d’enregistrer pour éviter une suppression involontaire.
+</Callout>
+
+## Approuver les appareils
+
+Avec l’approbation manuelle active, les nouveaux appareils doivent être autorisés. Ouvrez votre dashboard pour créer une demande et comparez plateforme et identifiant. Approuvez uniquement un appareil que vous reconnaissez.
+
+Les demandes expirent rapidement. Si la vôtre manque, rouvrez le dashboard puis actualisez les données. Les appareils associés sont affichés séparément ; le jeton reste nécessaire à la connexion.
+
+## Modifier la vérification
+
+Le toolkit indique si elle est active. La désactiver laisse entrer de nouveaux appareils possédant le jeton sans approbation distincte. Lisez la confirmation et choisissez volontairement. Gardez l’approbation manuelle pour conserver ce contrôle supplémentaire.
+
+En cas de problème, vérifiez séparément jeton, fournisseur et appareil. N’incluez pas de clés ou jetons dans un diagnostic.

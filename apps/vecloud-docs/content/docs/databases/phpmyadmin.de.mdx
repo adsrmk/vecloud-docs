@@ -1,0 +1,37 @@
+---
+title: phpMyAdmin öffnen
+description: Starte die MySQL/MariaDB-Verwaltung über einen neuen Anmeldelink aus dem Portal.
+icon: TableProperties
+---
+
+## Über die richtige Datenbank öffnen
+
+Öffne **Domains → deine Website → Databases** und wähle **phpMyAdmin** neben der gewünschten Datenbank. Die Schaltfläche steht auch in deren Verwaltung. Das Portal öffnet einen neuen Tab und fordert einen frischen Anmeldelink an.
+
+Für diesen Zugang musst du kein Datenbankpasswort ins Portal einfügen. Teile den Link nicht und speichere ihn nicht als dauerhaftes Lesezeichen; beginne neue Sitzungen über die Schaltfläche.
+
+<PortalScreenshot
+  name="database-manage"
+  alt="Verbindungsdaten und phpMyAdmin einer Demo-Datenbank"
+  caption="Verbindungsdaten und phpMyAdmin einer Demo-Datenbank"
+/>
+
+## Funktionen von phpMyAdmin
+
+Tabellen ansehen, Daten prüfen, SQL ausführen sowie Importe und Exporte verwalten. Prüfe vor Änderungen immer die ausgewählte Datenbank. phpMyAdmin ist für MySQL/MariaDB bestimmt, nicht für PostgreSQL.
+
+<Callout type="warn" title="Abfragen verändern echte Daten">
+`DELETE`, `DROP` und andere schreibende Befehle können Daten endgültig entfernen. Erstelle vorher einen Export oder ein Backup und teste unbekannte Abfragen auf einer Kopie. Das Öffnen von phpMyAdmin erzeugt kein automatisches Backup.
+</Callout>
+
+## Der Tab öffnet sich nicht
+
+Falls der Browser ein Pop-up blockiert, erlaube Pop-ups für das Portal und klicke erneut. Ein zunächst leerer Tab beim Abrufen des Links ist normal; bei einem Fehler wird er geschlossen.
+
+## Der Link lässt sich vorübergehend nicht abrufen
+
+Prüfe, ob deine Portalsitzung aktiv ist und die Datenbank weiter zur Website gehört. Melde dich nach Sitzungsablauf erneut an und versuche die Schaltfläche noch einmal. Zugriffsfehler können auch durch geänderte Rollen oder Zuordnungen entstehen.
+
+Sind mehrere Websites weiterhin betroffen, sende dem Support Website, Datenbankname, Zeitpunkt und genaue Fehlermeldung. Verwaltungsdienst oder Serververbindung können eine Prüfung benötigen; lösche dafür keine Kundendatenbank und deaktiviere keine Firewall-Schutzmaßnahmen.
+
+Alternativ kannst du den [SQL-Import und -Export](./sql.mdx) im Portal verwenden.

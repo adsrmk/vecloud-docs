@@ -1,0 +1,42 @@
+---
+title: SSL-Zertifikate und HTTPS
+description: Fordere Zertifikate an, prüfe ihre Gültigkeit und leite Besucher zu HTTPS weiter.
+icon: LockKeyhole
+---
+
+## Zertifikat anfordern
+
+Öffne deine Website und **SSL certificates**. Die Tabelle zeigt je Domain Status, Aussteller, HTTPS-Einstellung und Ablaufdatum.
+
+1. Prüfe öffentliches DNS und Erreichbarkeit der Domain.
+2. Wähle **Request certificate** und die richtige Domain. Ein Mailhostname wird nur angeboten, wenn er verfügbar ist.
+3. Lies den Hinweis: Ein vorhandenes Zertifikat für diesen Namen wird ersetzt.
+4. Wähle **Request** und prüfe anschließend den aktualisierten Status sowie das Ablaufdatum.
+
+Ein geschlossenes Fenster allein beweist keine erfolgreiche Ausstellung; prüfe das Ergebnis in der Tabelle. Kontrolliere bei Fehlern zuerst DNS, Erreichbarkeit und mögliche Proxy- oder CAA-Einstellungen. Sende nicht wiederholt dieselbe Anfrage.
+
+<PortalScreenshot name="ssl" alt="SSL-Tabelle mit aktivem Zertifikat und HTTPS-Schalter" caption="Prüfe Status und Ablauf je Domain. Die lokale Demo enthält keine Zertifikatsschlüssel." />
+
+## HTTPS erzwingen
+
+Aktiviere **Enforce HTTPS** für die richtige Domain, sobald ein gültiges Zertifikat vorhanden ist. Die Änderung wird sofort gespeichert. Teste eine `http://`-Adresse und prüfe, ob der Browser die gewünschte `https://`-Adresse erreicht.
+
+Bei einer Weiterleitungsschleife prüfst du auch Anwendungsweiterleitungen und HTTPS-Einstellungen eines externen Proxys. Eine HTTPS-Weiterleitung repariert kein ungültiges Zertifikat.
+
+## Eigenes Zertifikat installieren
+
+Wenn **Install custom SSL** verfügbar ist, kannst du ein vorhandenes Zertifikat mit passendem privaten Schlüssel installieren. Wähle die Domain und füge PEM-Inhalte ein oder lade die Dateien. Die Dateiauswahl akzeptiert unterstützte Zertifikats- und Schlüsseldateien bis **64 KiB je Datei**. Starte die Installation und prüfe danach den Status.
+
+Zertifikat und Schlüssel müssen zusammenpassen und die Domain abdecken. Organisiere die Erneuerung eines eigenen Zertifikats selbst; das Hochladen fordert keine neue Ausstellung an.
+
+## Details ansehen
+
+**Details** öffnet die verfügbaren Zertifikatsdaten, gegebenenfalls getrennt für Web und Mail. Die Ansicht kann auch den **privaten Schlüssel** enthalten. Teile ihn nicht in Screenshots, Tickets oder Nachrichten. Schließe die Details anschließend.
+
+## Änderung nicht bestätigt
+
+Eine Meldung über eine nicht bestätigte Sicherheitsänderung bedeutet, dass das Panel den endgültigen Zustand nicht zuverlässig feststellen konnte. Aktualisiere zuerst die Daten. Sende die Anfrage erst erneut, wenn du geprüft hast, dass die gewünschte Änderung weiterhin fehlt.
+
+## Weitere Sicherheitsoptionen
+
+Je nach Webserver erscheint hier **ModSecurity** mit einem Schalter je Domain. Deaktiviere es nicht zum Verbergen eines Anwendungsfehlers; untersuche zuerst die blockierte Anfrage. Nginx-Sperren verwaltest du separat über [IP deny](./ip-deny.mdx). Unter Apache kann diese SSL-Seite eigene IP-Zugriffsregeln anzeigen.

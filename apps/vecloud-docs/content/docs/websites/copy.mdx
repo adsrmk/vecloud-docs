@@ -1,0 +1,43 @@
+---
+title: Staging beheren en publiceren
+description: Kopieer inhoud naar een nieuwe of bestaande website en onderscheid dat van staging omzetten.
+icon: Globe
+---
+
+## Kies je doel
+
+Open een bestaande stagingwebsite bij **Overview**. Als je abonnement en rechten dit toestaan, zie je **Publish staging**. In de huidige interface staat dit menu bij stagingwebsites. Voor een normale website wordt hier geen kopieerknop getoond.
+
+| Actie | Resultaat |
+| --- | --- |
+| To a new website | Maakt een afzonderlijke website met gekopieerde inhoud. |
+| To an existing website | Kopieert naar een gekozen bestaande website en kan daar inhoud overschrijven. |
+| Promote to production | Zet een stagingwebsite zelf om naar een productiewebsite. Dit kopieert niets naar een andere website. |
+
+## Kopiëren naar een nieuwe website
+
+1. Kies in het kopieermenu de optie voor een nieuwe website.
+2. Kies, indien gevraagd, een abonnement en het type productiewebsite of stagingwebsite.
+3. Vul het nieuwe domein of de stagingnaam in. Bij staging toont het panel het ingestelde achtervoegsel.
+4. Controleer de WordPress search-and-replace-optie als de domeinnaam verandert.
+5. Bevestig de kopie en volg de voortgang.
+
+De nieuwe website gebruikt het bijbehorende website- of stagingquotum. Een nieuw domein kan nog DNS en SSL nodig hebben voordat het publiek werkt.
+
+## Kopiëren naar een bestaande website
+
+<Callout type="warning" title="Controleer de bestemming">
+De geselecteerde doelwebsite kan worden overschreven. Bewaar recente inhoud en bestellingen en maak vooraf een back-up van de bestemming.
+</Callout>
+
+Selecteer de doelwebsite. Controleer de uitgesloten paden, databases en databasegebruikers. Beoordeel de opties voor het verwijderen van bestanden die alleen op het doel bestaan en het synchroniseren van de PHP-versie.
+
+Voor WordPress kan search-and-replace verwijzingen van het oude naar het nieuwe domein aanpassen. Kies dit bewust; dezelfde database kan ook absolute verwijzingen bevatten die je wilt behouden.
+
+## Staging omzetten naar productie
+
+**Promote to production** verandert het type van de stagingwebsite en gebruikt een normaal websitequotum. Domein en inhoud blijven bij diezelfde website. Wil je juist de inhoud naar een al bestaande productiewebsite sturen, gebruik dan kopiëren naar een bestaande website en controleer die bestemming.
+
+## Na de kopie
+
+Controleer de bestemming, belangrijke pagina’s, beheeromgeving, formulieren en databaseverbinding. Bij een onduidelijke uitkomst controleer je eerst de voortgang en websitelijst voordat je opnieuw kopieert.

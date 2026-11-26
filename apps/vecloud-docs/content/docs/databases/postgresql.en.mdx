@@ -1,0 +1,37 @@
+---
+title: Manage PostgreSQL
+description: Manage PostgreSQL databases, users and access when the service is available for your website.
+icon: Database
+---
+
+## Availability
+
+Open **Domains → your website → Databases**. The PostgreSQL section appears when a PostgreSQL server is assigned to the website. A message that PostgreSQL is not enabled does not mean your MySQL databases are missing.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL access per database"
+  caption="PostgreSQL access per database"
+/>
+
+## Create a database and user
+
+Select **Add database** in the PostgreSQL section, enter a name and save. Use lowercase letters, numbers, `_` or `$`, up to 64 characters. Then create a user under **Users** with its own strong password. A PostgreSQL username may contain at most 63 characters. Select the databases the new user should access.
+
+Check the actual assignments after saving. A user can exist even if a separate access assignment failed.
+
+## Grant or revoke access
+
+Open a database and add an existing user under **Users with access**. You can also add a database from the user management view. This portal feature grants full rights per database; it does not offer the individual privilege selection used for MySQL.
+
+Remove an assignment to revoke access to that database. The user and database remain separate objects. Deleting the user or database itself requires its own confirmation.
+
+## Connections and passwords
+
+Use the displayed PostgreSQL server address and full database and username in your application. The application needs a PostgreSQL driver; MySQL settings are not interchangeable. Reset a user’s password through user management and update the application configuration immediately.
+
+<Callout title="Imports and administration">
+The SQL import, SQL export and phpMyAdmin buttons in the MySQL section are not PostgreSQL tools. Use a compatible PostgreSQL application for a PostgreSQL dump, and ask support to confirm available connection methods if needed.
+</Callout>
+
+Before a significant change, make a suitable export or verify that a restorable backup exists. Deleting a database permanently removes its contents.

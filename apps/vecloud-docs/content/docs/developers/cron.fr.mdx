@@ -1,0 +1,38 @@
+---
+title: Configurer les tâches cron
+description: Planifiez une commande ou une requête URL récurrente pour le site.
+icon: CalendarClock
+---
+
+## Ajouter une tâche
+
+Ouvrez **Domains → votre site → Developer tools → Cron jobs**, puis **Add cron job**. Choisissez **Command** ou **Request URL** et un intervalle proposé. La valeur par défaut est toutes les quinze minutes ; adaptez-la à la tâche.
+
+- **Command** s’exécute avec l’utilisateur du site. Saisissez la commande sans les cinq champs de planification devant elle. Utilisez les bons chemins vers programme et script.
+- **Request URL** appelle l’URL en HTTP GET. Utilisez un point d’entrée prévu pour la tâche ; charger une page ordinaire ne déclenche pas automatiquement un traitement de fond.
+
+Sélectionnez **Save** et vérifiez l’entrée enregistrée. Exemple :
+
+```text
+*/15 * * * *
+```
+
+Cette expression signifie toutes les quinze minutes. Les champs sont minute, heure, jour du mois, mois et jour de semaine. Aucun fuseau horaire distinct n’est proposé ; vérifiez celui de l’environnement si l’horaire exact compte.
+
+<PortalScreenshot
+  name="cron-job"
+  alt="Planifier une requête GET récurrente"
+  caption="Planifier une requête GET récurrente"
+/>
+
+## Modifier et supprimer
+
+Sélectionnez **Edit** sur une entrée existante. Une planification personnalisée existante peut afficher des champs séparés et valeurs spécifiques. Les variables d’environnement déjà présentes dans crontab sont aussi modifiables. Le nouveau dialogue propose commande ou URL, sans action dédiée à une nouvelle variable.
+
+**Delete** retire une entrée après confirmation. Une planification enregistrée ne prouve pas la réussite du script : vérifiez son résultat ou votre propre journal. Il n’existe ici ni action générale **Run now**, ni historique d’exécution garanti.
+
+## Modification depuis le conteneur
+
+**Allow cron editing from the website container** autorise les processus PHP et SSH à modifier crontab. Activez cette permission uniquement si l’application en a besoin ; du code malveillant pourrait aussi ajouter des tâches. Une gestion uniquement par le portail ne l’exige pas automatiquement.
+
+Évitez tâches simultanées, e-mails répétés ou opérations de facturation en double. Un token dans une URL ou commande peut apparaître dans configuration et journaux ; protégez-le et ne l’incluez pas dans les captures.

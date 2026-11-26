@@ -1,0 +1,37 @@
+---
+title: phpMyAdmin openen
+description: Open de MySQL/MariaDB-beheeromgeving via een nieuwe aanmeldlink vanuit het portaal.
+icon: TableProperties
+---
+
+## Openen vanuit de juiste database
+
+Ga naar **Domains → je website → Databases** en kies **phpMyAdmin** bij de gewenste database. De knop staat ook in de beheerpagina van die database. Het portaal opent een nieuw tabblad en vraagt een nieuwe aanmeldlink aan.
+
+Je hoeft voor deze route niet handmatig een databasewachtwoord in het portaal te plakken. Deel de aanmeldlink niet en bewaar hem niet als permanente bladwijzer; open een nieuwe sessie via de knop.
+
+<PortalScreenshot
+  name="database-manage"
+  alt="Verbindingsgegevens en phpMyAdmin voor een demonstratiedatabase"
+  caption="Verbindingsgegevens en phpMyAdmin voor een demonstratiedatabase"
+/>
+
+## Waarvoor gebruik je phpMyAdmin?
+
+Je kunt tabellen bekijken, gegevens controleren, SQL uitvoeren en imports of exports beheren. Controleer na openen altijd de database die je gaat wijzigen. phpMyAdmin is bedoeld voor MySQL/MariaDB, niet voor PostgreSQL.
+
+<Callout type="warn" title="Query’s wijzigen echte gegevens">
+Een `DELETE`, `DROP` of andere wijzigende opdracht kan gegevens permanent verwijderen. Maak een export of back-up en test onbekende opdrachten eerst op een kopie. De aanmeldknop maakt geen automatische back-up.
+</Callout>
+
+## Het tabblad opent niet
+
+Als de browser een pop-up blokkeert, sta je pop-ups voor het portaal toe en klik je opnieuw. Een leeg tussentabblad tijdens het ophalen van de link is normaal; bij een fout wordt het gesloten.
+
+## De link kan tijdelijk niet worden opgehaald
+
+Controleer of je portalsessie nog actief is en de database nog bij deze website staat. Meld opnieuw aan als de sessie is verlopen en probeer de knop opnieuw. Een melding over ontbrekende toegang kan ook betekenen dat je rol of de databasekoppeling is veranderd.
+
+Blijft het misgaan bij meerdere websites, meld dan website, databasenaam, tijdstip en de exacte fouttekst aan support. De beheeromgeving of serververbinding kan aandacht nodig hebben; verwijder daarvoor zelf geen klantdatabase en zet geen firewallbeveiliging uit.
+
+Voor een dump kun je ook de [SQL-import en export](./sql.mdx) in het portaal gebruiken.

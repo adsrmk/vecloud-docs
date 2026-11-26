@@ -1,0 +1,47 @@
+---
+title: Manage FTP accounts
+description: Connect an external FTP client to the correct website directory.
+icon: LockKeyhole
+---
+
+## Choose FTP or SFTP
+
+Open **Domains → your website → FTP**. FTP accounts have their own credentials and can be restricted to a directory. SFTP uses the [website’s SSH credentials](./ssh.mdx), not an FTP account.
+
+<PortalScreenshot
+  name="ftp"
+  alt="FTP account restricted to one directory"
+  caption="FTP account restricted to one directory"
+/>
+
+## Add an FTP account
+
+<Steps>
+<Step title="Open Add FTP account">
+The button is available when FTP is enabled for the website and your package has capacity.
+</Step>
+<Step title="Choose a username and directory">
+Enter the first part of the name; the form appends `@` and the website domain. For **Folder**, use a path within the website, such as `public_html/assets`. An empty value provides access to the website root `/`.
+</Step>
+<Step title="Set a password and save">
+Use at least ten characters including a lowercase letter, uppercase letter, number and special character. Select **Add account**, then check the account list.
+</Step>
+</Steps>
+
+## Connect your client
+
+Click the account name to open **Login details**. Copy the full username and **Host**; the displayed FTP port is **21**. Use explicit FTP over TLS when supported by your client and the server. SFTP is a different protocol and uses SSH access on port 22.
+
+Store the password in your password manager. The portal does not reveal the existing password. **Change password** sets a new one; update saved connections afterwards.
+
+## Change directory access
+
+Use the pencil beside **Directory access**, choose the directory and save. The root `/` covers this website’s files, not the entire server. Give a third party access only to the directory they need.
+
+<Callout type="warn" title="Check the deletion option">
+The **Delete FTP account** confirmation includes a separate option to delete the directory contents. Leave it off when revoking access only. Deleting the root directory contents can make the website unusable.
+</Callout>
+
+## Connection problems
+
+Check the complete account name, current host, port and protocol. FTP credentials do not work for SFTP. If login succeeds but a directory is missing, check the account’s directory access and [file permissions](./permissions.mdx).

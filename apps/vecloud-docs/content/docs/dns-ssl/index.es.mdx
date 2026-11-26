@@ -1,0 +1,56 @@
+---
+title: Gestionar registros DNS
+description: Conecta tu dominio al alojamiento, al correo y a servicios externos con los registros adecuados.
+icon: Globe
+---
+
+## Comprueba quién gestiona el DNS
+
+Abre **Domains → tu sitio → DNS settings**. La página muestra las zonas de los dominios asociados al sitio. Los cambios guardados se publican si los servidores de nombres activos sirven esa zona o si se sincroniza mediante la [integración de Cloudflare](./cloudflare.mdx).
+
+Si usas DNS externo sin sincronización, cambia los registros en ese proveedor. Añadir un registro NS a esta tabla no cambia la delegación en el registrador.
+
+<PortalScreenshot name="dns-records" alt="Registros DNS de un dominio de demostración" caption="La zona solo contiene dominios ficticios e IP de documentación." />
+
+## Añadir un registro
+
+<Steps>
+<Step>
+### Abre el formulario
+Elige **Add record** en la tabla del dominio correcto.
+</Step>
+<Step>
+### Introduce tipo, nombre y valor
+Usa `@` para el dominio raíz o, por ejemplo, `www` para un subdominio. Copia el valor indicado por el servicio que quieres conectar. Para MX introduce prioridad y servidor; para SRV, prioridad, peso, puerto y destino.
+</Step>
+<Step>
+### Elige el TTL y guarda
+Usa el TTL predeterminado o desactiva esa opción e introduce segundos. Pulsa **Add record** y comprueba la nueva fila.
+</Step>
+</Steps>
+
+<PortalScreenshot name="dns-add" alt="Añadir un registro A para blog.example.test" caption="El ejemplo usa una IP reservada para documentación. Usa la dirección real de tus datos de alojamiento." />
+
+## Tipos habituales
+
+| Tipo | Uso |
+| --- | --- |
+| A / AAAA | Nombre hacia una dirección IPv4 o IPv6 |
+| CNAME | Nombre hacia otro nombre, sin protocolo ni ruta URL |
+| MX | Servidor receptor de correo y prioridad |
+| TXT | Verificación del dominio, SPF, DKIM o DMARC |
+| SRV | Servidor y puerto de un servicio |
+| CAA | Autoridades autorizadas para emitir certificados |
+| NS / DS / PTR | Delegación, DNSSEC o DNS inverso cuando corresponda |
+
+También existe el tipo SPF. Para una política SPF nueva, usa TXT. Un PTR en una zona normal no modifica el DNS inverso de una IP de alojamiento; lo gestiona el operador de esa IP.
+
+## Editar, eliminar y verificar
+
+Usa **Edit** en la fila correspondiente. La eliminación requiere confirmación. Conserva el valor anterior antes de sustituir un registro válido. Las cachés pueden devolver respuestas antiguas hasta que caduque el TTL previo; guardar repetidamente no lo acelera.
+
+## Ajustes SOA
+
+La zona muestra el servidor responsable, la dirección administrativa y **Expires**, **Refresh**, **Retry** y **TTL**. La acción de edición abre el formulario SOA; los tiempos se expresan en segundos. Modifica estos valores avanzados solo si tu configuración lo requiere. Editar SOA no cambia los servidores de nombres delegados.
+
+Para correo consulta [enrutamiento y autenticación](./mail-routing.mdx). Para redirigir una dirección web usa [Redirects](./redirects.mdx), no un registro DNS.

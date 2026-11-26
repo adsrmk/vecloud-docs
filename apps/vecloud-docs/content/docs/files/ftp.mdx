@@ -1,0 +1,47 @@
+---
+title: FTP-accounts beheren
+description: Geef een extern FTP-programma toegang tot de juiste map van je website.
+icon: LockKeyhole
+---
+
+## FTP of SFTP kiezen
+
+Open **Domains → je website → FTP**. FTP-accounts hebben eigen inloggegevens en kunnen tot een map worden beperkt. Voor SFTP gebruik je de [SSH-inloggegevens van de website](./ssh.mdx), niet een FTP-account.
+
+<PortalScreenshot
+  name="ftp"
+  alt="FTP-account met toegang tot één map"
+  caption="FTP-account met toegang tot één map"
+/>
+
+## Een FTP-account toevoegen
+
+<Steps>
+<Step title="Open Add FTP account">
+De knop is beschikbaar als FTP voor deze website is ingeschakeld en er ruimte is binnen je pakket.
+</Step>
+<Step title="Kies een gebruikersnaam en map">
+Vul alleen het eerste deel van de naam in; het formulier voegt `@` en het websitedomein toe. Gebruik bij **Folder** een map binnen de website, bijvoorbeeld `public_html/assets`. Een lege mapwaarde geeft toegang tot de website-root `/`.
+</Step>
+<Step title="Stel een wachtwoord in en sla op">
+Gebruik minimaal tien tekens met een kleine letter, hoofdletter, cijfer en speciaal teken. Kies **Add account** en controleer de accountlijst.
+</Step>
+</Steps>
+
+## Verbinding maken
+
+Klik op de accountnaam voor **Login details**. Neem de volledige gebruikersnaam en **Host** over; de getoonde FTP-poort is **21**. Gebruik expliciete FTP over TLS als je FTP-programma en de server dit ondersteunen. SFTP is een ander protocol en gebruikt de SSH-toegang op poort 22.
+
+Bewaar het wachtwoord in je wachtwoordmanager. Het portaal toont het bestaande wachtwoord niet. Via **Change password** stel je een nieuw wachtwoord in; pas daarna ook opgeslagen verbindingen aan.
+
+## Maptoegang aanpassen
+
+Gebruik het potlood bij **Directory access**, kies de gewenste map en sla op. De root `/` betekent alle bestanden van deze website, niet de root van de hele server. Geef een externe partij alleen toegang tot de map die nodig is.
+
+<Callout type="warn" title="Let op bij verwijderen">
+De bevestiging voor **Delete FTP account** heeft een afzonderlijke optie om ook de mapinhoud te verwijderen. Laat die uit als je alleen de toegang wilt intrekken. Het verwijderen van de hoofdmapinhoud kan de website onbruikbaar maken.
+</Callout>
+
+## Verbinding lukt niet
+
+Controleer het volledige account, de actuele host, poort en protocol. Een SFTP-verbinding met FTP-inloggegevens werkt niet. Als aanmelden lukt maar een map ontbreekt, controleer dan de ingestelde maptoegang en [bestandsrechten](./permissions.mdx).

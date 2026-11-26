@@ -1,0 +1,35 @@
+---
+title: Gestionar redirecciones
+description: Redirige un dominio o una ruta mediante una respuesta HTTP temporal o permanente.
+icon: ArrowRightLeft
+---
+
+## Añadir una redirección
+
+Abre tu sitio y elige **Redirects → Add redirect**. Las reglas pertenecen al sitio seleccionado; marca solo los dominios a los que debe aplicarse la nueva regla.
+
+1. Elige **301** para un cambio permanente o **302** para una redirección temporal.
+2. Comprueba los dominios. Con uno solo, la selección está fijada; con varios puedes elegirlos.
+3. Introduce la ruta. El formulario ya muestra `/`; `antiguo` representa `/antiguo`. Déjala vacía para la raíz `/`.
+4. Selecciona el protocolo de destino e introduce el resto de la dirección. No repitas `https://` si ya está elegido aparte.
+5. Guarda y prueba la URL original en una ventana privada nueva.
+
+Un alias permite usar el mismo sitio con otro dominio. Una redirección envía el navegador a otro destino y cambia la dirección. Usa [un alias](../websites/create.mdx) si no quieres redirigir.
+
+<PortalScreenshot name="redirects" alt="Formulario de redirección con ruta y destino" caption="El protocolo y el resto de la dirección usan campos separados. Dominios y URL son de demostración." />
+
+## Editar y eliminar
+
+Pulsa **Edit** en la regla correcta, cambia los valores y guarda. **Delete** requiere confirmación. Vuelve a probar la URL original. El navegador puede recordar un 301 anterior incluso después de modificar la regla; una prueba limpia evita resultados engañosos.
+
+## Avisos de bucles
+
+El panel puede advertir de un posible bucle o de una cadena que no se pudo comprobar completamente. Lee las direcciones mostradas. Corrige destinos que regresen al origen, directamente o mediante otras reglas. Guarda pese al aviso solo si entiendes las consecuencias.
+
+Revisa también WordPress, HTTPS forzado y proxies externos. Que no haya un aviso no garantiza que se hayan comprobado todas las reglas externas o de la aplicación.
+
+## Reescrituras avanzadas
+
+Si existen reglas internas o no estándar, aparece una sección desplegable de reescrituras avanzadas. Permite editar patrones, sustituciones, flags y condiciones. Pueden ser necesarias para el enrutamiento de la aplicación; no las elimines solo para quitar una redirección visible.
+
+Si la configuración cambió o sigue procesándose, actualiza primero las reglas. No sobrescribas una configuración nueva con un borrador antiguo.

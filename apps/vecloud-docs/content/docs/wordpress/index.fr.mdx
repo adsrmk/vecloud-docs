@@ -1,0 +1,39 @@
+---
+title: Gérer WordPress
+description: Utilisez le toolkit pour les versions, l’URL, les mises à jour et la maintenance.
+icon: Blocks
+---
+
+## Ouvrir le toolkit
+
+Ouvrez le site puis **Apps**. Cliquez sur **Toolkit** pour la bonne installation WordPress. Vous trouvez **General**, **Plugins**, **Themes**, **Users** et **Debug**. **Admin** ouvre l’administration WordPress si l’accès est disponible.
+
+Si une installation existante manque, utilisez **Scan apps**. Ne réinstallez pas WordPress sur des fichiers existants uniquement pour faire apparaître le toolkit.
+
+## Mettre à jour WordPress
+
+1. Créez une [sauvegarde](../backups/index.mdx) des fichiers et de la base.
+2. Dans **General**, vérifiez les versions installée et disponible.
+3. Cliquez sur **Update** et lisez la confirmation.
+4. Laissez l’opération se terminer. Une maintenance temporaire est possible.
+5. Vérifiez site, administration et formulaires importants.
+
+WordPress, extensions, thème et PHP doivent être compatibles. Testez d’abord une modification importante en staging si nécessaire.
+
+## Mises à jour automatiques du cœur
+
+Modifiez la planification sous **Automatic updates**. **Always update to the latest available version** suit toutes les versions disponibles. **Minor versions only** limite les mises à jour automatiques du cœur aux versions mineures. Enregistrez le choix.
+
+Cette planification concerne WordPress. Gérez les mises à jour des extensions et thèmes dans leurs rubriques respectives.
+
+<PortalScreenshot name="wordpress-schedule" alt="Planification des mises à jour WordPress" caption="Choisissez la planification puis enregistrez. L’installation utilise des données de démonstration." />
+
+## Modifier l’URL du site
+
+L’action à côté de **Site URL** modifie `siteurl` et `home` dans WordPress. Vérifiez auparavant domaine, DNS et SSL de la nouvelle adresse. Cette modification ne remplace pas tous les anciens liens du contenu.
+
+Conservez l’accès au panneau et une sauvegarde avant de changer l’adresse. Une URL incorrecte peut perturber connexion et chargement.
+
+## Mode maintenance
+
+**Maintenance mode** active ou désactive la maintenance de l’installation. Utilisez-le volontairement puis désactivez-le après vos travaux. Vérifiez le site public une fois le changement confirmé.

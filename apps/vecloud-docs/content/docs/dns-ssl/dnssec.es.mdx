@@ -1,0 +1,35 @@
+---
+title: Configurar DNSSEC
+description: Firma la zona DNS y publica los datos DS correspondientes en el registrador del dominio.
+icon: ShieldCheck
+---
+
+## Qué protege DNSSEC
+
+DNSSEC permite verificar el origen y la integridad de las respuestas DNS. No cifra el tráfico del sitio; para eso usa [SSL y HTTPS](./ssl.mdx). La configuración completa enlaza la zona firmada con un registro DS en el registrador.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC activo con datos DS de demostración" caption="Usa únicamente los datos DS emitidos para tu propia configuración. Estos valores son ficticios." />
+
+## Activarlo
+
+1. Comprueba qué servidores de nombres utiliza realmente el dominio.
+2. Si esta plataforma sirve la zona activa, abre **DNS settings → DNSSEC** en el sitio y activa **Enable DNSSEC**.
+3. Espera la confirmación. El panel muestra los datos DS que debes publicar en el registrador.
+4. Copia exactamente **Key tag**, **Algorithm**, **Digest type** y **Digest** para el dominio correcto.
+5. Tras publicarlos, comprueba que la resolución DNS con validación funciona.
+
+<Callout type="info" title="Registrador y proveedor DNS pueden ser distintos">
+El registrador gestiona el registro del dominio y la delegación DS. El proveedor DNS sirve la zona firmada. Añadir una fila DS a tu zona no sustituye la publicación del DS en el registrador.
+</Callout>
+
+Con servidores externos, como Cloudflare, usa los ajustes DNSSEC y los datos DS del proveedor activo. No uses las claves de una zona del panel que no sirve tu dominio.
+
+## Desactivar o trasladar
+
+Elimina primero el DS del registrador y deja que se propague antes de desactivar la firma. Después desactiva DNSSEC en el panel y lee la confirmación. Un DS antiguo que apunte a una clave incorrecta puede dejar todo el dominio inaccesible para los resolutores que validan DNSSEC.
+
+Al cambiar servidores de nombres, delegación, firma y DS deben seguir coincidiendo. Pide ayuda antes del cambio si no conoces el orden adecuado.
+
+## El DNS falla después
+
+Comprueba que los servidores activos firman la zona con la clave indicada por el DS. Compara todos sus campos y busca claves antiguas en el registrador. Activar y desactivar repetidamente no resuelve el problema de forma fiable; restaura una configuración coherente y verifica tras actualizarse las cachés.

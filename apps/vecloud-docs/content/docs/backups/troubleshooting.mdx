@@ -1,0 +1,48 @@
+---
+title: Problemen met back-ups
+description: Bepaal of de lijst, back-upinhoud of herstelactie aandacht nodig heeft.
+icon: Archive
+---
+
+## De lijst laadt niet
+
+1. Controleer of je nog bent ingelogd en of het juiste domein bovenin staat.
+2. Gebruik **Try again** één keer nadat de fout is verschenen.
+3. Open zo nodig de website opnieuw via **Domains**.
+4. Blijft het probleem bestaan? Noteer domein, tijdstip en exacte foutmelding voor support.
+
+Een laadfout is geen bewijs dat je back-ups zijn verwijderd. Een lege lijst zonder foutmelding betekent dat er op dat moment geen beschikbare herstelmomenten voor deze website worden getoond.
+
+## Back-up nog bezig of onvolledig
+
+Open **Restore** om de details te bekijken. Controleer de afronding en de status van de onderdelen die je nodig hebt. Een ontbrekende grootte of databasevermelding is geen reden om een gedeeltelijke back-up als volledig te behandelen.
+
+Gebruik bij twijfel een eerder, succesvol afgerond herstelmoment of laat support de back-up controleren. Start geen reeks nieuwe back-ups om een onduidelijke status te omzeilen.
+
+## Database ontbreekt in de herstelmodal
+
+De huidige modal laat je MariaDB-databases selecteren die in deze back-up worden aangeleverd. Controleer of je de juiste website en datum hebt gekozen. Verwacht je een andere database of een ander type database? Laat support bevestigen of die in dit herstelmoment zit voordat je verdergaat.
+
+## Herstel is gestart, maar de website lijkt hetzelfde
+
+De bevestiging van de aanvraag is nog geen bevestiging van afronding. Wacht op de uitkomst en controleer de website opnieuw. Bekijk daarna caching en of je de juiste bestanden én database hebt teruggezet.
+
+## De website werkt niet na herstel
+
+Controleer eerst de combinatie van bestanden en database. Bekijk daarna PHP-versie, databaseverbinding en foutlog in **Developer tools**. Noteer welke onderdelen zijn teruggezet en welke fout je nu ziet. Deel geen wachtwoorden, privésleutels of volledige configuratiebestanden in een supportbericht.
+
+## Veelgestelde vragen
+
+<Accordions>
+<Accordion title="Kan ik één bestand kiezen in de herstelmodal?">
+De huidige modal bevat geen bestandsbrowser. Herstel daarin beschikbare websitebestanden met een bewuste databaseselectie. Vraag support naar een gerichte herstelmogelijkheid als je slechts één bestand nodig hebt.
+</Accordion>
+<Accordion title="Zijn alle back-ups even lang beschikbaar?">
+De historie hangt af van de back-upinstellingen van je hostingomgeving. Ga uit van de daadwerkelijk getoonde herstelmomenten; deze documentatie belooft geen vaste bewaartermijn.
+</Accordion>
+<Accordion title="Moet ik opnieuw klikken als een aanvraag een fout geeft?">
+Controleer eerst de actuele uitkomst. Bij een onduidelijke of vertraagde reactie kan een herstel al zijn gestart. Laat support de status controleren voordat je opnieuw overschrijft.
+</Accordion>
+</Accordions>
+
+Terug naar [Back-ups](./index.mdx) of [Een back-up herstellen](./restore.mdx).

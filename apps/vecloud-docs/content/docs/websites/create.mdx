@@ -1,0 +1,40 @@
+---
+title: Een domein toevoegen
+description: Maak een aparte website, subdomein of alias via het compacte domeinformulier.
+icon: Globe
+---
+
+## Wat je vooraf nodig hebt
+
+Gebruik een domein dat je beheert en controleer of je hostingabonnement ruimte heeft voor een extra website. Een domein toevoegen aan het panel registreert de domeinnaam niet bij een registrar. DNS moet daarna nog naar de juiste hosting verwijzen.
+
+## Kies het juiste type
+
+<Tabs items={['Addon', 'Subdomain', 'Alias']}>
+<Tab value="Addon">
+Gebruik **Addon** voor een aparte website. Vul de volledige domeinnaam in zonder protocol, pad of `www.`-voorvoegsel dat je niet wilt gebruiken. De aanmaak maakt webruimte; installeer een applicatie daarna via **Apps**.
+</Tab>
+<Tab value="Subdomain">
+Gebruik **Subdomain** voor een naam onder een bestaand domein. Kies het bovenliggende domein en voer alleen het nieuwe deel in, bijvoorbeeld `shop`. Controleer het samengestelde domein voordat je het aanmaakt.
+</Tab>
+<Tab value="Alias">
+Gebruik **Alias** als de extra domeinnaam bij een bestaande website moet horen. Kies die doelwebsite en vul het aliasdomein in. Een alias is een extra koppeling naar dezelfde website en is geen HTTP-redirect naar een ander adres.
+</Tab>
+</Tabs>
+
+## Aanmaken
+
+1. Open **Domains** en kies **Add domain**.
+2. Kies het type en vul de bijbehorende domeingegevens in.
+3. Controleer de naam en eventuele doelwebsite.
+4. Kies **Create** en wacht op de bevestiging.
+
+<PortalScreenshot name="add-domain" alt="Domeinformulier met Addon en het fictieve domein demo-site.test" caption="Het aanmaakformulier begint met Domain type en Domain. De applicatie kies je later, vanuit de website." />
+
+## Na het aanmaken
+
+Open de nieuwe website en controleer **DNS settings** en **SSL certificates**. Zorg dat de publieke DNS naar de juiste hosting wijst voordat je bereikbaarheid test of een certificaat aanvraagt. Installeer WordPress of een andere ondersteunde applicatie via **Apps → Add application**.
+
+## Het formulier is geblokkeerd
+
+Een vol of inactief abonnement kan aanmaken verhinderen. Bij een alias moet er een geschikte bestaande website zijn. Krijg je een onduidelijke fout na **Create**, controleer dan eerst de domeinlijst; maak hetzelfde domein niet meteen opnieuw aan.

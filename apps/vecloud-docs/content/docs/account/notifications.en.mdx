@@ -1,0 +1,29 @@
+---
+title: Notifications and monitoring
+description: Read alerts about availability, SSL and unusual website traffic.
+icon: UserRound
+---
+
+## View notifications
+
+Open **Notifications** in the main sidebar. **Current** shows current notifications; **Archive** contains archived notifications. Each row identifies the time, status, description and affected website. Panel announcements appear above the list.
+
+**Critical** calls for immediate investigation, for example when a website is unavailable. **Attention** indicates something to review, such as a certificate issue or an unusual traffic increase. Open the affected website and check the reported cause.
+
+## Unusually high request counts
+
+The panel compares completed hours with the website’s normal traffic. Current detection requires at least 1,000 requests in an hour and a rise to at least five times the normal baseline. Sufficient history is required, including comparable hours on previous days.
+
+A spike can result from a campaign, bot, crawler or abuse. The alert does not establish that an attack is happening and does not automatically block traffic. Review **Analytics**, the timing and recent changes before blocking IP addresses.
+
+## Archive a notification
+
+Use the archive action next to a notification to clear it from your current list. Archiving does not change the website or certificate. Address the underlying cause separately.
+
+## The status in the topbar
+
+The service status in the topbar links to the general VECloud status page. This differs from the availability of an individual website. Investigate a website alert even when the general services are online.
+
+## Insufficient measurements
+
+New websites or missing measurements may not yet support a reliable traffic comparison. No alert is therefore no guarantee of healthy traffic or availability. For a continuing problem, record the domain, time and message for support.

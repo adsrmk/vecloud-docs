@@ -1,0 +1,37 @@
+---
+title: Tráfico y ancho de banda
+description: Consulta las estadísticas de hosting sin confundir solicitudes con personas.
+icon: ChartColumn
+---
+
+## Abrir las estadísticas
+
+Ve a **Domains → tu sitio → Analytics**. Arriba aparecen **Bandwidth** y **Visitors**. Elige **Past week** o **Past month** junto al gráfico de ancho de banda; el periodo también se aplica al gráfico de visitantes.
+
+<PortalScreenshot
+  name="analytics"
+  alt="Ancho de banda de un sitio de demostración"
+  caption="Ancho de banda de un sitio de demostración"
+/>
+
+## Interpretar las cifras
+
+| Cifra | Significado |
+| --- | --- |
+| Total bandwidth | Tráfico enviado durante el periodo, mostrado en GB |
+| Total hits | Solicitudes contabilizadas en las mediciones del hosting |
+| Unique hits | Solicitudes únicas suministradas por cada periodo de medición |
+
+Los hits no equivalen necesariamente a personas. Un navegador solicita varios archivos, los bots generan peticiones y la misma persona puede regresar en varios periodos. Sumar **Unique hits** no proporciona un recuento definitivo de personas únicas de todo el mes.
+
+Los valores pueden diferir de un servicio externo que utilice otros métodos, filtros o ajustes de consentimiento. Esta página no añade automáticamente código de seguimiento al sitio.
+
+## Investigar un aumento
+
+Compara primero el mismo periodo y distingue muchas solicitudes de mucho tráfico de datos. Las imágenes grandes o descargas consumen ancho de banda sin requerir muchas visitas. Ante un aumento repentino, revisa cambios recientes, campañas, rastreadores o URLs repetidas en los registros disponibles.
+
+Consulta [uso de recursos](./resources.mdx) para comprobar CPU, memoria y almacenamiento. Las [notificaciones de tráfico](../account/notifications.mdx) detectan anomalías, pero no bloquean tráfico ni demuestran por sí solas un ataque.
+
+## No hay datos
+
+Un gráfico vacío indica que aún no hay estadísticas para ese periodo. No confirma consumo cero ni un sitio inaccesible. Comprueba sitio, periodo y mensaje de error antes de cambiar ajustes.

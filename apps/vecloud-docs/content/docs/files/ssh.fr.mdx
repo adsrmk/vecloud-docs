@@ -1,0 +1,45 @@
+---
+title: Utiliser SSH et SFTP
+description: Connectez-vous au compte du site avec une clé publique ou un mot de passe SSH.
+icon: KeyRound
+---
+
+## Ouvrir les paramètres SSH
+
+Accédez à **Domains → votre site → Developer tools**, puis à **SSH key management**. SSH est disponible si votre offre l’inclut. L’accès couvre tout le site et ses domaines associés.
+
+La commande de connexion affiche l’utilisateur du site et l’adresse du serveur. Utilisez ces données, pas le compte du portail ni un compte FTP. Cet accès concerne l’environnement du site, pas un accès root au serveur.
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Ajouter une clé publique SSH"
+  caption="Ajouter une clé publique SSH"
+/>
+
+## Ajouter une clé publique
+
+<Steps>
+<Step title="Créez une paire de clés localement">
+Générez-la dans votre application SSH si nécessaire. Conservez la clé privée sur votre appareil.
+</Step>
+<Step title="Ajoutez la clé publique">
+Sélectionnez **Add SSH key**, indiquez un nom reconnaissable et collez la clé publique complète. **Choose file** permet de sélectionner son fichier. Ne transmettez jamais la clé privée.
+</Step>
+<Step title="Testez la connexion">
+Sélectionnez **Add**, vérifiez la liste et utilisez la commande dans votre terminal. Vérifiez l’empreinte du serveur avant d’accepter une nouvelle connexion ; demandez confirmation au support en cas de doute.
+</Step>
+</Steps>
+
+## Configurer SFTP
+
+Dans votre client de fichiers, choisissez **SFTP**, l’adresse du serveur et l’utilisateur de la commande, ainsi que le port **22**. Sélectionnez la clé privée correspondante dans le client. Un compte FTP avec `@domaine` n’est pas le même identifiant SSH.
+
+## Définir un mot de passe SSH
+
+Dans **SSH password authentication**, sélectionnez **Reset password**. Définissez un mot de passe unique d’au moins dix caractères avec minuscule, majuscule, chiffre et caractère spécial, puis enregistrez. L’ancien mot de passe reste masqué. Mettez à jour les appareils qui l’utilisent.
+
+## Retirer un accès
+
+Sélectionnez **Delete** à côté d’une clé et confirmez. Son détenteur perd l’accès SSH et SFTP par cette clé. Les autres clés et le mot de passe SSH constituent des accès distincts ; vérifiez-les également lors du départ d’un utilisateur.
+
+Pour les transferts volumineux, consultez [les envois et téléchargements](./transfers.mdx). Ne partagez jamais de clé privée ou de mot de passe dans un ticket ou une capture.

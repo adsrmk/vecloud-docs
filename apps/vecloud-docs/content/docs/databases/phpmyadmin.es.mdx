@@ -1,0 +1,37 @@
+---
+title: Abrir phpMyAdmin
+description: Accede a la administración MySQL/MariaDB con un enlace de acceso nuevo desde el portal.
+icon: TableProperties
+---
+
+## Abrir desde la base correcta
+
+Ve a **Domains → tu sitio → Databases** y pulsa **phpMyAdmin** junto a la base deseada. El botón también aparece en su página de gestión. El portal abre otra pestaña y solicita un enlace de acceso nuevo.
+
+No necesitas pegar una contraseña de base de datos en el portal para este acceso. No compartas el enlace ni lo guardes como marcador permanente; inicia cada sesión con el botón.
+
+<PortalScreenshot
+  name="database-manage"
+  alt="Conexión y phpMyAdmin de una base de demostración"
+  caption="Conexión y phpMyAdmin de una base de demostración"
+/>
+
+## Qué puedes hacer
+
+Consultar tablas, revisar datos, ejecutar SQL y gestionar importaciones o exportaciones. Comprueba siempre la base seleccionada antes de modificarla. phpMyAdmin es para MySQL/MariaDB, no PostgreSQL.
+
+<Callout type="warn" title="Las consultas modifican datos reales">
+Un `DELETE`, `DROP` u otra orden de modificación puede borrar datos definitivamente. Exporta o respalda antes y prueba consultas desconocidas sobre una copia. Abrir phpMyAdmin no crea una copia automática.
+</Callout>
+
+## No se abre la pestaña
+
+Si el navegador bloquea la ventana emergente, permite las del portal y vuelve a pulsar. Es normal que aparezca una pestaña inicialmente vacía mientras se obtiene el enlace; se cierra si falla.
+
+## El enlace no se puede obtener temporalmente
+
+Comprueba que la sesión siga activa y la base pertenezca al sitio. Inicia sesión otra vez si ha caducado y reintenta. Un error de acceso también puede indicar cambios de rol o asociación.
+
+Si persiste en varios sitios, comunica a soporte el sitio, base, hora y mensaje exacto. Puede ser necesario revisar el servicio o su conexión; no elimines bases de clientes ni desactives el firewall para solucionarlo.
+
+También puedes usar la [importación y exportación SQL](./sql.mdx) del portal.

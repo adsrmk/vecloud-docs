@@ -1,0 +1,37 @@
+---
+title: Verkeer en bandbreedte
+description: Lees de hostingstatistieken en vergelijk periodes zonder requests met bezoekers te verwarren.
+icon: ChartColumn
+---
+
+## Hostingstatistieken openen
+
+Ga naar **Domains → je website → Analytics**. Bovenaan staan **Bandwidth** en **Visitors**. Kies **Past week** of **Past month** bij de bandbreedtegrafiek; die periode geldt ook voor de bezoekersgrafiek eronder.
+
+<PortalScreenshot
+  name="analytics"
+  alt="Bandbreedte van een demonstratiewebsite"
+  caption="Bandbreedte van een demonstratiewebsite"
+/>
+
+## De cijfers interpreteren
+
+| Cijfer | Betekenis |
+| --- | --- |
+| Total bandwidth | Verzonden dataverkeer in de geselecteerde periode, weergegeven in GB |
+| Total hits | Verzoeken die in de aangeleverde hostingmetingen zijn geteld |
+| Unique hits | De unieke hits zoals aangeleverd per meetperiode |
+
+Hits zijn geen gegarandeerde aantallen mensen. Browsers vragen meerdere bestanden op, bots kunnen ook requests veroorzaken en dezelfde bezoeker kan in meerdere meetperiodes terugkomen. Het optellen van **Unique hits** is daarom geen sluitende meting van unieke personen over de hele maand.
+
+De cijfers kunnen afwijken van een externe analyticsdienst: die kan andere meetmethoden, filters en toestemmingsinstellingen gebruiken. Deze pagina voegt niet automatisch een trackingcode aan je website toe.
+
+## Een stijging onderzoeken
+
+Vergelijk eerst dezelfde periode en let op het verschil tussen veel requests en veel verzonden data. Grote afbeeldingen of downloads kunnen veel bandbreedte veroorzaken zonder veel bezoeken. Zoek bij een plotselinge stijging naar recente wijzigingen, campagnes, crawlers of terugkerende URL’s in beschikbare logs.
+
+Gebruik [resourcegebruik](./resources.mdx) om te zien of ook CPU, geheugen of opslagactiviteit stijgt. [Verkeersmeldingen](../account/notifications.mdx) signaleren afwijkingen, maar blokkeren geen verkeer en bewijzen op zichzelf geen aanval.
+
+## Geen gegevens zichtbaar
+
+Een lege grafiek betekent dat voor de gekozen periode nog geen statistieken beschikbaar zijn. Dat is iets anders dan een bevestigde nulmeting of een onbereikbare website. Controleer de geselecteerde website, periode en eventuele foutmelding voordat je instellingen wijzigt.

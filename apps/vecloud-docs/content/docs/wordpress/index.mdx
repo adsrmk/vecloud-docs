@@ -1,0 +1,39 @@
+---
+title: WordPress beheren
+description: Open de toolkit en beheer de kernversie, site-URL, automatische updates en onderhoudsmodus.
+icon: Blocks
+---
+
+## De toolkit openen
+
+Open je website en ga naar **Apps**. Kies **Toolkit** bij de juiste WordPress-installatie. De toolkit heeft de onderdelen **General**, **Plugins**, **Themes**, **Users** en **Debug**. Met **Admin** open je de WordPress-beheeromgeving wanneer toegang beschikbaar is.
+
+Staat een bestaande installatie niet in de lijst? Gebruik **Scan apps** bij de website. Installeer WordPress niet opnieuw over bestaande bestanden om alleen de toolkit zichtbaar te maken.
+
+## WordPress bijwerken
+
+1. Maak een [back-up](../backups/index.mdx) van de bestanden en database.
+2. Open **General** en controleer de geïnstalleerde en beschikbare WordPress-versie.
+3. Kies **Update** en lees de bevestiging.
+4. Laat de update afronden. De site kan tijdelijk in onderhoudsmodus staan.
+5. Controleer website, beheeromgeving en belangrijke formulieren.
+
+WordPress, plugins, thema en PHP moeten met elkaar compatibel zijn. Test een grote wijziging zo nodig eerst op een stagingwebsite.
+
+## Automatische kernupdates
+
+Bewerk de updateplanning bij **Automatic updates**. **Always update to the latest available version** volgt alle beschikbare WordPress-versies. **Minor versions only** beperkt automatische kernupdates tot de minor-versies. Sla de gekozen planning op.
+
+Deze planning geldt voor WordPress zelf. De automatische updates van plugins en thema’s beheer je bij die onderdelen.
+
+<PortalScreenshot name="wordpress-schedule" alt="Planning voor automatische WordPress-updates" caption="Kies de gewenste planning en sla die op. De weergegeven installatie gebruikt demonstratiedata." />
+
+## Site-URL wijzigen
+
+Gebruik de bewerkactie bij **Site URL** om de WordPress-waarden `siteurl` en `home` te veranderen. Controleer vooraf domeinkoppeling, DNS en SSL voor het nieuwe adres. Deze wijziging vervangt niet automatisch alle oude links in je content.
+
+Bewaar toegang via het panel en een back-up voordat je het adres wijzigt. Een verkeerd adres kan aanmelden of het laden van pagina’s verstoren.
+
+## Onderhoudsmodus
+
+Met **Maintenance mode** zet je de installatie in of uit onderhoudsmodus. Gebruik dit bewust en schakel de modus na werkzaamheden weer uit. Controleer de publieke website nadat de wijziging is bevestigd.

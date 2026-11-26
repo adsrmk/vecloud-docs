@@ -1,0 +1,37 @@
+---
+title: PostgreSQL verwalten
+description: Verwalte PostgreSQL-Datenbanken, Benutzer und Zugriffe bei verfügbarer PostgreSQL-Anbindung.
+icon: Database
+---
+
+## Verfügbarkeit
+
+Öffne **Domains → deine Website → Databases**. Der PostgreSQL-Bereich erscheint, wenn der Website ein PostgreSQL-Server zugeordnet ist. Die Meldung, dass PostgreSQL nicht aktiviert ist, bedeutet nicht, dass MySQL-Datenbanken fehlen.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL-Zugriff pro Datenbank"
+  caption="PostgreSQL-Zugriff pro Datenbank"
+/>
+
+## Datenbank und Benutzer erstellen
+
+Wähle im PostgreSQL-Bereich **Add database**, trage einen Namen ein und speichere. Nutze Kleinbuchstaben, Zahlen, `_` oder `$`, höchstens 64 Zeichen. Erstelle danach unter **Users** einen Benutzer mit eigenem starkem Passwort. PostgreSQL-Benutzernamen dürfen höchstens 63 Zeichen haben. Wähle die Datenbanken aus, auf die der neue Benutzer zugreifen soll.
+
+Prüfe nach dem Speichern die tatsächlichen Zuordnungen. Ein Benutzer kann bereits existieren, obwohl eine anschließende Rechtevergabe fehlschlug.
+
+## Zugriff gewähren oder entziehen
+
+Öffne eine Datenbank und füge unter **Users with access** einen bestehenden Benutzer hinzu. Auch über die Benutzerverwaltung kannst du eine Datenbank zuordnen. Diese Portalfunktion vergibt volle Rechte pro Datenbank; einzelne MySQL-artige Privilegien lassen sich hier nicht auswählen.
+
+Entferne eine Zuordnung, um den Zugriff auf diese Datenbank zu entziehen. Benutzer und Datenbank bleiben eigenständige Objekte. Ihr endgültiges Löschen benötigt eine eigene Bestätigung.
+
+## Verbindungen und Passwörter
+
+Übernimm die angezeigte PostgreSQL-Serveradresse und vollständigen Datenbank- und Benutzernamen in die Anwendung. Sie benötigt einen PostgreSQL-Treiber; MySQL-Einstellungen sind nicht austauschbar. Setze das Passwort in der Benutzerverwaltung zurück und aktualisiere sofort die Anwendungskonfiguration.
+
+<Callout title="Import und Verwaltung">
+SQL-Import, SQL-Export und phpMyAdmin im MySQL-Bereich sind keine PostgreSQL-Werkzeuge. Verwende für PostgreSQL-Dumps ein passendes PostgreSQL-Programm und lasse bei Bedarf verfügbare Verbindungswege vom Support bestätigen.
+</Callout>
+
+Erstelle vor größeren Änderungen einen geeigneten Export oder prüfe ein wiederherstellbares Backup. Das Löschen einer Datenbank entfernt ihren Inhalt endgültig.

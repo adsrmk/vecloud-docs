@@ -1,0 +1,37 @@
+---
+title: Opcode- und Seitencache
+description: Verwalte PHP-Opcodecache und Nginx-FastCGI-Cache mit passenden Ausnahmen.
+icon: Gauge
+---
+
+## Zwei unterschiedliche Caches
+
+Öffne **Domains → deine Website → Optimization**. **Opcode caching** speichert kompilierten PHP-Code. **FastCGI cache** speichert gerenderte Seiten in Nginx. Sie vermeiden unterschiedliche Arbeit; keiner ersetzt ein Backup.
+
+<PortalScreenshot
+  name="nginx-cache"
+  alt="FastCGI-Cache und Ausnahmen pro Domain"
+  caption="FastCGI-Cache und Ausnahmen pro Domain"
+/>
+
+## Opcodecache
+
+Schalte **Opcode caching** ein oder aus und warte auf die Bestätigung. Die Einstellung steuert `opcache.enable`, nicht komplette HTML-Seiten. Prüfe nach Codeänderungen die ausgeführte Version; wiederholtes Leeren eines Seitencaches repariert keinen fehlerhaften PHP-Code.
+
+## FastCGI pro Domain
+
+**Nginx FCGI** erscheint bei unterstütztem Webserver. Wähle die richtige Domain und ändere **FastCGI cache**. Teste öffentliche Seiten und dynamische Bereiche.
+
+Ergänze unter **Cache exclusions** URL-Pfade, die nicht aus dem Seitencache kommen sollen, etwa Anmeldung, Warenkorb, Kasse oder persönliche Kontoseiten. Die Pfade müssen zur Anwendung passen; `/checkout/` allein deckt nicht garantiert alle dynamischen Seiten ab.
+
+Eine entfernte Ausnahme macht den Pfad gemäß übriger Einstellungen wieder cachefähig. Prüfe vorher ihren ursprünglichen Zweck.
+
+## Cache leeren
+
+Wähle **Clear cache** für die ausgewählte Domain und bestätige. Das entfernt deren gespeicherte FastCGI-Seiten, nicht Browsercaches, externe CDNs oder sämtliche WordPress-Plugin-Caches. Die nächste Anfrage kann beim Neuaufbau mehr Arbeit verursachen.
+
+## Webserver-Rewrites
+
+Im selben Block verwaltest du **Web server rewrites** mit Quellpfad und Zieldateipfad. Bearbeiten und Löschen stehen im Zeilenmenü. Das ist internes Routing, getrennt von einer [301/302-Weiterleitung](../dns-ssl/redirects.mdx) auf eine andere URL. Bewahre benötigte Anwendungsregeln.
+
+Läuft bereits eine Änderung, aktualisiere zunächst die Konfiguration. Bearbeite dieselbe Domain nicht gleichzeitig in mehreren Fenstern. Für Objektcaching siehe [Redis](./redis.mdx).

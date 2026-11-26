@@ -1,0 +1,37 @@
+---
+title: WordPress-Debugging
+description: Protokolliere Fehler vorübergehend, ohne Besuchern Fehlerdetails anzuzeigen.
+icon: Bug
+---
+
+## Debug-Optionen
+
+Öffne **Apps → Toolkit → Debug** der Installation. Die Schalter verwalten drei getrennte Einstellungen.
+
+| Einstellung | Zweck |
+| --- | --- |
+| WP_DEBUG | Aktiviert WordPress-Debugging. |
+| WP_DEBUG_LOG | Schreibt Meldungen in `wp-content/debug.log`. |
+| WP_DEBUG_DISPLAY | Zeigt Meldungen im HTML für Besucher. |
+
+<PortalScreenshot name="wordpress-debug" alt="WordPress-Debugging ohne öffentliche Fehleranzeige" caption="Die lokale Demo protokolliert Meldungen bei ausgeschalteter Besucheranzeige. Es werden keine Logdaten gezeigt." />
+
+## Ein Problem untersuchen
+
+1. Notiere Fehler, URL und Zeitpunkt.
+2. Aktiviere **WP_DEBUG** und **WP_DEBUG_LOG** vorübergehend.
+3. Lasse **WP_DEBUG_DISPLAY** auf einer öffentlichen Website ausgeschaltet.
+4. Warte auf Bestätigung und führe die fehlerhafte Aktion einmal erneut aus.
+5. Öffne **Files**, gehe zum WordPress-Installationsordner und prüfe `wp-content/debug.log`, falls angelegt.
+
+Logs können Pfade, Anfragedaten und weitere nicht öffentliche Details enthalten. Teile nur den relevanten Ausschnitt und entferne sensible Werte.
+
+## Kein Log oder kein Toolkit-Zugriff
+
+Die Datei entsteht, wenn eine Meldung protokolliert wird. Prüfe, ob Logging aktiv ist, der Fehler wiederholt wurde und du die richtige Installation geöffnet hast.
+
+Startet WordPress nicht richtig, können auch Teile des Toolkits ausfallen. Prüfe dann das PHP-Fehlerlog unter **Developer tools**. Es ist eine andere Quelle als die WordPress-Debug-Datei.
+
+## Nach der Untersuchung
+
+Schalte vorübergehende Debug-Optionen wieder aus und prüfe die öffentliche Website. Bewahre benötigte Diagnosedaten sicher auf und entferne unnötige Logs. Lasse detailliertes Logging oder Fehleranzeige nicht ohne Bedarf aktiv.

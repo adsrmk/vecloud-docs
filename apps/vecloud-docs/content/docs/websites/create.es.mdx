@@ -1,0 +1,40 @@
+---
+title: Añadir un dominio
+description: Crea un sitio independiente, subdominio o alias con el formulario de dominios.
+icon: Globe
+---
+
+## Antes de empezar
+
+Utiliza un dominio que controles y comprueba que tu plan permita otro sitio. Añadirlo al panel no registra el nombre en un registrador. Después debes dirigir el DNS al alojamiento correcto.
+
+## Elegir el tipo
+
+<Tabs items={['Addon', 'Subdomain', 'Alias']}>
+<Tab value="Addon">
+Usa **Addon** para un sitio independiente. Introduce el dominio completo sin protocolo, ruta o prefijo `www.` no deseado. Se crea el espacio web; instala una aplicación después desde **Apps**.
+</Tab>
+<Tab value="Subdomain">
+Usa **Subdomain** para un nombre bajo un dominio existente. Elige el dominio principal e introduce solo la parte nueva, como `shop`. Revisa el nombre combinado antes de crearlo.
+</Tab>
+<Tab value="Alias">
+Usa **Alias** para asociar otro dominio a un sitio existente. Elige ese destino e introduce el alias. Es otro nombre para el mismo sitio, no una redirección HTTP a otra dirección.
+</Tab>
+</Tabs>
+
+## Crear el dominio
+
+1. Entra en **Domains → Add domain**.
+2. Elige el tipo y rellena sus datos.
+3. Revisa nombre y sitio de destino, si corresponde.
+4. Pulsa **Create** y espera la confirmación.
+
+<PortalScreenshot name="add-domain" alt="Formulario con Addon y el dominio ficticio demo-site.test" caption="El formulario comienza con Domain type y Domain. La aplicación se elige después, desde el sitio." />
+
+## Después de crearlo
+
+Abre el sitio y comprueba **DNS settings** y **SSL certificates**. El DNS público debe apuntar al alojamiento correcto antes de probar el acceso o solicitar un certificado. Instala WordPress u otra aplicación compatible desde **Apps → Add application**.
+
+## Formulario bloqueado
+
+Un plan lleno o inactivo puede impedir la creación. Un alias necesita un sitio existente adecuado. Si **Create** devuelve un error incierto, comprueba la lista antes de volver a añadir el mismo dominio.

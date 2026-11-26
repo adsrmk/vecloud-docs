@@ -1,0 +1,51 @@
+---
+title: Dateimanager und Editor
+description: Durchsuche Website-Dateien, erstelle Einträge und bearbeite Text im Portal.
+icon: FolderOpen
+---
+
+## Richtigen Ordner öffnen
+
+Öffne **Domains → deine Website → Files**. **Home** ist der Anfang des Dateibereichs dieser Website, nicht das Systemverzeichnis des Servers. Öffne Ordner über ihren Namen und gehe über die Pfadnavigation zurück.
+
+Öffentliche Dateien liegen häufig unter `public_html`, eine Anwendung kann aber einen anderen Installationsordner verwenden. Prüfe ihren Pfad vor Änderungen.
+
+<PortalScreenshot
+  name="files"
+  alt="Dateiliste einer Demo-Website"
+  caption="Dateiliste einer Demo-Website"
+/>
+
+## Suchen und auswählen
+
+Suche mit mindestens zwei Zeichen nach Dateinamen. Ergebnisse können aus verschiedenen Ordnern stammen; prüfe vollständige Pfade. Verfeinere begrenzte Ergebnisse und leere die Suche zum normalen Navigieren.
+
+Wechsle zwischen Liste und Raster. Auswahlkästchen zeigen Mehrfachaktionen wie Herunterladen, Kopieren, Ausschneiden, Komprimieren und Löschen. Nutze die Seitenauswahl für lange Listen.
+
+## Datei oder Ordner erstellen
+
+Wähle **New file** oder **New folder**, gib einen Namen ein und bestätige. Der Eintrag entsteht im aktuellen Ordner. Neue Dateien sind leer. Nutze erkennbare Namen und prüfe vorher vorhandene Einträge.
+
+## Textdatei bearbeiten
+
+1. Öffne die Datei über ihren Namen oder Bearbeiten im Kontextmenü.
+2. Prüfe den Dateinamen und den Ordner, aus dem du die Datei geöffnet hast und sichere wichtige Dateien zuvor als Kopie.
+3. Bearbeite den Text. Der Editor zeigt Zeilennummern und verfügbare Syntaxakzente.
+4. Wähle **Save**, `Ctrl+S` unter Windows/Linux oder `⌘S` unter macOS im Editor.
+5. Warte auf die Bestätigung und prüfe Website oder betroffene Konfiguration.
+
+Bilder, Archive und andere Nicht-Textformate werden heruntergeladen. Nutze für größere Codeänderungen deine Entwicklungsumgebung und ein kontrolliertes Deployment.
+
+## Schließen und prüfen
+
+Bei ungespeicherten Änderungen bietet **Close** Speichern, Verwerfen oder Rückkehr an. Speichern ändert die gehostete Datei; es erstellt keinen automatischen Git-Commit und testet die Anwendung nicht.
+
+Öffne bei unklarem Speicherfehler die aktuelle Datei erneut, bevor du die Änderung wiederholst. Bearbeite dieselbe Datei nicht gleichzeitig in mehreren Fenstern.
+
+Für Ersetzen, Verschieben und Archive lies [Uploads und Übertragungen](./transfers.mdx). Bei Zugriffsproblemen helfen [Dateirechte](./permissions.mdx).
+
+<PortalScreenshot
+  name="file-editor"
+  alt="Editor mit einer sicheren Beispieldatei"
+  caption="Editor mit einer sicheren Beispieldatei"
+/>

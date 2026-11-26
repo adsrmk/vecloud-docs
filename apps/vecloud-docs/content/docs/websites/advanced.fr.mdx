@@ -1,0 +1,37 @@
+---
+title: Paramètres avancés du site
+description: Consultez surcharges, PHP-FPM et limites avec les droits administratifs adaptés.
+icon: Settings2
+---
+
+## Ouvrir les surcharges
+
+Ouvrez le site dans **Domains**, puis **Overview** et le menu d’actions à trois points. Sélectionnez **Manage overrides**. Ces actions nécessitent un rôle administratif autorisé, comme Owner ou Superadmin. Un Collaborator n’a pas automatiquement ces possibilités.
+
+La page contient sauvegardes, PHP-FPM, ressources et [configuration VirtualHost](../developers/vhost.mdx). Une valeur visible n’est pas forcément modifiable par votre compte.
+
+<PortalScreenshot
+  name="website-overrides"
+  alt="Paramètres avancés avec droits restreints"
+  caption="Paramètres avancés avec droits restreints"
+/>
+
+## Paramètres PHP-FPM
+
+Ajoutez une directive ou modifiez une valeur. Une valeur propre remplace l’héritage pour ce site. Supprimez la surcharge pour rétablir la valeur héritée. Conservez l’original et vérifiez l’application après enregistrement.
+
+PHP-FPM contrôle les processus PHP. Il diffère de l’[éditeur PHP INI](../developers/php.mdx), dont `memory_limit`, et des limites globales du conteneur. N’augmentez pas plusieurs limites sans examiner l’utilisation mesurée.
+
+## Limites système et disque
+
+Seule l’organisation principale peut les modifier. La page peut afficher mémoire, swap, vCPU, IOPS, débit I/O et processus. Espace disque et inodes sont distincts : de nombreux petits fichiers peuvent épuiser les inodes malgré de l’espace libre.
+
+Respectez l’unité affichée, comme MB ou MB/s. L’absence de limite spécifique n’indique pas une capacité physique infinie. Les comptes clients doivent demander les changements à leur administrateur ou au support. Comparez d’abord l’[utilisation des ressources](../performance/resources.mdx).
+
+## Désactiver les sauvegardes
+
+**Disable backups** est également réservé en écriture à l’organisation principale. Activée, cette surcharge arrête les sauvegardes automatiques et manuelles du site et des e-mails pour Enhance et S3. Ne l’utilisez pas pour corriger un chargement temporairement défaillant.
+
+## Modification incertaine
+
+Utilisez **Check status** sans confirmation. Lisez la valeur actuelle avant de réenregistrer et évitez les modifications simultanées dans plusieurs fenêtres.

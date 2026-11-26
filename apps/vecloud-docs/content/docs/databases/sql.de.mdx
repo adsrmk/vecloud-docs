@@ -1,0 +1,42 @@
+---
+title: SQL importieren und exportieren
+description: Übertrage MySQL/MariaDB-Daten mit einer SQL-Datei und prüfe das Ergebnis.
+icon: FileCode
+---
+
+## Vor dem Start
+
+Öffne **Domains → deine Website → Databases** und die gewünschte MySQL/MariaDB-Datenbank. Ein Import führt SQL auf dieser Datenbank aus. Ein Upload über **Files** importiert die Datei nicht in die Datenbank.
+
+<Callout type="warn" title="Wiederherstellung vorbereiten">
+Ein SQL-Dump kann Tabellen löschen oder Daten ersetzen. Prüfe Herkunft und Inhalt. Exportiere oder sichere eine gefüllte Datenbank vor Änderungen. Nutze bei einer Migration möglichst zunächst eine neue, leere Zieldatenbank.
+</Callout>
+
+## SQL-Datei importieren
+
+<Steps>
+<Step title="Richtige Zieldatenbank wählen">
+Prüfe Website und Datenbankname. Der Dump muss für MySQL/MariaDB bestimmt sein, nicht für PostgreSQL.
+</Step>
+<Step title="Datei auswählen">
+Wähle unter **Import SQL file** eine `.sql`-, `.gz`- oder `.zip`-Datei mit höchstens **500 MB**. Komprimierte Dateien müssen einen passenden SQL-Dump enthalten; ein Website-Archiv oder eine umbenannte Endung genügt nicht.
+</Step>
+<Step title="Starten und Bestätigung abwarten">
+Wähle **Import file**. Lass die Seite bis zur Bestätigung geöffnet. Übertragung und SQL-Ausführung sind getrennte Teile des Vorgangs; eine große Datei kann nach dem Senden weiter verarbeitet werden.
+</Step>
+<Step title="Daten und Anwendung prüfen">
+Kontrolliere Tabellen und erwartete Daten in phpMyAdmin. Aktualisiere die Anwendungsverbindung, falls Datenbank oder Benutzer wechseln. Teste danach die Website.
+</Step>
+</Steps>
+
+Ein fehlgeschlagener oder unterbrochener Import kann Teiländerungen hinterlassen. Verlasse dich nicht auf automatisches Zurückrollen und wiederhole ihn nicht ungeprüft auf derselben gefüllten Datenbank. Prüfe den Zustand, stelle einen Export wieder her oder nutze eine neue leere Datenbank.
+
+## SQL-Export herunterladen
+
+Wähle unter **Export SQL file** die Aktion **Download**. Das Portal lädt den Datenbankinhalt als `datenbankname.sql.gz` herunter. Prüfe den Abschluss und speichere die Datei sicher: Sie kann personenbezogene Daten und Anwendungsgeheimnisse enthalten.
+
+Ein Datenbankexport enthält keine Website-Dateien, Uploads oder E-Mails. Nutze passende [Backups](../backups/index.mdx), um den gesamten Website-Zustand wiederherzustellen.
+
+## Datei- oder Verbindungsfehler
+
+Prüfe Format, Größe, Dump-Kompatibilität und freien Speicher. Stimme für größere Dateien eine geeignete Importmethode mit dem Support ab. SFTP legt nur eine Datei auf der Website ab; der Datenbankimport folgt separat. Nutze den MySQL-Importer nicht für [PostgreSQL](./postgresql.mdx).

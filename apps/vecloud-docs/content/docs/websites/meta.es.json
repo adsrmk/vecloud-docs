@@ -1,0 +1,12 @@
+{
+  "title": "Sitios y dominios",
+  "pages": [
+    "index",
+    "create",
+    "copy",
+    "lifecycle",
+    "advanced",
+    "ownership",
+    "package"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "title": "Leistung",
+  "pages": [
+    "index",
+    "resources",
+    "cache",
+    "redis"
+  ]
+}

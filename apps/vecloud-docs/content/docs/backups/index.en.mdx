@@ -1,0 +1,38 @@
+---
+title: Backups
+description: Review available recovery points and prepare to restore your website safely.
+icon: Archive
+---
+
+## Find your backups
+
+Open **Domains**, select the website and choose **Backups**. Check the domain in the topbar. The list belongs to this website.
+
+<PortalScreenshot name="backups" alt="Backup history for the example.test demonstration website" caption="The panel shows the start time, storage and included files and databases. This example uses demonstration data only. Click to enlarge." />
+
+## Read the list
+
+| Column | Meaning |
+| --- | --- |
+| Started | When the backup started. |
+| Website files | The reported file size and, when available, the mailbox count. |
+| Databases | The reported number of databases in the backup. |
+| Restore | Opens the details and restore action. |
+
+A dash in the size column means that the information was not supplied. It does not confirm that the backup is empty. Open the details to check its contents.
+
+## Create a backup
+
+1. Choose **Create backup** when this action is available.
+2. Wait for confirmation that the request was accepted.
+3. Check the backup again later. Use it as a recovery point only after the required components have completed successfully.
+
+<Callout title="Before a change">
+Create a fresh backup before a major update, import or configuration change. Available history and retention depend on your hosting environment; use the list in the panel as your reference.
+</Callout>
+
+## Decide what to restore
+
+A WordPress website needs both its files and its database. Files include plugins and uploads; the database contains content, settings and orders, among other data.
+
+Follow [Restore a backup](./restore.mdx) for selection and confirmation. For an empty list or an error, see [Backup troubleshooting](./troubleshooting.mdx).

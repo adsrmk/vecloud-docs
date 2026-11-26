@@ -1,0 +1,37 @@
+---
+title: Ajustes avanzados del sitio
+description: Consulta personalizaciones, PHP-FPM y límites con los permisos administrativos adecuados.
+icon: Settings2
+---
+
+## Abrir las personalizaciones
+
+Abre el sitio desde **Domains**, entra en **Overview** y abre el menú de tres puntos de acciones. Elige **Manage overrides**. Requiere un rol administrativo autorizado, como Owner o Superadmin. Un Collaborator no tiene automáticamente esas capacidades.
+
+La página incluye copias, PHP-FPM, recursos y [configuración VirtualHost](../developers/vhost.mdx). Ver un valor no significa que puedas modificarlo.
+
+<PortalScreenshot
+  name="website-overrides"
+  alt="Ajustes avanzados con permisos limitados"
+  caption="Ajustes avanzados con permisos limitados"
+/>
+
+## Ajustes PHP-FPM
+
+Añade una directiva o modifica un valor. La configuración propia sustituye a la heredada para el sitio. Elimina la personalización para recuperar el valor heredado. Conserva el original y prueba la aplicación tras guardar.
+
+PHP-FPM controla la gestión de procesos PHP. Es distinto del [editor PHP INI](../developers/php.mdx), incluido `memory_limit`, y de los límites totales del contenedor. No aumentes varios límites sin revisar el consumo medido.
+
+## Límites de sistema y disco
+
+Solo la organización principal puede cambiarlos. Pueden mostrarse memoria, swap, vCPU, IOPS, ancho de banda I/O y procesos. Espacio e inodos son independientes: muchos archivos pequeños pueden agotar inodos aunque quede disco.
+
+Respeta la unidad indicada, como MB o MB/s. No tener un límite específico no significa capacidad física infinita. Los clientes deben solicitar cambios al administrador o soporte. Compara antes el [uso de recursos](../performance/resources.mdx).
+
+## Desactivar copias
+
+**Disable backups** solo puede modificarlo la organización principal. Al activarlo, detiene copias automáticas y manuales del sitio y correo para Enhance y S3. No lo uses para resolver un fallo temporal de carga de la lista.
+
+## Cambio incierto
+
+Usa **Check status** si falta confirmación. Consulta el valor actual antes de guardar de nuevo y evita editar simultáneamente la misma configuración en varias ventanas.

@@ -1,0 +1,12 @@
+{
+  "title": "Domaines et sécurité",
+  "pages": [
+    "index",
+    "dnssec",
+    "ssl",
+    "mail-routing",
+    "redirects",
+    "ip-deny",
+    "cloudflare"
+  ]
+}

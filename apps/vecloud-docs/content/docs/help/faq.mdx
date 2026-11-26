@@ -1,0 +1,41 @@
+---
+title: Veelgestelde vragen
+description: Snelle antwoorden op veelvoorkomende vragen over je Control Panel.
+icon: CircleQuestionMark
+---
+
+<Accordions>
+<Accordion title="Waarom zie ik niet alle instellingen?">
+Opties hangen af van je rol, pakket en gekoppelde diensten. Een Collaborator ziet alleen toegewezen websites. Controleer eerst de organisatie en het domein in de bovenbalk. Lees [rollen en toegang](../account/team.mdx).
+</Accordion>
+<Accordion title="Registreert Add domain ook mijn domeinnaam?">
+Nee. De functie maakt de hostingkoppeling. Registratie, nameserverdelegatie, DNS en certificaten zijn afzonderlijke onderdelen. Volg [domein aanmaken](../websites/create.mdx) en daarna de DNS-controle.
+</Accordion>
+<Accordion title="Is een alias hetzelfde als een redirect?">
+Een alias koppelt een domein aan een bestaande websiteomgeving. Een redirect stuurt de browser naar een andere URL. Lees [domeintypes](../websites/create.mdx) of [redirects](../dns-ssl/redirects.mdx).
+</Accordion>
+<Accordion title="Zijn mijn portaal- en WordPress-gebruikers hetzelfde?">
+Nee. Portaalgebruikers regelen toegang tot hostingbeheer; WordPress-gebruikers horen bij de afzonderlijke installatie. Mailboxen, FTP-accounts en databasegebruikers hebben eveneens eigen toegang.
+</Accordion>
+<Accordion title="Kan ik één bestand uit een back-up kiezen?">
+De huidige herstelmodal biedt websitebestanden en beschikbare MariaDB-databases. Er is daar geen individuele bestandskiezer of afzonderlijke mailboxselector. Controleer de selectie vóór je een [restore start](../backups/restore.mdx).
+</Accordion>
+<Accordion title="Waarom zie ik oude inhoud na een wijziging?">
+Controleer of het bestand is opgeslagen en welke cachelagen actief zijn. FastCGI-cache legen verwijdert geen browsercache of externe CDN-cache. Lees [caches en uitsluitingen](../performance/cache.mdx).
+</Accordion>
+<Accordion title="Configureert Redis inschakelen ook WordPress?">
+Nee. Je schakelt de dienst in; de applicatie heeft een eigen koppeling nodig. Controleer de verbinding in je objectcache-plugin. Zie [Redis](../performance/redis.mdx).
+</Accordion>
+<Accordion title="Kan ik een SQL-bestand via Files importeren?">
+Files bewaart het bestand maar voert geen SQL uit. Gebruik de import van de gekozen MySQL/MariaDB-database; die accepteert .sql, .gz en .zip tot 500 MB. Lees [SQL importeren](../databases/sql.mdx).
+</Accordion>
+<Accordion title="Gebruik ik mijn FTP-account voor SFTP?">
+Nee. SFTP gebruikt de websitegebruiker en SSH-toegang op poort 22. FTP heeft eigen accounts en poort 21. Zie [FTP](../files/ftp.mdx) en [SSH/SFTP](../files/ssh.mdx).
+</Accordion>
+<Accordion title="Is een grote hoeveelheid requests altijd een aanval?">
+Nee. Een campagne, bot, update of terugkerende taak kan verkeer veroorzaken. Vergelijk periode, logs en resourcegebruik. Een [verkeersmelding](../account/notifications.mdx) blokkeert niet automatisch IP-adressen.
+</Accordion>
+<Accordion title="Moet ik een actie opnieuw uitvoeren na een timeout?">
+Controleer eerst de actuele lijst of taakstatus. De wijziging kan al zijn uitgevoerd zonder bevestiging in de browser. Dit is extra belangrijk bij verwijderen, restore en aanmaak. Lees [problemen oplossen](./index.mdx).
+</Accordion>
+</Accordions>

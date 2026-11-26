@@ -1,0 +1,41 @@
+---
+title: Versión y ajustes de PHP
+description: Cambia PHP, extensiones e INI comprobando la compatibilidad de la aplicación.
+icon: Code
+---
+
+## Cambiar la versión PHP
+
+Abre **Domains → tu sitio → Developer tools → PHP**. La lista muestra las versiones disponibles para el sitio y plan. Elige una, lee el aviso de compatibilidad y confirma. Comprueba antes que aplicación, temas y extensiones la admitan. El sitio puede quedar temporalmente inaccesible durante el cambio.
+
+Las versiones antiguas pueden mostrar avisos de autenticación MariaDB incompatible. La ausencia de aviso no equivale a una prueba completa de compatibilidad. Revisa después el sitio, administración y [registro PHP](./logs.mdx).
+
+<PortalScreenshot
+  name="php-settings"
+  alt="Versión PHP, extensiones y registro de ejemplo seguro"
+  caption="Versión PHP, extensiones y registro de ejemplo seguro"
+/>
+
+## Extensiones e IonCube
+
+En **PHP extensions** activa o desactiva las extensiones opcionales ofrecidas. Las integradas no son lo mismo que las configurables. La disponibilidad depende del entorno. La extensión PHP Redis es distinta del [servicio Redis](../performance/redis.mdx).
+
+El bloque **IonCube loader** sirve a aplicaciones que necesitan ese cargador. Actívalo solo si lo requiere la aplicación y la versión PHP lo admite. La interfaz indica que no está disponible para PHP 8.0.
+
+## PHP INI editor
+
+Está disponible si el plan lo permite. Pulsa **Edit** junto a una directiva o **Add directive** para crearla. Introduce el nombre exacto y usa **Text** para valores como `256M`, o **Boolean** para activar/desactivar. Guarda y comprueba el valor actual.
+
+**Inherited** indica un valor heredado. Un valor propio es una personalización del sitio. Eliminarla restaura el valor heredado; no desactiva necesariamente la función.
+
+`upload_max_filesize` y otros ajustes PHP afectan a la aplicación PHP. No fijan los límites independientes del gestor de archivos ni del importador SQL del portal.
+
+<Callout type="warn" title="Restart interrumpe el contenedor">
+**Restart** reinicia el contenedor de la aplicación y puede interrumpir Redis y Node.js. El sitio puede quedar fuera de servicio durante el reinicio. Confirma de forma consciente y comprueba la aplicación después. Reiniciar no repara código defectuoso ni archivos ausentes.
+</Callout>
+
+<PortalScreenshot
+  name="php-ini"
+  alt="Editar un valor PHP INI"
+  caption="Editar un valor PHP INI"
+/>

@@ -1,0 +1,40 @@
+---
+title: Spam filters and allow/block lists
+description: Configure score thresholds and specific senders for your email address.
+icon: ShieldExclamationPoint
+---
+
+## Open spam settings
+
+Go to **Email → the address → Manage → Spam settings**. These settings apply to this email address. A lower threshold takes action sooner and is stricter. Sliders show whole values from 0 to 20; do not assume zero means disabled.
+
+| Setting | Effect above its threshold |
+| --- | --- |
+| Spam folder | Moves a message to the spam folder, available through IMAP or webmail |
+| Reject | Refuses the message; it does not become a recoverable message in the spam folder |
+| Greylist | Temporarily defers delivery; the sending server must retry later |
+
+<PortalScreenshot name="mail-spam" alt="Spam thresholds and sender lists for a demo mailbox" caption="The three thresholds have different effects. Example values are not a recommended policy for every domain." />
+
+## Change thresholds
+
+Record the existing values first. Adjust one threshold deliberately, choose **Save spam thresholds** and test normal messages. Keep thresholds coherent: an overly low reject value can refuse mail before you can review it in spam. No single value suits every organization.
+
+If thresholds are unavailable, use **Try again**. A missing value does not mean a zero score; establish which settings were actually loaded first.
+
+## Allow or block senders
+
+**Allow/block list** contains two lists:
+
+- **Allowed addresses**: senders you want to allow.
+- **Blocked addresses**: senders you want to exclude.
+
+Enter complete sender addresses, one per line, then **Save address lists**. Remove a line and save again to remove an exception. Avoid intentionally placing the same address in both lists; keep your intended policy clear.
+
+An allowed address is not proof that a message is safe. Check unexpected payment requests, links and attachments even when the sender looks familiar.
+
+## An expected message is missing
+
+Check the spam folder, then the block list and reject threshold. A rejected message may never reach the mailbox; ask the sender for its delivery error and a resend after fixing the cause. For investigation, share the address, send time and error code without a mailbox password or confidential message contents.
+
+If every sender is affected, also check [MX and mail routing](../dns-ssl/mail-routing.mdx). Spam settings cannot repair an incorrect delivery destination.

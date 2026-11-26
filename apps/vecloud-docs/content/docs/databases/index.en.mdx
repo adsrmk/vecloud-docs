@@ -1,0 +1,53 @@
+---
+title: Manage MySQL and MariaDB
+description: Create databases and users, assign privileges and check connection details.
+icon: Database
+---
+
+## Databases and users are separate
+
+Open **Domains → your website → Databases**. The MySQL section manages MySQL/MariaDB databases. A database stores data; a database user has its own password and privileges on one or more databases. This is separate from your portal or WordPress account.
+
+<PortalScreenshot
+  name="databases"
+  alt="Database overview with two engines"
+  caption="Database overview with two engines"
+/>
+
+## Add a database
+
+<Steps>
+<Step title="Select Add database">
+Use lowercase letters, numbers, `_` or `$`. A prefix displayed by the form automatically becomes part of the full name. The limit is 64 characters including the prefix.
+</Step>
+<Step title="Assign a user">
+Select existing users or choose **Create new user**. A new username may contain at most 32 characters including its prefix. Use a unique password of at least ten characters with lowercase, uppercase, a number and a special character. Keep the default authentication choice unless your application requires a specific plugin.
+</Step>
+<Step title="Save and check access">
+Check both the database and its assigned users. If creation succeeds but assigning privileges fails, open the management view and repair that assignment; do not create the same account again.
+</Step>
+</Steps>
+
+## Manage privileges
+
+Click a database. Under **Users**, add an existing user, create one or edit privileges. **All database privileges** grants all available privileges. Clear it to choose individual privileges, such as `SELECT` for read access. **Revoke access** removes the assignment, not the database user itself.
+
+The **Users** section in the database list opens user management, including the hidden password and accessible databases. After resetting a password, update the application configuration; otherwise the website may lose its database connection.
+
+## Connect to the database
+
+The database management page displays its Unix socket path and current TCP address under **Connection details**. Use those values for your application. Do not assume the webserver IP or `localhost` is correct: the right connection depends on where the application runs.
+
+For external connections, open the database user and add your client’s specific public IPv4 or IPv6 address under **IP addresses for external access**. This does not grant database privileges or guarantee that an external firewall permits the connection. Remove access you no longer need.
+
+<Callout type="warn" title="Deletion is permanent">
+Deleting a database removes all its data. Deleting a user can affect several applications sharing that account. First create a [SQL export](./sql.mdx) or check that a usable [backup](../backups/index.mdx) exists.
+</Callout>
+
+Use [phpMyAdmin](./phpmyadmin.mdx) for tables and queries. PostgreSQL has [separate management](./postgresql.mdx).
+
+<PortalScreenshot
+  name="database-add"
+  alt="Assign a new database to an existing user"
+  caption="Assign a new database to an existing user"
+/>

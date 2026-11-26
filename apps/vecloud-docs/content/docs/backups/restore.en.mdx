@@ -1,0 +1,50 @@
+---
+title: Restore a backup
+description: Check the recovery point and select databases before overwriting existing content.
+icon: Archive
+---
+
+## Before you start
+
+Check the domain in the topbar and choose a completed backup from before the problem. If needed, first save the current files and a database export to preserve recent data.
+
+<Callout type="warning" title="Restoring overwrites existing content">
+Changes made after the selected backup can be lost. Plan the restore outside busy hours and prevent new orders or other changes while it runs.
+</Callout>
+
+## Start the restore
+
+<Steps>
+<Step>
+### Open the recovery point
+
+Go to **Backups** and choose **Restore** next to the backup. The **Backup details** modal shows the date, completion, storage and included components.
+</Step>
+<Step>
+### Check the contents
+
+Check that website files were included successfully. Select the required **MariaDB databases** using the checkboxes. **Select all** selects every database shown.
+
+The current restore modal includes available website files. It does not provide a file browser for choosing one individual file. Mailboxes may be listed in the details; that listing is not a separate restore selection.
+</Step>
+<Step>
+### Confirm the action
+
+Choose **Restore backup**. Read the confirmation and check the date and website again before confirming. A message that the restore has started means the request was accepted; it does not mean the website has finished restoring.
+</Step>
+<Step>
+### Check your website
+
+Let the restore finish before making further changes to the same website. Then test the homepage, administration area, forms and any shopping cart. Also check that the files and database belong to the same recovery point.
+</Step>
+</Steps>
+
+<PortalScreenshot name="backup-restore" alt="Backup details with the demo_wordpress database selected" caption="Select the databases belonging to your website in the restore modal. This example contains demonstration data only." />
+
+## WordPress after a restore
+
+An older database can replace recent posts, accounts and orders. Restore the appropriate files and database together when recovering a complete WordPress installation. Clear relevant caches afterwards if old pages still appear.
+
+## An error or an uncertain outcome
+
+Do not immediately start a second restore. Check the current website and available backup information first. Record the domain, selected date and error message for support. See [Backup troubleshooting](./troubleshooting.mdx).

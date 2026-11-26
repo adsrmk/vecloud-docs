@@ -1,0 +1,56 @@
+---
+title: DNS-records beheren
+description: Koppel je domein aan webhosting, e-mail en externe diensten met de juiste DNS-records.
+icon: Globe
+---
+
+## Controleer waar je DNS wordt beheerd
+
+Open **Domains → je website → DNS settings**. De pagina toont de zones van de domeinen die bij deze website horen. Een opgeslagen wijziging wordt alleen publiek gebruikt als de actieve nameservers deze zone aanbieden, of als de zone via de [Cloudflare-koppeling](./cloudflare.mdx) wordt gesynchroniseerd.
+
+Bij externe nameservers zonder synchronisatie wijzig je DNS bij die externe provider. Het toevoegen van een NS-record in deze tabel wijzigt de nameserverdelegatie bij je registrar niet.
+
+<PortalScreenshot name="dns-records" alt="DNS-records van een demonstratiedomein" caption="De zone bevat alleen fictieve domeinen en documentatie-IP-adressen." />
+
+## Een record toevoegen
+
+<Steps>
+<Step>
+### Open het formulier
+Kies **Add record** in de DNS-recordtabel van het juiste domein.
+</Step>
+<Step>
+### Vul type, host en waarde in
+Gebruik `@` voor het hoofddomein en bijvoorbeeld `www` voor een subdomein. Neem de waarde over van de dienst die je wilt koppelen. Bij MX vul je prioriteit en mailserver in; bij SRV prioriteit, gewicht, poort en doel.
+</Step>
+<Step>
+### Kies de TTL en sla op
+Gebruik de standaard-TTL, of schakel die keuze uit en vul een aantal seconden in. Kies **Add record** en controleer de nieuwe rij.
+</Step>
+</Steps>
+
+<PortalScreenshot name="dns-add" alt="Een A-record toevoegen voor blog.example.test" caption="Dit voorbeeld wijst naar een gereserveerd documentatie-IP. Neem het werkelijke serveradres over uit je hostinggegevens." />
+
+## Welk record heb je nodig?
+
+| Type | Gebruik |
+| --- | --- |
+| A / AAAA | Hostnaam naar een IPv4- of IPv6-adres |
+| CNAME | Hostnaam naar een andere hostnaam, zonder protocol of URL-pad |
+| MX | Ontvangende mailserver met prioriteit |
+| TXT | Domeinverificatie, SPF, DKIM of DMARC |
+| SRV | Host en poort voor een specifieke dienst |
+| CAA | Toegestane certificaatuitgevers |
+| NS / DS / PTR | Delegatie, DNSSEC of reverse-DNS-gegevens waar van toepassing |
+
+De beschikbare types bevatten ook SPF. Gebruik voor een nieuw SPF-beleid een TXT-record. Een PTR-record in een normale domeinzone wijzigt de reverse DNS van een hosting-IP niet; die wordt door de IP-beheerder geregeld.
+
+## Bewerken, verwijderen en controleren
+
+Gebruik **Edit** bij de juiste rij en sla gewijzigde waarden op. Verwijderen vraagt bevestiging. Bewaar de oude waarde voordat je een werkend record vervangt. DNS-caches kunnen tot het verstrijken van de eerder ingestelde TTL oude antwoorden tonen; herhaald opslaan versnelt dat niet.
+
+## SOA-instellingen
+
+Onder de zone staan de verantwoordelijke nameserver, het beheeradres en de tijden **Expires**, **Refresh**, **Retry** en **TTL**. De bewerkactie opent het SOA-formulier; tijden zijn in seconden. Verander deze geavanceerde waarden alleen als je DNS-configuratie dat vereist. SOA bewerken verhuist je domein niet naar andere nameservers.
+
+Voor e-mail gebruik je [mailroutering en authenticatie](./mail-routing.mdx). Een webadres doorsturen doe je via [Redirects](./redirects.mdx), niet met een DNS-record.

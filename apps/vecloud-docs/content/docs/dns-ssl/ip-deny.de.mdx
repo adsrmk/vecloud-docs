@@ -1,0 +1,46 @@
+---
+title: IP-Adressen sperren
+description: Beschränke den Zugriff auf eine Nginx-Website mit einzelnen IP-Adressen oder CIDR-Netzen.
+icon: ShieldBan
+---
+
+## Für welchen Bereich gilt die Sperre?
+
+Öffne deine Website und **IP deny** in der Seitenleiste direkt unter **SSL certificates**. Die Funktion verwaltet Nginx-Sperren für die zugeordneten Domains dieser Website. Sie ist keine serverweite Firewall und sperrt keine Mail- oder SSH-Anmeldungen.
+
+<PortalScreenshot name="ip-deny" alt="IP deny mit einer Adresse oder einem Netz je Zeile" caption="Die Adressen sind Dokumentationsbeispiele. Nutze nur die tatsächlich beabsichtigte Besucheradresse oder das Netz." />
+
+## Adressen hinzufügen
+
+1. Wähle **Add IP addresses** neben dem Seitentitel.
+2. Gib je Zeile eine IPv4-, IPv6-Adresse oder ein CIDR-Netz ein.
+3. Prüfe besonders den Umfang der CIDR-Regeln. Ein ganzes Netz kann auch erwünschte Besucher ausschließen.
+4. Wähle **Add IP addresses** und prüfe die Tabelle.
+
+Diese Werte sind ausschließlich Dokumentationsbeispiele:
+
+```text
+192.0.2.40
+198.51.100.0/24
+2001:db8::/32
+```
+
+Die Liste unterstützt bis zu **250 Adressen oder Netzregeln**. CIDR-Netze können nach dem Speichern normalisiert erscheinen. Gib keine Domains, URLs oder Hostnamen ein.
+
+## Sperre entfernen
+
+Wähle **Delete** neben der Adresse und bestätige. Prüfe, ob die Zeile verschwindet, und teste den Zugriff aus diesem Netz. Das Entfernen hebt keine unabhängige Sperre in einer externen Firewall oder einem Proxy auf.
+
+Bei unterschiedlichen Listen der Domains zeigt das Panel einen Hinweis und eine Aktion zum Anwenden der gemeinsamen Liste auf alle Domains. Prüfe zuerst, ob wirklich jede angezeigte Adresse überall gesperrt werden soll.
+
+## Verarbeitung oder unbestätigtes Ergebnis
+
+IP deny und manuelle VirtualHost-Änderungen verwenden dieselbe Websitekonfiguration. Bearbeite sie nicht gleichzeitig in verschiedenen Tabs. Bei einer laufenden Änderung oder einem unbestätigten Ergebnis aktualisierst du zuerst die Daten. Prüfe vor erneutem Speichern, ob die gewünschte Regel bereits vorhanden oder entfernt ist.
+
+Bearbeite den vom Panel verwalteten IP-Block nicht manuell in VirtualHost. Verwende diese Seite für Hinzufügen und Entfernen.
+
+## Andere Webserver und Proxys
+
+**IP deny** ist für Nginx verfügbar. Apache kann separate Erlaubnis-/Sperrregeln unter **SSL certificates → IP access** anzeigen. Nur ausgewählte Adressen zuzulassen schließt alle übrigen Besucher aus und unterscheidet sich von einer normalen Sperrliste.
+
+Bei einem externen Proxy muss der Server die tatsächliche Besucher-IP erkennen. Sperre keine gemeinsam genutzte Proxyadresse, um einen Besucher auszuschließen. Bitte um Hilfe, wenn unklar ist, welche Adresse der Server sieht.
