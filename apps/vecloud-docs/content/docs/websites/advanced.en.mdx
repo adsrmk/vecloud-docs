@@ -12,7 +12,9 @@ Use [Developer tools → PHP](../developers/php.mdx) for available PHP versions,
 
 ## Settings managed by veCloud
 
-veCloud manages PHP-FPM limits, system and disk limits, backup policy and custom [VirtualHost configuration](../developers/vhost.mdx). The internal **Manage overrides** page is not a customer feature. Being the **Owner** of a customer account does not mean you administer the hosting infrastructure.
+veCloud manages PHP-FPM limits, system and disk limits, backup retention and custom [VirtualHost configuration](../developers/vhost.mdx). The internal **Manage overrides** page is not a customer feature. Being the **Owner** of a customer account does not mean you administer the hosting infrastructure.
+
+With suitable account management rights, you can pause new backups under **Backups → Website backups → Disable backups**. This specific [backup setting](../backups/index.mdx) is separate from internal overrides and does not remove existing recovery points.
 
 PHP-FPM handles PHP processes. It differs from an INI setting such as `memory_limit` and from the total memory available to your website environment. Allocating more memory to PHP does not increase that overall limit.
 

@@ -38,3 +38,15 @@ Crea una copia reciente antes de una actualización importante, importación o c
 WordPress necesita sus archivos y su base de datos. Los archivos incluyen plugins y contenido subido; la base de datos contiene publicaciones, ajustes y pedidos, entre otros datos.
 
 Consulta [Restaurar una copia](./restore.mdx) para seleccionar y confirmar. Si la lista está vacía o aparece un error, consulta [Problemas con las copias](./troubleshooting.mdx).
+
+## Pausar copias nuevas
+
+Cuando está disponible, **Website backups** aparece bajo la lista. Un administrador autorizado de la cuenta puede cambiar **Disable backups**. El acceso solo como Collaborator no permite editarlo.
+
+<Callout type="warning" title="Activado significa: sin copias nuevas">
+Activar **Disable backups** detiene las copias automáticas y manuales del sitio y sus datos de correo, tanto en Enhance como en S3. Úsalo únicamente si quieres dejar de crear copias de forma deliberada.
+</Callout>
+
+Desactiva el interruptor para permitir de nuevo su creación y espera la confirmación. No inicia una copia inmediatamente. Los puntos existentes siguen disponibles; desactivar la creación no los borra ni bloquea la restauración.
+
+Ante un resultado incierto, utiliza **Check status** y comprueba el estado actual. Cambiarlo repetidamente no resuelve un error de carga de la lista.

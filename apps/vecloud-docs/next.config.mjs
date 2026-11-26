@@ -11,7 +11,7 @@ const config = {
   images: {
     localPatterns: [
       { pathname: '/**', search: '' },
-      { pathname: '/screenshots/**', search: '?v=20261126-2' },
+      { pathname: '/screenshots/**', search: '?v=20261126-3' },
     ],
   },
   outputFileTracingRoot: import.meta.dirname,

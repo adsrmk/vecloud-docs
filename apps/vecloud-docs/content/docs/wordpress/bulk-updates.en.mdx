@@ -1,0 +1,37 @@
+---
+title: Bulk WordPress updates
+description: Select updates across installations and check the outcome for each component.
+icon: RefreshCw
+---
+
+Managing several WordPress websites? **Overview → WordPress bulk update** lets you prepare and update plugins, themes and WordPress itself together. It uses websites accessible to your account and permissions.
+
+The feature must be visible and available in your account. Disabled or unreadable installations may be absent. An empty list therefore does not prove that every installation was fully checked.
+
+## Prepare the updates
+
+Create a recent [backup of files and database](../backups/index.mdx) first. The bulk action does not create one automatically. Check PHP and component compatibility and test a major change on staging where appropriate. Choose a time when you can check the websites afterwards.
+
+## Review the selection
+
+1. Use **Check for updates** to run a new scan. An earlier scan may be reused for up to one hour.
+2. Open **Plugins**, **Themes** or **Core**, or choose **Update all** for every category.
+3. Review the websites and selected components. Available components in the opened category are already selected.
+4. Search for a website or component and use **Update type** to filter the list. Clear checkboxes for updates you want to postpone.
+5. Check the count on **Start … updates**, then confirm.
+
+Searching or changing the filter does not clear your existing selection. The header checkbox can also select every matching result, including rows you must scroll to see. Check the full selection and start-button count.
+
+<PortalScreenshot name="wordpress-bulk-update" alt="WordPress, plugin and theme update selection across two demo websites" caption="Update all opens this selection first. Updates begin only after the separate start action. All websites and versions are fictitious." />
+
+## Versions and changelogs
+
+**Version** shows the installed version. Click a blue plugin or theme version to read available changelog information. Notes may be unavailable for custom or commercial software. WordPress core versions do not open notes here. Reading notes does not start an update.
+
+## Progress and results
+
+You may close the dialog and navigate within the same panel tab. Progress stays visible at the bottom right; **View results** reopens the results. Keep the browser tab open and avoid reloading while the batch runs. This is not a scheduled server job that runs independently of your browser session.
+
+Check every result: updated, already updated, failed or needing verification. An uncertain write is not retried automatically. First inspect the current version in **Apps → Toolkit**; later updates for that installation may have been skipped.
+
+Then test the websites, forms and any payments. Investigate with [the WordPress toolkit](./index.mdx), [debugging](./debug.mdx) or [restore guidance](../backups/restore.mdx). Signing out or changing accounts stops queued updates; check already-submitted actions before starting again.

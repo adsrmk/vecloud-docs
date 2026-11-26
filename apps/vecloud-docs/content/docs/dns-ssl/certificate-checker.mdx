@@ -1,0 +1,35 @@
+---
+title: SSL-controle op het dashboard
+description: Herken geldige, bijna verlopen en niet controleerbare HTTPS-certificaten vanuit Overview.
+icon: ShieldCheck
+---
+
+De kaart **SSL certificates** in **Overview** helpt je domeinen met mogelijke HTTPS-problemen te vinden. Gebruik deze uitleg wanneer de nieuwe kaart voor je account beschikbaar is.
+
+De checker maakt een publieke TLS-verbinding met het hoofddomein van elke opgenomen website. Hij beoordeelt de certificaatketen, domeinnaam en geldigheidsperiode. Dit is geen complete controle van alle aliassen of subdomeinen.
+
+## Een controle uitvoeren
+
+1. Open **Overview** en zoek de kaart **SSL certificates**.
+2. Wacht op de uitkomst of gebruik de verversknop **Check SSL** voor een nieuwe controle. Eerdere gegevens kunnen enkele minuten worden hergebruikt.
+3. Klik op een categorie met resultaten om de domeinen en beschikbare vervaldatums te bekijken.
+4. Klik op een domein om de pagina **SSL certificates** van die website te openen.
+
+<PortalScreenshot name="ssl-checker" alt="SSL-resultaten met twee niet gecontroleerde demonstratiedomeinen" caption="Deze fictieve domeinen hebben geen publiek te controleren certificaat en staan daarom op Not checked. Het voorbeeld stelt ze niet als geldig of ongeldig voor." />
+
+## Wat betekenen de statussen?
+
+| Status | Betekenis en vervolgstap |
+| --- | --- |
+| Valid / Active | Het publiek aangeboden certificaat doorstaat de controle. |
+| Expiring soon | Nog geldig, maar de vervaldatum valt binnen zeven dagen. Controleer de vernieuwing. |
+| Invalid or missing | Er is een certificaatprobleem vastgesteld, bijvoorbeeld met vertrouwen, domeinnaam of geldigheid. Bekijk het betreffende domein. |
+| Not checked | De controle kon geen betrouwbare uitkomst geven, bijvoorbeeld door DNS, verbinding of een timeout. Controleer bereikbaarheid en probeer later opnieuw. |
+
+Bijna verlopen certificaten tellen ook mee bij **Websites with valid SSL**. Tel deze categorieën daarom niet op als afzonderlijke websites.
+
+## Het juiste certificaat controleren
+
+Bij Cloudflare of een andere proxy kan de checker het certificaat van die proxy zien. Een geldig publiek certificaat bewijst dan niet dat ook de verbinding tussen proxy en hosting goed staat.
+
+De controle vraagt geen certificaat aan en vernieuwt niets automatisch. Gebruik voor installatie, vernieuwing en **Enforce HTTPS** de [SSL-handleiding](./ssl.mdx). Controleer bij **Not checked** eerst de [actieve DNS](./index.mdx); herhaald een nieuw certificaat aanvragen lost een onbereikbaar domein niet op.

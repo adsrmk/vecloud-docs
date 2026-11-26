@@ -1,0 +1,35 @@
+---
+title: SSL im Dashboard prüfen
+description: Erkenne gültige, bald ablaufende und ungeprüfte HTTPS-Zertifikate unter Overview.
+icon: ShieldCheck
+---
+
+Die Karte **SSL certificates** unter **Overview** hilft bei möglichen HTTPS-Problemen. Nutze diese Anleitung, wenn die neue Karte in deinem Konto verfügbar ist.
+
+Der Checker baut eine öffentliche TLS-Verbindung zur Hauptdomain jeder enthaltenen Website auf. Er prüft Zertifikatskette, Hostnamen und Gültigkeitszeitraum. Nicht sämtliche Aliasse oder Subdomains werden geprüft.
+
+## Eine Prüfung starten
+
+1. Öffne **Overview** und suche **SSL certificates**.
+2. Warte auf das Ergebnis oder nutze **Check SSL** für eine neue Prüfung. Frühere Ergebnisse können einige Minuten wiederverwendet werden.
+3. Öffne eine Kategorie mit Ergebnissen für Domains und verfügbare Ablaufdaten.
+4. Wähle eine Domain, um deren **SSL certificates**-Seite zu öffnen.
+
+<PortalScreenshot name="ssl-checker" alt="SSL-Ergebnisse mit zwei ungeprüften Demodomains" caption="Diese fiktiven Domains besitzen kein öffentlich prüfbares Zertifikat und zeigen Not checked. Sie werden weder als gültig noch als ungültig dargestellt." />
+
+## Status verstehen
+
+| Status | Bedeutung und nächster Schritt |
+| --- | --- |
+| Valid / Active | Das öffentlich angebotene Zertifikat besteht die Prüfung. |
+| Expiring soon | Noch gültig, läuft aber innerhalb von sieben Tagen ab. Prüfe die Erneuerung. |
+| Invalid or missing | Ein Problem mit Vertrauen, Hostname oder Gültigkeit wurde festgestellt. Prüfe die Domain. |
+| Not checked | Kein verlässliches Ergebnis, etwa wegen DNS, Verbindung oder Zeitüberschreitung. Prüfe die Erreichbarkeit und versuche es später erneut. |
+
+Bald ablaufende Zertifikate zählen auch unter **Websites with valid SSL**. Addiere die Kategorien nicht als getrennte Websites.
+
+## Das richtige Zertifikat prüfen
+
+Bei Cloudflare oder einem anderen Proxy kann der Checker dessen Zertifikat sehen. Ein gültiges öffentliches Zertifikat beweist dann nicht, dass auch die Verbindung zwischen Proxy und Hosting richtig eingerichtet ist.
+
+Die Prüfung fordert keine Zertifikate an und erneuert sie nicht automatisch. Für Installation, Erneuerung und **Enforce HTTPS** nutze die [SSL-Anleitung](./ssl.mdx). Bei **Not checked** prüfe zuerst das [aktive DNS](./index.mdx); wiederholte Zertifikatsanfragen beheben keine unerreichbare Domain.

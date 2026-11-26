@@ -3,6 +3,7 @@
   "pages": [
     "index",
     "resources",
+    "server-metrics",
     "cache",
     "redis"
   ]

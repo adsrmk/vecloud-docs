@@ -12,7 +12,9 @@ Unter [Developer tools → PHP](../developers/php.mdx) verwaltest du verfügbare
 
 ## Was veCloud verwaltet
 
-veCloud verwaltet PHP-FPM-, System- und Festplattenlimits, die Backupvorgaben und die eigene [VirtualHost-Konfiguration](../developers/vhost.mdx). Die interne Seite **Manage overrides** ist keine Kundenfunktion. Auch als **Owner** eines Kundenkontos verwaltest du nicht die Hostinginfrastruktur.
+veCloud verwaltet PHP-FPM-, System- und Festplattenlimits, Backupaufbewahrung und die eigene [VirtualHost-Konfiguration](../developers/vhost.mdx). Die interne Seite **Manage overrides** ist keine Kundenfunktion. Auch als **Owner** eines Kundenkontos verwaltest du nicht die Hostinginfrastruktur.
+
+Mit passenden Kontorechten kannst du neue Backups unter **Backups → Website backups → Disable backups** pausieren. Diese [Backupeinstellung](../backups/index.mdx) ist von internen Overrides getrennt und entfernt keine bestehenden Wiederherstellungspunkte.
 
 PHP-FPM steuert PHP-Prozesse. Das unterscheidet sich von einer INI-Einstellung wie `memory_limit` und vom Gesamtspeicher deiner Websiteumgebung. Mehr Speicher für PHP erhöht diese Gesamtgrenze nicht.
 

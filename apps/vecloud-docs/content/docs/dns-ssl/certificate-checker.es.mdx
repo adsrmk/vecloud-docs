@@ -1,0 +1,35 @@
+---
+title: Comprobar SSL desde el dashboard
+description: Identifica certificados HTTPS válidos, próximos a caducar o sin verificar desde Overview.
+icon: ShieldCheck
+---
+
+La tarjeta **SSL certificates** de **Overview** ayuda a encontrar dominios con posibles problemas HTTPS. Sigue esta guía cuando la nueva tarjeta esté disponible en tu cuenta.
+
+El comprobador establece una conexión TLS pública con el dominio principal de cada sitio incluido. Revisa la cadena de confianza, el nombre y la validez. No comprueba todos los alias o subdominios.
+
+## Ejecutar una comprobación
+
+1. Abre **Overview** y busca **SSL certificates**.
+2. Espera el resultado o pulsa **Check SSL** para una comprobación nueva. Los resultados anteriores pueden reutilizarse unos minutos.
+3. Abre una categoría con resultados para consultar los dominios y las caducidades disponibles.
+4. Selecciona un dominio para abrir **SSL certificates** de ese sitio.
+
+<PortalScreenshot name="ssl-checker" alt="Resultados SSL con dos dominios de demostración sin comprobar" caption="Estos dominios ficticios no tienen un certificado verificable públicamente y aparecen como Not checked. No se presentan como válidos ni no válidos." />
+
+## Entender los estados
+
+| Estado | Significado y siguiente paso |
+| --- | --- |
+| Valid / Active | El certificado público supera la comprobación. |
+| Expiring soon | Sigue siendo válido, pero caduca dentro de siete días. Revisa su renovación. |
+| Invalid or missing | Se ha identificado un problema de confianza, nombre o validez. Revisa el dominio. |
+| Not checked | No se obtuvo un resultado fiable, por ejemplo por DNS, conexión o tiempo de espera. Revisa el acceso y prueba después. |
+
+Los certificados próximos a caducar también se incluyen en **Websites with valid SSL**. No sumes ambas categorías como sitios independientes.
+
+## Comprobar el certificado correcto
+
+Con Cloudflare u otro proxy, puede comprobarse el certificado de ese proxy. Un certificado público válido no demuestra que la conexión entre el proxy y el alojamiento esté bien configurada.
+
+La comprobación no solicita ni renueva certificados automáticamente. Para instalación, renovación y **Enforce HTTPS**, sigue la [guía SSL](./ssl.mdx). Ante **Not checked**, revisa primero el [DNS activo](./index.mdx); solicitar certificados repetidamente no resuelve un dominio inaccesible.

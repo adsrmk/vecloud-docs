@@ -1,0 +1,43 @@
+---
+title: Metriken des dedizierten Servers
+description: Prüfe Last, Verfügbarkeit und Hardware des deinem Abonnement zugeordneten Servers.
+icon: Server
+---
+
+**Server metrics** zeigt die Leistung deines zugeordneten dedizierten Servers. Es ist ein lesender Serverüberblick neben dem [Ressourcenverbrauch einer Website](./resources.mdx).
+
+## Wann ist der Zugriff verfügbar?
+
+Die Option erscheint unter **Hosting**, wenn deine Organisation ein aktives, nicht ausgesetztes dediziertes Abonnement besitzt. Das kann zu einer passenden Enterprise- oder Agency-Umgebung gehören. Der Paketname allein genügt nicht: Abonnement und Server müssen deiner aktuellen Organisation zugeordnet sein.
+
+Fehlt die Option oder erscheint **Server not linked yet**? Bitte den Support, Abonnement und Zuordnung zu prüfen. Du musst weder Server-IP noch Monitoringtoken oder Agent einrichten.
+
+## Server und Zeitraum wählen
+
+1. Öffne **Server metrics** in der allgemeinen Seitenleiste.
+2. Wähle bei mehreren zugeordneten Servern den passenden **Server**. Name und IP helfen bei der Zuordnung.
+3. Wähle **Last hour**, **24h**, **1w** oder **1 month**. Standard sind 24 Stunden.
+4. Prüfe **Last measurement** und Status, bevor du die Diagramme auswertest.
+
+Bei sichtbarem Tab aktualisiert sich die Seite ungefähr einmal pro Minute.
+
+<PortalScreenshot name="server-metrics" alt="Dedizierter Server mit CPU, Speicher, Festplatte und Verfügbarkeit" caption="Server, Dokumentations-IP und Messungen sind fiktiv. Interne Verwaltungsfunktionen sind nicht zugänglich." />
+
+## Messungen lesen
+
+| Bereich | Anzeige |
+| --- | --- |
+| CPU, Memory, Disk | Aktuelle Nutzung des gesamten Servers. |
+| Resource utilization | Verlauf von CPU, Speicher und Festplatte. |
+| System load | Systemlast über 1, 5 und 15 Minuten. |
+| Disk I/O | Gelesene und geschriebene Bytes pro Sekunde. |
+| Network throughput | Empfangene und gesendete Bytes pro Sekunde. |
+| System information | Verfügbare System- und Hardwareangaben. |
+
+Die Werte gelten für den Server. Sie bestimmen nicht automatisch eine Website als Ursache. Vergleiche Spitzen mit Websitegrafiken, Traffic und Zeitpunkten von Updates oder Aufgaben.
+
+## Uptime und fehlende Werte
+
+**Health and uptime** zeigt verfügbare Beobachtungen der letzten 180 Tage. Ein Tag ohne Messung bleibt unbekannt. **Uptime** bezeichnet die Zeit seit dem letzten Systemstart, nicht denselben Wert wie die beobachtete Verfügbarkeitshistorie.
+
+Ein leeres Diagramm, Strich oder alter Messwert bestätigt keinen Nullverbrauch. Prüfe Zeitraum und Messzeit und nutze **Try again** bei Ladefehlern. Bleibt der Fehler, nenne dem Support Server, Zeitraum und Meldung. Hier gibt es keine Neustart-, Firewall- oder Konfigurationssteuerung.

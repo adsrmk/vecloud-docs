@@ -12,7 +12,9 @@ Dans [Developer tools → PHP](../developers/php.mdx), gérez les versions et ex
 
 ## Ce que veCloud gère
 
-veCloud gère les limites PHP-FPM, système et disque, la politique de sauvegarde et la [configuration VirtualHost](../developers/vhost.mdx) personnalisée. La page interne **Manage overrides** n’est pas une fonction destinée aux clients. Le rôle **Owner** d’un compte client ne donne pas la responsabilité de l’infrastructure d’hébergement.
+veCloud gère les limites PHP-FPM, système et disque, la conservation des sauvegardes et la [configuration VirtualHost](../developers/vhost.mdx) personnalisée. La page interne **Manage overrides** n’est pas une fonction client. Le rôle **Owner** d’un compte client ne donne pas accès à la gestion interne de l’infrastructure.
+
+Avec les droits adaptés, vous pouvez suspendre les nouvelles sauvegardes sous **Backups → Website backups → Disable backups**. Ce [réglage de sauvegarde](../backups/index.mdx) est distinct des overrides internes et ne supprime aucun point de restauration existant.
 
 PHP-FPM gère les processus PHP. Il se distingue d’un paramètre INI comme `memory_limit` et de la mémoire totale de l’environnement. Allouer davantage de mémoire à PHP n’augmente pas cette limite globale.
 

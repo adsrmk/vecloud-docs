@@ -4,6 +4,7 @@
     "index",
     "dnssec",
     "ssl",
+    "certificate-checker",
     "modsecurity",
     "mail-routing",
     "redirects",

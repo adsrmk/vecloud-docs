@@ -1,0 +1,35 @@
+---
+title: Dashboard SSL checks
+description: Identify valid, expiring and unverified public HTTPS certificates from Overview.
+icon: ShieldCheck
+---
+
+The **SSL certificates** card in **Overview** helps locate domains with possible HTTPS problems. Use this guide when the new card is available in your account.
+
+The checker makes a public TLS connection to the primary domain of each included website. It checks the certificate chain, hostname and validity dates. It is not a complete scan of all aliases or subdomains.
+
+## Run a check
+
+1. Open **Overview** and find **SSL certificates**.
+2. Wait for results, or use **Check SSL** to run a fresh check. Earlier results may be reused for a few minutes.
+3. Open a category containing results to see its domains and available expiry dates.
+4. Select a domain to open that website’s **SSL certificates** page.
+
+<PortalScreenshot name="ssl-checker" alt="SSL results showing two unverified demonstration domains" caption="These fictitious domains have no publicly verifiable certificate and therefore show Not checked. The example does not mark them valid or invalid." />
+
+## Understand the statuses
+
+| Status | Meaning and next step |
+| --- | --- |
+| Valid / Active | The publicly presented certificate passes the check. |
+| Expiring soon | Still valid, but expires within seven days. Check renewal. |
+| Invalid or missing | A certificate problem was identified, such as trust, hostname or validity. Inspect that domain. |
+| Not checked | No reliable outcome was available, for example due to DNS, connectivity or a timeout. Check reachability and try again later. |
+
+Expiring certificates are also included in **Websites with valid SSL**. Do not add these categories as if they represented separate websites.
+
+## Check the relevant certificate
+
+With Cloudflare or another proxy, the checker may see that proxy’s certificate. A valid public certificate then does not prove that the connection between proxy and hosting is also configured correctly.
+
+The check does not request or automatically renew certificates. For installation, renewal and **Enforce HTTPS**, follow [the SSL guide](./ssl.mdx). For **Not checked**, start with [active DNS](./index.mdx); repeatedly requesting a certificate does not resolve an unreachable domain.

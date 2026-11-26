@@ -1,40 +1,36 @@
 ---
-title: Website resource usage
-description: Investigate CPU, memory, swap, storage activity and processes in Analytics.
+title: Resource usage per website
+description: Compare CPU, memory, storage activity and processes from Analytics.
 icon: Cpu
 ---
 
-Resource charts help you understand your website’s computing needs. Choose a suitable period and compare any noticeable peaks with what was happening on the website at that time.
+Resource charts show the capacity used by one website environment. Compare a peak with traffic, updates and scheduled jobs to put it in context.
 
 ## Choose a chart and period
 
-Open **Domains → your website → Analytics**, then scroll to **Resource usage**. Choose a metric and period: last hour, 24 hours, 7 days or 30 days. This period is independent of the traffic charts above. **Refresh resource usage** retrieves measurements again; the refresh time records when the data was fetched.
+Open **Domains → your website → Analytics** and find **Resource usage**. Select **CPU**, **Memory**, **Storage performance (I/O)** or **Processes**. The periods are **24h**, **1w** and **1 month**, with 24 hours as the default. This selection is separate from the traffic charts above.
 
-<PortalScreenshot
-  name="resource-usage"
-  alt="CPU chart with demonstration measurements"
-  caption="CPU chart with demonstration measurements"
-/>
+**Last refreshed** shows when readings were retrieved.
 
-## What does each chart show?
+<PortalScreenshot name="resource-usage" alt="Resource tabs with a CPU chart and period selector" caption="Current tabs and period selection, with demonstration readings only. Open the image to view the chart at a larger size." />
 
-| Metric | Interpretation |
+## What does each tab measure?
+
+| Measurement | Interpretation |
 | --- | --- |
-| CPU | Processor usage; 100% represents one vCPU |
-| Memory | Memory used by the website environment |
-| Swap | Swap space in use |
-| Storage performance (I/O) | Bytes read and written per second |
-| Storage performance (IOPS) | Read and write operations per second |
-| Processes | Measured process count |
+| CPU | Processor use; 100% represents one vCPU. |
+| Memory | Website-environment memory, rather than only PHP memory_limit. |
+| Storage performance (I/O) | Bytes read and written per second. |
+| Processes | Observed number of processes. |
 
-For I/O and IOPS, select a storage device where available. Reads and writes are separate series. Below the chart, the limit from the latest measurement appears when available. **Unlimited** means no specific limit was recorded there, not that the physical server has infinite capacity.
+Longer histories are grouped into intervals: 30 minutes for 24h, 3 hours for 1w and 12 hours for a month. Lines show time-weighted averages; tooltips can also show peaks. A brief peak may therefore exceed the average line. Short histories retain their original readings.
 
-A short CPU spike may accompany an update or backup. Sustained high memory, swap or process counts call for investigation of the application and concurrent jobs. Memory usage is not the same as PHP’s `memory_limit` setting.
+## Limits and missing readings
 
-## Missing or empty measurements
+Where available, the latest reading’s limit appears below the chart. **Unlimited** means no specific limit was recorded, not that the physical server has unlimited capacity.
 
-CPU and I/O rates are calculated from consecutive measurements. A chart may remain empty without enough points; missing data does not mean zero usage. Choose another period or refresh. An error means measurements could not be retrieved, not necessarily that the website is offline.
+Missing or unusable readings remain gaps instead of being filled with zeros. For an empty chart, check the website, period and message. A loading error does not automatically mean the website is offline.
 
-## Turn measurements into action
+## Turn a reading into action
 
-Compare timestamps with traffic, scheduled jobs, updates and available logs. Change one thing at a time and compare the same period afterwards. These charts do not change resource limits or your package. For suitable limits or persistent errors, send support the metric, period and website address.
+Test one adjustment at a time, then compare the same period. Charts do not change limits. Discuss a required [hosting adjustment with support](../websites/advanced.mdx). With an assigned dedicated server, [Server metrics](./server-metrics.mdx) adds an overview of that whole server.

@@ -1,0 +1,43 @@
+---
+title: Métriques du serveur dédié
+description: Consultez charge, disponibilité et matériel du serveur dédié associé à votre abonnement.
+icon: Server
+---
+
+**Server metrics** montre les performances de votre serveur dédié attribué. C’est une vue en lecture seule du serveur, complémentaire aux [ressources d’un site](./resources.mdx).
+
+## Quand l’accès est-il disponible ?
+
+L’option apparaît sous **Hosting** si votre organisation possède un abonnement dédié actif et non suspendu. Cela peut concerner une offre Enterprise ou Agency adaptée. Le nom de l’offre seul ne suffit pas : abonnement et serveur doivent appartenir à votre organisation actuelle.
+
+L’option manque ou **Server not linked yet** apparaît ? Demandez au support de vérifier abonnement et association. Vous n’avez pas à configurer d’IP, de jeton de supervision ou d’agent.
+
+## Choisir serveur et période
+
+1. Ouvrez **Server metrics** dans la navigation générale.
+2. Si plusieurs serveurs sont attribués, choisissez le **Server** concerné. Nom et IP identifient l’environnement.
+3. Choisissez **Last hour**, **24h**, **1w** ou **1 month**. La valeur initiale est 24 heures.
+4. Vérifiez **Last measurement** et l’état avant d’interpréter les graphiques.
+
+La page se rafraîchit environ chaque minute lorsque l’onglet est visible.
+
+<PortalScreenshot name="server-metrics" alt="Serveur dédié avec CPU, mémoire, disque et disponibilité" caption="Serveur, IP de documentation et mesures sont fictifs. Cette vue n’expose aucun contrôle d’administration interne." />
+
+## Lire les mesures
+
+| Rubrique | Contenu |
+| --- | --- |
+| CPU, Memory, Disk | Utilisation récente du serveur entier. |
+| Resource utilization | Historique CPU, mémoire et disque. |
+| System load | Charge système sur 1, 5 et 15 minutes. |
+| Disk I/O | Octets lus et écrits par seconde. |
+| Network throughput | Octets reçus et envoyés par seconde. |
+| System information | Informations système et matériel disponibles. |
+
+Ces mesures concernent le serveur. Elles ne désignent pas seules un site responsable. Comparez les pics aux graphiques par site, au trafic et aux horaires des mises à jour ou tâches.
+
+## Disponibilité et mesures manquantes
+
+**Health and uptime** présente les observations disponibles des 180 derniers jours. Une journée sans mesure reste inconnue. **Uptime** indique le temps depuis le dernier démarrage ; ce n’est pas l’historique de disponibilité observée.
+
+Une courbe vide, un tiret ou une ancienne mesure ne confirme pas une utilisation nulle. Vérifiez période et heure et utilisez **Try again** en cas d’erreur de chargement. Si elle persiste, transmettez serveur, période et message au support. Cette rubrique ne propose ni redémarrage, ni pare-feu, ni configuration.

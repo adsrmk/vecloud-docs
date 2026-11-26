@@ -1,40 +1,36 @@
 ---
-title: Ressourcennutzung pro Website
-description: Untersuche CPU, Speicher, Swap, Datenträgeraktivität und Prozesse in Analytics.
+title: Ressourcenverbrauch pro Website
+description: Vergleiche CPU, Speicher, Datenträgeraktivität und Prozesse unter Analytics.
 icon: Cpu
 ---
 
-Ressourcendiagramme helfen dir, den Rechenbedarf deiner Website zu verstehen. Betrachte einen passenden Zeitraum und vergleiche auffällige Spitzen mit der damaligen Aktivität auf der Website.
+Ressourcengrafiken zeigen die Kapazität einer Websiteumgebung. Vergleiche eine Spitze mit Traffic, Updates und geplanten Aufgaben, um sie einzuordnen.
 
 ## Diagramm und Zeitraum wählen
 
-Öffne **Domains → deine Website → Analytics** und scrolle zu **Resource usage**. Wähle Messgröße und letzte Stunde, 24 Stunden, 7 Tage oder 30 Tage. Dieser Zeitraum ist unabhängig von den Traffic-Diagrammen. **Refresh resource usage** ruft die Messwerte neu ab; die Zeit zeigt den letzten Abruf.
+Öffne **Domains → deine Website → Analytics → Resource usage**. Wähle **CPU**, **Memory**, **Storage performance (I/O)** oder **Processes**. Die Zeiträume sind **24h**, **1w** und **1 month**, standardmäßig 24 Stunden. Diese Auswahl ist getrennt von den Trafficgrafiken darüber.
 
-<PortalScreenshot
-  name="resource-usage"
-  alt="CPU-Diagramm mit Beispielmessungen"
-  caption="CPU-Diagramm mit Beispielmessungen"
-/>
+**Last refreshed** zeigt den Abrufzeitpunkt.
 
-## Messgrößen verstehen
+<PortalScreenshot name="resource-usage" alt="Ressourcentabs mit CPU-Diagramm und Zeitraumwahl" caption="Aktuelle Tabs und Zeiträume mit Demomessungen. Öffne das Bild für eine größere Diagrammansicht." />
 
-| Messgröße | Bedeutung |
+## Was misst jeder Tab?
+
+| Messung | Bedeutung |
 | --- | --- |
-| CPU | Prozessornutzung; 100% entspricht einer vCPU |
-| Memory | Vom Website-Umfeld genutzter Speicher |
-| Swap | Genutzter Swap-Speicher |
-| Storage performance (I/O) | Gelesene und geschriebene Bytes pro Sekunde |
-| Storage performance (IOPS) | Lese- und Schreiboperationen pro Sekunde |
-| Processes | Gemessene Prozessanzahl |
+| CPU | Prozessornutzung; 100 % entspricht einer vCPU. |
+| Memory | Speicher der Websiteumgebung, nicht nur PHP memory_limit. |
+| Storage performance (I/O) | Gelesene und geschriebene Bytes pro Sekunde. |
+| Processes | Beobachtete Prozessanzahl. |
 
-Wähle bei I/O und IOPS gegebenenfalls einen Datenträger. Lesen und Schreiben sind getrennte Messreihen. Unter dem Diagramm steht, sofern vorhanden, das Limit der letzten Messung. **Unlimited** bedeutet, dass dort kein bestimmtes Limit festgelegt ist, nicht unendliche physische Kapazität.
+Längere Verläufe werden zusammengefasst: 30 Minuten für 24h, 3 Stunden für 1w und 12 Stunden für einen Monat. Linien zeigen zeitgewichtete Mittelwerte; Tooltips können auch Spitzen zeigen. Eine kurze Spitze kann die Durchschnittslinie übersteigen. Kurze Verläufe behalten ihre ursprünglichen Messungen.
 
-Ein kurzer CPU-Spitzenwert kann zu Update oder Backup gehören. Dauerhaft hoher Speicher-, Swap- oder Prozessverbrauch erfordert eine Prüfung der Anwendung und paralleler Aufgaben. Die Speichermessung entspricht nicht PHPs `memory_limit`.
+## Grenzen und fehlende Werte
 
-## Fehlende Messungen
+Soweit verfügbar, steht unter dem Diagramm die Grenze der letzten Messung. **Unlimited** bedeutet keine festgelegte Einzelgrenze, nicht unbegrenzte physische Serverkapazität.
 
-CPU- und I/O-Raten entstehen aus aufeinanderfolgenden Messungen. Ohne genügend Punkte kann ein Diagramm leer bleiben; fehlende Daten sind kein Nullverbrauch. Wähle einen anderen Zeitraum oder aktualisiere. Ein Abruffehler beweist nicht, dass die Website offline ist.
+Fehlende oder unbrauchbare Messungen bleiben Lücken und werden nicht zu Nullen. Prüfe bei leerer Grafik Website, Zeitraum und Meldung. Ein Ladefehler bedeutet nicht automatisch eine unerreichbare Website.
 
-## Maßnahmen ableiten
+## Aus Messungen handeln
 
-Vergleiche Zeitpunkte mit Traffic, geplanten Aufgaben, Updates und Logs. Ändere jeweils nur einen Punkt und vergleiche danach denselben Zeitraum. Die Diagramme ändern weder Limits noch Paket. Nenne dem Support bei Limitfragen oder anhaltenden Fehlern Messgröße, Zeitraum und Website.
+Teste eine Anpassung nach der anderen und vergleiche denselben Zeitraum erneut. Die Diagramme ändern keine Grenzen. Besprich eine nötige [Hostinganpassung mit dem Support](../websites/advanced.mdx). Bei zugeordnetem dediziertem Server ergänzt [Server metrics](./server-metrics.mdx) den Überblick über den gesamten Server.

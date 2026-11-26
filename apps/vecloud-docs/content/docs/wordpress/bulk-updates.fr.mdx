@@ -1,0 +1,37 @@
+---
+title: Mises à jour WordPress groupées
+description: Sélectionnez les mises à jour de plusieurs installations et vérifiez chaque résultat.
+icon: RefreshCw
+---
+
+Vous gérez plusieurs sites WordPress ? **Overview → WordPress bulk update** permet de préparer et mettre à jour extensions, thèmes et WordPress ensemble, pour les sites accessibles à votre compte.
+
+La fonction doit être visible et disponible dans votre compte. Les installations désactivées ou illisibles peuvent être absentes. Une liste vide ne prouve donc pas que toutes ont été entièrement vérifiées.
+
+## Préparer les mises à jour
+
+Créez d’abord une [sauvegarde récente des fichiers et de la base](../backups/index.mdx). L’action groupée ne la crée pas automatiquement. Vérifiez la compatibilité PHP et des composants et testez les changements importants en staging si nécessaire. Choisissez un moment où vous pourrez contrôler les sites ensuite.
+
+## Vérifier la sélection
+
+1. Utilisez **Check for updates** pour une nouvelle analyse. Une analyse précédente peut être réutilisée jusqu’à une heure.
+2. Ouvrez **Plugins**, **Themes** ou **Core**, ou choisissez **Update all** pour toutes les catégories.
+3. Vérifiez les sites et composants sélectionnés. Ceux disponibles dans la catégorie ouverte sont déjà cochés.
+4. Recherchez un site ou composant et filtrez avec **Update type**. Décochez les mises à jour à reporter.
+5. Vérifiez le nombre sur **Start … updates**, puis confirmez.
+
+Rechercher ou changer de filtre n’efface pas la sélection existante. La case d’en-tête peut sélectionner tous les résultats correspondants, y compris ceux visibles après défilement. Vérifiez la sélection complète et le nombre du bouton.
+
+<PortalScreenshot name="wordpress-bulk-update" alt="Sélection de mises à jour WordPress, extensions et thèmes sur deux sites demo" caption="Update all ouvre d’abord cette sélection. Les mises à jour commencent après l’action de lancement distincte. Sites et versions sont fictifs." />
+
+## Versions et notes
+
+**Version** affiche la version installée. Cliquez sur une version bleue d’extension ou de thème pour lire les notes disponibles. Elles peuvent manquer pour un logiciel privé ou commercial. La version du cœur WordPress n’ouvre pas de notes ici. Leur lecture ne lance pas de mise à jour.
+
+## Suivre le résultat
+
+Vous pouvez fermer la fenêtre et naviguer dans le même onglet du panel. La progression reste en bas à droite ; **View results** rouvre les résultats. Gardez l’onglet ouvert sans le recharger pendant le traitement. Ce n’est pas une tâche serveur planifiée indépendante de votre session navigateur.
+
+Vérifiez chaque résultat : mis à jour, déjà à jour, échec ou à vérifier. Une modification incertaine n’est pas relancée automatiquement. Consultez d’abord la version actuelle dans **Apps → Toolkit** ; les mises à jour suivantes de cette installation peuvent avoir été ignorées.
+
+Testez ensuite sites, formulaires et paiements. Utilisez [la toolkit](./index.mdx), le [débogage](./debug.mdx) ou la [restauration](../backups/restore.mdx) selon le besoin. Une déconnexion ou un changement de compte arrête les actions en attente ; vérifiez celles déjà envoyées avant de recommencer.

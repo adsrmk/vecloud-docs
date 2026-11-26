@@ -1,40 +1,36 @@
 ---
-title: Utilisation des ressources du site
-description: Examinez CPU, mémoire, swap, stockage et processus dans Analytics.
+title: Ressources par site web
+description: Comparez CPU, mémoire, activité de stockage et processus depuis Analytics.
 icon: Cpu
 ---
 
-Les graphiques de ressources aident à comprendre les besoins de votre site. Choisissez une période adaptée et rapprochez les pics de l’activité observée à ce moment-là.
+Les graphiques montrent la capacité utilisée par un environnement web. Comparez un pic au trafic, aux mises à jour et aux tâches planifiées pour le comprendre.
 
-## Choisir un graphique et une période
+## Choisir graphique et période
 
-Ouvrez **Domains → votre site → Analytics**, puis **Resource usage** plus bas. Choisissez une mesure et la dernière heure, 24 heures, 7 jours ou 30 jours. Ce choix est indépendant des graphiques de trafic. **Refresh resource usage** récupère les mesures ; l’heure indique leur dernière consultation.
+Ouvrez **Domains → votre site → Analytics → Resource usage**. Choisissez **CPU**, **Memory**, **Storage performance (I/O)** ou **Processes**. Les périodes sont **24h**, **1w** et **1 month**, avec 24 heures par défaut. Ce choix est indépendant des graphiques de trafic au-dessus.
 
-<PortalScreenshot
-  name="resource-usage"
-  alt="Graphique CPU avec mesures de démonstration"
-  caption="Graphique CPU avec mesures de démonstration"
-/>
+**Last refreshed** indique quand les mesures ont été récupérées.
 
-## Interpréter les mesures
+<PortalScreenshot name="resource-usage" alt="Onglets de ressources avec CPU et choix de période" caption="Onglets et périodes actuels avec des mesures de démonstration. Ouvrez l’image pour agrandir le graphique." />
+
+## Que mesure chaque onglet ?
 
 | Mesure | Interprétation |
 | --- | --- |
-| CPU | Utilisation du processeur ; 100% représente une vCPU |
-| Memory | Mémoire utilisée par l’environnement du site |
-| Swap | Espace swap utilisé |
-| Storage performance (I/O) | Octets lus et écrits par seconde |
-| Storage performance (IOPS) | Opérations de lecture et d’écriture par seconde |
-| Processes | Nombre de processus mesuré |
+| CPU | Utilisation du processeur ; 100 % représente un vCPU. |
+| Memory | Mémoire de l’environnement, pas seulement PHP memory_limit. |
+| Storage performance (I/O) | Octets lus et écrits par seconde. |
+| Processes | Nombre de processus observé. |
 
-Pour I/O et IOPS, choisissez un périphérique si proposé. Lectures et écritures sont des séries distinctes. La limite de la dernière mesure apparaît sous le graphique si disponible. **Unlimited** signifie qu’aucune limite spécifique n’y est enregistrée, pas une capacité physique infinie.
+Les historiques longs sont regroupés : 30 minutes pour 24h, 3 heures pour 1w et 12 heures pour un mois. Les lignes sont des moyennes pondérées par le temps ; les infobulles peuvent aussi montrer les pics. Un bref pic peut donc dépasser la ligne moyenne. Les historiques courts gardent leurs mesures d’origine.
 
-Un pic bref de CPU peut accompagner une mise à jour ou sauvegarde. Une mémoire, un swap ou un nombre de processus durablement élevés nécessitent d’examiner l’application et les tâches simultanées. La mémoire mesurée diffère du paramètre PHP `memory_limit`.
+## Limites et mesures absentes
 
-## Mesures absentes
+Lorsque disponible, la limite de la dernière mesure apparaît sous le graphique. **Unlimited** signifie qu’aucune limite spécifique n’est définie, pas que le serveur physique est illimité.
 
-Les taux CPU et I/O sont calculés entre mesures consécutives. Sans points suffisants, le graphique peut rester vide ; l’absence de données ne signifie pas une consommation nulle. Changez de période ou actualisez. Une erreur de récupération ne prouve pas que le site est hors ligne.
+Les mesures absentes ou inutilisables restent des trous, sans zéros inventés. Pour un graphique vide, vérifiez site, période et message. Une erreur de chargement ne signifie pas automatiquement que le site est hors ligne.
 
-## Agir à partir des mesures
+## Passer à l’action
 
-Comparez les horaires au trafic, tâches planifiées, mises à jour et journaux. Modifiez un élément à la fois et comparez la même période ensuite. Ces graphiques ne modifient ni limites ni offre. Pour examiner des limites ou erreurs persistantes, fournissez au support mesure, période et adresse du site.
+Testez un ajustement à la fois, puis comparez la même période. Les graphiques ne changent pas les limites. Discutez d’un [ajustement d’hébergement avec le support](../websites/advanced.mdx). Avec un serveur dédié attribué, [Server metrics](./server-metrics.mdx) donne aussi une vue de l’ensemble du serveur.

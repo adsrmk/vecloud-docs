@@ -38,3 +38,15 @@ Erstelle vor größeren Updates, Importen oder Konfigurationsänderungen ein akt
 WordPress benötigt Dateien und Datenbank. Dateien enthalten beispielsweise Plugins und Uploads; die Datenbank enthält unter anderem Beiträge, Einstellungen und Bestellungen.
 
 Folge [Ein Backup wiederherstellen](./restore.mdx) für Auswahl und Bestätigung. Bei leerer Liste oder Fehlern hilft [Backup-Probleme beheben](./troubleshooting.mdx).
+
+## Neue Backups pausieren
+
+Soweit verfügbar, steht **Website backups** unter der Liste. Ein berechtigter Kontoadministrator kann **Disable backups** ändern. Reiner Collaborator-Zugriff erlaubt keine Änderung.
+
+<Callout type="warning" title="Eingeschaltet heißt: keine neuen Backups">
+**Disable backups** stoppt automatische und manuelle Backups der Website und ihrer E-Mail-Daten, sowohl für Enhance als auch S3. Nutze dies nur, wenn du bewusst keine neuen Kopien erstellen möchtest.
+</Callout>
+
+Schalte den Schalter aus, um die Erstellung wieder zu erlauben, und warte auf Bestätigung. Dadurch startet nicht sofort ein neues Backup. Bestehende Wiederherstellungspunkte bleiben erhalten; pausierte Erstellung löscht sie nicht und blockiert keinen Restore.
+
+Nutze bei unklarem Ergebnis **Check status** und prüfe zuerst den aktuellen Wert. Wiederholtes Umschalten behebt keinen Ladefehler der Backupliste.

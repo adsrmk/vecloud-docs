@@ -1,0 +1,37 @@
+---
+title: WordPress gesammelt aktualisieren
+description: Wähle Updates für mehrere Installationen und prüfe jedes Komponentenergebnis.
+icon: RefreshCw
+---
+
+Verwaltest du mehrere WordPress-Websites? Unter **Overview → WordPress bulk update** bereitest du Plugins, Themes und WordPress gemeinsam vor und aktualisierst sie. Genutzt werden Websites, auf die dein Konto zugreifen darf.
+
+Die Funktion muss in deinem Konto sichtbar und verfügbar sein. Deaktivierte oder nicht lesbare Installationen können fehlen. Eine leere Liste beweist daher nicht, dass jede Installation vollständig geprüft wurde.
+
+## Updates vorbereiten
+
+Erstelle zuvor ein aktuelles [Backup von Dateien und Datenbank](../backups/index.mdx). Die Sammelaktion erstellt keines automatisch. Prüfe PHP- und Komponentenkompatibilität und teste größere Änderungen bei Bedarf auf Staging. Wähle einen Zeitpunkt, an dem du die Websites danach kontrollieren kannst.
+
+## Auswahl prüfen
+
+1. Nutze **Check for updates** für einen neuen Scan. Ein früherer Scan kann bis zu eine Stunde wiederverwendet werden.
+2. Öffne **Plugins**, **Themes** oder **Core**, oder wähle **Update all** für alle Kategorien.
+3. Prüfe Websites und ausgewählte Komponenten. Verfügbare Einträge der geöffneten Kategorie sind bereits markiert.
+4. Suche nach Website oder Komponente und filtere mit **Update type**. Entferne Häkchen für spätere Updates.
+5. Prüfe die Anzahl auf **Start … updates** und bestätige erst dann.
+
+Suche und Filterwechsel löschen eine vorhandene Auswahl nicht. Das Häkchen in der Kopfzeile kann alle passenden Ergebnisse auswählen, auch noch nicht herangescrollte Zeilen. Prüfe die gesamte Auswahl und die Anzahl auf dem Startbutton.
+
+<PortalScreenshot name="wordpress-bulk-update" alt="Auswahl von WordPress-, Plugin- und Theme-Updates für zwei Demowebsites" caption="Update all öffnet zunächst diese Auswahl. Erst die getrennte Startaktion führt Updates aus. Websites und Versionen sind fiktiv." />
+
+## Versionen und Änderungsnotizen
+
+**Version** zeigt die installierte Version. Klicke auf eine blaue Plugin- oder Theme-Version, um verfügbare Änderungsnotizen zu lesen. Bei eigener oder kommerzieller Software können sie fehlen. WordPress-Core-Versionen öffnen hier keine Notizen. Das Lesen startet kein Update.
+
+## Fortschritt und Ergebnis
+
+Du kannst den Dialog schließen und im selben Paneltab navigieren. Der Fortschritt bleibt unten rechts sichtbar; **View results** öffnet die Ergebnisse erneut. Lass den Tab geöffnet und lade ihn während der Verarbeitung nicht neu. Es ist kein geplanter Serverauftrag unabhängig von deiner Browsersitzung.
+
+Prüfe jedes Ergebnis: aktualisiert, bereits aktuell, fehlgeschlagen oder zu prüfen. Eine unbestätigte Änderung wird nicht automatisch wiederholt. Prüfe zuerst die aktuelle Version unter **Apps → Toolkit**; weitere Updates derselben Installation können übersprungen worden sein.
+
+Teste danach Websites, Formulare und Zahlungen. Nutze bei Bedarf [die Toolkit](./index.mdx), [Debugging](./debug.mdx) oder die [Wiederherstellung](../backups/restore.mdx). Abmelden oder Kontowechsel stoppt wartende Updates; prüfe bereits gesendete Aktionen vor einem Neustart.

@@ -12,7 +12,9 @@ Via [Developer tools → PHP](../developers/php.mdx) beheer je de beschikbare PH
 
 ## Wat veCloud beheert
 
-PHP-FPM-limieten, systeem- en schijfgrenzen, back-upbeleid en vrije [VirtualHost-configuratie](../developers/vhost.mdx) worden door veCloud beheerd. De interne pagina **Manage overrides** is geen klantfunctie. Ook **Owner** van een klantaccount betekent niet dat je de hostinginfrastructuur beheert.
+PHP-FPM-limieten, systeem- en schijfgrenzen, bewaartermijnen voor back-ups en vrije [VirtualHost-configuratie](../developers/vhost.mdx) worden door veCloud beheerd. De interne pagina **Manage overrides** is geen klantfunctie. Ook **Owner** van een klantaccount betekent niet dat je de hostinginfrastructuur beheert.
+
+Het aanmaken van nieuwe back-ups kun je met passende beheerrechten wel pauzeren via **Backups → Website backups → Disable backups**. Die specifieke [back-upinstelling](../backups/index.mdx) staat los van de interne overrides en verwijdert geen bestaande herstelmomenten.
 
 PHP-FPM regelt de afhandeling van PHP-processen. Dit is iets anders dan een INI-waarde zoals `memory_limit` of het totale geheugen van je websiteomgeving. Meer geheugen aan PHP toewijzen verhoogt die totale grens niet.
 

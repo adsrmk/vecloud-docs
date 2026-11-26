@@ -1,0 +1,35 @@
+---
+title: Contrôler SSL depuis le dashboard
+description: Repérez les certificats HTTPS valides, bientôt expirés ou non vérifiés depuis Overview.
+icon: ShieldCheck
+---
+
+La carte **SSL certificates** dans **Overview** aide à repérer les domaines ayant un possible problème HTTPS. Suivez ce guide lorsque la nouvelle carte est disponible dans votre compte.
+
+Le contrôle établit une connexion TLS publique avec le domaine principal de chaque site inclus. Il vérifie chaîne de confiance, nom et dates de validité. Ce n’est pas une analyse complète des alias ou sous-domaines.
+
+## Lancer un contrôle
+
+1. Ouvrez **Overview** et repérez **SSL certificates**.
+2. Attendez le résultat ou utilisez **Check SSL** pour une nouvelle vérification. Des résultats antérieurs peuvent être réutilisés quelques minutes.
+3. Ouvrez une catégorie non vide pour consulter domaines et dates d’expiration disponibles.
+4. Sélectionnez un domaine pour ouvrir sa page **SSL certificates**.
+
+<PortalScreenshot name="ssl-checker" alt="Résultats SSL avec deux domaines de démonstration non vérifiés" caption="Ces domaines fictifs n’ont pas de certificat vérifiable publiquement et affichent Not checked. L’exemple ne les présente ni valides ni invalides." />
+
+## Comprendre les états
+
+| État | Signification et suite |
+| --- | --- |
+| Valid / Active | Le certificat présenté publiquement passe le contrôle. |
+| Expiring soon | Encore valide, mais expire sous sept jours. Vérifiez son renouvellement. |
+| Invalid or missing | Un problème de confiance, de nom ou de validité a été constaté. Examinez le domaine. |
+| Not checked | Aucun résultat fiable, par exemple à cause du DNS, du réseau ou d’un délai dépassé. Vérifiez l’accès puis réessayez. |
+
+Les certificats bientôt expirés comptent aussi dans **Websites with valid SSL**. N’additionnez pas ces catégories comme des sites distincts.
+
+## Vérifier le bon certificat
+
+Avec Cloudflare ou un autre proxy, le contrôle peut voir le certificat de ce proxy. Un certificat public valide ne prouve alors pas que la liaison entre proxy et hébergement est correcte.
+
+Le contrôle ne demande ni ne renouvelle automatiquement de certificat. Pour l’installation, le renouvellement et **Enforce HTTPS**, suivez le [guide SSL](./ssl.mdx). Pour **Not checked**, commencez par le [DNS actif](./index.mdx) ; redemander un certificat ne résout pas un domaine inaccessible.

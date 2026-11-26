@@ -2,6 +2,7 @@
   "title": "Compte et équipe",
   "pages": [
     "navigation",
+    "dashboard",
     "profile",
     "security",
     "team",

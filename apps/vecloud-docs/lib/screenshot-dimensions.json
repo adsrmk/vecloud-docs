@@ -140,8 +140,8 @@
     "height": 900
   },
   "resource-usage": {
-    "width": 1280,
-    "height": 900
+    "width": 953,
+    "height": 568
   },
   "ssh-key": {
     "width": 1280,
@@ -182,5 +182,21 @@
   "worker-create": {
     "width": 1280,
     "height": 720
+  },
+  "dashboard-overview": {
+    "width": 1280,
+    "height": 1400
+  },
+  "server-metrics": {
+    "width": 1280,
+    "height": 900
+  },
+  "ssl-checker": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-bulk-update": {
+    "width": 1280,
+    "height": 900
   }
 }

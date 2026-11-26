@@ -1,40 +1,36 @@
 ---
-title: Uso de recursos por sitio
-description: Investiga CPU, memoria, swap, almacenamiento y procesos desde Analytics.
+title: Recursos por sitio web
+description: Compara CPU, memoria, actividad de almacenamiento y procesos desde Analytics.
 icon: Cpu
 ---
 
-Los gráficos de recursos ayudan a entender las necesidades de tu sitio. Elige un periodo adecuado y relaciona los picos con la actividad que tenía entonces.
+Las gráficas muestran la capacidad utilizada por un entorno web. Compara los picos con el tráfico, las actualizaciones y las tareas programadas para entenderlos mejor.
 
-## Elegir gráfico y periodo
+## Elegir gráfica y periodo
 
-Abre **Domains → tu sitio → Analytics** y baja a **Resource usage**. Elige una métrica y periodo: última hora, 24 horas, 7 días o 30 días. Este periodo es independiente de los gráficos de tráfico. **Refresh resource usage** vuelve a obtener las mediciones; la fecha indica cuándo se consultaron.
+Abre **Domains → tu sitio → Analytics → Resource usage**. Selecciona **CPU**, **Memory**, **Storage performance (I/O)** o **Processes**. Los periodos son **24h**, **1w** y **1 month**, con 24 horas por defecto. Esta selección es independiente de las gráficas de tráfico superiores.
 
-<PortalScreenshot
-  name="resource-usage"
-  alt="Gráfico CPU con mediciones de demostración"
-  caption="Gráfico CPU con mediciones de demostración"
-/>
+**Last refreshed** indica cuándo se obtuvieron las mediciones.
 
-## Interpretar las métricas
+<PortalScreenshot name="resource-usage" alt="Pestañas de recursos con CPU y selección de periodo" caption="Pestañas y periodos actuales con mediciones de demostración. Abre la imagen para ampliar la gráfica." />
 
-| Métrica | Interpretación |
+## Qué mide cada pestaña
+
+| Medición | Interpretación |
 | --- | --- |
-| CPU | Consumo de procesador; 100% equivale a una vCPU |
-| Memory | Memoria utilizada por el entorno del sitio |
-| Swap | Espacio swap utilizado |
-| Storage performance (I/O) | Bytes leídos y escritos por segundo |
-| Storage performance (IOPS) | Operaciones de lectura y escritura por segundo |
-| Processes | Número de procesos medido |
+| CPU | Uso de procesador; 100% representa una vCPU. |
+| Memory | Memoria del entorno, no solo PHP memory_limit. |
+| Storage performance (I/O) | Bytes leídos y escritos por segundo. |
+| Processes | Número de procesos observado. |
 
-En I/O e IOPS puedes elegir un dispositivo cuando esté disponible. Lectura y escritura son series distintas. Bajo el gráfico aparece el límite de la última medición, si existe. **Unlimited** indica que no se registró un límite específico, no capacidad física infinita.
+Los historiales largos se agrupan en intervalos: 30 minutos para 24h, 3 horas para 1w y 12 horas para un mes. Las líneas muestran medias ponderadas por tiempo; la información emergente también puede mostrar picos. Un pico breve puede superar la línea media. Los historiales cortos conservan las mediciones originales.
 
-Un pico breve de CPU puede coincidir con una actualización o copia. Memoria, swap o procesos altos de forma continua requieren investigar la aplicación y tareas simultáneas. La memoria medida no equivale al ajuste PHP `memory_limit`.
+## Límites y datos ausentes
 
-## Faltan mediciones
+Cuando está disponible, el límite de la última medición aparece bajo la gráfica. **Unlimited** significa que no se registró un límite específico, no que el servidor físico tenga capacidad ilimitada.
 
-Las tasas de CPU e I/O se calculan entre mediciones consecutivas. Sin puntos suficientes, el gráfico puede quedar vacío; los datos ausentes no significan consumo cero. Cambia de periodo o actualiza. Un error al obtener métricas no confirma que el sitio esté caído.
+Los datos ausentes o inutilizables quedan como huecos, no como ceros. Ante una gráfica vacía, revisa sitio, periodo y mensaje. Un error de carga no demuestra que el sitio esté caído.
 
-## Actuar a partir de los datos
+## Pasar de la medición a la acción
 
-Compara la hora con tráfico, tareas programadas, actualizaciones y registros. Cambia una cosa cada vez y compara después el mismo periodo. Los gráficos no modifican límites ni el plan. Para revisar límites o errores persistentes, facilita a soporte la métrica, periodo y sitio.
+Prueba un ajuste cada vez y compara el mismo periodo después. Las gráficas no cambian límites. Consulta un [ajuste de alojamiento con soporte](../websites/advanced.mdx). Si tienes un servidor dedicado asignado, [Server metrics](./server-metrics.mdx) añade la visión del servidor completo.

@@ -1,40 +1,36 @@
 ---
 title: Resourcegebruik per website
-description: Onderzoek CPU, geheugen, swap, opslagactiviteit en processen vanuit Analytics.
+description: Vergelijk CPU, geheugen, opslagactiviteit en processen vanuit Analytics.
 icon: Cpu
 ---
 
-Resourcegrafieken helpen je begrijpen hoeveel rekenkracht je website gebruikt. Bekijk ze over een passende periode en leg opvallende pieken naast wat er toen op de website gebeurde.
+Resourcegrafieken laten zien hoeveel capaciteit één websiteomgeving gebruikt. Leg een opvallende piek naast verkeer, updates en geplande taken om de meting in context te bekijken.
 
 ## Grafiek en periode kiezen
 
-Open **Domains → je website → Analytics** en scrol naar **Resource usage**. Kies een meting en een periode: afgelopen uur, 24 uur, 7 dagen of 30 dagen. Deze periodekeuze staat los van de verkeersgrafieken erboven. **Refresh resource usage** haalt de metingen opnieuw op; de verversdatum toont wanneer de gegevens zijn opgehaald.
+Open **Domains → je website → Analytics** en ga naar **Resource usage**. Kies de tab **CPU**, **Memory**, **Storage performance (I/O)** of **Processes**. De periodekeuze biedt **24h**, **1w** en **1 month**, met 24 uur als standaard. Deze keuze staat los van de verkeersgrafieken erboven.
 
-<PortalScreenshot
-  name="resource-usage"
-  alt="CPU-grafiek met voorbeeldmetingen"
-  caption="CPU-grafiek met voorbeeldmetingen"
-/>
+**Last refreshed** toont wanneer de metingen zijn opgehaald.
 
-## Wat meet elke grafiek?
+<PortalScreenshot name="resource-usage" alt="Resourcetabs met CPU-grafiek en periodekeuze" caption="De huidige tabs en periodekeuze, met uitsluitend demonstratiemetingen. Klik op de afbeelding om de grafiek groter te bekijken." />
+
+## Wat meet elke tab?
 
 | Meting | Interpretatie |
 | --- | --- |
-| CPU | Processorverbruik; 100% staat voor één vCPU |
-| Memory | Gebruikt geheugen van de websiteomgeving |
-| Swap | Gebruikte swapruimte |
-| Storage performance (I/O) | Gelezen en geschreven bytes per seconde |
-| Storage performance (IOPS) | Lees- en schrijfbewerkingen per seconde |
-| Processes | Het gemeten aantal processen |
+| CPU | Processorverbruik; 100% staat voor één vCPU. |
+| Memory | Geheugengebruik van de websiteomgeving, niet alleen de PHP-instelling memory_limit. |
+| Storage performance (I/O) | Gelezen en geschreven bytes per seconde. |
+| Processes | Het gemeten aantal processen. |
 
-Bij I/O en IOPS kies je zo nodig een opslagapparaat. Lees- en schrijflijnen zijn verschillende meetreeksen. Onder de grafiek staat, waar beschikbaar, de limiet uit de laatste meting. **Unlimited** betekent dat daar geen specifieke limiet is vastgelegd; het betekent niet dat de fysieke server oneindige capaciteit heeft.
+De grafiek groepeert langere histories in tijdvakken: 30 minuten voor 24h, 3 uur voor 1w en 12 uur voor een maand. De lijnen tonen tijdgewogen gemiddelden; tooltips kunnen ook piekwaarden tonen. Een korte piek kan daardoor hoger zijn dan de gemiddelde lijn. Korte histories behouden hun oorspronkelijke metingen.
 
-Een korte CPU-piek kan bij een update of back-up horen. Aanhoudend hoog geheugen, swap of veel processen vraagt onderzoek naar de applicatie en gelijktijdige taken. De geheugenmeting is niet hetzelfde als de PHP-instelling `memory_limit`.
+## Limieten en ontbrekende metingen
 
-## Ontbrekende of lege metingen
+Onder de grafiek staat waar beschikbaar de limiet uit de laatste meting. **Unlimited** betekent dat er geen specifieke grens is vastgelegd, niet dat de fysieke server oneindige capaciteit heeft.
 
-CPU- en I/O-snelheden worden berekend uit opeenvolgende metingen. Zonder voldoende meetpunten kan een grafiek leeg blijven; ontbrekende data is geen nulverbruik. Kies een andere periode of vernieuw. Een foutmelding betekent dat de meetgegevens niet konden worden opgehaald, niet automatisch dat je website offline is.
+Ontbrekende of niet bruikbare meetpunten blijven gaten; ze worden niet als nulverbruik ingevuld. Bij een lege grafiek controleer je website, periode en melding. Een laadfout betekent niet automatisch dat de website offline is.
 
 ## Van meting naar actie
 
-Vergelijk het tijdstip met verkeer, geplande taken, updates en beschikbare logs. Test één aanpassing tegelijk en vergelijk dezelfde periode daarna opnieuw. Deze grafieken wijzigen geen resourcegrenzen of pakket. Voor passende limieten of aanhoudende fouten neem je de meting, periode en het websiteadres mee naar support.
+Test één aanpassing tegelijk en vergelijk daarna dezelfde periode. De grafieken wijzigen geen limieten. Bespreek een noodzakelijke [hostingaanpassing met support](../websites/advanced.mdx). Heb je een toegewezen dedicated server, dan geeft [Server metrics](./server-metrics.mdx) aanvullend het totaalbeeld van die server.

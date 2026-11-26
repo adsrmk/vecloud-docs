@@ -1,0 +1,37 @@
+---
+title: WordPress in bulk bijwerken
+description: Selecteer updates voor meerdere installaties en controleer per onderdeel het resultaat.
+icon: RefreshCw
+---
+
+Beheer je meerdere WordPress-websites? Vanuit **Overview → WordPress bulk update** kun je plugins, thema’s en WordPress zelf gezamenlijk voorbereiden en bijwerken. Je gebruikt de websites die bij je account en rechten horen.
+
+De functie moet zichtbaar en beschikbaar zijn in je account. Uitgeschakelde of niet uitleesbare installaties kunnen ontbreken. Een lege lijst is daarom geen bewijs dat elke installatie volledig is gecontroleerd.
+
+## Bereid de updates voor
+
+Maak vooraf een recente [back-up van bestanden en database](../backups/index.mdx). De bulkactie maakt die niet automatisch. Controleer compatibiliteit met PHP en andere onderdelen en test een grote wijziging zo nodig eerst op staging. Kies een moment waarop je de websites daarna kunt controleren.
+
+## Controleer de selectie
+
+1. Gebruik de verversknop **Check for updates** voor een nieuwe controle. Een eerdere scan kan maximaal een uur worden hergebruikt.
+2. Open een categorie bij **Plugins**, **Themes** of **Core**, of kies **Update all** voor alle soorten.
+3. Controleer de websites en geselecteerde onderdelen. De beschikbare onderdelen in de geopende categorie zijn al voorgeselecteerd.
+4. Zoek op website of onderdeel en gebruik **Update type** om de lijst te filteren. Verwijder vinkjes bij updates die je nog niet wilt uitvoeren.
+5. Controleer het aantal op **Start … updates** en bevestig pas daarna.
+
+Zoeken of een ander filter kiezen wist je bestaande selectie niet. Ook de kopcheckbox kan alle passende resultaten selecteren, inclusief regels waarvoor je nog moet scrollen. Controleer daarom de volledige selectie en het aantal op de startknop.
+
+<PortalScreenshot name="wordpress-bulk-update" alt="Selectie van WordPress-, plugin- en thema-updates op twee demowebsites" caption="Update all opent eerst deze selectie. Er wordt pas bijgewerkt na de afzonderlijke startactie. Alle websites en versies zijn fictief." />
+
+## Versies en wijzigingsnotities
+
+De kolom **Version** toont de geïnstalleerde versie. Klik op een blauw plugin- of themanummer om beschikbare wijzigingsnotities te lezen. Notities ontbreken soms bij eigen of commerciële software. Het versienummer van WordPress zelf opent hier geen notities. Het bekijken van notities start geen update.
+
+## Voortgang en resultaat
+
+Je kunt de modal sluiten en binnen hetzelfde paneeltabblad verder navigeren. De voortgang blijft rechtsonder zichtbaar; **View results** opent de resultaten opnieuw. Houd het tabblad open en vernieuw het niet zolang de batch loopt. Dit is geen geplande servertaak die onafhankelijk van je browsersessie blijft draaien.
+
+Controleer elke resultaatregel: bijgewerkt, al bijgewerkt, mislukt of nog te controleren. Een onzekere uitkomst wordt niet automatisch opnieuw uitgevoerd. Controleer eerst de huidige versie in **Apps → Toolkit**; verdere updates van diezelfde installatie kunnen zijn overgeslagen.
+
+Test daarna de websites, formulieren en eventuele betalingen. Gebruik bij een probleem gericht de [WordPress-toolkit](./index.mdx), [debugging](./debug.mdx) of [herstelhandleiding](../backups/restore.mdx). Uitloggen of wisselen van account stopt nog wachtende updates; controleer reeds verzonden acties voordat je opnieuw begint.

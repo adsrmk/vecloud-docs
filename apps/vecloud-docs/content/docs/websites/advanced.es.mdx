@@ -12,7 +12,9 @@ En [Developer tools → PHP](../developers/php.mdx) puedes gestionar las version
 
 ## Qué gestiona veCloud
 
-veCloud administra los límites de PHP-FPM, del sistema y del disco, la política de copias y la [configuración VirtualHost](../developers/vhost.mdx) personalizada. La página interna **Manage overrides** no es una función para clientes. Ser **Owner** de una cuenta de cliente no equivale a administrar la infraestructura de alojamiento.
+veCloud administra los límites PHP-FPM, del sistema y del disco, la retención de copias y la [configuración VirtualHost](../developers/vhost.mdx) personalizada. La página interna **Manage overrides** no es una función para clientes. Ser **Owner** de una cuenta de cliente no equivale a administrar la infraestructura de alojamiento.
+
+Con permisos adecuados puedes pausar las copias nuevas en **Backups → Website backups → Disable backups**. Este [ajuste de copias](../backups/index.mdx) es independiente de los overrides internos y no elimina puntos de recuperación existentes.
 
 PHP-FPM gestiona los procesos PHP. No es lo mismo que un ajuste INI como `memory_limit` ni que la memoria total del entorno. Asignar más memoria a PHP no aumenta ese límite total.
 

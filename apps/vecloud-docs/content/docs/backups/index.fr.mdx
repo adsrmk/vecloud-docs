@@ -38,3 +38,15 @@ Créez une sauvegarde récente avant une mise à jour importante, une importatio
 WordPress a besoin de ses fichiers et de sa base de données. Les fichiers comprennent les extensions et les médias ; la base contient notamment les publications, paramètres et commandes.
 
 Suivez [Restaurer une sauvegarde](./restore.mdx) pour sélectionner et confirmer. En cas de liste vide ou d’erreur, consultez [Dépannage des sauvegardes](./troubleshooting.mdx).
+
+## Suspendre les nouvelles sauvegardes
+
+Lorsque disponible, **Website backups** apparaît sous la liste. Un administrateur autorisé du compte peut modifier **Disable backups**. Un accès uniquement Collaborator ne permet pas ce réglage.
+
+<Callout type="warning" title="Activé signifie : aucune nouvelle sauvegarde">
+Activer **Disable backups** arrête les sauvegardes automatiques et manuelles du site et de ses données e-mail, pour Enhance comme pour S3. Utilisez-le seulement pour interrompre volontairement la création de copies.
+</Callout>
+
+Désactivez l’interrupteur pour autoriser à nouveau la création, puis attendez la confirmation. Cela ne lance pas immédiatement une sauvegarde. Les points existants restent disponibles ; suspendre la création ne les supprime pas et ne bloque pas la restauration.
+
+Si le résultat est incertain, utilisez **Check status** et vérifiez d’abord la valeur actuelle. Modifier l’interrupteur à répétition ne résout pas une erreur de chargement de liste.

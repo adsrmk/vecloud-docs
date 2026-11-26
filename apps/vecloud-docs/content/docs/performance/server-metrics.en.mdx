@@ -1,0 +1,43 @@
+---
+title: Dedicated server metrics
+description: Review load, uptime and hardware for the dedicated server assigned to your subscription.
+icon: Server
+---
+
+**Server metrics** shows how your assigned dedicated server performs. It is a read-only server overview alongside [resource usage for an individual website](./resources.mdx).
+
+## When is access available?
+
+The option appears under **Hosting** when your organisation has an active, unsuspended dedicated subscription. This may apply to an eligible Enterprise or Agency environment. The plan name alone is insufficient: the subscription and assigned server must belong to your current organisation.
+
+Is the option missing, or does it say **Server not linked yet**? Ask support to check your subscription and assignment. You do not need to configure a server IP, monitoring token or agent yourself.
+
+## Choose server and period
+
+1. Open **Server metrics** in the general sidebar.
+2. If several servers are assigned, choose the intended **Server**. Its name and IP help identify the environment.
+3. Choose **Last hour**, **24h**, **1w** or **1 month**. The default is 24 hours.
+4. Check **Last measurement** and status before interpreting the charts.
+
+The page refreshes about once a minute while the tab is visible.
+
+<PortalScreenshot name="server-metrics" alt="Dedicated server overview with CPU, memory, disk and uptime" caption="The server, documentation IP and all readings are fictitious. This overview does not expose internal administration controls." />
+
+## Read the measurements
+
+| Section | What it shows |
+| --- | --- |
+| CPU, Memory, Disk | Recent usage across the server. |
+| Resource utilization | CPU, memory and disk history. |
+| System load | System load over 1, 5 and 15 minutes. |
+| Disk I/O | Bytes read and written per second. |
+| Network throughput | Bytes received and sent per second. |
+| System information | Available system and hardware details. |
+
+These are server measurements. They do not identify one website as the cause. Compare peaks with website charts, traffic and the timing of updates or background tasks.
+
+## Uptime and missing readings
+
+**Health and uptime** shows available observations for the past 180 days. A day without readings remains unknown. The separate **Uptime** value is time since the system last started; it differs from observed availability history.
+
+An empty chart, dash or old reading is not confirmed zero usage. Check the period and measurement time and use **Try again** after a loading error. If it persists, send support the server name, period and message. This section has no restart, firewall or configuration controls.

@@ -1,0 +1,43 @@
+---
+title: Servermetrics voor dedicated hosting
+description: Bekijk belasting, uptime en hardware van de dedicated server die aan je abonnement is gekoppeld.
+icon: Server
+---
+
+Met **Server metrics** bekijk je hoe je toegewezen dedicated server presteert. Dit is een leesoverzicht van de serveromgeving, naast het [resourcegebruik van één website](./resources.mdx).
+
+## Wanneer heb je toegang?
+
+De optie verschijnt onder **Hosting** wanneer je organisatie een actief, niet-opgeschort dedicated abonnement heeft. Dat kan bij een passende Enterprise- of Agency-omgeving horen. Alleen die pakketnaam is niet voldoende: het abonnement en de toegewezen server moeten bij je huidige organisatie horen.
+
+Ontbreekt de optie of staat er **Server not linked yet**? Vraag support om je abonnement en serverkoppeling te controleren. Je hoeft zelf geen server-IP, monitoringtoken of agent in te stellen.
+
+## Server en periode kiezen
+
+1. Open **Server metrics** in de algemene zijbalk.
+2. Kies bij meerdere toegewezen servers de gewenste **Server**. Naam en IP-adres helpen om de juiste omgeving te herkennen.
+3. Kies **Last hour**, **24h**, **1w** of **1 month**. Standaard zie je 24 uur.
+4. Bekijk **Last measurement** en de status voordat je de grafieken interpreteert.
+
+De pagina ververst ongeveer eenmaal per minuut zolang het tabblad zichtbaar is.
+
+<PortalScreenshot name="server-metrics" alt="Dedicated-serveroverzicht met CPU, geheugen, schijf en uptime" caption="De server, het documentatie-IP en alle metingen zijn fictief. Het overzicht geeft geen toegang tot interne beheerfuncties." />
+
+## De metingen lezen
+
+| Onderdeel | Wat je bekijkt |
+| --- | --- |
+| CPU, Memory, Disk | Recent gebruik van de server als geheel. |
+| Resource utilization | Historie van CPU-, geheugen- en schijfgebruik. |
+| System load | Systeembelasting over 1, 5 en 15 minuten. |
+| Disk I/O | Gelezen en geschreven data per seconde. |
+| Network throughput | Ontvangen en verzonden data per seconde. |
+| System information | Beschikbare systeem- en hardwaregegevens. |
+
+Dit zijn servermetingen. Ze wijzen niet vanzelf één website als oorzaak aan. Vergelijk een piek met websitegrafieken, verkeer en het tijdstip van updates of achtergrondtaken.
+
+## Uptime en ontbrekende gegevens
+
+**Health and uptime** toont beschikbare waarnemingen over de afgelopen 180 dagen. Een dag zonder metingen blijft onbekend. De afzonderlijke **Uptime** geeft aan hoelang het systeem sinds de laatste start draait; dit is niet dezelfde waarde als de gemeten beschikbaarheidshistorie.
+
+Een lege grafiek, streepje of verouderde meting is geen bevestigd nulverbruik. Controleer periode en meettijd en gebruik **Try again** bij een laadfout. Blijft het probleem bestaan, stuur support de servernaam, periode en melding. Dit onderdeel biedt geen herstart-, firewall- of configuratieknoppen.

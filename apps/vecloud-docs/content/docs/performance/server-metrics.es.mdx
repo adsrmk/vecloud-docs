@@ -1,0 +1,43 @@
+---
+title: Métricas del servidor dedicado
+description: Consulta carga, disponibilidad y hardware del servidor dedicado asignado a tu suscripción.
+icon: Server
+---
+
+**Server metrics** muestra el rendimiento del servidor dedicado asignado. Es una vista de solo lectura del servidor, complementaria al [consumo de un sitio](./resources.mdx).
+
+## Cuándo está disponible
+
+La opción aparece en **Hosting** si tu organización tiene una suscripción dedicada activa y no suspendida. Puede corresponder a un entorno Enterprise o Agency compatible. El nombre del plan no basta: la suscripción y el servidor asignado deben pertenecer a la organización actual.
+
+¿Falta la opción o aparece **Server not linked yet**? Pide a soporte que revise la suscripción y la asignación. No tienes que configurar una IP, un token de monitorización ni un agente.
+
+## Elegir servidor y periodo
+
+1. Abre **Server metrics** en la barra lateral general.
+2. Si hay varios servidores, elige el **Server** adecuado. El nombre y la IP identifican el entorno.
+3. Elige **Last hour**, **24h**, **1w** o **1 month**. Se muestran 24 horas por defecto.
+4. Revisa **Last measurement** y el estado antes de interpretar las gráficas.
+
+La página se actualiza aproximadamente cada minuto mientras la pestaña está visible.
+
+<PortalScreenshot name="server-metrics" alt="Servidor dedicado con CPU, memoria, disco y disponibilidad" caption="El servidor, la IP de documentación y las mediciones son ficticios. No se muestran controles internos de administración." />
+
+## Interpretar las mediciones
+
+| Apartado | Qué muestra |
+| --- | --- |
+| CPU, Memory, Disk | Uso reciente del servidor completo. |
+| Resource utilization | Historial de CPU, memoria y disco. |
+| System load | Carga del sistema durante 1, 5 y 15 minutos. |
+| Disk I/O | Bytes leídos y escritos por segundo. |
+| Network throughput | Bytes recibidos y enviados por segundo. |
+| System information | Información de sistema y hardware disponible. |
+
+Son mediciones del servidor. No identifican por sí solas un sitio como causa. Compara los picos con las gráficas por sitio, el tráfico y los momentos de actualizaciones o tareas.
+
+## Disponibilidad y datos ausentes
+
+**Health and uptime** muestra las observaciones disponibles de los últimos 180 días. Un día sin mediciones permanece desconocido. **Uptime** indica el tiempo desde el último arranque; es distinto del historial de disponibilidad observada.
+
+Una gráfica vacía, un guion o una lectura antigua no confirman un consumo cero. Revisa periodo y hora y utiliza **Try again** si falla la carga. Si continúa, indica a soporte el servidor, periodo y mensaje. No hay controles de reinicio, cortafuegos o configuración en este apartado.

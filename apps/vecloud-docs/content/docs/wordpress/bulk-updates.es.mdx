@@ -1,0 +1,37 @@
+---
+title: Actualizar WordPress en lote
+description: Selecciona actualizaciones de varias instalaciones y revisa el resultado de cada componente.
+icon: RefreshCw
+---
+
+¿Gestionas varios sitios WordPress? **Overview → WordPress bulk update** permite preparar y actualizar plugins, temas y WordPress en conjunto. Utiliza los sitios accesibles según tu cuenta y permisos.
+
+La función debe estar visible y disponible en tu cuenta. Las instalaciones desactivadas o que no se puedan leer pueden quedar fuera. Una lista vacía no demuestra que todas se hayan comprobado por completo.
+
+## Preparar las actualizaciones
+
+Crea antes una [copia reciente de archivos y base de datos](../backups/index.mdx). La acción en lote no la crea automáticamente. Revisa la compatibilidad con PHP y otros componentes y prueba cambios importantes en staging cuando proceda. Elige un momento en el que puedas comprobar los sitios después.
+
+## Revisar la selección
+
+1. Utiliza **Check for updates** para una comprobación nueva. Una anterior puede reutilizarse durante un máximo de una hora.
+2. Abre **Plugins**, **Themes** o **Core**, o elige **Update all** para todas las categorías.
+3. Revisa los sitios y componentes seleccionados. Los disponibles de la categoría abierta ya están marcados.
+4. Busca un sitio o componente y filtra con **Update type**. Desmarca lo que quieras posponer.
+5. Revisa el número de **Start … updates** antes de confirmar.
+
+Buscar o cambiar el filtro no borra la selección anterior. La casilla de cabecera también puede seleccionar todos los resultados coincidentes, incluidos los que requieren desplazamiento. Comprueba la selección completa y el número del botón.
+
+<PortalScreenshot name="wordpress-bulk-update" alt="Selección de actualizaciones de WordPress, plugins y temas en dos sitios demo" caption="Update all abre primero esta selección. Las actualizaciones empiezan después de la acción de inicio independiente. Sitios y versiones son ficticios." />
+
+## Versiones y notas
+
+**Version** muestra la versión instalada. Pulsa un número azul de plugin o tema para leer las notas disponibles. Pueden faltar en software propio o comercial. La versión de WordPress no abre notas aquí. Consultarlas no inicia la actualización.
+
+## Progreso y resultado
+
+Puedes cerrar el diálogo y navegar dentro de la misma pestaña del panel. El progreso sigue abajo a la derecha; **View results** vuelve a abrir los resultados. Mantén la pestaña abierta y no la recargues durante el proceso. No es una tarea programada independiente de tu sesión del navegador.
+
+Revisa cada resultado: actualizado, ya actualizado, fallido o pendiente de comprobar. Un cambio incierto no se reintenta automáticamente. Comprueba primero la versión actual en **Apps → Toolkit**; las siguientes actualizaciones de esa instalación pueden haberse omitido.
+
+Prueba los sitios, formularios y pagos al terminar. Utiliza la [toolkit](./index.mdx), la [depuración](./debug.mdx) o la [restauración](../backups/restore.mdx) cuando sea necesario. Cerrar sesión o cambiar de cuenta detiene las actualizaciones en espera; revisa las acciones ya enviadas antes de empezar de nuevo.
