@@ -189,6 +189,15 @@ try {
     fr: 'restauration',
     de: 'Wiederherstellung',
   };
+  const frenchAuthentication = await (
+    await get('/api/search?query=authentification&locale=fr')
+  ).json();
+  assert.ok(
+    frenchAuthentication.some((result) =>
+      result.url.startsWith('/fr/docs/email/authentication'),
+    ),
+    'French search finds words after an apostrophe',
+  );
   for (const locale of locales) {
     assert.equal(counts[locale], defaultPages.length, locale + ' guide parity');
     const search = await (
