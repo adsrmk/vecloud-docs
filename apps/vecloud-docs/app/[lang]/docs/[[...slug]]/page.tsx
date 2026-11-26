@@ -22,8 +22,12 @@ export default async function Page(
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
+      <DocsTitle className="text-2xl font-semibold tracking-tight sm:text-3xl">
+        {page.data.title}
+      </DocsTitle>
+      <DocsDescription className="text-sm leading-5">
+        {page.data.description}
+      </DocsDescription>
       <DocsBody>
         <MDX
           components={getMDXComponents({

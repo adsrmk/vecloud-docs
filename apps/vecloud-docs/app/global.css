@@ -78,6 +78,59 @@
   gap: 8px;
   font-size: 14px;
 }
+.prose {
+  --tw-prose-size: 0.875;
+  font-size: 14px;
+  line-height: 20px;
+}
+.prose :where(h2):not(:where(.not-prose, .not-prose *)),
+[data-card] > h3 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+.prose :where(h3, h4, h5, h6):not(:where(.not-prose, .not-prose *)) {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 500;
+  letter-spacing: normal;
+}
+.prose :where(strong):not(:where(.not-prose, .not-prose *)) {
+  font-weight: 700;
+}
+.prose :where(table) {
+  font-size: 14px;
+  line-height: 1.25;
+}
+.prose :where(code, pre) {
+  font-size: 14px;
+  line-height: 20px;
+}
+button {
+  font-weight: 500;
+}
+#fd-search-dialog-content input {
+  font-size: 16px;
+  line-height: 24px;
+}
+@media (min-width: 768px) {
+  #fd-search-dialog-content input {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+:is(#nd-sidebar, #nd-sidebar-mobile) button {
+  font-weight: 400;
+}
+:is(#nd-sidebar, #nd-sidebar-mobile) [data-active='true'] {
+  font-weight: 500;
+}
+:is(#nd-sidebar, #nd-sidebar-mobile) p {
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
 .prose p a,
 .prose li a {
   color: var(--color-fd-primary);
@@ -103,8 +156,8 @@
 .portal-screenshot figcaption {
   margin-top: 10px;
   color: var(--color-fd-muted-foreground);
-  font-size: 13px;
-  line-height: 1.6;
+  font-size: 12px;
+  line-height: 16px;
 }
 html {
   scrollbar-gutter: stable;
