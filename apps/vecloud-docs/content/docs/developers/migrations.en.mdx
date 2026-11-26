@@ -1,33 +1,25 @@
 ---
-title: Server migrations for administrators
-description: Move eligible website roles between assigned servers and follow each job separately.
+title: Coordinate a server move
+description: Understand what to prepare and check when veCloud moves your hosting environment.
 icon: ArrowRightLeft
 ---
 
-A server move changes where an existing website is hosted. This guide helps authorized administrators prepare the destination and check the outcome for each affected component.
+An internal server move relocates the hosting environment within veCloud. veCloud plans and performs it; customers do not select a destination server or start an internal migration job.
 
-<PortalScreenshot name="server-migration" alt="Select a website and destination before starting a server migration." caption="Select a website and destination before starting a server migration." />
+Bringing a website from another hosting provider to veCloud? Follow [Move a WordPress website](../wordpress/migrate.mdx) or discuss your application with support.
 
-## Availability and purpose
+## Agree on the preparation
 
-Server migrations are restricted to authorised administrators of the master organisation. This is not an import wizard for an arbitrary external hosting provider. Ordinary customer accounts cannot use it to attach new servers. Ask an administrator or support to arrange a required move.
+Discuss the domain, reason for the move and suitable timing with support. Mention whether the website accepts orders, runs background jobs or connects to external services that allow specific IP addresses.
 
-## Prepare a migration
+Agree whether and when to pause content changes. Keep important data and ask for confirmation of the recent backup available before the move. An older recovery point may not include recent changes.
 
-Open **Server migrations** through the available administration action and choose **Select websites**. The website’s **Move server** action can preselect it. Filter by domain, source server and role if needed.
+## During the move
 
-Select websites and choose a destination for each available role: application, MySQL, email, backup or PostgreSQL. Unchanged roles stay on their current server. The destination must provide the role and be available. Some roles of management websites cannot be moved.
+Follow the arrangements with support. Availability and management tools may be interrupted temporarily. Do not start a restore or a second move to speed things up. Contact support for internal progress and server logs.
 
-Before starting, check backups and effects on availability, application connections and external DNS. The interface warns when a source server is decommissioned: recovery then uses the latest available backup, which may not include the newest changes.
+## Check after confirmation
 
-## Start and follow progress
+Test the public website, administration area, forms and any payments. Also check database connections, email and [backup access](../backups/index.mdx) for the services that moved.
 
-Choose **Start migration**, check the website-role count and confirm. The limit is one hundred website roles per request, not one hundred websites with unlimited roles. Related administration tools may temporarily be unavailable during a move.
-
-Follow the session in the overview. Individual jobs show queued, in-progress, failed or complete states. Open the appropriate group and job log. A successful start does not confirm that all roles finished; check partial outcomes per role.
-
-## Errors or missing confirmation
-
-Inspect the overview and logs before starting again. Do not restart already submitted roles from an old selection. Retain error, time, website, role and destination for support.
-
-After completion, test the website, database connections, email and backup access. Check DNS if a required public address changed. A server migration differs from [ownership transfer](../websites/ownership.mdx) or [plan reassignment](../websites/package.mdx).
+If a public address changes, agree with support which external DNS records or IP permissions need updating. Report problems with the domain, time and exact error so they can be investigated directly.

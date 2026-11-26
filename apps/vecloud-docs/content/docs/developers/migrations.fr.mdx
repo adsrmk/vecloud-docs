@@ -1,33 +1,25 @@
 ---
-title: Migrations de serveur pour administrateurs
-description: Déplacez les rôles éligibles entre serveurs et suivez chaque tâche.
+title: Préparer un déplacement de serveur
+description: Préparez et vérifiez votre site lorsque veCloud déplace son environnement d’hébergement.
 icon: ArrowRightLeft
 ---
 
-Un déplacement de serveur change l’emplacement d’hébergement d’un site existant. Ce guide aide les administrateurs autorisés à préparer la destination et à vérifier chaque composant concerné.
+Un déplacement interne change le serveur d’hébergement au sein de veCloud. veCloud le planifie et l’exécute ; vous ne sélectionnez pas de serveur cible et ne lancez pas de tâche de migration interne.
 
-<PortalScreenshot name="server-migration" alt="Choisir un site et un serveur de destination avant de démarrer la migration." caption="Choisir un site et un serveur de destination avant de démarrer la migration." />
+Vous souhaitez venir d’un autre hébergeur ? Suivez [Migrer un site WordPress](../wordpress/migrate.mdx) ou présentez votre application au support.
 
-## Disponibilité et objectif
+## Préparer l’intervention
 
-La migration est réservée aux administrateurs autorisés de l’organisation principale. Ce n’est pas un assistant d’import depuis un hébergeur externe quelconque. Les comptes clients ordinaires ne peuvent pas y raccorder de serveurs. Faites organiser le déplacement par l’administrateur ou le support.
+Discutez avec le support du domaine, du motif et d’un moment approprié. Précisez si le site reçoit des commandes, exécute des tâches en arrière-plan ou utilise des services externes autorisant certaines adresses IP.
 
-## Préparer la migration
+Convenez d’une éventuelle pause des modifications de contenu. Conservez les données importantes et faites confirmer la sauvegarde récente disponible avant l’intervention. Un point de restauration plus ancien peut ne pas contenir les derniers changements.
 
-Ouvrez **Server migrations** depuis l’action administrative disponible, puis **Select websites**. **Move server** peut présélectionner un site. Filtrez par domaine, serveur source et rôle.
+## Pendant le déplacement
 
-Choisissez les sites et un serveur cible par rôle disponible : application, MySQL, e-mail, sauvegarde ou PostgreSQL. Les rôles inchangés restent sur place. La cible doit proposer le rôle et être disponible. Certains rôles des sites d’administration ne peuvent pas être déplacés.
+Suivez les dispositions convenues avec le support. La disponibilité et les outils de gestion peuvent être temporairement interrompus. Ne lancez ni restauration ni second transfert pour accélérer l’opération. Adressez-vous au support pour le suivi interne et les journaux serveur.
 
-Vérifiez sauvegardes, disponibilité, connexions et DNS externe avant le départ. Si la source est hors service, l’interface avertit que la récupération utilise la dernière sauvegarde disponible, pas nécessairement les modifications les plus récentes.
+## Vérifier après confirmation
 
-## Démarrer et suivre
+Testez le site public, l’administration, les formulaires et les paiements. Vérifiez aussi les connexions aux bases, les e-mails et l’[accès aux sauvegardes](../backups/index.mdx) des services déplacés.
 
-Sélectionnez **Start migration**, vérifiez le nombre de rôles et confirmez. La limite est de cent rôles par demande, pas cent sites avec un nombre illimité de rôles. Les outils associés peuvent être temporairement indisponibles.
-
-Suivez la session dans l’aperçu. Chaque tâche peut être en file, active, échouée ou terminée. Ouvrez groupe et journal correspondants. Un démarrage réussi ne confirme pas la fin de tous les rôles ; contrôlez les résultats partiels.
-
-## Erreur ou absence de confirmation
-
-Consultez aperçu et journaux avant de relancer. Ne redémarrez pas des rôles déjà soumis depuis une ancienne sélection. Conservez erreur, heure, site, rôle et destination pour le support.
-
-Après achèvement, testez site, bases, e-mail et sauvegardes. Vérifiez le DNS si une adresse publique nécessaire change. Cela diffère d’un [transfert de propriété](../websites/ownership.mdx) ou [changement d’offre](../websites/package.mdx).
+Si une adresse publique change, convenez avec le support des enregistrements DNS externes ou autorisations IP à adapter. Signalez tout problème avec le domaine, l’heure et le message exact pour faciliter son analyse.

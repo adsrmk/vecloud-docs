@@ -1,42 +1,21 @@
 ---
-title: Configuration VirtualHost
-description: Gérez les directives propres au domaine et évitez les modifications concurrentes.
+title: Demander des règles de serveur web
+description: Utilisez les fonctions du site ou discutez de règles supplémentaires avec le support.
 icon: FileCode
 ---
 
-Certaines applications demandent des règles web supplémentaires. Vérifiez d’abord si le panel propose un réglage dédié, puis utilisez la configuration libre pour les besoins restants.
+Une application peut nécessiter une règle particulière du serveur web. veCloud gère la configuration VirtualHost personnalisée ; vous n’avez pas à ouvrir un éditeur interne.
 
-## Quand l’utiliser
+## Commencer par les fonctions du site
 
-Utilisez [Redirects](../dns-ssl/redirects.mdx) pour les redirections, [IP deny](../dns-ssl/ip-deny.mdx) pour les blocages et [Optimization](../performance/cache.mdx) pour le cache. VirtualHost sert aux directives supplémentaires requises par l’application.
+Utilisez [Redirects](../dns-ssl/redirects.mdx) pour les redirections, [IP deny](../dns-ssl/ip-deny.mdx) pour les blocages et [Optimization](../performance/cache.mdx) pour le cache. Ces pages permettent de gérer vous-même les réglages pris en charge.
 
-Ouvrez **Domains → votre site → Overview → Website actions → Manage overrides**. Dans **VirtualHost configuration**, ouvrez le menu du domaine voulu et **Edit configuration**. Cette fonction nécessite les droits adaptés.
+## Demander une règle supplémentaire
 
-<PortalScreenshot
-  name="vhost-editor"
-  alt="Ouvrez la configuration VirtualHost du domaine sélectionné depuis son menu d’actions."
-  caption="Ouvrez la configuration VirtualHost du domaine sélectionné depuis son menu d’actions."
-/>
+Précisez au support le domaine, le chemin URL et le résultat attendu. Décrivez le comportement actuel et souhaité et, si possible, joignez un lien vers les exigences de configuration de l’application. Un exemple de requête aide à vérifier le résultat.
 
-## Enregistrer une modification
+Une configuration Nginx globale n’est pas forcément adaptée à un seul site. Laissez veCloud vérifier sa compatibilité avec les redirections, la sécurité et le cache existants. Ne partagez pas de fichiers contenant des mots de passe ou des clés.
 
-1. Vérifiez le domaine et conservez la configuration propre actuelle.
-2. Ajoutez uniquement des directives valides dans ce contexte VirtualHost. Ne collez pas une configuration globale complète.
-3. Sélectionnez **Save** et attendez la confirmation.
-4. Rouvrez la configuration et testez site, redirections et règles de sécurité.
+## Après la modification
 
-<Callout type="warn" title="Une syntaxe invalide peut perturber le serveur web">
-Une faute ou directive invalide peut rendre le site indisponible. Testez dans un environnement approprié et conservez l’original restaurable. Enregistrer n’est pas un test fonctionnel complet de l’application.
-</Callout>
-
-## Conserver les règles gérées
-
-Les règles du portail pour IP deny et les redirections compatibles ont des fonctions distinctes. Modifiez-les depuis leurs pages. Le portail conserve les blocages Nginx gérés lors de l’enregistrement libre ; les modifier manuellement ne retire pas fiablement un blocage.
-
-## Rétablir les valeurs par défaut
-
-**Reset to default** supprime la configuration libre propre au domaine après confirmation. Des règles gérées peuvent rester. Cette action ne désactive pas tous les blocages ou redirections et ne restaure ni fichiers ni bases.
-
-## Modification encore en cours
-
-Attendez, puis utilisez **Check status**. En cas de conflit de révision, ouvrez la version actuelle et appliquez-y le changement voulu. N’écrasez pas à nouveau depuis une ancienne version sans contrôle. Évitez les modifications simultanées depuis plusieurs fenêtres ou outils.
+Convenez d’un moment pour tester. Après confirmation, vérifiez les pages, formulaires et redirections concernés. Si le résultat diffère de ce qui était prévu, indiquez l’URL exacte, l’heure et l’erreur. Demandez au support de vérifier ou d’annuler le changement ; évitez de modifier plusieurs réglages liés en même temps.

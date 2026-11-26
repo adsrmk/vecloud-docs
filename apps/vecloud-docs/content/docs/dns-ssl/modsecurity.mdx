@@ -8,31 +8,16 @@ icon: ShieldCheck
 ModSecurity is binnen veCloud sinds **mei 2026** uitgefaseerd en wordt niet meer toegepast. Aanleiding hiervoor zijn compatibiliteitsproblemen, waaronder ongewenste blokkades van interne WordPress-verzoeken en verstoringen van websitefunctionaliteit. Deze handleiding blijft beschikbaar als referentie voor bestaande configuraties.
 </Callout>
 
-ModSecurity is een applicatiefirewall die websiteverzoeken aan beveiligingsregels toetst. Bij onverwacht geblokkeerde formulieren of beheeracties helpt een gerichte controle om de oorzaak te vinden. Lees meer bij het [ModSecurity-project](https://owasp.org/www-project-modsecurity/).
+Kom je ModSecurity nog tegen in een oude handleiding of melding? Het gaat om een vroegere applicatiefirewall. Je hoeft deze functie niet in te schakelen of instellingen ervan te wijzigen om je website te gebruiken.
 
-## Controleer of de functie beschikbaar is
+## Een verzoek wordt geblokkeerd
 
-Open **Domains → je website → SSL certificates**. Het blok **ModSecurity** verschijnt wanneer deze functie voor de website beschikbaar is. Het bevat een schakelaar per domein. Ontbreekt het blok, laat support dan controleren welke bescherming bij de huidige omgeving hoort.
+Een `403`-antwoord wijst niet automatisch op ModSecurity. Ook applicatierechten, [bestandsrechten](../files/permissions.mdx), [IP deny](./ip-deny.mdx) of een externe proxy kunnen toegang beperken.
 
-Dit staat los van de certificaatstatus en **Enforce HTTPS**. Voor adresblokkades gebruik je [IP deny](./ip-deny.mdx), wanneer die functie beschikbaar is.
+Controleer bij welke URL en handeling het gebeurt en of andere pagina’s wel werken. Herhaal de handeling alleen als dat geen dubbele bestelling of andere ongewenste wijziging veroorzaakt.
 
-## Een instelling wijzigen
+## Support laten meekijken
 
-1. Zoek de rij van het bedoelde domein. Let bij meerdere domeinen op de volledige naam.
-2. Controleer de huidige stand voordat je de schakelaar wijzigt.
-3. Wacht op de bevestiging; lees bij een onduidelijke fout de actuele stand opnieuw voordat je nogmaals schakelt.
-4. Test de normale websitehandeling die je wilde controleren.
+Vermeld je domein, de exacte URL, het tijdstip met tijdzone en de foutmelding. Geef aan of het bijvoorbeeld om een formulier, WordPress-beheeractie of intern verzoek gaat. Stuur alleen relevante logregels en deel geen wachtwoorden, tokens of gevoelige formulierinhoud.
 
-De instelling geldt voor het gekozen domein. Controleer relevante andere domeinen afzonderlijk; ga niet uit van een wijziging voor alle aliassen.
-
-## Een mogelijke onterechte blokkade onderzoeken
-
-Een `403`-antwoord kan ook door applicatierechten, bestandsrechten of een IP-regel ontstaan. Noteer daarom de exacte URL, het tijdstip met tijdzone, de foutmelding en wat je deed, bijvoorbeeld een formulier opslaan.
-
-Herhaal de handeling alleen wanneer dat geen dubbele bestelling of andere ongewenste wijziging veroorzaakt. Controleer of het probleem één pad of account treft en of [IP deny](./ip-deny.mdx) of [bestandsrechten](../files/permissions.mdx) het kunnen verklaren.
-
-Vraag support om de bijbehorende beveiligingsmelding en eventuele gerichte uitzondering te beoordelen. De [PHP-foutenlog](../developers/logs.mdx) is geen volledige ModSecurity-auditlog. Geef geen wachtwoord, token of gevoelige formulierinhoud mee.
-
-## Na onderzoek
-
-Laat een eventuele tijdelijke wijziging niet ongemerkt staan. Controleer de bedoelde beveiligingsstand en test de betrokken functie opnieuw. Een uitgeschakelde firewall herstelt de onderliggende applicatieoorzaak niet.
+De [PHP-foutenlog](../developers/logs.mdx) kan aanvullende context geven, maar is geen volledig overzicht van toegangsblokkades. Laat support de oorzaak onderzoeken en controleer daarna opnieuw de betrokken websitefunctie.

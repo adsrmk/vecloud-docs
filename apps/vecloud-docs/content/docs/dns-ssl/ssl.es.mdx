@@ -41,6 +41,6 @@ Si el panel indica que no pudo confirmar el cambio de seguridad, no pudo determi
 
 ## Otras opciones de seguridad
 
-Según el servidor web, puede aparecer **ModSecurity** con un interruptor por dominio. No lo desactives para ocultar un fallo de la aplicación; investiga primero la petición bloqueada. Los bloqueos de Nginx se gestionan en [IP deny](./ip-deny.mdx). En Apache, esta página SSL puede mostrar controles independientes de acceso por IP.
+ModSecurity dejó de utilizarse en veCloud en **mayo de 2026**. Utiliza [IP deny](./ip-deny.mdx) para bloqueos en Nginx. En Apache pueden estar disponibles controles de acceso IP independientes.
 
-Para posibles falsos positivos, consulta [ModSecurity y solicitudes bloqueadas](./modsecurity.mdx).
+Para entender mensajes antiguos o investigar peticiones bloqueadas, consulta [ModSecurity y peticiones bloqueadas](./modsecurity.mdx).

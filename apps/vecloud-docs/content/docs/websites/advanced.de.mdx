@@ -1,39 +1,27 @@
 ---
-title: Erweiterte Website-Einstellungen
-description: Prüfe Überschreibungen, PHP-FPM und Limits mit passenden Verwaltungsrechten.
+title: Zusätzliche Hostingeinstellungen anfragen
+description: Erfahre, was du selbst ändern kannst und welche Hostinganpassungen veCloud prüft.
 icon: Settings2
 ---
 
-Manche Websites benötigen Einstellungen, die vom Hostingtarif abweichen. Mit Overrides können berechtigte Administratoren diese Werte gezielt für eine einzelne Website anpassen.
+Benötigt deine Anwendung mehr Kapazität oder eine besondere Hostingeinstellung? Prüfe zuerst die tatsächliche Nutzung. So kannst du gezielt entscheiden, ob eine Anwendungsanpassung oder Unterstützung durch veCloud sinnvoll ist.
 
-## Überschreibungen öffnen
+## Was du selbst verwalten kannst
 
-Öffne die Website über **Domains**, gehe zu **Overview** und öffne das Drei-Punkte-Menü der Website-Aktionen. Wähle **Manage overrides**. Dafür brauchst du eine berechtigte Verwaltungsrolle wie Owner oder Superadmin. Ein Collaborator besitzt diese Möglichkeiten nicht automatisch.
+Unter [Developer tools → PHP](../developers/php.mdx) verwaltest du verfügbare PHP-Versionen, Erweiterungen und, falls dein Paket es erlaubt, INI-Einstellungen. Betrachte [Analytics → Resource usage](../performance/resources.mdx) über einen passenden Zeitraum, um die Last einzuordnen.
 
-Die Seite enthält Backups, PHP-FPM, Systemressourcen und [VirtualHost-Konfiguration](../developers/vhost.mdx). Sichtbare Werte sind nicht zwangsläufig für dich änderbar.
+## Was veCloud verwaltet
 
-<PortalScreenshot
-  name="website-overrides"
-  alt="Erweiterte Einstellungen mit beschränkten Rechten"
-  caption="Erweiterte Einstellungen mit beschränkten Rechten"
-/>
+veCloud verwaltet PHP-FPM-, System- und Festplattenlimits, die Backupvorgaben und die eigene [VirtualHost-Konfiguration](../developers/vhost.mdx). Die interne Seite **Manage overrides** ist keine Kundenfunktion. Auch als **Owner** eines Kundenkontos verwaltest du nicht die Hostinginfrastruktur.
 
-## PHP-FPM-Einstellungen
+PHP-FPM steuert PHP-Prozesse. Das unterscheidet sich von einer INI-Einstellung wie `memory_limit` und vom Gesamtspeicher deiner Websiteumgebung. Mehr Speicher für PHP erhöht diese Gesamtgrenze nicht.
 
-Füge eine Direktive hinzu oder bearbeite einen Wert. Eigene Werte überschreiben die geerbte Einstellung dieser Website. Lösche die Überschreibung, um den geerbten Wert wiederherzustellen. Bewahre das Original auf und prüfe danach die Anwendung.
+## Eine Anpassung besprechen
 
-PHP-FPM steuert PHP-Prozesse. Das unterscheidet sich vom [PHP-INI-Editor](../developers/php.mdx), etwa `memory_limit`, und von gesamten Containergrenzen. Erhöhe nicht mehrere Limits gleichzeitig ohne Prüfung der Messwerte.
+Nenne dem Support die Domain, das gewünschte Verhalten und das zu lösende Problem. Ergänze Zeitpunkt mit Zeitzone, relevante Ressourcengrafiken und Anforderungen der Anwendung. Teile nur nötige Logzeilen ohne Passwörter oder Tokens.
 
-## System- und Datenträgerlimits
+veCloud prüft, welche Anpassung zur Umgebung passt. Stimme mögliche Auswirkungen und einen geeigneten Zeitpunkt ab. Teste nach der Bestätigung die betroffene Websitefunktion und vergleiche bei Bedarf die Nutzung erneut.
 
-Nur die Hauptorganisation darf sie ändern. Angezeigt werden können Speicher, Swap, vCPUs, IOPS, I/O-Bandbreite und Prozesszahl. Speicherplatz und Inodes sind getrennt: Viele kleine Dateien können Inodes verbrauchen, obwohl Platz frei bleibt.
+## Ein Backup fehlt
 
-Beachte die Einheit am Feld, etwa MB oder MB/s. Ohne spezifisches Limit ist die physische Kapazität nicht unendlich. Kundenkonten wenden sich für Änderungen an Verwaltung oder Support. Prüfe vorher die [Ressourcennutzung](../performance/resources.mdx).
-
-## Backups deaktivieren
-
-Auch **Disable backups** ist nur durch die Hauptorganisation änderbar. Aktiviert stoppt diese Überschreibung automatische und manuelle Website- und E-Mail-Backups für Enhance und S3. Nutze sie nicht gegen vorübergehende Ladefehler der Backupliste.
-
-## Ungewisse Änderung
-
-Nutze bei fehlender Bestätigung **Check status**. Lies vor erneutem Speichern den aktuellen Wert und bearbeite die Konfiguration nicht parallel in mehreren Fenstern.
+Folge der [Backup-Fehlersuche](../backups/troubleshooting.mdx). Eine geänderte Backupvorgabe behebt keinen Ladefehler. Bitte den Support um Prüfung, wenn erwartete Wiederherstellungspunkte fehlen.

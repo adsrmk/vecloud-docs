@@ -1,39 +1,27 @@
 ---
-title: Geavanceerde website-instellingen
-description: Bekijk overrides, PHP-FPM en resourcegrenzen met de juiste beheerrechten.
+title: Extra hostinginstellingen aanvragen
+description: Lees wat je zelf kunt aanpassen en wanneer veCloud een hostingwijziging voor je beoordeelt.
 icon: Settings2
 ---
 
-Soms vraagt een website om instellingen die afwijken van het standaardpakket. Overrides geven bevoegde beheerders ruimte om die instellingen gericht voor één website aan te passen.
+Heeft je applicatie meer capaciteit of een afwijkende hostinginstelling nodig? Begin bij wat je website werkelijk gebruikt. Zo kun je gericht bepalen of een applicatieaanpassing of hulp van veCloud nodig is.
 
-## Overrides openen
+## Wat je zelf kunt aanpassen
 
-Open je website via **Domains**, ga naar **Overview** en open het menu met drie punten bij de websiteacties. Kies **Manage overrides**. Deze beheeracties vereisen een bevoegde beheerrol, zoals Owner of Superadmin. Een Collaborator heeft niet automatisch dezelfde mogelijkheden.
+Via [Developer tools → PHP](../developers/php.mdx) beheer je de beschikbare PHP-versie, extensies en, als je pakket dit toestaat, INI-instellingen. Gebruik [Analytics → Resource usage](../performance/resources.mdx) om de belasting over een passende periode te bekijken.
 
-De pagina bevat websiteback-ups, PHP-FPM, systeemresources en [VirtualHost-configuratie](../developers/vhost.mdx). Zichtbare waarden betekenen niet dat je ze allemaal mag wijzigen.
+## Wat veCloud beheert
 
-<PortalScreenshot
-  name="website-overrides"
-  alt="Geavanceerde instellingen met beperkte beheerrechten"
-  caption="Geavanceerde instellingen met beperkte beheerrechten"
-/>
+PHP-FPM-limieten, systeem- en schijfgrenzen, back-upbeleid en vrije [VirtualHost-configuratie](../developers/vhost.mdx) worden door veCloud beheerd. De interne pagina **Manage overrides** is geen klantfunctie. Ook **Owner** van een klantaccount betekent niet dat je de hostinginfrastructuur beheert.
 
-## PHP-FPM-instellingen
+PHP-FPM regelt de afhandeling van PHP-processen. Dit is iets anders dan een INI-waarde zoals `memory_limit` of het totale geheugen van je websiteomgeving. Meer geheugen aan PHP toewijzen verhoogt die totale grens niet.
 
-Voeg een richtlijn toe of bewerk een bestaande waarde. Een eigen waarde overschrijft de overgeërfde instelling voor deze website. Verwijder een eigen override om terug te gaan naar de overgeërfde waarde. Bewaar de oorspronkelijke waarde en controleer de applicatie na opslaan.
+## Een aanpassing bespreken
 
-PHP-FPM-instellingen regelen de PHP-procesafhandeling. Ze zijn niet hetzelfde als de [PHP INI editor](../developers/php.mdx), bijvoorbeeld `memory_limit`, en ook niet hetzelfde als de totale containergrenzen. Verhoog niet meerdere limieten tegelijk zonder de gemeten belasting te bekijken.
+Neem contact op met support en vermeld je domein, de gewenste werking en het probleem dat je wilt oplossen. Voeg het tijdstip met tijdzone, relevante resourcegrafieken en de eisen van je applicatie toe. Deel alleen relevante logregels zonder wachtwoorden of tokens.
 
-## Systeem- en schijflimieten
+veCloud beoordeelt welke aanpassing bij je omgeving past. Stem eventuele gevolgen en een geschikt uitvoermoment af. Controleer na de bevestiging de betrokken websitefunctie en vergelijk zo nodig opnieuw het verbruik.
 
-Deze wijzigingen zijn alleen voor de hoofdorganisatie. De pagina kan geheugen, swap, virtuele CPU’s, IOPS, I/O-bandbreedte en procesaantal tonen. Schijfruimte en inodes zijn aparte grenzen: veel kleine bestanden kunnen de inodegrens bereiken terwijl er nog opslagruimte over is.
+## Een back-up ontbreekt
 
-Neem de eenheid bij elk veld over, zoals MB of MB/s. Een instelling zonder specifieke grens betekent geen oneindige fysieke servercapaciteit. Voor klantaccounts regel je een noodzakelijke aanpassing via de beheerder of support. Vergelijk eerst het [resourcegebruik](../performance/resources.mdx).
-
-## Back-ups uitschakelen
-
-De schakelaar **Disable backups** is eveneens alleen wijzigbaar door de hoofdorganisatie. Ingeschakeld stopt deze override automatische en handmatige website- en e-mailback-ups voor Enhance en S3. Gebruik hem niet als oplossing voor een tijdelijk laadprobleem van de back-uplijst.
-
-## Onzekere wijziging
-
-Gebruik **Check status** als een wijziging niet bevestigd is. Lees de actuele waarde voordat je opnieuw opslaat. Werk niet gelijktijdig met dezelfde configuratie in meerdere vensters.
+Volg [back-upproblemen onderzoeken](../backups/troubleshooting.mdx). Een laadfout los je niet op door het back-upbeleid te wijzigen. Vraag support om controle wanneer de verwachte herstelmomenten ontbreken.

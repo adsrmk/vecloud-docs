@@ -1,38 +1,23 @@
 ---
 title: ModSecurity et requêtes bloquées
-description: Informations historiques sur ModSecurity, retiré chez veCloud depuis mai 2026.
+description: Informations historiques sur ModSecurity, abandonné chez veCloud depuis mai 2026.
 icon: ShieldCheck
 ---
 
 <Callout type="warning" title="ModSecurity n’est plus utilisé chez veCloud">
-ModSecurity n’est plus utilisé chez veCloud depuis **mai 2026**. Cette décision fait suite à des problèmes de compatibilité, notamment le blocage involontaire de requêtes internes WordPress et des perturbations des fonctionnalités des sites. Ce guide est conservé à titre de référence pour les configurations existantes.
+ModSecurity n’est plus utilisé chez veCloud depuis **mai 2026** en raison de problèmes de compatibilité, notamment des blocages indésirables de requêtes internes WordPress et des perturbations du fonctionnement des sites. Ce guide reste disponible comme référence pour les configurations existantes.
 </Callout>
 
-ModSecurity est un pare-feu applicatif qui confronte les requêtes web à des règles de sécurité. Si des formulaires ou actions d’administration sont bloqués de façon inattendue, une vérification ciblée aide à trouver la cause. Voir le [projet ModSecurity](https://owasp.org/www-project-modsecurity/).
+ModSecurity apparaît encore dans un ancien guide ou message ? Il s’agit d’un pare-feu applicatif utilisé auparavant. Vous n’avez pas à l’activer ni à modifier ses paramètres pour utiliser votre site.
 
-## Vérifier la disponibilité
+## Une requête est bloquée
 
-Ouvrez **Domains → votre site → SSL certificates**. Le bloc **ModSecurity** apparaît lorsque la fonction est disponible et propose un commutateur par domaine. S’il manque, demandez au support quelle protection correspond à cet environnement.
+Une réponse `403` ne désigne pas automatiquement ModSecurity. Les droits de l’application, les [permissions des fichiers](../files/permissions.mdx), [IP deny](./ip-deny.mdx) ou un proxy externe peuvent aussi limiter l’accès.
 
-Ce réglage est distinct du certificat et de **Enforce HTTPS**. Pour bloquer des adresses, utilisez [IP deny](./ip-deny.mdx) lorsque cette fonction est disponible.
+Repérez l’URL et l’action concernées et vérifiez si les autres pages fonctionnent. Ne répétez l’action que si cela ne risque pas de créer une commande en double ou une autre modification indésirable.
 
-## Modifier un réglage
+## Demander l’aide du support
 
-1. Repérez la ligne du domaine voulu. Vérifiez le nom complet si plusieurs domaines sont présents.
-2. Examinez l’état actuel avant de changer le commutateur.
-3. Attendez la confirmation ; après une erreur ambiguë, rechargez l’état avant de changer à nouveau.
-4. Testez l’action ordinaire du site que vous vouliez vérifier.
+Indiquez le domaine, l’URL exacte, l’heure et le fuseau horaire, ainsi que le message d’erreur. Précisez s’il s’agit d’un formulaire, d’une action d’administration WordPress ou d’une requête interne. Ne partagez que les lignes utiles, sans mots de passe, jetons ou données sensibles de formulaire.
 
-Le réglage concerne le domaine choisi. Vérifiez les autres domaines séparément ; ne supposez pas que tous les alias ont changé avec lui.
-
-## Examiner un faux positif possible
-
-Une réponse `403` peut aussi provenir de droits applicatifs, de permissions de fichiers ou d’une règle IP. Notez l’URL exacte, l’heure avec fuseau, le message et l’action, par exemple enregistrer un formulaire.
-
-Répétez seulement si cela ne crée pas une seconde commande ou une autre modification indésirable. Vérifiez si une seule URL ou un seul compte est touché et si [IP deny](./ip-deny.mdx) ou les [permissions](../files/permissions.mdx) l’expliquent.
-
-Demandez au support d’examiner l’événement de sécurité et l’éventuelle pertinence d’une exception ciblée. Le [journal PHP](../developers/logs.mdx) n’est pas le journal d’audit complet de ModSecurity. Ne transmettez ni mot de passe, ni token, ni contenu sensible du formulaire.
-
-## Après l’examen
-
-Gardez la trace de toute modification temporaire. Confirmez l’état de sécurité voulu et testez à nouveau la fonction. Désactiver le pare-feu ne répare pas la cause applicative.
+Le [journal des erreurs PHP](../developers/logs.mdx) peut apporter du contexte, mais ne répertorie pas tous les blocages d’accès. Laissez le support rechercher la cause, puis testez à nouveau la fonction concernée.

@@ -1,33 +1,25 @@
 ---
-title: Servermigrationen für Administratoren
-description: Verschiebe geeignete Website-Rollen zwischen Servern und verfolge jeden Auftrag.
+title: Einen Serverumzug abstimmen
+description: Erfahre, was du vorbereitest und prüfst, wenn veCloud deine Hostingumgebung verlegt.
 icon: ArrowRightLeft
 ---
 
-Bei einem Serverumzug ändert sich der Hostingstandort einer bestehenden Website. Diese Anleitung unterstützt berechtigte Administratoren bei der Vorbereitung des Ziels und der Prüfung der betroffenen Bestandteile.
+Bei einem internen Serverumzug wechselt die Hostingumgebung innerhalb von veCloud. veCloud plant und erledigt dies; als Kunde wählst du keinen Zielserver und startest keinen internen Migrationsauftrag.
 
-<PortalScreenshot name="server-migration" alt="Website und Zielserver vor dem Start der Migration auswählen." caption="Website und Zielserver vor dem Start der Migration auswählen." />
+Möchtest du von einem anderen Hoster zu veCloud wechseln? Folge [WordPress umziehen](../wordpress/migrate.mdx) oder besprich deine Anwendung mit dem Support.
 
-## Verfügbarkeit und Zweck
+## Vorbereitung abstimmen
 
-Servermigrationen sind berechtigten Administratoren der Hauptorganisation vorbehalten. Das ist kein Importassistent für beliebige externe Hoster. Normale Kundenkonten können damit keine neuen Server anschließen. Lass einen nötigen Umzug durch Verwaltung oder Support organisieren.
+Besprich Domain, Anlass und einen geeigneten Zeitpunkt mit dem Support. Erwähne, ob die Website Bestellungen verarbeitet, Hintergrundaufgaben ausführt oder externe Dienste mit Freigaben für bestimmte IP-Adressen nutzt.
 
-## Migration vorbereiten
+Vereinbare, ob und wann Inhaltsänderungen pausieren sollen. Sichere wichtige Daten und lass vorher das verfügbare aktuelle Backup bestätigen. Ein älterer Wiederherstellungspunkt kann neuere Änderungen auslassen.
 
-Öffne über die verfügbare Verwaltungsaktion **Server migrations** und **Select websites**. **Move server** kann eine Website vorwählen. Filtere nach Domain, Quellserver und Rolle.
+## Während des Umzugs
 
-Wähle Websites und je verfügbarer Rolle ein Ziel: Anwendung, MySQL, E-Mail, Backup oder PostgreSQL. Unveränderte Rollen bleiben auf ihrem Server. Das Ziel muss die Rolle anbieten und verfügbar sein. Einige Rollen von Verwaltungswebsites sind nicht verschiebbar.
+Halte dich an die Absprachen mit dem Support. Erreichbarkeit und Verwaltungswerkzeuge können zeitweise unterbrochen sein. Starte weder eine Wiederherstellung noch einen zweiten Umzug, um den Vorgang zu beschleunigen. Interne Fortschritte und Serverlogs erfragst du beim Support.
 
-Prüfe vorher Backups, Erreichbarkeit, Verbindungen und externes DNS. Bei einer stillgelegten Quelle warnt die Oberfläche: Die Wiederherstellung nutzt das letzte verfügbare Backup, das nicht zwingend neueste Änderungen enthält.
+## Nach der Bestätigung prüfen
 
-## Starten und verfolgen
+Teste öffentliche Website, Administration, Formulare und Zahlungen. Prüfe für die umgezogenen Dienste auch Datenbankverbindungen, E-Mail und den [Backupzugriff](../backups/index.mdx).
 
-Wähle **Start migration**, prüfe die Rollenanzahl und bestätige. Das Limit beträgt hundert Website-Rollen je Anfrage, nicht hundert Websites mit beliebig vielen Rollen. Betroffene Verwaltungswerkzeuge können vorübergehend nicht verfügbar sein.
-
-Verfolge danach die Sitzung im Überblick. Einzelaufträge sind wartend, aktiv, fehlgeschlagen oder abgeschlossen. Öffne passende Gruppe und Aufgabenlog. Ein erfolgreicher Start bestätigt nicht den Abschluss aller Rollen; prüfe Teilergebnisse einzeln.
-
-## Fehler oder fehlende Bestätigung
-
-Prüfe Überblick und Logs vor erneutem Start. Starte bereits übermittelte Rollen nicht aus einer alten Auswahl erneut. Bewahre Fehler, Zeit, Website, Rolle und Ziel für den Support auf.
-
-Teste nach Abschluss Website, Datenbankverbindungen, E-Mail und Backupzugriff. Prüfe DNS bei geänderter benötigter öffentlicher Adresse. Das ist getrennt von [Eigentumsübertragung](../websites/ownership.mdx) oder [Paketwechsel](../websites/package.mdx).
+Ändert sich eine öffentliche Adresse, kläre mit dem Support, welche externen DNS-Einträge oder IP-Freigaben angepasst werden müssen. Melde Probleme mit Domain, Zeitpunkt und genauem Fehlertext, damit sie gezielt untersucht werden können.

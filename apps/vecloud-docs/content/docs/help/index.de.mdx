@@ -29,11 +29,13 @@ Notiere genaue Meldung und Zeitpunkt und lade die aktuellen Daten neu. Der allge
 
 Timeout oder fehlende Bestätigung können ein ungewisses Ergebnis bedeuten. Der Dienst kann die Änderung bereits erhalten haben. Lade Liste oder Konfiguration neu, bevor du erneut hinzufügst, löschst oder einen Restore startest.
 
-Läuft eine VirtualHost-Änderung, lass sie abschließen und prüfe den Stand. Erzwinge dieselbe Änderung nicht aus mehreren Fenstern. Prüfe vor einem Restore, ob bereits einer läuft.
+Meldet IP deny oder eine andere Websiteaktion eine laufende VirtualHost-Änderung? Aktualisiere zuerst die betroffene Seite und prüfe die aktuelle Liste. Bleibt die Meldung bestehen, sende sie an den Support; veCloud verwaltet die interne Webserverkonfiguration. Prüfe vor einem Restore, ob bereits einer läuft.
 
 ## Einstellung fehlt
 
 Die Verfügbarkeit hängt von Rolle, Paket, Webserver und zugewiesenen Diensten ab. Eine verborgene oder deaktivierte Option ist nicht automatisch ein Ladefehler. Prüfe Rechte und Dienste der Website; frage bei Bedarf Eigentümer oder Support.
+
+Für PHP-FPM-Limits, Ressourcengrenzen und andere interne Hostingeinstellungen [besprich die Anpassung mit dem Support](../websites/advanced.mdx). Der Owner eines Kundenkontos verwaltet die eigenen Zugriffe, nicht die Infrastruktur von veCloud.
 
 ## Support unterstützen
 

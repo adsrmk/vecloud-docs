@@ -1,33 +1,25 @@
 ---
-title: Serververplaatsingen voor beheerders
-description: Verplaats beschikbare website-rollen tussen gekoppelde servers en volg elke taak afzonderlijk.
+title: Een serververplaatsing afstemmen
+description: Lees wat je als klant voorbereidt en controleert wanneer veCloud je hostingomgeving verplaatst.
 icon: ArrowRightLeft
 ---
 
-Bij een serververplaatsing verandert de hostinglocatie van een bestaande website. Deze handleiding helpt bevoegde beheerders de bestemming voor te bereiden en het resultaat per onderdeel te controleren.
+Bij een interne serververplaatsing verhuist de hostingomgeving binnen veCloud. veCloud plant en voert dit uit; je kiest als klant geen doelserver en start geen interne migratietaak.
 
-<PortalScreenshot name="server-migration" alt="Een website en bestemmingsserver kiezen voordat de migratie wordt gestart." caption="Een website en bestemmingsserver kiezen voordat de migratie wordt gestart." />
+Wil je een website van een andere hostingprovider naar veCloud brengen? Volg dan [WordPress verhuizen](../wordpress/migrate.mdx) of bespreek je applicatie met support.
 
-## Beschikbaarheid en doel
+## Vooraf afstemmen
 
-Serververplaatsingen zijn alleen beschikbaar voor bevoegde beheerders van de hoofdorganisatie. Het is geen importwizard voor een willekeurige externe hostingprovider. Gewone klantaccounts kunnen hiermee niet zelf een nieuwe server aansluiten. Laat een noodzakelijke verplaatsing door de beheerder of support regelen.
+Bespreek het domein, de reden voor de verplaatsing en een passend moment met support. Geef aan of de website bestellingen verwerkt, achtergrondtaken uitvoert of verbinding maakt met externe diensten die vaste IP-adressen toestaan.
 
-## Een verplaatsing voorbereiden
+Stem af of en wanneer je tijdelijk geen inhoud moet wijzigen. Bewaar belangrijke gegevens en laat vooraf bevestigen welke recente back-up beschikbaar is. Een ouder herstelmoment kan recente wijzigingen missen.
 
-Open **Server migrations** via de beschikbare beheeractie en kies **Select websites**. De websiteactie **Move server** kan een website vooraf selecteren. Filter zo nodig op domein, bronserver en rol.
+## Tijdens de verplaatsing
 
-Selecteer de websites en kies per beschikbare rol een doelserver: applicatie, MySQL, e-mail, back-up of PostgreSQL. Rollen zonder wijziging blijven op hun huidige server. De doelserver moet de betreffende rol aanbieden en beschikbaar zijn. Voor beheerwebsites kunnen bepaalde rollen niet worden verplaatst.
+Volg de afspraken van support. Bereikbaarheid en beheertools kunnen tijdelijk worden onderbroken. Start niet zelf een restore of een tweede verhuizing om dit te versnellen. Voor de interne voortgang en serverlogs neem je contact op met support.
 
-Controleer vóór de start de back-ups en gevolgen voor bereikbaarheid, applicatieverbindingen en externe DNS. De interface waarschuwt wanneer een bronserver buiten bedrijf is: herstel gebruikt dan de laatst beschikbare back-up, die niet noodzakelijk de allernieuwste wijzigingen bevat.
+## Na bevestiging controleren
 
-## Starten en voortgang volgen
+Test de publieke website, beheeromgeving, formulieren en eventuele betalingen. Controleer ook databaseverbindingen, e-mail en [back-uptoegang](../backups/index.mdx) voor de diensten die zijn verplaatst.
 
-Kies **Start migration**, controleer het aantal website-rollen en bevestig. De grens is honderd website-rollen per aanvraag, niet honderd willekeurige websites met onbeperkte rollen. Tijdens een verplaatsing kunnen de betrokken beheertools tijdelijk niet beschikbaar zijn.
-
-Volg daarna de sessie in het overzicht. Taken hebben afzonderlijk een status voor wachtrij, bezig, mislukt of voltooid. Open de passende groep en het taaklog. Een geslaagde start is geen bevestiging dat alle rollen klaar zijn; een gedeeltelijke uitkomst moet per rol worden gecontroleerd.
-
-## Fout of ontbrekende bevestiging
-
-Controleer eerst overzicht en logs voordat je opnieuw start. Begin reeds gestarte rollen niet opnieuw vanuit een oude selectie. Bewaar fouttekst, tijdstip, website, rol en doelserver voor support.
-
-Test na voltooiing website, databaseverbinding, e-mail en back-uptoegang. Controleer ook DNS als een benodigd openbaar adres is veranderd. Een serververplaatsing is iets anders dan [eigenaarschap overdragen](../websites/ownership.mdx) of [een pakket wijzigen](../websites/package.mdx).
+Als een openbaar adres verandert, stem je met support af welke externe DNS-records of IP-toestemmingen moeten worden aangepast. Meld een probleem met domein, tijdstip en exacte fouttekst, zodat het gericht kan worden onderzocht.

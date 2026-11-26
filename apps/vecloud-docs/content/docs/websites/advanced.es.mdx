@@ -1,39 +1,27 @@
 ---
-title: Ajustes avanzados del sitio
-description: Consulta personalizaciones, PHP-FPM y límites con los permisos administrativos adecuados.
+title: Solicitar ajustes de alojamiento
+description: Distingue los ajustes que puedes gestionar de los cambios que debe valorar veCloud.
 icon: Settings2
 ---
 
-Algunos sitios necesitan ajustes distintos de los valores del plan. Las opciones de overrides permiten a los administradores autorizados adaptarlos para un sitio concreto.
+¿Tu aplicación necesita más capacidad o un ajuste de alojamiento distinto? Empieza por revisar el consumo real del sitio. Así podrás decidir si conviene modificar la aplicación o pedir ayuda a veCloud.
 
-## Abrir las personalizaciones
+## Qué puedes gestionar
 
-Abre el sitio desde **Domains**, entra en **Overview** y abre el menú de tres puntos de acciones. Elige **Manage overrides**. Requiere un rol administrativo autorizado, como Owner o Superadmin. Un Collaborator no tiene automáticamente esas capacidades.
+En [Developer tools → PHP](../developers/php.mdx) puedes gestionar las versiones y extensiones disponibles y, si tu plan lo permite, los ajustes INI. Consulta [Analytics → Resource usage](../performance/resources.mdx) durante un periodo adecuado para entender la carga.
 
-La página incluye copias, PHP-FPM, recursos y [configuración VirtualHost](../developers/vhost.mdx). Ver un valor no significa que puedas modificarlo.
+## Qué gestiona veCloud
 
-<PortalScreenshot
-  name="website-overrides"
-  alt="Ajustes avanzados con permisos limitados"
-  caption="Ajustes avanzados con permisos limitados"
-/>
+veCloud administra los límites de PHP-FPM, del sistema y del disco, la política de copias y la [configuración VirtualHost](../developers/vhost.mdx) personalizada. La página interna **Manage overrides** no es una función para clientes. Ser **Owner** de una cuenta de cliente no equivale a administrar la infraestructura de alojamiento.
 
-## Ajustes PHP-FPM
+PHP-FPM gestiona los procesos PHP. No es lo mismo que un ajuste INI como `memory_limit` ni que la memoria total del entorno. Asignar más memoria a PHP no aumenta ese límite total.
 
-Añade una directiva o modifica un valor. La configuración propia sustituye a la heredada para el sitio. Elimina la personalización para recuperar el valor heredado. Conserva el original y prueba la aplicación tras guardar.
+## Consultar un cambio
 
-PHP-FPM controla la gestión de procesos PHP. Es distinto del [editor PHP INI](../developers/php.mdx), incluido `memory_limit`, y de los límites totales del contenedor. No aumentes varios límites sin revisar el consumo medido.
+Contacta con soporte e indica el dominio, el comportamiento deseado y el problema que quieres resolver. Añade la hora con zona horaria, las gráficas relevantes y los requisitos de la aplicación. Comparte solo las líneas de registro necesarias, sin contraseñas ni tokens.
 
-## Límites de sistema y disco
+veCloud valorará qué ajuste encaja con tu entorno. Acuerda el impacto y un momento adecuado. Tras la confirmación, prueba la función afectada y vuelve a comparar el consumo si procede.
 
-Solo la organización principal puede cambiarlos. Pueden mostrarse memoria, swap, vCPU, IOPS, ancho de banda I/O y procesos. Espacio e inodos son independientes: muchos archivos pequeños pueden agotar inodos aunque quede disco.
+## Falta una copia de seguridad
 
-Respeta la unidad indicada, como MB o MB/s. No tener un límite específico no significa capacidad física infinita. Los clientes deben solicitar cambios al administrador o soporte. Compara antes el [uso de recursos](../performance/resources.mdx).
-
-## Desactivar copias
-
-**Disable backups** solo puede modificarlo la organización principal. Al activarlo, detiene copias automáticas y manuales del sitio y correo para Enhance y S3. No lo uses para resolver un fallo temporal de carga de la lista.
-
-## Cambio incierto
-
-Usa **Check status** si falta confirmación. Consulta el valor actual antes de guardar de nuevo y evita editar simultáneamente la misma configuración en varias ventanas.
+Sigue el [diagnóstico de copias](../backups/troubleshooting.mdx). Cambiar su política no resuelve un error de carga. Pide a soporte que lo revise si faltan los puntos de recuperación esperados.

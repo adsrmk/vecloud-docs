@@ -1,42 +1,21 @@
 ---
-title: VirtualHost-Konfiguration
-description: Verwalte eigene Webserver-Direktiven je Domain und vermeide Konflikte.
+title: Webserverregeln anpassen lassen
+description: Nutze die Websitefunktionen oder besprich zusätzliche Webserverregeln mit dem Support.
 icon: FileCode
 ---
 
-Manche Anwendungen benötigen zusätzliche Webserverregeln. Prüfe zuerst, ob das Panel dafür eine eigene Einstellung bietet, und verwende die freie Konfiguration für die übrigen Anforderungen.
+Manche Anwendungen benötigen eine besondere Webserverregel. veCloud verwaltet die eigene VirtualHost-Konfiguration; dafür musst du keinen internen Editor öffnen.
 
-## Wann verwenden?
+## Mit den Websitefunktionen beginnen
 
-Nutze [Redirects](../dns-ssl/redirects.mdx) für Weiterleitungen, [IP deny](../dns-ssl/ip-deny.mdx) für Sperren und [Optimization](../performance/cache.mdx) für Caching. Der VirtualHost-Editor dient zusätzlichen Anwendungsdirektiven.
+Nutze [Redirects](../dns-ssl/redirects.mdx) für Weiterleitungen, [IP deny](../dns-ssl/ip-deny.mdx) für Adresssperren und [Optimization](../performance/cache.mdx) für den Cache. Über diese Seiten verwaltest du die unterstützten Einstellungen selbst.
 
-Öffne **Domains → deine Website → Overview → Website actions → Manage overrides**. Wähle unter **VirtualHost configuration** im Menü der richtigen Domain **Edit configuration**. Dafür sind passende Verwaltungsrechte erforderlich.
+## Eine zusätzliche Regel anfragen
 
-<PortalScreenshot
-  name="vhost-editor"
-  alt="Öffne die VirtualHost-Konfiguration der ausgewählten Domain über das Aktionsmenü."
-  caption="Öffne die VirtualHost-Konfiguration der ausgewählten Domain über das Aktionsmenü."
-/>
+Nenne dem Support Domain, URL-Pfad und gewünschtes Ergebnis. Beschreibe das aktuelle und erwartete Verhalten und verlinke nach Möglichkeit die Konfigurationsanforderungen deiner Anwendung. Eine passende Beispielanfrage hilft bei der Prüfung.
 
-## Änderung speichern
+Eine globale Nginx-Konfiguration eignet sich nicht automatisch für eine einzelne Website. Lass veCloud prüfen, wie die Regel zu bestehenden Weiterleitungen, Sicherheitsregeln und Caches passt. Teile keine Konfigurationsdateien mit Passwörtern oder Schlüsseln.
 
-1. Prüfe die Domain und bewahre die bisherige eigene Konfiguration auf.
-2. Ergänze nur im VirtualHost-Kontext gültige Direktiven, keine vollständige globale Serverkonfiguration.
-3. Wähle **Save** und warte auf die Bestätigung.
-4. Öffne den aktuellen Stand erneut und teste Website, Weiterleitungen und Sicherheitsregeln.
+## Nach der Änderung
 
-<Callout type="warn" title="Ungültige Syntax kann den Webserver stören">
-Tippfehler oder ungültige Direktiven können die Website unerreichbar machen. Teste in einer geeigneten Testumgebung und bewahre ein wiederherstellbares Original auf. Speichern ist kein vollständiger Anwendungstest.
-</Callout>
-
-## Verwaltete Regeln erhalten
-
-Vom Portal verwaltete IP-Sperren und unterstützte Weiterleitungen haben eigene Funktionen. Ändere sie auf deren Seiten. Beim Speichern freier Konfiguration erhält das Portal verwaltete Nginx-IP-Sperren; manuelles Bearbeiten entfernt eine Sperre nicht zuverlässig.
-
-## Standard wiederherstellen
-
-**Reset to default** entfernt nach Bestätigung die eigene freie Domainkonfiguration. Verwaltete Regeln können bestehen bleiben. Die Aktion deaktiviert nicht allgemein alle Sperren oder Weiterleitungen und stellt keine Dateien oder Datenbanken wieder her.
-
-## Änderung läuft noch
-
-Warte und lies mit **Check status** den aktuellen Stand. Öffne bei einem Revisionskonflikt die neueste Version und wende dort die Änderung an. Überschreibe nicht wiederholt aus einem alten Editorstand. Vermeide parallele Änderungen in mehreren Fenstern oder Werkzeugen.
+Vereinbare einen geeigneten Testzeitpunkt. Prüfe nach der Bestätigung die betroffenen Seiten, Formulare und Weiterleitungen. Weicht das Ergebnis von der Absprache ab, nenne genaue URL, Zeitpunkt und Fehlermeldung. Bitte den Support um Prüfung oder Rücknahme; ändere nicht mehrere zusammenhängende Einstellungen gleichzeitig.

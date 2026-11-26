@@ -143,10 +143,6 @@
     "width": 1280,
     "height": 900
   },
-  "server-migration": {
-    "width": 1280,
-    "height": 900
-  },
   "ssh-key": {
     "width": 1280,
     "height": 900
@@ -156,18 +152,6 @@
     "height": 900
   },
   "team-invite": {
-    "width": 1280,
-    "height": 900
-  },
-  "vhost-editor": {
-    "width": 1280,
-    "height": 720
-  },
-  "website-overrides": {
-    "width": 1280,
-    "height": 900
-  },
-  "website-ownership": {
     "width": 1280,
     "height": 900
   },

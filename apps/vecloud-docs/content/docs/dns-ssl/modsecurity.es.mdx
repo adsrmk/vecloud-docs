@@ -1,38 +1,23 @@
 ---
-title: ModSecurity y solicitudes bloqueadas
-description: Información histórica sobre ModSecurity, retirado de veCloud desde mayo de 2026.
+title: ModSecurity y peticiones bloqueadas
+description: Información histórica de ModSecurity, retirado de veCloud desde mayo de 2026.
 icon: ShieldCheck
 ---
 
 <Callout type="warning" title="ModSecurity ha quedado obsoleto en veCloud">
-veCloud dejó de utilizar ModSecurity en **mayo de 2026**. Esta decisión responde a problemas de compatibilidad, incluidos bloqueos no deseados de solicitudes internas de WordPress e interrupciones en las funciones de los sitios. Esta guía se conserva como referencia para configuraciones existentes.
+veCloud dejó de utilizar ModSecurity en **mayo de 2026** debido a problemas de compatibilidad, incluidos bloqueos no deseados de peticiones internas de WordPress y fallos de funcionalidad del sitio. Esta guía se conserva como referencia para configuraciones existentes.
 </Callout>
 
-ModSecurity es un firewall de aplicaciones que comprueba las solicitudes web mediante reglas de seguridad. Si bloquea formularios o acciones de administración de forma inesperada, una investigación concreta ayuda a encontrar la causa. Consulta el [proyecto ModSecurity](https://owasp.org/www-project-modsecurity/).
+¿Has visto ModSecurity en una guía o mensaje antiguo? Se refiere a un cortafuegos de aplicaciones utilizado anteriormente. No necesitas activarlo ni modificar sus ajustes para usar tu sitio.
 
-## Comprueba la disponibilidad
+## Una petición está bloqueada
 
-Abre **Domains → tu sitio → SSL certificates**. La sección **ModSecurity** aparece cuando la función está disponible y tiene un interruptor por dominio. Si no aparece, pregunta a soporte qué protección corresponde al entorno actual.
+Una respuesta `403` no indica necesariamente ModSecurity. También pueden limitar el acceso los permisos de la aplicación, los [permisos de archivos](../files/permissions.mdx), [IP deny](./ip-deny.mdx) o un proxy externo.
 
-Es independiente del estado del certificado y **Enforce HTTPS**. Para bloquear direcciones utiliza [IP deny](./ip-deny.mdx), cuando esté disponible.
+Comprueba qué URL y acción fallan y si otras páginas funcionan. Repite la acción solo si no puede provocar pedidos duplicados u otros cambios no deseados.
 
-## Cambia un ajuste
+## Pedir ayuda a soporte
 
-1. Busca la fila del dominio adecuado y comprueba el nombre completo si aparecen varios.
-2. Revisa el estado actual antes de cambiar el interruptor.
-3. Espera confirmación; ante un error poco claro, vuelve a consultar el estado antes de cambiarlo otra vez.
-4. Prueba la acción normal del sitio que querías comprobar.
+Incluye dominio, URL exacta, hora con zona horaria y mensaje de error. Explica si afecta a un formulario, una acción de administración de WordPress o una petición interna. Comparte solo las líneas relevantes, sin contraseñas, tokens ni contenido sensible de formularios.
 
-El ajuste corresponde al dominio seleccionado. Revisa los demás dominios por separado; no des por hecho que todos los alias hayan cambiado.
-
-## Investiga un posible falso positivo
-
-Un `403` también puede proceder de permisos de la aplicación, permisos de archivos o una regla IP. Anota URL exacta, hora con zona horaria, mensaje y acción, por ejemplo guardar un formulario.
-
-Repite solo si no genera otro pedido u otro cambio no deseado. Comprueba si afecta a una ruta o cuenta y si lo explican [IP deny](./ip-deny.mdx) o los [permisos](../files/permissions.mdx).
-
-Pide a soporte que revise el evento de seguridad y si corresponde una excepción concreta. El [registro PHP](../developers/logs.mdx) no es el registro completo de auditoría ModSecurity. No incluyas contraseñas, tokens ni contenido sensible del formulario.
-
-## Después de investigar
-
-Mantén controlados los cambios temporales. Confirma el estado de seguridad deseado y vuelve a probar la función afectada. Desactivar el firewall no repara la causa de la aplicación.
+El [registro de errores PHP](../developers/logs.mdx) puede aportar contexto, pero no recoge todos los bloqueos de acceso. Deja que soporte investigue la causa y vuelve a probar la función afectada después.

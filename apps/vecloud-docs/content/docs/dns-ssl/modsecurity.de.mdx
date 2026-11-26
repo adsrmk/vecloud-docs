@@ -1,38 +1,23 @@
 ---
 title: ModSecurity und blockierte Anfragen
-description: Historische Informationen zu ModSecurity, seit Mai 2026 bei veCloud außer Betrieb.
+description: Historische Informationen zu ModSecurity, bei veCloud seit Mai 2026 eingestellt.
 icon: ShieldCheck
 ---
 
 <Callout type="warning" title="ModSecurity wird nicht mehr verwendet">
-ModSecurity wurde bei veCloud im **Mai 2026** eingestellt und wird nicht mehr eingesetzt. Grund dafür sind Kompatibilitätsprobleme, darunter unerwünschte Blockierungen interner WordPress-Anfragen und Beeinträchtigungen der Websitefunktionen. Diese Anleitung bleibt als Referenz für bestehende Konfigurationen erhalten.
+ModSecurity wurde bei veCloud im **Mai 2026** eingestellt und wird nicht mehr verwendet. Grund sind Kompatibilitätsprobleme, darunter unbeabsichtigte Sperren interner WordPress-Anfragen und Störungen von Websitefunktionen. Diese Anleitung bleibt als Referenz für bestehende Konfigurationen verfügbar.
 </Callout>
 
-ModSecurity ist eine Anwendungsfirewall, die Websiteanfragen anhand von Sicherheitsregeln prüft. Werden Formulare oder Verwaltungsaktionen unerwartet blockiert, hilft eine gezielte Untersuchung bei der Ursachensuche. Siehe das [ModSecurity-Projekt](https://owasp.org/www-project-modsecurity/).
+Taucht ModSecurity noch in einer älteren Anleitung oder Meldung auf? Gemeint ist eine früher verwendete Anwendungsfirewall. Du musst sie für deine Website weder aktivieren noch ihre Einstellungen ändern.
 
-## Verfügbarkeit prüfen
+## Eine Anfrage wird blockiert
 
-Öffne **Domains → deine Website → SSL certificates**. Der Bereich **ModSecurity** erscheint, wenn die Funktion verfügbar ist, und bietet einen Schalter je Domain. Fehlt er, frage den Support nach dem Schutz der aktuellen Umgebung.
+Eine `403`-Antwort weist nicht automatisch auf ModSecurity hin. Auch Anwendungsrechte, [Dateirechte](../files/permissions.mdx), [IP deny](./ip-deny.mdx) oder ein externer Proxy können den Zugriff beschränken.
 
-Diese Einstellung ist von Zertifikatstatus und **Enforce HTTPS** getrennt. Adresssperren verwaltest du über [IP deny](./ip-deny.mdx), sofern verfügbar.
+Prüfe betroffene URL und Aktion sowie die Erreichbarkeit anderer Seiten. Wiederhole die Aktion nur, wenn dadurch keine doppelten Bestellungen oder anderen unerwünschten Änderungen entstehen.
 
-## Einstellung ändern
+## Den Support einbeziehen
 
-1. Suche die Zeile der richtigen Domain. Prüfe bei mehreren Domains den vollständigen Namen.
-2. Kontrolliere den aktuellen Stand, bevor du den Schalter änderst.
-3. Warte auf die Bestätigung; lade bei unklarem Fehler den aktuellen Stand, bevor du erneut schaltest.
-4. Teste die normale Websiteaktion, die du prüfen wolltest.
+Nenne Domain, genaue URL, Zeitpunkt mit Zeitzone und Fehlermeldung. Beschreibe, ob ein Formular, eine WordPress-Verwaltungsaktion oder eine interne Anfrage betroffen ist. Teile nur relevante Logzeilen ohne Passwörter, Tokens oder vertrauliche Formulardaten.
 
-Die Einstellung betrifft die gewählte Domain. Prüfe andere relevante Domains getrennt; gehe nicht davon aus, dass alle Aliasse mitgeändert wurden.
-
-## Möglichen Fehlalarm untersuchen
-
-Eine `403`-Antwort kann auch durch Anwendungsrechte, Dateirechte oder eine IP-Regel entstehen. Notiere genaue URL, Zeitpunkt mit Zeitzone, Meldung und Handlung, etwa das Speichern eines Formulars.
-
-Wiederhole die Handlung nur, wenn dadurch keine doppelte Bestellung oder andere unerwünschte Änderung entsteht. Prüfe, ob nur ein Pfad oder Konto betroffen ist und ob [IP deny](./ip-deny.mdx) oder [Dateirechte](../files/permissions.mdx) die Ursache erklären.
-
-Bitte den Support, das zugehörige Sicherheitsereignis und eine mögliche gezielte Ausnahme zu beurteilen. Das [PHP-Fehlerprotokoll](../developers/logs.mdx) ist kein vollständiges ModSecurity-Auditprotokoll. Übermittle keine Passwörter, Tokens oder sensiblen Formularinhalte.
-
-## Nach der Untersuchung
-
-Behalte vorübergehende Änderungen im Blick. Prüfe die vorgesehene Sicherheitseinstellung und teste die betroffene Funktion erneut. Das Abschalten der Firewall behebt keine zugrunde liegende Anwendungsursache.
+Das [PHP-Fehlerlog](../developers/logs.mdx) kann zusätzliche Hinweise liefern, enthält aber nicht sämtliche Zugriffssperren. Lass den Support die Ursache untersuchen und teste anschließend die betroffene Websitefunktion erneut.

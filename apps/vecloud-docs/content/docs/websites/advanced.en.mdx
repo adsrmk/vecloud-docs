@@ -1,39 +1,27 @@
 ---
-title: Advanced website settings
-description: Inspect overrides, PHP-FPM and resource limits with the appropriate administration rights.
+title: Request additional hosting settings
+description: Understand what you can change yourself and when veCloud reviews a hosting adjustment.
 icon: Settings2
 ---
 
-Some websites need settings that differ from the hosting plan defaults. Overrides let authorized administrators make those adjustments for an individual website.
+Does your application need more capacity or a different hosting setting? Start with what your website actually uses. This helps you decide whether to adjust the application or ask veCloud for help.
 
-## Open overrides
+## Settings you can manage
 
-Open the website through **Domains**, go to **Overview** and open the three-dot website actions menu. Select **Manage overrides**. These actions require an authorised administration role such as Owner or Superadmin. A Collaborator does not automatically have the same capabilities.
+Use [Developer tools → PHP](../developers/php.mdx) for available PHP versions, extensions and, if your plan allows it, INI settings. Review [Analytics → Resource usage](../performance/resources.mdx) over a suitable period to understand the load.
 
-The page contains website backups, PHP-FPM, system resources and [VirtualHost configuration](../developers/vhost.mdx). Seeing a value does not mean you can change every setting.
+## Settings managed by veCloud
 
-<PortalScreenshot
-  name="website-overrides"
-  alt="Advanced settings with restricted administration rights"
-  caption="Advanced settings with restricted administration rights"
-/>
+veCloud manages PHP-FPM limits, system and disk limits, backup policy and custom [VirtualHost configuration](../developers/vhost.mdx). The internal **Manage overrides** page is not a customer feature. Being the **Owner** of a customer account does not mean you administer the hosting infrastructure.
 
-## PHP-FPM settings
+PHP-FPM handles PHP processes. It differs from an INI setting such as `memory_limit` and from the total memory available to your website environment. Allocating more memory to PHP does not increase that overall limit.
 
-Add a directive or edit an existing value. A custom value overrides the inherited setting for this website. Remove a custom override to return to the inherited value. Retain the original value and check the application after saving.
+## Discuss an adjustment
 
-PHP-FPM settings control PHP process handling. They differ from the [PHP INI editor](../developers/php.mdx), including `memory_limit`, and from total container limits. Do not raise several limits at once without examining measured usage.
+Contact support with your domain, the intended behaviour and the problem you want to solve. Include the time and time zone, relevant resource charts and your application’s requirements. Share only relevant log entries without passwords or tokens.
 
-## System and disk limits
+veCloud reviews which adjustment suits your environment. Agree on any impact and a suitable time. After confirmation, test the affected website feature and compare usage again where useful.
 
-These changes are restricted to the master organisation. The page may show memory, swap, virtual CPUs, IOPS, I/O bandwidth and process count. Disk space and inodes are separate limits: many small files can exhaust inodes while storage remains available.
+## A backup is missing
 
-Use each field’s displayed unit, such as MB or MB/s. An unset specific limit does not imply infinite physical capacity. Customer accounts should arrange necessary changes through their administrator or support. First compare [resource usage](../performance/resources.mdx).
-
-## Disable backups
-
-The **Disable backups** switch is also writable only by the master organisation. When enabled, this override stops automatic and manual website and email backups for Enhance and S3. Do not use it to fix a temporary backup-list loading problem.
-
-## Uncertain changes
-
-Use **Check status** if a change was not confirmed. Read the current value before saving again. Avoid concurrent edits to the same configuration in several windows.
+Follow [backup troubleshooting](../backups/troubleshooting.mdx). Changing backup policy does not resolve a loading error. Ask support to investigate if expected recovery points are missing.

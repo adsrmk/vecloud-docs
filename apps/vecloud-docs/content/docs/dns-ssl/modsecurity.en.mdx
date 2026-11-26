@@ -1,38 +1,23 @@
 ---
 title: ModSecurity and blocked requests
-description: Historical information about ModSecurity, deprecated within veCloud since May 2026.
+description: Historical information about ModSecurity, retired within veCloud since May 2026.
 icon: ShieldCheck
 ---
 
 <Callout type="warning" title="ModSecurity is deprecated">
-ModSecurity has been deprecated within veCloud since **May 2026** and is no longer used. This decision follows compatibility issues, including unintended blocking of internal WordPress requests and disruption to website functionality. This guide is retained as a reference for existing configurations.
+ModSecurity has been retired within veCloud since **May 2026** and is no longer used. This follows compatibility issues, including unintended blocking of internal WordPress requests and disruption of website functionality. This guide remains available as a reference for existing configurations.
 </Callout>
 
-ModSecurity is an application firewall that checks website requests against security rules. When forms or administration actions are unexpectedly blocked, a focused investigation helps identify the cause. See the [ModSecurity project](https://owasp.org/www-project-modsecurity/).
+Still seeing ModSecurity in an older guide or message? It refers to a previously used application firewall. You do not need to enable it or change its settings to use your website.
 
-## Check availability
+## A request is blocked
 
-Open **Domains → your website → SSL certificates**. The **ModSecurity** section appears when the feature is available for this website. It has a switch per domain. If the section is absent, ask support which protection applies to the current environment.
+A `403` response does not automatically indicate ModSecurity. Application permissions, [file permissions](../files/permissions.mdx), [IP deny](./ip-deny.mdx) or an external proxy can also restrict access.
 
-This is separate from certificate status and **Enforce HTTPS**. For address blocks, use [IP deny](./ip-deny.mdx) when available.
+Check which URL and action are affected and whether other pages work. Repeat the action only if it will not cause duplicate orders or other unwanted changes.
 
-## Change a setting
+## Ask support to investigate
 
-1. Find the intended domain’s row. Check the full name when several domains are listed.
-2. Review the current state before changing its switch.
-3. Wait for confirmation; after an unclear error, reload the current state before switching again.
-4. Test the normal website action you intended to check.
+Include the domain, exact URL, time and time zone, and error message. Explain whether it involves a form, WordPress administration action or internal request. Share only relevant log entries without passwords, tokens or sensitive form content.
 
-The setting concerns the selected domain. Check other relevant domains separately; do not assume every alias changed with it.
-
-## Investigate a possible false positive
-
-A `403` response can also come from application permissions, file permissions or an IP rule. Record the exact URL, time with time zone, error message and action, such as saving a form.
-
-Repeat the action only if it cannot create a duplicate order or another unwanted change. Check whether one path or account is affected, and whether [IP deny](./ip-deny.mdx) or [file permissions](../files/permissions.mdx) explain it.
-
-Ask support to review the corresponding security event and whether a targeted exception is appropriate. The [PHP error log](../developers/logs.mdx) is not a complete ModSecurity audit log. Do not include passwords, tokens or sensitive form contents.
-
-## After investigation
-
-Keep track of any temporary change. Confirm the intended security setting and retest the affected function. Disabling a firewall does not repair the underlying application cause.
+The [PHP error log](../developers/logs.mdx) may add context, but does not list every access block. Let support investigate the cause, then test the affected website feature again.

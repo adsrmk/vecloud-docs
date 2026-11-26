@@ -1,42 +1,21 @@
 ---
-title: Configuración VirtualHost
-description: Gestiona directivas propias por dominio y evita cambios en conflicto.
+title: Solicitar cambios en reglas web
+description: Utiliza las funciones del sitio o consulta reglas adicionales del servidor web con soporte.
 icon: FileCode
 ---
 
-Algunas aplicaciones necesitan reglas adicionales del servidor web. Comprueba primero si existe un ajuste específico en el panel y utiliza la configuración propia para lo restante.
+Algunas aplicaciones necesitan una regla específica del servidor web. veCloud gestiona la configuración VirtualHost personalizada; no tienes que abrir un editor interno.
 
-## Cuándo utilizarla
+## Empieza por las funciones del sitio
 
-Usa [Redirects](../dns-ssl/redirects.mdx) para redirecciones, [IP deny](../dns-ssl/ip-deny.mdx) para bloqueos y [Optimization](../performance/cache.mdx) para caché. VirtualHost sirve para configuración adicional que requiera la aplicación.
+Utiliza [Redirects](../dns-ssl/redirects.mdx) para redirecciones, [IP deny](../dns-ssl/ip-deny.mdx) para bloqueos y [Optimization](../performance/cache.mdx) para la caché. Estas páginas permiten gestionar los ajustes compatibles por tu cuenta.
 
-Abre **Domains → tu sitio → Overview → Website actions → Manage overrides**. En **VirtualHost configuration**, abre el menú del dominio correcto y **Edit configuration**. Requiere permisos administrativos adecuados.
+## Solicitar una regla adicional
 
-<PortalScreenshot
-  name="vhost-editor"
-  alt="Abre la configuración VirtualHost del dominio seleccionado desde su menú de acciones."
-  caption="Abre la configuración VirtualHost del dominio seleccionado desde su menú de acciones."
-/>
+Indica a soporte el dominio, la ruta URL y el resultado que necesitas. Describe el comportamiento actual y el esperado y, si es posible, enlaza los requisitos de configuración de la aplicación. Un ejemplo de petición ayudará a comprobar el resultado.
 
-## Guardar cambios
+Una configuración global de Nginx no es necesariamente adecuada para un solo sitio. Deja que veCloud valore su compatibilidad con las redirecciones, la seguridad y la caché existentes. No compartas archivos de configuración con contraseñas o claves.
 
-1. Comprueba el dominio y conserva la configuración propia actual.
-2. Añade solo directivas válidas para ese contexto VirtualHost. No pegues una configuración global completa.
-3. Pulsa **Save** y espera confirmación.
-4. Vuelve a abrir la configuración y prueba sitio, redirecciones y reglas de seguridad.
+## Después del cambio
 
-<Callout type="warn" title="La sintaxis incorrecta puede interrumpir el servidor web">
-Un error o directiva inválida puede dejar el sitio inaccesible. Prueba en un entorno adecuado y conserva una configuración original recuperable. Guardar no constituye una prueba funcional completa.
-</Callout>
-
-## Conservar reglas gestionadas
-
-Las reglas del portal para IP deny y redirecciones compatibles cumplen funciones propias. Cámbialas en sus páginas. El portal conserva los bloqueos Nginx gestionados al guardar configuración libre; editarlos manualmente no es una forma fiable de retirar un bloqueo.
-
-## Restaurar valores predeterminados
-
-**Reset to default** elimina la configuración libre propia del dominio tras confirmar. Las reglas gestionadas pueden conservarse. No desactiva de forma general todos los bloqueos o redirecciones ni restaura archivos o bases.
-
-## Cambio aún en proceso
-
-Espera y usa **Check status** para consultar el estado. Si hay conflicto de revisión, abre la versión reciente y aplica allí el cambio. No sobrescribas desde una versión antigua sin comprobar. Evita cambios simultáneos en varias ventanas o herramientas.
+Acuerda un momento para probarlo. Tras la confirmación, revisa las páginas, los formularios y las redirecciones afectados. Si el resultado no es el acordado, indica la URL exacta, la hora y el error. Pide a soporte que revise o revierta el cambio y evita modificar varios ajustes relacionados a la vez.
