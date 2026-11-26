@@ -30,8 +30,8 @@
   --color-fd-foreground: oklch(98.5% 0 0);
   --color-fd-muted: oklch(32% 0 0);
   --color-fd-muted-foreground: oklch(70.8% 0 0);
-  --color-fd-primary: oklch(57.9% 0.232 259.64);
-  --color-fd-primary-foreground: oklch(98.5% 0 0);
+  --color-fd-primary: #7db7ff;
+  --color-fd-primary-foreground: var(--color-fd-background);
   --color-fd-border: oklch(100% 0 0 / 0.1);
   --color-fd-card: oklch(26.9% 0 0);
   --color-fd-card-foreground: oklch(98.5% 0 0);
@@ -41,7 +41,7 @@
   --color-fd-secondary-foreground: oklch(98.5% 0 0);
   --color-fd-accent: oklch(37.1% 0.06 262.12);
   --color-fd-accent-foreground: oklch(98.5% 0 0);
-  --color-fd-ring: oklch(57.9% 0.232 259.64);
+  --color-fd-ring: var(--color-fd-primary);
 }
 #nd-notebook-layout {
   --fd-header-height: 58.8px;
