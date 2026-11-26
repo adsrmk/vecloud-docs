@@ -1,0 +1,32 @@
+---
+title: DNS & SSL
+description: Beheer DNS-records en beveilig de verbinding met je website.
+icon: LockKeyhole
+---
+
+## DNS-records beheren
+
+Open je website en ga naar **DNS settings**. Hier bekijk en wijzig je de beschikbare DNS-records. Controleer of de DNS daadwerkelijk via deze omgeving wordt beheerd; bij externe nameservers maak je wijzigingen bij de externe DNS-provider.
+
+Veelgebruikte records zijn **A** en **AAAA** voor IP-adressen, **CNAME** voor een verwijzing naar een andere host, **MX** voor e-mail en **TXT** voor onder meer verificaties en e-mailbeveiliging.
+
+## Cloudflare
+
+Als je een Cloudflare-integratie gebruikt, controleer je of het juiste domein met de juiste zone is verbonden. Instellingen zoals een proxy kunnen invloed hebben op waar verkeer uitkomt en hoe certificaatcontroles je website bereiken.
+
+## Een SSL-certificaat aanvragen
+
+1. Ga binnen je website naar **SSL certificates**.
+2. Kies **Request certificate**.
+3. Selecteer het domein en bevestig de aanvraag.
+4. Controleer de status en de vervaldatum wanneer de aanvraag is afgerond.
+
+Voor een succesvolle aanvraag moeten de domeinnaam en bereikbaarheid van de website kloppen.
+
+## Bezoekers naar HTTPS sturen
+
+Met **Enforce HTTPS** stuur je bezoekers door naar de beveiligde verbinding. Controleer eerst dat een geldig certificaat actief is voor de domeinnaam.
+
+## DNSSEC
+
+DNSSEC beveiligt de controle op DNS-antwoorden. Voor een werkende configuratie moeten de instellingen van je DNS-provider en de gegevens bij de registrar op elkaar aansluiten. Beheer DNSSEC daarom bij de partijen die je nameservers en domeinregistratie verzorgen.

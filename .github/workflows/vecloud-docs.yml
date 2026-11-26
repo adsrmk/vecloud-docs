@@ -1,0 +1,49 @@
+name: veCloud Docs
+on:
+  push:
+    branches: [dev]
+    paths:
+      [
+        'apps/vecloud-docs/**',
+        'Dockerfile',
+        '.dockerignore',
+        'railway.json',
+        '.github/workflows/vecloud-docs.yml',
+      ]
+  pull_request:
+    paths:
+      [
+        'apps/vecloud-docs/**',
+        'Dockerfile',
+        '.dockerignore',
+        'railway.json',
+        '.github/workflows/vecloud-docs.yml',
+      ]
+permissions:
+  contents: read
+concurrency:
+  group: vecloud-docs-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  docs:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: apps/vecloud-docs
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - uses: pnpm/action-setup@73e46992e05b19abd31f2f3c20e0e7370d762115
+        with:
+          version: 11.25.0
+          cache: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+        with:
+          node-version: 24
+          cache: pnpm
+          cache-dependency-path: apps/vecloud-docs/pnpm-lock.yaml
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm build
+      - run: pnpm types:check
+      - run: pnpm test:smoke

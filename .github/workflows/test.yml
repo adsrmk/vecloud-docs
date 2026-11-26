@@ -6,6 +6,7 @@ on:
 
 jobs:
   test:
+    if: github.repository == 'fuma-nama/fumadocs'
     runs-on: ubuntu-latest
 
     steps:

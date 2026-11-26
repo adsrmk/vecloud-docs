@@ -1,0 +1,9 @@
+**
+!apps/
+!apps/vecloud-docs/
+!apps/vecloud-docs/**
+apps/vecloud-docs/node_modules
+apps/vecloud-docs/.next
+apps/vecloud-docs/.source
+apps/vecloud-docs/.env*
+apps/vecloud-docs/*.tsbuildinfo

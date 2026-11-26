@@ -54,3 +54,5 @@ packages/graphql/css/generated/*.css
 packages/obsidian/css/generated/*.css
 packages/notion/css/generated/*.css
 .pnpm-store
+# Local veCloud deployment evidence and credentials.
+.local-data/
