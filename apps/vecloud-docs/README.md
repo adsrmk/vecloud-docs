@@ -12,7 +12,7 @@ pnpm dev
 
 Content lives in `apps/vecloud-docs/content/docs`, navigation in `meta.json`. Place original, sanitized screenshots in `public/images/control-panel` and include meaningful alt text. Never publish customer records, credentials or account details.
 
-The root Dockerfile builds only the documentation app. The linked Railway service uses the repository root, Dockerfile builder, port 3000, one replica in Amsterdam (`europe-west4-drams3a`), `/api/health` for readiness (60 seconds), and restart-on-failure with five retries. These settings are stored on the Railway service; the deprecated `railway.json` format is not used. Updates on `dev` run the veCloud Docs checks and deploy through the linked GitHub service. No database, portal secrets or paid search provider is required.
+The root Dockerfile builds only the documentation app. The linked Railway service uses the repository root, Dockerfile builder, `PORT=3000` with domain target port 3000, one replica in Amsterdam (`europe-west4-drams3a`), `/api/health` for readiness (60 seconds), and restart-on-failure with five retries. These settings are stored on the Railway service; the deprecated `railway.json` format is not used. Updates on `dev` run the veCloud Docs checks and deploy through the linked GitHub service. No database, portal secrets or paid search provider is required.
 
 ## Fumadocs upstream
 

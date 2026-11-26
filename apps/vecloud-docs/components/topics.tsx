@@ -3,7 +3,7 @@ import {
   Globe2,
   Blocks,
   Mail,
-  ArchiveRestore,
+  Archive,
   LockKeyhole,
   FolderOpen,
 } from 'lucide-react';
@@ -30,7 +30,7 @@ const topics = [
   {
     title: 'Back-ups & herstel',
     href: '/docs/backups',
-    icon: <ArchiveRestore aria-hidden />,
+    icon: <Archive aria-hidden />,
     description: 'Bekijk je back-ups en herstel bestanden of databases.',
   },
   {
