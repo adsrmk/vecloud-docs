@@ -198,8 +198,16 @@ try {
     ),
     'French search finds words after an apostrophe',
   );
+  assert.ok(
+    frenchAuthentication.every((result) => !/PortalScreenshot/i.test(result.content)),
+    'Search excludes screenshot component markup',
+  );
   for (const locale of locales) {
     assert.equal(counts[locale], defaultPages.length, locale + ' guide parity');
+    const componentSearch = await (
+      await get(`/api/search?query=PortalScreenshot&locale=${locale}`)
+    ).json();
+    assert.equal(componentSearch.length, 0, locale + ' no screenshot code in search');
     const search = await (
       await get(
         `/api/search?query=${encodeURIComponent(queries[locale])}&locale=${locale}`,
