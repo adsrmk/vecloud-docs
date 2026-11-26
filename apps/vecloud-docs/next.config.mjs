@@ -8,6 +8,12 @@ const config = {
   output: 'standalone',
   poweredByHeader: false,
   devIndicators: false,
+  images: {
+    localPatterns: [
+      { pathname: '/**', search: '' },
+      { pathname: '/screenshots/**', search: '?v=20261126-2' },
+    ],
+  },
   outputFileTracingRoot: import.meta.dirname,
   turbopack: { root: import.meta.dirname },
   async redirects() {

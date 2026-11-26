@@ -1,0 +1,202 @@
+{
+  "add-domain": {
+    "width": 1280,
+    "height": 900
+  },
+  "analytics": {
+    "width": 1280,
+    "height": 900
+  },
+  "apps": {
+    "width": 1280,
+    "height": 900
+  },
+  "backup-restore": {
+    "width": 1280,
+    "height": 900
+  },
+  "backups": {
+    "width": 1280,
+    "height": 900
+  },
+  "cloudflare": {
+    "width": 1280,
+    "height": 900
+  },
+  "cron-job": {
+    "width": 1280,
+    "height": 900
+  },
+  "database-add": {
+    "width": 1280,
+    "height": 900
+  },
+  "database-manage": {
+    "width": 1280,
+    "height": 900
+  },
+  "databases": {
+    "width": 1280,
+    "height": 900
+  },
+  "dns-add": {
+    "width": 1280,
+    "height": 900
+  },
+  "dns-records": {
+    "width": 1280,
+    "height": 900
+  },
+  "dnssec": {
+    "width": 1280,
+    "height": 720
+  },
+  "domains": {
+    "width": 1280,
+    "height": 900
+  },
+  "file-editor": {
+    "width": 1280,
+    "height": 900
+  },
+  "file-permissions": {
+    "width": 1280,
+    "height": 900
+  },
+  "files": {
+    "width": 1280,
+    "height": 900
+  },
+  "ftp": {
+    "width": 1280,
+    "height": 900
+  },
+  "github-connect": {
+    "width": 1280,
+    "height": 900
+  },
+  "ip-deny": {
+    "width": 1280,
+    "height": 900
+  },
+  "joomla": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-autoresponder": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-clients": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-forwarding": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-routing": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-spam": {
+    "width": 1280,
+    "height": 900
+  },
+  "mailbox": {
+    "width": 1280,
+    "height": 900
+  },
+  "nginx-cache": {
+    "width": 1280,
+    "height": 900
+  },
+  "openclaw-gateway": {
+    "width": 1280,
+    "height": 720
+  },
+  "optimization": {
+    "width": 1280,
+    "height": 900
+  },
+  "php-ini": {
+    "width": 1280,
+    "height": 720
+  },
+  "php-settings": {
+    "width": 1280,
+    "height": 900
+  },
+  "postgresql": {
+    "width": 1280,
+    "height": 900
+  },
+  "profile": {
+    "width": 1280,
+    "height": 900
+  },
+  "redirects": {
+    "width": 1280,
+    "height": 900
+  },
+  "resource-usage": {
+    "width": 1280,
+    "height": 900
+  },
+  "server-migration": {
+    "width": 1280,
+    "height": 900
+  },
+  "ssh-key": {
+    "width": 1280,
+    "height": 900
+  },
+  "ssl": {
+    "width": 1280,
+    "height": 900
+  },
+  "team-invite": {
+    "width": 1280,
+    "height": 900
+  },
+  "vhost-editor": {
+    "width": 1280,
+    "height": 720
+  },
+  "website-overrides": {
+    "width": 1280,
+    "height": 900
+  },
+  "website-ownership": {
+    "width": 1280,
+    "height": 900
+  },
+  "website-plan": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-changelog": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-debug": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-schedule": {
+    "width": 1280,
+    "height": 720
+  },
+  "wordpress-themes": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-users": {
+    "width": 1280,
+    "height": 900
+  },
+  "worker-create": {
+    "width": 1280,
+    "height": 720
+  }
+}

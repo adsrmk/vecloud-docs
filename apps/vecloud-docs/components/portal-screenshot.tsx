@@ -1,4 +1,9 @@
 import Image from 'next/image';
+import screenshotDimensions from '@/lib/screenshot-dimensions.json';
+
+const screenshotRevision = '20261126-2';
+const dimensions: Record<string, { width: number; height: number }> =
+  screenshotDimensions;
 
 export function PortalScreenshot({
   name,
@@ -9,12 +14,13 @@ export function PortalScreenshot({
   alt: string;
   caption: string;
 }) {
+  const { width, height } = dimensions[name];
   return (
     <figure className="portal-screenshot not-prose grid">
       {(['light', 'dark'] as const).map((theme) => (
         <a
           key={theme}
-          href={`/screenshots/${name}-${theme}.jpg`}
+          href={`/screenshots/${name}-${theme}.jpg?v=${screenshotRevision}`}
           className={
             theme === 'light'
               ? 'col-start-1 row-start-1 visible dark:invisible'
@@ -25,10 +31,10 @@ export function PortalScreenshot({
           aria-label={alt}
         >
           <Image
-            src={`/screenshots/${name}-${theme}.jpg`}
+            src={`/screenshots/${name}-${theme}.jpg?v=${screenshotRevision}`}
             alt={alt}
-            width={1280}
-            height={900}
+            width={width}
+            height={height}
             sizes="(max-width: 768px) 100vw, 800px"
           />
         </a>

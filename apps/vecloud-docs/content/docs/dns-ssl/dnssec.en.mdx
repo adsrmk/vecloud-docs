@@ -4,6 +4,8 @@ description: Sign the DNS zone and publish the matching DS information at your d
 icon: ShieldCheck
 ---
 
+DNSSEC adds a way to verify DNS responses. A working setup depends on matching the settings at your DNS provider with those at your domain registrar.
+
 ## What DNSSEC protects
 
 DNSSEC allows resolvers to verify the origin and integrity of DNS answers. It does not encrypt website traffic; use [SSL and HTTPS](./ssl.mdx) for that. A complete setup links the signed DNS zone to a DS record at the registrar.

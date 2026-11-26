@@ -4,6 +4,8 @@ description: Koppel je domein aan webhosting, e-mail en externe diensten met de 
 icon: Globe
 ---
 
+DNS verbindt je domeinnaam met de diensten die je gebruikt, zoals je website en e-mail. Begin bij de actieve DNS-beheerder en pas daarna de benodigde records aan.
+
 ## Controleer waar je DNS wordt beheerd
 
 Open **Domains → je website → DNS settings**. De pagina toont de zones van de domeinen die bij deze website horen. Een opgeslagen wijziging wordt alleen publiek gebruikt als de actieve nameservers deze zone aanbieden, of als de zone via de [Cloudflare-koppeling](./cloudflare.mdx) wordt gesynchroniseerd.
@@ -13,6 +15,8 @@ Bij externe nameservers zonder synchronisatie wijzig je DNS bij die externe prov
 <PortalScreenshot name="dns-records" alt="DNS-records van een demonstratiedomein" caption="De zone bevat alleen fictieve domeinen en documentatie-IP-adressen." />
 
 ## Een record toevoegen
+
+Zodra je weet dat je in de juiste zone werkt, voeg je het benodigde record als volgt toe.
 
 <Steps>
 <Step>

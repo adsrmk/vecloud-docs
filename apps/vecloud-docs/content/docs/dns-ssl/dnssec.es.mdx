@@ -4,6 +4,8 @@ description: Firma la zona DNS y publica los datos DS correspondientes en el reg
 icon: ShieldCheck
 ---
 
+DNSSEC permite verificar las respuestas DNS. Para que funcione, la configuración del proveedor DNS debe coincidir con la que publicas en el registrador del dominio.
+
 ## Qué protege DNSSEC
 
 DNSSEC permite verificar el origen y la integridad de las respuestas DNS. No cifra el tráfico del sitio; para eso usa [SSL y HTTPS](./ssl.mdx). La configuración completa enlaza la zona firmada con un registro DS en el registrador.

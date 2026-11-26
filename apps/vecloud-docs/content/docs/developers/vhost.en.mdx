@@ -4,6 +4,8 @@ description: Manage custom webserver directives per domain and avoid conflicting
 icon: FileCode
 ---
 
+Some applications need additional webserver rules. First check whether the panel has a dedicated setting for the task, then use custom configuration for the remaining requirements.
+
 ## When to use it
 
 Use [Redirects](../dns-ssl/redirects.mdx) for ordinary forwarding, [IP deny](../dns-ssl/ip-deny.mdx) for blocking and [Optimization](../performance/cache.mdx) for caching. The VirtualHost editor is for additional webserver configuration required by an application.
@@ -12,8 +14,8 @@ Open **Domains → your website → Overview → Website actions → Manage over
 
 <PortalScreenshot
   name="vhost-editor"
-  alt="VirtualHost editor containing demonstration configuration only"
-  caption="VirtualHost editor containing demonstration configuration only"
+  alt="Open the VirtualHost configuration for the selected domain from its action menu."
+  caption="Open the VirtualHost configuration for the selected domain from its action menu."
 />
 
 ## Save a change

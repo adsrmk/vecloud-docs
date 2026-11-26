@@ -4,6 +4,8 @@ description: Verbinde deine Domain über passende DNS-Einträge mit Hosting, E-M
 icon: Globe
 ---
 
+DNS verbindet deinen Domainnamen mit Diensten wie Website und E-Mail. Kläre zuerst, wo die aktive DNS-Zone verwaltet wird, und passe anschließend die benötigten Einträge an.
+
 ## Prüfe den zuständigen DNS-Anbieter
 
 Öffne **Domains → deine Website → DNS settings**. Die Seite zeigt die Zonen der zugeordneten Domains. Gespeicherte Änderungen werden öffentlich verwendet, wenn die aktiven Nameserver diese Zone bereitstellen oder sie über die [Cloudflare-Integration](./cloudflare.mdx) synchronisiert wird.
@@ -13,6 +15,8 @@ Bei externen Nameservern ohne Synchronisierung bearbeitest du die Einträge beim
 <PortalScreenshot name="dns-records" alt="DNS-Einträge einer Demo-Domain" caption="Die Zone enthält nur fiktive Domains und Dokumentations-IP-Adressen." />
 
 ## Eintrag hinzufügen
+
+Sobald die richtige Zone feststeht, fügst du den benötigten Eintrag folgendermaßen hinzu.
 
 <Steps>
 <Step>
