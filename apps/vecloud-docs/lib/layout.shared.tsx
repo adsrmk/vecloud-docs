@@ -1,5 +1,5 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { getDocsUrl, gitConfig } from './shared';
+import { getDocsUrl } from './shared';
 import { i18n, type Locale } from './i18n';
 import { ui } from './translations';
 import { uiTranslations } from 'fumadocs-ui/i18n';
@@ -36,6 +36,5 @@ export function baseOptions(locale: Locale): BaseLayoutProps {
         </span>
       ),
     },
-    githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
   };
 }
