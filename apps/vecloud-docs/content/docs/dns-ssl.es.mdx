@@ -1,0 +1,32 @@
+---
+title: DNS y SSL
+description: Gestiona los registros DNS y protege la conexión con tu sitio web.
+icon: LockKeyhole
+---
+
+## Gestiona los registros DNS
+
+Abre tu sitio y ve a **DNS settings** para consultar y editar los registros disponibles. Comprueba que el DNS se gestione realmente desde este entorno. Si usas servidores de nombres externos, modifica los registros en ese proveedor.
+
+Los registros habituales incluyen **A** y **AAAA** para direcciones IP, **CNAME** para apuntar a otro host, **MX** para el correo y **TXT** para verificaciones y seguridad del correo, entre otros usos.
+
+## Cloudflare
+
+Si utilizas la integración de Cloudflare, comprueba que el dominio esté conectado a la zona correcta. Opciones como el proxy pueden afectar al destino del tráfico y a la forma en que las comprobaciones del certificado llegan a tu sitio.
+
+## Solicita un certificado SSL
+
+1. Ve a **SSL certificates** dentro de tu sitio.
+2. Elige **Request certificate**.
+3. Selecciona el dominio y confirma la solicitud.
+4. Comprueba el estado y la fecha de caducidad al terminar.
+
+Para que la solicitud funcione, el dominio y la accesibilidad del sitio deben ser correctos.
+
+## Envía a los visitantes a HTTPS
+
+Usa **Enforce HTTPS** para redirigir a los visitantes a la conexión segura. Comprueba primero que haya un certificado válido activo para el dominio.
+
+## DNSSEC
+
+DNSSEC protege la verificación de las respuestas DNS. Para que funcione, la configuración del proveedor DNS y los datos del registrador deben coincidir. Gestiona DNSSEC con los proveedores de tus servidores de nombres y del registro del dominio.

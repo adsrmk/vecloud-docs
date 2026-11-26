@@ -1,0 +1,14 @@
+{
+  "title": "Control Panel",
+  "pages": [
+    "index",
+    "snelstart",
+    "---Hosting---",
+    "websites",
+    "wordpress",
+    "email",
+    "backups",
+    "dns-ssl",
+    "bestanden-databases"
+  ]
+}

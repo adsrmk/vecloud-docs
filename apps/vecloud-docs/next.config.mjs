@@ -10,15 +10,25 @@ const config = {
   devIndicators: false,
   outputFileTracingRoot: import.meta.dirname,
   turbopack: { root: import.meta.dirname },
+  async redirects() {
+    return [
+      { source: '/', destination: '/nl/docs', permanent: false },
+      {
+        source: '/docs/:path*',
+        destination: '/nl/docs/:path*',
+        permanent: true,
+      },
+    ];
+  },
   async rewrites() {
     return [
       {
-        source: '/docs/:path*.md',
-        destination: '/llms.mdx/docs/:path*.md',
+        source: '/:lang(nl|en|es|fr|de)/docs/:path*.md',
+        destination: '/llms.mdx/:lang/docs/:path*.md',
       },
       {
-        source: '/docs/:path*.txt',
-        destination: '/llms.mdx/docs/:path*.txt',
+        source: '/:lang(nl|en|es|fr|de)/docs/:path*.txt',
+        destination: '/llms.mdx/:lang/docs/:path*.txt',
       },
     ];
   },

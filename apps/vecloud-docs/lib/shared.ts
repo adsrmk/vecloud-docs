@@ -1,4 +1,5 @@
 import { createGetUrl } from 'fumadocs-core/source';
+import { i18n } from './i18n';
 
 export const appName = 'veCloud Docs';
 export const siteUrl = 'https://docs.vecloud.eu';
@@ -13,9 +14,22 @@ export const gitConfig = {
 };
 
 const getImageUrl = createGetUrl(docsImageRoute);
+export const getHomeUrl = createGetUrl('', i18n);
+export const getDocsUrl = createGetUrl(docsRoute, i18n);
+
+export function languageAlternates(slugs?: string[]) {
+  const getUrl = slugs ? getDocsUrl : getHomeUrl;
+  return Object.fromEntries([
+    ...i18n.languages.map((locale) => [locale, getUrl(slugs ?? [], locale)]),
+    ['x-default', getUrl(slugs ?? [], i18n.defaultLanguage)],
+  ]);
+}
 
 export function getPageImageUrl(page: { slugs: string[]; locale?: string }) {
   const segments = [...page.slugs, 'image.png'];
 
-  return { segments, url: getImageUrl(segments, page.locale) };
+  return {
+    segments,
+    url: getImageUrl([page.locale ?? i18n.defaultLanguage, ...segments]),
+  };
 }

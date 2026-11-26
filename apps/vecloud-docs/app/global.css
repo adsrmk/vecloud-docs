@@ -2,13 +2,46 @@
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
 
+@theme inline {
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-geist-mono);
+}
+
 :root {
-  --color-fd-primary: #1677e8;
+  --color-fd-background: oklch(98.5% 0.003 106.45);
+  --color-fd-foreground: oklch(28.9% 0 0);
+  --color-fd-muted: oklch(94% 0 0);
+  --color-fd-muted-foreground: oklch(58.3% 0 0);
+  --color-fd-primary: oklch(42.8% 0.202 262.28);
   --color-fd-primary-foreground: #fff;
+  --color-fd-border: oklch(94% 0 0);
+  --color-fd-card: #fff;
+  --color-fd-card-foreground: oklch(28.9% 0 0);
+  --color-fd-popover: #fff;
+  --color-fd-popover-foreground: oklch(28.9% 0 0);
+  --color-fd-secondary: oklch(94% 0 0);
+  --color-fd-secondary-foreground: oklch(28.9% 0 0);
+  --color-fd-accent: oklch(93.3% 0.036 239.15);
+  --color-fd-accent-foreground: oklch(42.8% 0.202 262.28);
+  --color-fd-ring: oklch(42.8% 0.202 262.28);
 }
 .dark {
-  --color-fd-primary: #72b4ff;
-  --color-fd-primary-foreground: #0b1625;
+  --color-fd-background: oklch(20.5% 0 0);
+  --color-fd-foreground: oklch(98.5% 0 0);
+  --color-fd-muted: oklch(32% 0 0);
+  --color-fd-muted-foreground: oklch(70.8% 0 0);
+  --color-fd-primary: oklch(57.9% 0.232 259.64);
+  --color-fd-primary-foreground: oklch(98.5% 0 0);
+  --color-fd-border: oklch(100% 0 0 / 0.1);
+  --color-fd-card: oklch(26.9% 0 0);
+  --color-fd-card-foreground: oklch(98.5% 0 0);
+  --color-fd-popover: oklch(26.9% 0 0);
+  --color-fd-popover-foreground: oklch(98.5% 0 0);
+  --color-fd-secondary: oklch(32% 0 0);
+  --color-fd-secondary-foreground: oklch(98.5% 0 0);
+  --color-fd-accent: oklch(37.1% 0.06 262.12);
+  --color-fd-accent-foreground: oklch(98.5% 0 0);
+  --color-fd-ring: oklch(57.9% 0.232 259.64);
 }
 .docs-brand {
   display: inline-flex;
@@ -16,7 +49,7 @@
   gap: 14px;
 }
 .docs-brand img {
-  width: 124px;
+  width: 110px;
   height: auto;
 }
 .docs-brand-label {
@@ -26,110 +59,31 @@
   font-weight: 500;
   color: var(--color-fd-muted-foreground);
 }
-.docs-home {
-  width: 100%;
-  max-width: 1120px;
-  margin-inline: auto;
-  padding-inline: 24px;
-}
-.docs-hero {
-  padding: 88px 0 76px;
-  max-width: 780px;
-}
-.docs-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-fd-primary);
-  margin-bottom: 24px;
-}
-.docs-hero h1 {
-  font-size: clamp(40px, 5.5vw, 64px);
-  line-height: 1.1;
-  letter-spacing: -0.055em;
-  font-weight: 650;
-}
-.docs-hero h1 span {
-  color: var(--color-fd-primary);
-}
-.docs-hero > p {
-  font-size: 18px;
-  line-height: 1.7;
-  color: var(--color-fd-muted-foreground);
-  max-width: 600px;
-  margin-top: 24px;
-}
-.docs-hero-actions {
+.docs-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 30px;
+  margin-block: 24px 32px;
 }
 .docs-action {
-  min-height: 42px;
-  padding-inline: 18px;
-  gap: 8px;
+  min-height: 36px;
+  padding-inline: 12px;
   border-radius: 6px;
+  gap: 8px;
   font-size: 14px;
 }
-.docs-topics {
-  padding-bottom: 56px;
+.prose p a,
+.prose li a {
+  color: var(--color-fd-primary);
+  text-decoration: none;
 }
-.docs-section-heading {
-  margin-bottom: 24px;
+.prose p a:hover,
+.prose li a:hover {
+  text-decoration: underline;
 }
-.docs-section-heading h2,
-.docs-panel-link h2 {
-  font-size: 21px;
-  letter-spacing: -0.025em;
-  font-weight: 600;
-}
-.docs-section-heading p,
-.docs-panel-link p {
-  margin-top: 8px;
-  font-size: 14px;
-  color: var(--color-fd-muted-foreground);
-  line-height: 1.6;
-}
-.docs-panel-link {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-  border-block: 1px solid var(--color-fd-border);
-  padding-block: 32px;
-}
-.docs-footer {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding-block: 24px;
-  color: var(--color-fd-muted-foreground);
-  font-size: 12px;
-}
-.docs-footer a:hover {
-  color: var(--color-fd-foreground);
-}
-@media (max-width: 640px) {
-  .docs-hero {
-    padding-block: 52px;
-  }
-  .docs-hero > p {
-    font-size: 16px;
-  }
-  .docs-brand img {
-    width: 110px;
-  }
-}
-
 html {
   scrollbar-gutter: stable;
 }
-
 html > body[data-scroll-locked] {
   margin-right: 0px !important;
   --removed-body-scroll-bar-size: 0px !important;

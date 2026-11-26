@@ -1,0 +1,32 @@
+---
+title: DNS & SSL
+description: Manage DNS records and secure the connection to your website.
+icon: LockKeyhole
+---
+
+## Manage DNS records
+
+Open your website and go to **DNS settings** to view and edit the available records. Check whether this environment actually manages your DNS. With external nameservers, make changes at the external DNS provider.
+
+Common records include **A** and **AAAA** for IP addresses, **CNAME** for a reference to another host, **MX** for email and **TXT** for verification and email security, among other uses.
+
+## Cloudflare
+
+If you use a Cloudflare integration, check that the correct domain is connected to the correct zone. Settings such as proxying can affect where traffic goes and how certificate checks reach your website.
+
+## Request an SSL certificate
+
+1. Go to **SSL certificates** within your website.
+2. Choose **Request certificate**.
+3. Select the domain and confirm the request.
+4. Check the status and expiry date once the request completes.
+
+The domain name and website accessibility must be correct for the request to succeed.
+
+## Send visitors to HTTPS
+
+Use **Enforce HTTPS** to redirect visitors to the secure connection. First check that a valid certificate is active for the domain.
+
+## DNSSEC
+
+DNSSEC protects the verification of DNS responses. For it to work, your DNS provider settings and registrar records must agree. Manage DNSSEC with the providers responsible for your nameservers and domain registration.

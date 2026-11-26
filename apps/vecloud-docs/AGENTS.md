@@ -3,8 +3,9 @@
 This is the independent veCloud customer documentation app. Run its own pnpm
 commands from this directory. It uses published Fumadocs packages and its own
 workspace/lockfile; do not rebuild or modify upstream framework packages.
-Dutch customer guides here are original content, not generated translations of
-the upstream documentation in apps/docs. Keep the veCloud portal itself separate.
+Customer guides and their translations here are original veCloud content, not
+generated translations of the upstream documentation in apps/docs. Keep all five
+language versions and navigation files in sync when changing a guide. Keep the veCloud portal itself separate.
 Use only fictitious/demo data in published screenshots, never customer records,
 passwords, API tokens or account details.
 

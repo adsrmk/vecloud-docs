@@ -1,11 +1,19 @@
 import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { gitConfig } from './shared';
+import { getDocsUrl, gitConfig } from './shared';
+import { i18n, type Locale } from './i18n';
+import { ui } from './translations';
+import { uiTranslations } from 'fumadocs-ui/i18n';
 import Image from 'next/image';
-import { ArrowUpRight } from 'lucide-react';
 
-export function baseOptions(): BaseLayoutProps {
+export const translations = i18n
+  .translations()
+  .extend(uiTranslations())
+  .add(ui);
+
+export function baseOptions(locale: Locale): BaseLayoutProps {
   return {
     nav: {
+      url: getDocsUrl([], locale),
       title: (
         <span className="docs-brand">
           <Image
@@ -29,15 +37,5 @@ export function baseOptions(): BaseLayoutProps {
       ),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
-    links: [
-      { text: 'Documentatie', url: '/docs', active: 'nested-url' },
-      {
-        type: 'button',
-        text: 'Control Panel',
-        url: 'https://panel.vecloud.eu',
-        external: true,
-        icon: <ArrowUpRight className="size-4" aria-hidden />,
-      },
-    ],
   };
 }

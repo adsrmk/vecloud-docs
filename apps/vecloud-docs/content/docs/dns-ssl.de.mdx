@@ -1,0 +1,32 @@
+---
+title: DNS und SSL
+description: Verwalte DNS-Einträge und sichere die Verbindung zu deiner Website.
+icon: LockKeyhole
+---
+
+## Verwalte DNS-Einträge
+
+Öffne deine Website und gehe zu **DNS settings**, um die verfügbaren Einträge anzusehen und zu bearbeiten. Prüfe, ob DNS tatsächlich in dieser Umgebung verwaltet wird. Bei externen Nameservern nimmst du Änderungen beim externen DNS-Anbieter vor.
+
+Übliche Einträge sind **A** und **AAAA** für IP-Adressen, **CNAME** für einen Verweis auf einen anderen Host, **MX** für E-Mail und **TXT** unter anderem für Verifizierungen und E-Mail-Sicherheit.
+
+## Cloudflare
+
+Wenn du eine Cloudflare-Integration verwendest, prüfe die Zuordnung der Domain zur richtigen Zone. Einstellungen wie der Proxy können beeinflussen, wohin der Datenverkehr gelangt und wie Zertifikatsprüfungen deine Website erreichen.
+
+## Beantrage ein SSL-Zertifikat
+
+1. Gehe innerhalb deiner Website zu **SSL certificates**.
+2. Wähle **Request certificate**.
+3. Wähle die Domain und bestätige die Anfrage.
+4. Prüfe nach Abschluss den Status und das Ablaufdatum.
+
+Für eine erfolgreiche Anfrage müssen Domainname und Erreichbarkeit der Website stimmen.
+
+## Leite Besucher zu HTTPS weiter
+
+Mit **Enforce HTTPS** leitest du Besucher zur sicheren Verbindung weiter. Prüfe zuerst, ob ein gültiges Zertifikat für die Domain aktiv ist.
+
+## DNSSEC
+
+DNSSEC schützt die Überprüfung von DNS-Antworten. Dafür müssen die Einstellungen beim DNS-Anbieter und die Daten beim Registrar übereinstimmen. Verwalte DNSSEC bei den Anbietern deiner Nameserver und deiner Domainregistrierung.
