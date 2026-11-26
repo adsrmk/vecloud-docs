@@ -59,6 +59,7 @@ const locales = ['nl', 'en', 'es', 'fr', 'de'];
 const prefix = (locale) => `/${locale}`;
 const content = new Map();
 const screenshotNames = new Set();
+const optimizedScreenshots = new Set();
 const screenshotDimensions = JSON.parse(
   await readFile(new URL('lib/screenshot-dimensions.json', app), 'utf8'),
 );
@@ -165,6 +166,9 @@ try {
         !/href="\/docs(?:[\/#"])/.test(html),
         path + ' links keep locale',
       );
+    for (const [, src] of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g))
+      if (src.includes('screenshots'))
+        optimizedScreenshots.add(src.replaceAll('&amp;', '&'));
     counts[locale]++;
   }
   for (const link of internalLinks) {
@@ -256,20 +260,15 @@ try {
       );
     }
   }
-  for (const path of ['/nl/docs/databases', '/nl/docs/dns-ssl/dnssec']) {
-    const imageSources = [];
-    for (const [, src] of renderedPages.get(path).matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g))
-      if (src.includes('screenshots'))
-        imageSources.push(src.replaceAll('&amp;', '&'));
-    assert.ok(
-      imageSources.length >= 2 && imageSources.length % 2 === 0,
-      path + ' complete screenshot pairs',
-    );
-    for (const src of imageSources) {
-      const image = await get(src);
-      assert.match(image.headers.get('content-type'), /^image\//, src);
-      assert.ok((await image.arrayBuffer()).byteLength > 1000, src);
-    }
+  assert.equal(
+    optimizedScreenshots.size,
+    screenshotNames.size * 2,
+    'Every screenshot has both optimized themes',
+  );
+  for (const src of optimizedScreenshots) {
+    const image = await get(src);
+    assert.match(image.headers.get('content-type'), /^image\//, src);
+    assert.ok((await image.arrayBuffer()).byteLength > 1000, src);
   }
   const defaultLocale = await fetch(base + '/docs/backups?check=1', {
     redirect: 'manual',
@@ -311,6 +310,7 @@ try {
       redirects: 'passed',
       images: 'passed',
       screenshotPairs: screenshotNames.size,
+      optimizedScreenshots: optimizedScreenshots.size,
       internalLinks: internalLinks.size,
       notFound: 'passed',
     }),

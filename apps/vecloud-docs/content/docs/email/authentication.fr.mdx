@@ -1,0 +1,40 @@
+---
+title: Vérifier l’authentification des e-mails
+description: Adaptez SPF, DKIM et DMARC aux services qui envoient au nom de votre domaine.
+icon: MailCheck
+---
+
+Pour des envois fiables, le destinataire doit pouvoir vérifier qui écrit au nom du domaine. Commencez par identifier le fournisseur des boîtes, les formulaires web et les autres services d’envoi.
+
+## Identifier les circuits d’envoi
+
+Notez pour chaque service le domaine expéditeur et l’endroit où ses DNS sont gérés. Une boîte externe et un formulaire sur l’hébergement peuvent utiliser des circuits différents.
+
+Vérifiez aussi [le routage et les MX](../dns-ssl/mail-routing.mdx). Ils concernent la réception ; les contrôles ci-dessous concernent les envois.
+
+## Vérifier SPF
+
+Utilisez un TXT avec `v=spf1` par nom et rassemblez les valeurs fournies par vos services d’envoi. Plusieurs politiques SPF pour un même nom provoquent une erreur. Voir la [spécification SPF](https://www.rfc-editor.org/rfc/rfc7208).
+
+Reprenez les valeurs des services réellement utilisés. Un exemple avec `mx` ou un `include` arbitraire ne couvre pas automatiquement formulaires, newsletters et boîtes externes. Conservez la valeur précédente avant de modifier la politique.
+
+## Activer DKIM pour le bon expéditeur
+
+1. Ouvrez **Domains → votre site → DNS settings** et cherchez **Email authentication**.
+2. Activez DKIM lorsque cet hébergement envoie les messages concernés.
+3. Vérifiez la validation. Si elle manque, copiez `hostingcp._domainkey` et le TXT complet avec les boutons prévus.
+4. Publiez cette valeur chez le fournisseur DNS actif, puis vérifiez à nouveau après mise à jour DNS.
+
+<PortalScreenshot name="dns-records" alt="Gestion DNS d’un domaine de démonstration" caption="Les enregistrements d’authentification appartiennent à la zone DNS active. Copiez les valeurs complètes de votre propre configuration." />
+
+**Verified** confirme le contrôle DNS affiché. Si un fournisseur externe envoie vos messages, configurez aussi son DKIM ; le commutateur ne configure pas ce service externe.
+
+## Ajouter une politique DMARC adaptée
+
+DMARC exige SPF ou DKIM valide et aligné. Publiez le TXT sous `_dmarc` ; `p=none` sert à la surveillance. Discutez des rapports et d’une politique renforcée avec le fournisseur. Voir la [spécification](https://www.rfc-editor.org/rfc/rfc9989.html).
+
+## Tester de vrais messages
+
+Envoyez séparément depuis la boîte et un formulaire web. Chez le destinataire, examinez les en-têtes, dont `Authentication-Results`, et les résultats SPF, DKIM et DMARC. Un DKIM vert dans le panel ne teste pas tous les circuits.
+
+Si des messages manquent toujours, vérifiez [l’antispam](./spam.mdx), les erreurs de livraison et l’application expéditrice. Transmettez au support heure, expéditeur, destinataire et code d’erreur par un canal adapté ; ne partagez ni mot de passe SMTP ni clé privée.

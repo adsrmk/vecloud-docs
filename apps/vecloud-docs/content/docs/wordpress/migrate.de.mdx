@@ -1,0 +1,45 @@
+---
+title: Eine bestehende WordPress-Website umziehen
+description: Übertrage Dateien und Datenbank gemeinsam und prüfe die Website vor und nach der DNS-Umstellung.
+icon: ArrowRightLeft
+---
+
+Bei einem Umzug übernimmst du Dateien und Datenbank deiner bestehenden WordPress-Website. Bereite zuerst das Ziel vor und schalte um, sobald Inhalte und Einstellungen zusammenpassen.
+
+Dieser Ablauf gilt für eine normale WordPress-Installation. Lass ein Multisite-Netzwerk oder eine abweichende Einrichtung vor dem Umzug gesondert prüfen.
+
+## Vollständige Kopie aufbewahren
+
+Sichere beim bisherigen Hoster die Dateien und einen aktuellen MySQL/MariaDB-Export. Notiere PHP-Version und Erweiterungen. Vereinbare bei einem Shop oder einer aktiven Website, ab wann keine neuen Bestellungen und Änderungen mehr erfolgen; sonst kann die Kopie veralten.
+
+Behalte das bisherige Hosting und die Kopien, bis das Ziel vollständig geprüft ist. Ein Websiteumzug überträgt nicht automatisch die Postfächer.
+
+## Ziel vorbereiten
+
+1. [Füge die Domain hinzu](../websites/create.mdx) und wähle die vorgesehene Websiteumgebung.
+2. Prüfe [PHP](../developers/php.mdx) und den [Websiteordner](../files/webroot.mdx).
+3. Erstelle eine leere [MySQL/MariaDB-Datenbank und einen Benutzer](../databases/index.mdx). Gewähre dem Benutzer Datenbankzugriff.
+4. Übertrage die Dateien per [SFTP](../files/ssh.mdx) oder [Dateimanager](../files/transfers.mdx).
+5. [Importiere den SQL-Export](../databases/sql.mdx) in die neue Datenbank. Das Hochladen einer SQL-Datei in Files führt keinen Import aus.
+
+Aktualisiere danach die kopierte `wp-config.php` mit vollständigem Datenbanknamen, Benutzer, neuem Passwort und den Verbindungsdaten aus dem Panel. Behalte das Tabellenpräfix der importierten Tabellen bei. Teile diese Konfigurationsdatei nicht mit anderen.
+
+## Adresse prüfen
+
+Bleibt die vollständige Websiteadresse gleich, ist ein allgemeiner URL-Austausch meist unnötig. Bei einer anderen Adresse kann **Site URL** im [Toolkit](./index.mdx) die Hauptadressen ändern, aber nicht sämtliche Verweise im Inhalt.
+
+Nutze dafür eine Methode, die serialisierte WordPress-Daten unterstützt. Mit verfügbarem SSH-Zugang und WP-CLI kannst du zunächst ohne Speichern prüfen:
+
+```sh
+wp search-replace 'https://old.example.test' 'https://new.example.test' --skip-columns=guid --dry-run
+```
+
+Führe den Befehl in der richtigen Installation aus und ersetze die Beispieladressen. Prüfe das Ergebnis vor einer echten Ersetzung. Siehe die [offizielle WP-CLI-Erklärung](https://developer.wordpress.org/cli/commands/search-replace/).
+
+## Testen und umschalten
+
+Organisiere einen passenden Testzugang zum neuen Hosting, bei Bedarf mit dem Support. Solange öffentliches DNS noch zum alten Hoster zeigt, prüft ein normaler Domainaufruf nicht die neue Umgebung.
+
+Prüfe anschließend [DNS](../dns-ssl/index.mdx), [HTTPS](../dns-ssl/ssl.mdx), Verwaltung, Bilder, Formulare und Zahlungen. Behalte Mail-DNS-Einträge bei, wenn E-Mail nicht umzieht. DNS-Caches können Besucher vorübergehend auf beide Hosts verteilen; vermeide abweichende Bestellungen oder Inhalte.
+
+Nutze **Apps → Scan apps**, um die kopierte Installation zu finden, und prüfe die [Backups](../backups/index.mdx). Behebe Probleme gezielt am Ziel und behalte die bisherige Umgebung. Die [WordPress-Migrationsanleitung](https://developer.wordpress.org/advanced-administration/upgrade/migrating/) bietet weitere Erläuterungen. Ein interner [Serverumzug](../developers/migrations.mdx) ist eine eigene Verwaltungsaktion.

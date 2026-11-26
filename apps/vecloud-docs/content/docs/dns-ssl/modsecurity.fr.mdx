@@ -1,0 +1,34 @@
+---
+title: ModSecurity et requêtes bloquées
+description: Vérifiez le pare-feu applicatif par domaine et examinez les faux positifs possibles.
+icon: ShieldCheck
+---
+
+ModSecurity est un pare-feu applicatif qui confronte les requêtes web à des règles de sécurité. Si des formulaires ou actions d’administration sont bloqués de façon inattendue, une vérification ciblée aide à trouver la cause. Voir le [projet ModSecurity](https://owasp.org/www-project-modsecurity/).
+
+## Vérifier la disponibilité
+
+Ouvrez **Domains → votre site → SSL certificates**. Le bloc **ModSecurity** apparaît lorsque la fonction est disponible et propose un commutateur par domaine. S’il manque, demandez au support quelle protection correspond à cet environnement.
+
+Ce réglage est distinct du certificat et de **Enforce HTTPS**. Pour bloquer des adresses, utilisez [IP deny](./ip-deny.mdx) lorsque cette fonction est disponible.
+
+## Modifier un réglage
+
+1. Repérez la ligne du domaine voulu. Vérifiez le nom complet si plusieurs domaines sont présents.
+2. Examinez l’état actuel avant de changer le commutateur.
+3. Attendez la confirmation ; après une erreur ambiguë, rechargez l’état avant de changer à nouveau.
+4. Testez l’action ordinaire du site que vous vouliez vérifier.
+
+Le réglage concerne le domaine choisi. Vérifiez les autres domaines séparément ; ne supposez pas que tous les alias ont changé avec lui.
+
+## Examiner un faux positif possible
+
+Une réponse `403` peut aussi provenir de droits applicatifs, de permissions de fichiers ou d’une règle IP. Notez l’URL exacte, l’heure avec fuseau, le message et l’action, par exemple enregistrer un formulaire.
+
+Répétez seulement si cela ne crée pas une seconde commande ou une autre modification indésirable. Vérifiez si une seule URL ou un seul compte est touché et si [IP deny](./ip-deny.mdx) ou les [permissions](../files/permissions.mdx) l’expliquent.
+
+Demandez au support d’examiner l’événement de sécurité et l’éventuelle pertinence d’une exception ciblée. Le [journal PHP](../developers/logs.mdx) n’est pas le journal d’audit complet de ModSecurity. Ne transmettez ni mot de passe, ni token, ni contenu sensible du formulaire.
+
+## Après l’examen
+
+Gardez la trace de toute modification temporaire. Confirmez l’état de sécurité voulu et testez à nouveau la fonction. Désactiver le pare-feu ne répare pas la cause applicative.

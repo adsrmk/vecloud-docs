@@ -1,0 +1,35 @@
+---
+title: WordPress installeren
+description: Kies domein, locatie en beheeraccount en controleer je nieuwe installatie.
+icon: Blocks
+---
+
+Een nieuwe WordPress-website begint met een lege, passende locatie. Zodra de installatie klaar is, gebruik je de toolkit voor technisch beheer en WordPress zelf voor je inhoud.
+
+## Bereid je website voor
+
+[Voeg het domein toe](../websites/create.mdx) als het nog niet in **Domains** staat. Controleer het geselecteerde domein, de beschikbare webruimte en [PHP-compatibiliteit](../developers/php.mdx). Bewaar bestaande bestanden en databases voordat je een gebruikte locatie wijzigt.
+
+Verhuis je een bestaande website? Volg dan [WordPress migreren](./migrate.mdx). Een nieuwe installatie haalt geen inhoud op bij je vorige host.
+
+## Vul het installatieformulier in
+
+1. Open de website en kies **Apps → Add application**.
+2. Selecteer **WordPress**, de aangeboden versie en het juiste domein. Beschikbare keuzes hangen af van je pakket.
+3. Laat **Relative installation path** leeg voor de standaardlocatie van dat domein. Vul bijvoorbeeld `blog` in voor een submap; voeg niet zelf een extra `public_html` toe.
+4. Vul de gevraagde gebruikersnaam, het e-mailadres, een uniek wachtwoord en de wachtwoordherhaling voor de WordPress-beheerder in. Bewaar deze gegevens in je wachtwoordmanager.
+5. Controleer eventuele vooraf ingestelde plugins en kies **Install application**.
+
+Het WordPress-account staat los van je panelaccount. Kies een e-mailadres waarop je herstelberichten kunt ontvangen.
+
+## Rond af en open WordPress
+
+Laat de installatie afronden en lees het resultaat. Als aanvullende plugins een afzonderlijke afronding vragen, volg je die melding; een gedeeltelijke uitkomst is geen reden om alles opnieuw te installeren.
+
+<PortalScreenshot name="apps" alt="Applicatiekaart als ingang naar de WordPress-toolkit" caption="Na installatie open je Toolkit of Admin vanuit de applicatiekaart. De afbeelding bevat demonstratiedata." />
+
+Open **Toolkit** en controleer de URL en versie. **Admin** brengt je naar WordPress wanneer deze toegang beschikbaar is. Regel daarna [DNS en HTTPS](../dns-ssl/ssl.mdx), test de publieke website en bekijk de beschikbare [back-ups](../backups/index.mdx).
+
+## De installatie lijkt niet klaar
+
+Vernieuw eerst de applicatielijst en gebruik zo nodig **Scan apps**. Controleer de gevonden installatie en de exacte melding voordat je opnieuw begint. Ga voor verder onderhoud naar [de WordPress-toolkit](./index.mdx).

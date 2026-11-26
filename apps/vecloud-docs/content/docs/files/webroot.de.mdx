@@ -1,0 +1,34 @@
+---
+title: Den richtigen Websiteordner wählen
+description: Verstehe Document Root, public_html und Installationspfade, bevor du Dateien ablegst.
+icon: FolderOpen
+---
+
+Der Document Root ist der Ordner, aus dem eine Domain öffentliche Websitedateien ausliefert. Ein Upload an anderer Stelle kann erfolgreich sein, während Besucher weiterhin alte Inhalte oder einen Fehler sehen.
+
+## Bei der Installation beginnen
+
+Öffne **Domains → deine Website → Apps** und prüfe den Speicherort der Anwendung. Öffne anschließend **Files** und kontrolliere den Pfad in der Navigation. **Home** ist der Anfang des Dateibereichs dieser Website.
+
+Öffne bei WordPress **Toolkit → General** und lies **File path**. Prüfe bei einer anderen Anwendung die angezeigten Installationsdaten.
+
+`public_html` ist ein häufiger Websiteordner; der richtige Speicherort hängt jedoch von Domainzuordnung und Anwendung ab. Richte dich deshalb nach der aktuellen Einrichtung deiner Website.
+
+<PortalScreenshot name="files" alt="Dateimanager mit dem Ordner der Demowebsite" caption="Prüfe den aktuellen Pfad vor dem Hochladen oder Bearbeiten. Die Abbildung enthält ausschließlich Demodaten." />
+
+## Domainordner und Installationspfad
+
+Unter **Add application** bezieht sich **Relative installation path** auf den Standardspeicherort der gewählten Domain. Leer bedeutet diesen Speicherort; `blog` bezeichnet einen Unterordner. Trage nicht automatisch `public_html/blog` ein, wenn `public_html` bereits der Domainordner ist.
+
+Bei einer statischen Website legst du die veröffentlichten Dateien im vorgesehenen Ordner ab. Bei Projekten mit Buildschritt nutzt du dessen Ausgabe, statt ungeprüft den gesamten Quellcode zu veröffentlichen. Das [GitHub-Deployment](../developers/github.mdx) bietet dafür **Publish directory**.
+
+## Dateien vorhanden, aber nicht sichtbar
+
+1. Prüfe die ausgewählte Domain und den vollständigen Dateipfad.
+2. Bestätige den abgeschlossenen Upload und die erwarteten Startdateien.
+3. Prüfe [Dateirechte](./permissions.mdx), Anwendungskonfiguration und relevante [Caches](../performance/cache.mdx).
+4. Prüfe, ob öffentliches [DNS](../dns-ssl/index.mdx) auf dieses Hosting zeigt.
+
+Ein Alias kann dieselbe Websiteumgebung verwenden; eine andere Domain bedeutet nicht automatisch einen eigenen Ordner. Bitte den Support bei Unklarheiten um Prüfung des aktiven Domainordners. Dateien zu verschieben ändert allein keine Domainkonfiguration.
+
+Bewahre Exporte und vertrauliche Dateien außerhalb des öffentlichen Ordners auf. Nutze [Uploads und Übertragungen](./transfers.mdx) für Dateien oder [WordPress migrieren](../wordpress/migrate.mdx) für einen vollständigen Umzug einschließlich Datenbank.

@@ -1,0 +1,35 @@
+---
+title: Install WordPress
+description: Choose a domain, location and administrator account, then check the new installation.
+icon: Blocks
+---
+
+A new WordPress website starts with a suitable empty location. Once installation finishes, use the toolkit for technical maintenance and WordPress itself for your content.
+
+## Prepare the website
+
+[Add the domain](../websites/create.mdx) if it is not yet in **Domains**. Check the selected domain, available hosting space and [PHP compatibility](../developers/php.mdx). Preserve existing files and databases before changing an occupied location.
+
+Moving an existing website? Follow [Migrate WordPress](./migrate.mdx) instead. A fresh installation does not fetch content from your previous host.
+
+## Complete the installation form
+
+1. Open the website and choose **Apps → Add application**.
+2. Select **WordPress**, an offered version and the correct domain. Available choices depend on your plan.
+3. Leave **Relative installation path** empty for that domain’s default location. Enter `blog`, for example, for a subdirectory; do not add another `public_html` yourself.
+4. Enter the requested username, email address, unique password and password confirmation for the WordPress administrator. Store these in your password manager.
+5. Review any preset plugins and choose **Install application**.
+
+The WordPress account is separate from your panel account. Use an email address where you can receive recovery messages.
+
+## Finish and open WordPress
+
+Let installation finish and read the result. If additional plugins require a separate completion step, follow that message; a partial outcome does not call for reinstalling everything.
+
+<PortalScreenshot name="apps" alt="Application card leading to the WordPress toolkit" caption="After installation, open Toolkit or Admin from the application card. The image contains demonstration data." />
+
+Open **Toolkit** and check the URL and version. **Admin** opens WordPress when this access is available. Then arrange [DNS and HTTPS](../dns-ssl/ssl.mdx), test the public website and review available [backups](../backups/index.mdx).
+
+## Installation appears unfinished
+
+Refresh the application list first and use **Scan apps** if needed. Check the discovered installation and exact message before starting again. Continue with [the WordPress toolkit](./index.mdx) for ongoing maintenance.

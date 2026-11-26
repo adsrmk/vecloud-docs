@@ -2,6 +2,8 @@
   "title": "WordPress",
   "pages": [
     "index",
+    "install",
+    "migrate",
     "plugins",
     "themes",
     "users",

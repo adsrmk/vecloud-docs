@@ -1,0 +1,45 @@
+---
+title: Een bestaande WordPress-website verhuizen
+description: Breng bestanden en database samen over en controleer de website vóór en na de DNS-wijziging.
+icon: ArrowRightLeft
+---
+
+Bij een verhuizing neem je de bestanden én database van je bestaande WordPress-website mee. Bereid eerst de nieuwe omgeving voor, zodat je pas omschakelt wanneer de inhoud en instellingen bij elkaar passen.
+
+Deze route is bedoeld voor een gewone WordPress-installatie. Laat een Multisite-netwerk of afwijkende configuratie vooraf apart beoordelen.
+
+## Maak een complete kopie
+
+Bewaar bij je huidige host de websitebestanden en een recente MySQL/MariaDB-export. Noteer de gebruikte PHP-versie en extensies. Spreek bij een webshop of andere actieve website een moment af waarop er geen nieuwe bestellingen of wijzigingen meer binnenkomen; anders loopt je kopie achter.
+
+Behoud de oude hosting en deze kopieën tot de nieuwe website volledig is gecontroleerd. Een verhuizing van de website neemt mailboxen niet automatisch mee.
+
+## Bereid de bestemming voor
+
+1. [Voeg je domein toe](../websites/create.mdx) en kies de juiste websiteomgeving.
+2. Controleer [PHP](../developers/php.mdx) en de [websitemap](../files/webroot.mdx).
+3. Maak een lege [MySQL/MariaDB-database en gebruiker](../databases/index.mdx) aan. Geef die gebruiker toegang tot de database.
+4. Zet de bestanden over met [SFTP](../files/ssh.mdx) of de [bestandsmanager](../files/transfers.mdx).
+5. [Importeer de SQL-export](../databases/sql.mdx) in de nieuwe database. Alleen een SQL-bestand uploaden naar Files is niet voldoende.
+
+Werk daarna de databaseverbinding in de gekopieerde `wp-config.php` bij met de volledige databasenaam, gebruiker, het nieuwe wachtwoord en de verbindingsgegevens uit het panel. Behoud de tabelprefix die bij de geïmporteerde tabellen hoort. Deel dit bestand niet met anderen.
+
+## Controleer het adres
+
+Blijft het volledige websiteadres gelijk, dan is een algemene URL-vervanging meestal niet nodig. Bij een ander adres kan **Site URL** in [de toolkit](./index.mdx) de hoofdadressen aanpassen, maar niet alle verwijzingen in de inhoud.
+
+Gebruik voor zulke inhoud een methode die geserialiseerde WordPress-gegevens ondersteunt. Met beschikbare SSH-toegang en WP-CLI kun je eerst een controle zonder opslaan uitvoeren:
+
+```sh
+wp search-replace 'https://old.example.test' 'https://new.example.test' --skip-columns=guid --dry-run
+```
+
+Voer dit uit vanuit de juiste installatie en vervang de voorbeeldadressen. Bekijk het resultaat voordat je een echte vervanging uitvoert. Zie de [officiële WP-CLI-uitleg](https://developer.wordpress.org/cli/commands/search-replace/).
+
+## Test en schakel om
+
+Regel een passende testmethode voor de nieuwe host, zo nodig met support. Zolang publieke DNS naar de oude host wijst, bewijst een normaal websitebezoek nog niet dat de nieuwe omgeving werkt.
+
+Controleer vervolgens [DNS](../dns-ssl/index.mdx), [HTTPS](../dns-ssl/ssl.mdx), beheer, afbeeldingen, formulieren en eventuele betalingen. Behoud mailrecords als je e-mail niet verhuist. Door DNS-caches kan tijdelijk verkeer op beide hosts aankomen; voorkom uiteenlopende bestellingen of inhoud.
+
+Gebruik **Apps → Scan apps** om de gekopieerde installatie te vinden en controleer de [back-ups](../backups/index.mdx). Bij problemen herstel je gericht de bestemming; verwijder de oude werkende omgeving nog niet. De [WordPress-migratiehandleiding](https://developer.wordpress.org/advanced-administration/upgrade/migrating/) geeft aanvullende uitleg. Een interne [serververplaatsing](../developers/migrations.mdx) is een afzonderlijke beheeractie.

@@ -1,0 +1,35 @@
+---
+title: Installer WordPress
+description: Choisissez le domaine, l’emplacement et le compte administrateur, puis vérifiez l’installation.
+icon: Blocks
+---
+
+Un nouveau site WordPress commence dans un emplacement vide adapté. Une fois l’installation terminée, utilisez le toolkit pour la maintenance technique et WordPress pour votre contenu.
+
+## Préparer le site
+
+[Ajoutez le domaine](../websites/create.mdx) s’il ne figure pas encore dans **Domains**. Vérifiez le domaine sélectionné, l’espace disponible et la [compatibilité PHP](../developers/php.mdx). Conservez les fichiers et bases existants avant de modifier un emplacement occupé.
+
+Vous déplacez un site existant ? Suivez [Migrer WordPress](./migrate.mdx). Une nouvelle installation ne récupère pas le contenu de l’ancien hébergeur.
+
+## Remplir le formulaire
+
+1. Ouvrez le site et choisissez **Apps → Add application**.
+2. Sélectionnez **WordPress**, une version proposée et le bon domaine. Les choix dépendent du forfait.
+3. Laissez **Relative installation path** vide pour l’emplacement par défaut du domaine. Saisissez par exemple `blog` pour un sous-dossier ; n’ajoutez pas un autre `public_html`.
+4. Renseignez le nom d’utilisateur, l’e-mail, un mot de passe unique et sa confirmation pour l’administrateur WordPress. Conservez-les dans votre gestionnaire de mots de passe.
+5. Vérifiez les plugins prédéfinis et choisissez **Install application**.
+
+Le compte WordPress est distinct de celui du panel. Utilisez une adresse où vous pouvez recevoir les messages de récupération.
+
+## Terminer et ouvrir WordPress
+
+Laissez l’installation se terminer et lisez le résultat. Si des plugins supplémentaires demandent une étape distincte, suivez le message ; un résultat partiel ne justifie pas une réinstallation complète.
+
+<PortalScreenshot name="apps" alt="Carte d’application donnant accès au toolkit WordPress" caption="Après l’installation, ouvrez Toolkit ou Admin depuis la carte. L’image contient des données de démonstration." />
+
+Ouvrez **Toolkit** et vérifiez l’URL et la version. **Admin** ouvre WordPress lorsque cet accès est disponible. Configurez ensuite [DNS et HTTPS](../dns-ssl/ssl.mdx), testez le site public et examinez les [sauvegardes](../backups/index.mdx).
+
+## L’installation semble inachevée
+
+Actualisez d’abord la liste et utilisez **Scan apps** si nécessaire. Vérifiez l’installation trouvée et le message exact avant de recommencer. Poursuivez avec [le toolkit WordPress](./index.mdx) pour la maintenance.

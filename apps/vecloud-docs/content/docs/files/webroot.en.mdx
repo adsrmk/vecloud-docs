@@ -1,0 +1,34 @@
+---
+title: Choose the correct website directory
+description: Understand document roots, public_html and installation paths before placing files.
+icon: FolderOpen
+---
+
+The document root is the directory from which a domain serves public website files. Files placed elsewhere can upload successfully while visitors still see old content or an error.
+
+## Start with the installation
+
+Open **Domains → your website → Apps** and check the intended application’s location. Then open **Files** and use the breadcrumb to confirm where you are. **Home** is the start of this website’s file space.
+
+For WordPress, open **Toolkit → General** and read **File path**. For another application, check the installation details it displays.
+
+`public_html` is a common website directory, but the correct location depends on the domain mapping and application. Follow your website’s current setup rather than assuming a path.
+
+<PortalScreenshot name="files" alt="File manager showing the demonstration website directory" caption="Check the current path before uploading or editing files. The image contains demonstration data only." />
+
+## Domain directory and installation path
+
+In **Add application**, **Relative installation path** is relative to the selected domain’s default location. Empty means that location; `blog` means a subdirectory beneath it. Do not automatically enter `public_html/blog` if `public_html` is already the domain directory.
+
+For a static website, place the published website files in the intended directory. For a project with a build step, use the build output rather than arbitrarily publishing all source code. [GitHub deployment](../developers/github.mdx) provides its own **Publish directory** setting.
+
+## Files are present but the website does not show them
+
+1. Check the selected domain and full file path.
+2. Confirm the upload finished and the expected entry files are present.
+3. Check [permissions](./permissions.mdx), application configuration and relevant [caches](../performance/cache.mdx).
+4. Confirm public [DNS](../dns-ssl/index.mdx) points to this hosting environment.
+
+An alias can share the same website environment; a different domain name does not automatically mean a separate directory. Ask support to confirm the active domain directory if unclear. Moving files does not change domain configuration by itself.
+
+Keep exports and confidential files outside the publicly served directory. Use [uploads and transfers](./transfers.mdx) to move files, or [Migrate WordPress](../wordpress/migrate.mdx) for a complete move including its database.

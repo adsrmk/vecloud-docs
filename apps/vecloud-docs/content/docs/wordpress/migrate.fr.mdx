@@ -1,0 +1,45 @@
+---
+title: Migrer un site WordPress existant
+description: Transférez fichiers et base de données et vérifiez le site avant et après le changement DNS.
+icon: ArrowRightLeft
+---
+
+Une migration reprend les fichiers et la base de données du site WordPress existant. Préparez d’abord la destination, puis basculez lorsque son contenu et ses réglages sont cohérents.
+
+Ce parcours concerne une installation WordPress standard. Faites examiner séparément un réseau Multisite ou une configuration particulière avant le déplacement.
+
+## Conserver une copie complète
+
+Enregistrez les fichiers et une exportation MySQL/MariaDB récente chez l’hébergeur actuel. Notez la version PHP et les extensions. Pour une boutique ou un site actif, convenez du moment où les nouvelles commandes et modifications s’arrêtent ; sinon la copie peut devenir obsolète.
+
+Conservez l’ancien hébergement et les copies jusqu’à la vérification complète de la destination. Déplacer un site ne déplace pas automatiquement ses boîtes mail.
+
+## Préparer la destination
+
+1. [Ajoutez votre domaine](../websites/create.mdx) et sélectionnez l’environnement voulu.
+2. Vérifiez [PHP](../developers/php.mdx) et le [dossier du site](../files/webroot.mdx).
+3. Créez une [base MySQL/MariaDB et un utilisateur](../databases/index.mdx). Accordez à cet utilisateur l’accès à la base vide.
+4. Transférez les fichiers par [SFTP](../files/ssh.mdx) ou avec le [gestionnaire de fichiers](../files/transfers.mdx).
+5. [Importez l’export SQL](../databases/sql.mdx) dans la nouvelle base. Envoyer un SQL dans Files ne lance pas l’importation.
+
+Mettez ensuite à jour le `wp-config.php` copié avec le nom complet de la base, l’utilisateur, le nouveau mot de passe et les paramètres de connexion du panel. Conservez le préfixe correspondant aux tables importées. Ne partagez pas ce fichier de configuration.
+
+## Vérifier l’adresse
+
+Si l’adresse complète du site reste identique, un remplacement général des URL est habituellement inutile. Avec une autre adresse, **Site URL** dans [le toolkit](./index.mdx) peut modifier les adresses principales, mais pas toutes les références du contenu.
+
+Pour ce contenu, utilisez une méthode compatible avec les données sérialisées WordPress. Avec SSH et WP-CLI disponibles, commencez par un contrôle sans enregistrement :
+
+```sh
+wp search-replace 'https://old.example.test' 'https://new.example.test' --skip-columns=guid --dry-run
+```
+
+Lancez la commande depuis la bonne installation et remplacez les adresses d’exemple. Examinez le résultat avant un remplacement réel. Consultez [l’explication officielle WP-CLI](https://developer.wordpress.org/cli/commands/search-replace/).
+
+## Tester et basculer
+
+Prévoyez une méthode adaptée pour tester le nouvel hébergement, avec le support si nécessaire. Tant que le DNS public pointe vers l’ancien, une visite ordinaire du domaine ne prouve pas que la destination fonctionne.
+
+Vérifiez ensuite [DNS](../dns-ssl/index.mdx), [HTTPS](../dns-ssl/ssl.mdx), administration, images, formulaires et paiements. Conservez les enregistrements mail si la messagerie ne change pas. Les caches DNS peuvent envoyer temporairement du trafic aux deux hébergements ; évitez des commandes ou contenus divergents.
+
+Utilisez **Apps → Scan apps** pour détecter l’installation copiée et vérifiez les [sauvegardes](../backups/index.mdx). En cas de problème, réparez la destination de manière ciblée et conservez l’ancien environnement. Le [guide de migration WordPress](https://developer.wordpress.org/advanced-administration/upgrade/migrating/) apporte des précisions. Un [déplacement interne de serveur](../developers/migrations.mdx) est une action administrative distincte.

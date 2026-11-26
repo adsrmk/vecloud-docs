@@ -4,6 +4,7 @@
     "index",
     "dnssec",
     "ssl",
+    "modsecurity",
     "mail-routing",
     "redirects",
     "ip-deny",

@@ -1,0 +1,40 @@
+---
+title: E-Mail-Authentifizierung prüfen
+description: Stimme SPF, DKIM und DMARC auf die Dienste ab, die für deine Domain versenden.
+icon: MailCheck
+---
+
+Für zuverlässige ausgehende E-Mails muss der Empfänger prüfen können, wer im Namen deiner Domain sendet. Erfasse zuerst Postfachanbieter, Websiteformulare und weitere Versanddienste.
+
+## Versandwege erfassen
+
+Notiere je Dienst die Absenderdomain und den zuständigen DNS-Anbieter. Ein externes Postfach und ein Formular auf deinem Hosting können unterschiedliche Versandwege nutzen.
+
+Prüfe außerdem [Mailrouting und MX](../dns-ssl/mail-routing.mdx). Sie betreffen den Empfang; die folgenden Authentifizierungsprüfungen gelten für ausgehende Nachrichten.
+
+## SPF prüfen
+
+Nutze einen TXT-Eintrag mit `v=spf1` je Name und fasse die Vorgaben deiner Versanddienste zusammen. Mehrere SPF-Richtlinien für denselben Namen verursachen einen Fehler. Siehe die [SPF-Spezifikation](https://www.rfc-editor.org/rfc/rfc7208).
+
+Übernimm nur Angaben tatsächlich genutzter Dienste. Ein Beispiel mit `mx` oder einem beliebigen `include` deckt nicht automatisch Formulare, Newsletter und externe Postfächer ab. Bewahre den bisherigen Wert vor Änderungen auf.
+
+## DKIM für den richtigen Absender aktivieren
+
+1. Öffne **Domains → deine Website → DNS settings** und suche **Email authentication**.
+2. Aktiviere DKIM, wenn dieses Hosting die betreffenden Nachrichten versendet.
+3. Prüfe die Validierung. Kopiere bei fehlender Bestätigung `hostingcp._domainkey` und den vollständigen TXT-Wert über die Kopieraktionen.
+4. Veröffentliche ihn beim aktiven DNS-Anbieter und prüfe nach der DNS-Aktualisierung erneut.
+
+<PortalScreenshot name="dns-records" alt="DNS-Verwaltung einer Demodomain" caption="Authentifizierungseinträge gehören in die aktive DNS-Zone. Übernimm die vollständigen Werte deiner eigenen Konfiguration." />
+
+**Verified** bestätigt die angezeigte DNS-Prüfung. Versendet ein externer Anbieter, richte auch dessen eigenes DKIM ein; der Schalter konfiguriert diesen Dienst nicht.
+
+## Passende DMARC-Richtlinie ergänzen
+
+DMARC erfordert erfolgreiches SPF oder DKIM mit Domainabgleich. Der TXT-Eintrag steht unter `_dmarc`; `p=none` dient dem Monitoring. Besprich Berichte und strengere Vorgaben mit dem Anbieter. Siehe die [Spezifikation](https://www.rfc-editor.org/rfc/rfc9989.html).
+
+## Echte Nachrichten testen
+
+Sende getrennt aus dem Postfach und einem Websiteformular. Prüfe beim Empfänger die Nachrichtenheader einschließlich `Authentication-Results` sowie SPF-, DKIM- und DMARC-Ergebnisse. Ein grüner DKIM-Status im Panel prüft nicht jeden Versandweg.
+
+Fehlen weiterhin Nachrichten, prüfe [Spamfilter](./spam.mdx), Zustellfehler und die sendende Anwendung. Gib dem Support Zeitpunkt, Absender, Empfänger und Fehlercode über einen geeigneten Kanal; teile keine SMTP-Passwörter oder privaten Schlüssel.

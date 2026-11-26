@@ -1,0 +1,34 @@
+---
+title: Choisir le bon dossier du site
+description: Comprenez la racine publique, public_html et les chemins d’installation avant de placer vos fichiers.
+icon: FolderOpen
+---
+
+La racine documentaire ou document root est le dossier depuis lequel un domaine sert ses fichiers publics. Un envoi ailleurs peut réussir alors que les visiteurs voient toujours l’ancien contenu ou une erreur.
+
+## Partir de l’installation
+
+Ouvrez **Domains → votre site → Apps** et vérifiez l’emplacement de l’application. Ouvrez ensuite **Files** et consultez le fil d’Ariane pour confirmer votre position. **Home** est le début de l’espace de fichiers du site.
+
+Pour WordPress, ouvrez **Toolkit → General** et consultez **File path**. Pour une autre application, vérifiez les informations d’installation affichées.
+
+`public_html` est un dossier web courant, mais le bon emplacement dépend du domaine et de l’application. Suivez la configuration actuelle plutôt que de supposer un chemin.
+
+<PortalScreenshot name="files" alt="Gestionnaire de fichiers avec le dossier du site de démonstration" caption="Vérifiez le chemin avant d’envoyer ou de modifier des fichiers. L’image contient uniquement des données de démonstration." />
+
+## Dossier du domaine et chemin d’installation
+
+Dans **Add application**, **Relative installation path** est relatif à l’emplacement par défaut du domaine choisi. Vide signifie cet emplacement ; `blog` signifie un sous-dossier. Ne saisissez pas automatiquement `public_html/blog` si `public_html` est déjà le dossier du domaine.
+
+Pour un site statique, placez les fichiers publiés dans le dossier prévu. Pour un projet avec une compilation, utilisez sa sortie plutôt que de publier arbitrairement tout le code source. Le [déploiement GitHub](../developers/github.mdx) dispose de son propre réglage **Publish directory**.
+
+## Les fichiers sont présents mais le site ne les affiche pas
+
+1. Vérifiez le domaine sélectionné et le chemin complet.
+2. Confirmez la fin de l’envoi et la présence des fichiers d’entrée attendus.
+3. Examinez les [permissions](./permissions.mdx), la configuration de l’application et les [caches](../performance/cache.mdx).
+4. Vérifiez que le [DNS](../dns-ssl/index.mdx) public pointe vers cet hébergement.
+
+Un alias peut partager l’environnement du site ; un autre domaine ne signifie pas forcément un autre dossier. Demandez au support de confirmer le dossier actif en cas de doute. Déplacer des fichiers ne modifie pas seul la configuration du domaine.
+
+Conservez les exports et fichiers confidentiels hors du dossier public. Utilisez [envois et transferts](./transfers.mdx) pour les fichiers ou [Migrer WordPress](../wordpress/migrate.mdx) pour un déplacement complet avec base de données.

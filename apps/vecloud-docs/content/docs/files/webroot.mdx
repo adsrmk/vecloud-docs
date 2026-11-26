@@ -1,0 +1,34 @@
+---
+title: De juiste websitemap kiezen
+description: Begrijp document root, public_html en installatiepaden voordat je bestanden plaatst.
+icon: FolderOpen
+---
+
+De document root is de map waaruit een domein publieke websitebestanden aanbiedt. Als bestanden op de verkeerde plek staan, kan de upload slagen terwijl je website nog de oude inhoud of een fout toont.
+
+## Begin bij de installatie
+
+Open **Domains → je website → Apps** en controleer de locatie van de bedoelde applicatie. Ga vervolgens naar **Files** en gebruik het kruimelpad om je positie te controleren. **Home** is het begin van de bestandsruimte van deze website.
+
+Bij WordPress open je **Toolkit → General** en lees je **File path**. Controleer bij een andere applicatie de getoonde installatiegegevens.
+
+`public_html` is een gebruikelijke websitemap, maar de juiste locatie hangt af van de domeinkoppeling en applicatie. Ga daarom uit van de huidige inrichting van je website.
+
+<PortalScreenshot name="files" alt="Bestandsmanager met de websitemap van de demonstratiewebsite" caption="Controleer het huidige pad voordat je bestanden uploadt of bewerkt. De afbeelding bevat uitsluitend demonstratiedata." />
+
+## Domeinmap en installatiepad
+
+Bij **Add application** is **Relative installation path** relatief aan de standaardlocatie van het gekozen domein. Leeg betekent die locatie; `blog` betekent een submap daaronder. Vul niet automatisch `public_html/blog` in als `public_html` al de domeinmap is.
+
+Voor een statische website plaats je de gepubliceerde websitebestanden in de bedoelde websitemap. Bij een project met een buildstap gebruik je de uitvoermap van die build, niet willekeurig de volledige broncode. [GitHub-deployment](../developers/github.mdx) heeft hiervoor een eigen **Publish directory**.
+
+## De bestanden staan er, maar de website toont ze niet
+
+1. Controleer het geselecteerde domein en het volledige bestandspad.
+2. Controleer of de upload daadwerkelijk is afgerond en de verwachte startbestanden aanwezig zijn.
+3. Bekijk [bestandsrechten](./permissions.mdx), applicatieconfiguratie en relevante [caches](../performance/cache.mdx).
+4. Controleer of publieke [DNS](../dns-ssl/index.mdx) naar deze hosting verwijst.
+
+Een alias kan dezelfde websiteomgeving gebruiken; een andere domeinnaam betekent dus niet automatisch een aparte map. Vraag support om de actuele domeinmap te controleren als die onduidelijk is. Verplaatsen van bestanden verandert de domeinconfiguratie niet vanzelf.
+
+Bewaar exports en bestanden met vertrouwelijke gegevens buiten de publiek aangeboden map. Gebruik [uploads en transfers](./transfers.mdx) voor het overzetten en [WordPress migreren](../wordpress/migrate.mdx) voor een complete verhuizing met database.

@@ -1,0 +1,34 @@
+---
+title: Elegir la carpeta correcta del sitio
+description: Comprende la raíz pública, public_html y las rutas de instalación antes de colocar archivos.
+icon: FolderOpen
+---
+
+La raíz pública o document root es la carpeta desde la que un dominio sirve los archivos del sitio. Una subida a otra ubicación puede finalizar correctamente mientras los visitantes siguen viendo contenido antiguo o un error.
+
+## Empieza por la instalación
+
+Abre **Domains → tu sitio → Apps** y comprueba la ubicación de la aplicación. Después abre **Files** y consulta la ruta de navegación. **Home** es el inicio del espacio de archivos de ese sitio.
+
+Para WordPress, abre **Toolkit → General** y consulta **File path**. Para otra aplicación, revisa los datos de instalación que muestre.
+
+`public_html` es una carpeta web habitual, pero la ubicación correcta depende del dominio y la aplicación. Sigue la configuración actual de tu sitio en lugar de dar una ruta por supuesta.
+
+<PortalScreenshot name="files" alt="Gestor de archivos con la carpeta del sitio de demostración" caption="Comprueba la ruta actual antes de subir o modificar archivos. La imagen solo contiene datos de demostración." />
+
+## Carpeta del dominio y ruta de instalación
+
+En **Add application**, **Relative installation path** es relativa a la ubicación predeterminada del dominio elegido. Vacío significa esa ubicación; `blog`, una subcarpeta dentro de ella. No introduzcas automáticamente `public_html/blog` si `public_html` ya es la carpeta del dominio.
+
+Para un sitio estático, coloca los archivos publicados en la carpeta prevista. Si el proyecto tiene una compilación, utiliza su salida en lugar de publicar todo el código fuente sin revisar. El [despliegue desde GitHub](../developers/github.mdx) tiene su propio ajuste **Publish directory**.
+
+## Los archivos están, pero el sitio no los muestra
+
+1. Comprueba el dominio seleccionado y la ruta completa.
+2. Confirma que la subida terminó y que existen los archivos de entrada esperados.
+3. Revisa [permisos](./permissions.mdx), configuración de la aplicación y [cachés](../performance/cache.mdx).
+4. Comprueba que el [DNS](../dns-ssl/index.mdx) público apunte a este hosting.
+
+Un alias puede compartir el entorno del sitio; otro dominio no implica otra carpeta. Pide a soporte que confirme la carpeta activa si no está clara. Mover archivos no cambia por sí solo la configuración del dominio.
+
+Guarda exportaciones y archivos confidenciales fuera de la carpeta pública. Utiliza [subidas y transferencias](./transfers.mdx) para los archivos o [Migrar WordPress](../wordpress/migrate.mdx) para un traslado completo con base de datos.

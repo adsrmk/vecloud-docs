@@ -1,0 +1,34 @@
+---
+title: ModSecurity and blocked requests
+description: Check the application firewall per domain and investigate possible false positives.
+icon: ShieldCheck
+---
+
+ModSecurity is an application firewall that checks website requests against security rules. When forms or administration actions are unexpectedly blocked, a focused investigation helps identify the cause. See the [ModSecurity project](https://owasp.org/www-project-modsecurity/).
+
+## Check availability
+
+Open **Domains → your website → SSL certificates**. The **ModSecurity** section appears when the feature is available for this website. It has a switch per domain. If the section is absent, ask support which protection applies to the current environment.
+
+This is separate from certificate status and **Enforce HTTPS**. For address blocks, use [IP deny](./ip-deny.mdx) when available.
+
+## Change a setting
+
+1. Find the intended domain’s row. Check the full name when several domains are listed.
+2. Review the current state before changing its switch.
+3. Wait for confirmation; after an unclear error, reload the current state before switching again.
+4. Test the normal website action you intended to check.
+
+The setting concerns the selected domain. Check other relevant domains separately; do not assume every alias changed with it.
+
+## Investigate a possible false positive
+
+A `403` response can also come from application permissions, file permissions or an IP rule. Record the exact URL, time with time zone, error message and action, such as saving a form.
+
+Repeat the action only if it cannot create a duplicate order or another unwanted change. Check whether one path or account is affected, and whether [IP deny](./ip-deny.mdx) or [file permissions](../files/permissions.mdx) explain it.
+
+Ask support to review the corresponding security event and whether a targeted exception is appropriate. The [PHP error log](../developers/logs.mdx) is not a complete ModSecurity audit log. Do not include passwords, tokens or sensitive form contents.
+
+## After investigation
+
+Keep track of any temporary change. Confirm the intended security setting and retest the affected function. Disabling a firewall does not repair the underlying application cause.

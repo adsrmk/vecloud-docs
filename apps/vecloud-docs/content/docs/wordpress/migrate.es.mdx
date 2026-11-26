@@ -1,0 +1,45 @@
+---
+title: Migrar un sitio WordPress existente
+description: Traslada archivos y base de datos y comprueba el sitio antes y después de cambiar el DNS.
+icon: ArrowRightLeft
+---
+
+Una migración lleva tanto los archivos como la base de datos del sitio WordPress existente. Prepara primero el destino y cambia el tráfico cuando su contenido y configuración encajen.
+
+Este recorrido está pensado para una instalación WordPress estándar. Solicita una revisión específica antes de trasladar Multisite o una configuración especial.
+
+## Conserva una copia completa
+
+Guarda los archivos y una exportación MySQL/MariaDB reciente del proveedor actual. Anota la versión PHP y las extensiones. En una tienda u otro sitio activo, acuerda cuándo dejarán de entrar pedidos y cambios; de lo contrario, la copia puede quedar desactualizada.
+
+Conserva el alojamiento anterior y las copias hasta comprobar todo el destino. Trasladar una web no traslada automáticamente sus buzones.
+
+## Prepara el destino
+
+1. [Añade tu dominio](../websites/create.mdx) y selecciona el entorno adecuado.
+2. Comprueba [PHP](../developers/php.mdx) y la [carpeta del sitio](../files/webroot.mdx).
+3. Crea una [base MySQL/MariaDB y un usuario](../databases/index.mdx). Concede al usuario acceso a esa base vacía.
+4. Transfiere los archivos mediante [SFTP](../files/ssh.mdx) o el [gestor de archivos](../files/transfers.mdx).
+5. [Importa la exportación SQL](../databases/sql.mdx) en la nueva base. Subir el SQL a Files no realiza la importación.
+
+Actualiza el `wp-config.php` copiado con el nombre completo de la base, usuario, nueva contraseña y datos de conexión del panel. Conserva el prefijo correspondiente a las tablas importadas. No compartas ese archivo de configuración.
+
+## Revisa la dirección
+
+Si mantienes la dirección completa del sitio, normalmente no hace falta sustituir las URL de forma general. Para una dirección distinta, **Site URL** en [el toolkit](./index.mdx) cambia las direcciones principales, pero no todas las referencias del contenido.
+
+Para ese contenido utiliza un método compatible con datos serializados de WordPress. Si dispones de SSH y WP-CLI, empieza por una comprobación sin guardar cambios:
+
+```sh
+wp search-replace 'https://old.example.test' 'https://new.example.test' --skip-columns=guid --dry-run
+```
+
+Ejecuta desde la instalación correcta y sustituye las direcciones de ejemplo. Revisa el resultado antes de aplicar una sustitución real. Consulta la [explicación oficial de WP-CLI](https://developer.wordpress.org/cli/commands/search-replace/).
+
+## Prueba y cambia el tráfico
+
+Prepara una forma adecuada de probar el nuevo host, con soporte si hace falta. Mientras el DNS público apunte al anterior, visitar el dominio normalmente no demuestra que funcione el destino.
+
+Después comprueba [DNS](../dns-ssl/index.mdx), [HTTPS](../dns-ssl/ssl.mdx), administración, imágenes, formularios y pagos. Conserva los registros de correo si este no se traslada. Las cachés DNS pueden enviar tráfico temporalmente a ambos hosts; evita que diverjan pedidos o contenido.
+
+Utiliza **Apps → Scan apps** para detectar la instalación copiada y revisa las [copias de seguridad](../backups/index.mdx). Si hay problemas, repara el destino de forma controlada y conserva el entorno anterior. La [guía de migración de WordPress](https://developer.wordpress.org/advanced-administration/upgrade/migrating/) amplía la información. Un [traslado interno de servidor](../developers/migrations.mdx) es una acción administrativa distinta.

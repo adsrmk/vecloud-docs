@@ -1,0 +1,35 @@
+---
+title: Instalar WordPress
+description: Elige dominio, ubicación y cuenta de administrador y comprueba la instalación.
+icon: Blocks
+---
+
+Un sitio WordPress nuevo empieza en una ubicación vacía adecuada. Cuando termine la instalación, utiliza el toolkit para el mantenimiento técnico y WordPress para el contenido.
+
+## Prepara el sitio
+
+[Añade el dominio](../websites/create.mdx) si todavía no aparece en **Domains**. Revisa el dominio seleccionado, el espacio disponible y la [compatibilidad de PHP](../developers/php.mdx). Conserva los archivos y las bases existentes antes de modificar una ubicación ocupada.
+
+Si trasladas un sitio existente, sigue [Migrar WordPress](./migrate.mdx). Una instalación nueva no recupera el contenido del proveedor anterior.
+
+## Completa el formulario
+
+1. Abre el sitio y elige **Apps → Add application**.
+2. Selecciona **WordPress**, una versión ofrecida y el dominio correcto. Las opciones dependen del plan.
+3. Deja **Relative installation path** vacío para la ubicación predeterminada del dominio. Introduce, por ejemplo, `blog` para una subcarpeta; no añadas otro `public_html`.
+4. Introduce el nombre de usuario, correo, contraseña única y confirmación solicitados para el administrador de WordPress. Guárdalos en tu gestor de contraseñas.
+5. Revisa los plugins predefinidos y pulsa **Install application**.
+
+La cuenta WordPress es independiente de la del panel. Utiliza un correo donde puedas recibir mensajes de recuperación.
+
+## Finaliza y abre WordPress
+
+Espera a que termine y lee el resultado. Si los plugins adicionales requieren una finalización independiente, sigue ese aviso; un resultado parcial no implica reinstalar todo.
+
+<PortalScreenshot name="apps" alt="Tarjeta de aplicación como acceso al toolkit de WordPress" caption="Tras instalar, abre Toolkit o Admin desde la tarjeta. La imagen contiene datos de demostración." />
+
+Abre **Toolkit** y comprueba URL y versión. **Admin** abre WordPress cuando está disponible ese acceso. Después configura [DNS y HTTPS](../dns-ssl/ssl.mdx), prueba el sitio público y revisa las [copias de seguridad](../backups/index.mdx).
+
+## La instalación parece incompleta
+
+Actualiza primero la lista y utiliza **Scan apps** si es necesario. Revisa la instalación encontrada y el mensaje exacto antes de empezar de nuevo. Continúa con [el toolkit de WordPress](./index.mdx) para el mantenimiento.

@@ -1,0 +1,40 @@
+---
+title: E-mailauthenticatie controleren
+description: Stem SPF, DKIM en DMARC af op de diensten die namens je domein versturen.
+icon: MailCheck
+---
+
+Voor betrouwbare uitgaande e-mail moet de ontvangende partij kunnen controleren wie namens je domein verstuurt. Begin daarom met een overzicht van je mailboxprovider, websiteformulieren en eventuele andere verzenddiensten.
+
+## Maak de verzendroute duidelijk
+
+Noteer per dienst welk domein als afzender wordt gebruikt en waar de bijbehorende DNS-records worden beheerd. Een mailbox bij een externe provider en een formulier op je hosting kunnen verschillende verzendroutes hebben.
+
+Controleer ook [mailroutering en MX](../dns-ssl/mail-routing.mdx). Die regelen de ontvangst; de onderstaande authenticatiecontroles beoordelen uitgaande mail.
+
+## Controleer SPF
+
+Gebruik één TXT-record met `v=spf1` per naam. Combineer daarin de door je verzenddiensten voorgeschreven waarden. Meerdere SPF-beleidsrecords voor dezelfde naam geven een fout. Zie de [SPF-specificatie](https://www.rfc-editor.org/rfc/rfc7208).
+
+Neem alleen waarden over van diensten die je werkelijk gebruikt. Een voorbeeld met `mx` of een willekeurige `include` dekt niet automatisch websiteformulieren, nieuwsbrieven en externe mailboxen. Bewaar de oude waarde voordat je het beleid wijzigt.
+
+## Zet DKIM aan voor de juiste verzender
+
+1. Open **Domains → je website → DNS settings** en zoek **Email authentication**.
+2. Schakel DKIM in wanneer deze hosting de betreffende mail verstuurt.
+3. Controleer de validatiestatus. Gebruik bij een ontbrekende validatie de kopieeracties voor `hostingcp._domainkey` en de volledige TXT-waarde.
+4. Publiceer die waarde bij de actieve DNS-provider en controleer de status opnieuw zodra DNS is bijgewerkt.
+
+<PortalScreenshot name="dns-records" alt="DNS-recordbeheer van een demonstratiedomein" caption="Authenticatierecords horen in de actieve DNS-zone. Neem de volledige waarden uit je eigen configuratie over." />
+
+**Verified** bevestigt de getoonde DNS-controle. Verstuurt een externe provider je berichten, gebruik dan ook diens eigen DKIM-inrichting; de schakelaar configureert die externe dienst niet.
+
+## Voeg een passend DMARC-beleid toe
+
+DMARC vereist geslaagde SPF of DKIM met domeinafstemming. Publiceer het TXT-record bij `_dmarc`; `p=none` is voor monitoring. Bespreek rapportage en een strenger beleid met je provider. Zie de [specificatie](https://www.rfc-editor.org/rfc/rfc9989.html).
+
+## Test de echte berichten
+
+Verstuur apart vanuit je mailbox en via een websiteformulier. Bekijk bij de ontvanger de berichtheaders, waaronder `Authentication-Results`, en controleer de uitslagen voor SPF, DKIM en DMARC. Een groene DKIM-status in het panel test niet automatisch iedere verzendroute.
+
+Blijft mail ontbreken, bekijk ook [spaminstellingen](./spam.mdx), foutmeldingen en de instellingen van de verzendende applicatie. Geef support het tijdstip, de afzender, ontvanger en foutcode via een passend kanaal; deel geen SMTP-wachtwoord of privésleutel.

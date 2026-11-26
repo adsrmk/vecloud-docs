@@ -1,0 +1,40 @@
+---
+title: Check email authentication
+description: Align SPF, DKIM and DMARC with the services sending on behalf of your domain.
+icon: MailCheck
+---
+
+For dependable outgoing email, the recipient needs to check who is sending on behalf of your domain. Start by listing your mailbox provider, website forms and any other sending services.
+
+## Identify the sending routes
+
+For each service, record the sending domain and where its DNS records are managed. A mailbox with an external provider and a form on your hosting may use different sending routes.
+
+Also review [mail routing and MX](../dns-ssl/mail-routing.mdx). Those control incoming delivery; the authentication checks below concern outgoing mail.
+
+## Check SPF
+
+Use one TXT record with `v=spf1` per name. Combine the values supplied by your sending services. Multiple SPF policies for the same name cause an error. See the [SPF specification](https://www.rfc-editor.org/rfc/rfc7208).
+
+Use values from services you actually use. An example containing `mx` or an arbitrary `include` does not automatically cover website forms, newsletters and external mailboxes. Preserve the previous value before changing the policy.
+
+## Enable DKIM for the appropriate sender
+
+1. Open **Domains → your website → DNS settings** and find **Email authentication**.
+2. Enable DKIM when this hosting sends the relevant mail.
+3. Check validation. If unvalidated, use the copy actions for `hostingcp._domainkey` and the complete TXT value.
+4. Publish that value at the active DNS provider and check again after DNS updates.
+
+<PortalScreenshot name="dns-records" alt="DNS record management for a demonstration domain" caption="Authentication records belong in the active DNS zone. Copy complete values from your own configuration." />
+
+**Verified** confirms the displayed DNS check. If an external provider sends your messages, also configure its own DKIM; the switch does not configure that external service.
+
+## Add an appropriate DMARC policy
+
+DMARC requires aligned SPF or DKIM. Publish its TXT record at `_dmarc`; `p=none` requests monitoring. Discuss reporting and enforcement with your provider. See the [specification](https://www.rfc-editor.org/rfc/rfc9989.html).
+
+## Test real messages
+
+Send separately from your mailbox and a website form. At the recipient, inspect message headers including `Authentication-Results` and check SPF, DKIM and DMARC outcomes. A green DKIM status in the panel does not automatically test every sending route.
+
+If messages are still missing, review [spam settings](./spam.mdx), delivery errors and the sending application’s configuration. Give support the time, sender, recipient and error code through an appropriate channel; do not share SMTP passwords or private keys.

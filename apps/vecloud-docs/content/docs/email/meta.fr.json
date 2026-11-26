@@ -5,6 +5,7 @@
     "forwarding",
     "spam",
     "autoresponder",
-    "clients"
+    "clients",
+    "authentication"
   ]
 }

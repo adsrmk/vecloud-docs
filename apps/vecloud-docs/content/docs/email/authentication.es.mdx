@@ -1,0 +1,40 @@
+---
+title: Comprobar la autenticación del correo
+description: Ajusta SPF, DKIM y DMARC a los servicios que envían en nombre de tu dominio.
+icon: MailCheck
+---
+
+Para un correo saliente fiable, el destinatario necesita comprobar quién envía en nombre del dominio. Empieza por identificar el proveedor de buzones, los formularios web y otros servicios de envío.
+
+## Identifica las rutas de envío
+
+Anota para cada servicio el dominio remitente y dónde se gestionan sus registros DNS. Un buzón externo y un formulario en el hosting pueden utilizar rutas distintas.
+
+Revisa también [enrutamiento y MX](../dns-ssl/mail-routing.mdx). Estos controlan la recepción; las comprobaciones siguientes se refieren al correo saliente.
+
+## Comprueba SPF
+
+Utiliza un TXT con `v=spf1` por nombre y combina los valores indicados por tus servicios de envío. Varias políticas SPF para el mismo nombre causan error. Véase la [especificación SPF](https://www.rfc-editor.org/rfc/rfc7208).
+
+Usa valores de servicios que realmente utilices. Un ejemplo con `mx` o un `include` arbitrario no cubre automáticamente formularios, boletines y buzones externos. Conserva el valor anterior antes de modificarlo.
+
+## Activa DKIM para el remitente adecuado
+
+1. Abre **Domains → tu sitio → DNS settings** y busca **Email authentication**.
+2. Activa DKIM cuando este hosting envíe esos mensajes.
+3. Comprueba la validación. Si falta, copia `hostingcp._domainkey` y el TXT completo mediante los botones de copia.
+4. Publícalo en el proveedor DNS activo y vuelve a comprobar cuando se actualice el DNS.
+
+<PortalScreenshot name="dns-records" alt="Gestión DNS de un dominio de demostración" caption="Los registros de autenticación deben estar en la zona DNS activa. Copia los valores completos de tu propia configuración." />
+
+**Verified** confirma la comprobación DNS mostrada. Si un proveedor externo envía los mensajes, configura también su propio DKIM; el interruptor no configura ese servicio externo.
+
+## Añade una política DMARC adecuada
+
+DMARC requiere SPF o DKIM válido y alineado. Publica el TXT en `_dmarc`; `p=none` sirve para monitorización. Consulta informes y políticas más estrictas con el proveedor. Véase la [especificación](https://www.rfc-editor.org/rfc/rfc9989.html).
+
+## Prueba mensajes reales
+
+Envía por separado desde el buzón y desde un formulario web. Revisa en el destinatario las cabeceras, incluida `Authentication-Results`, y los resultados SPF, DKIM y DMARC. Un DKIM verde en el panel no comprueba automáticamente todas las rutas.
+
+Si siguen faltando mensajes, revisa [spam](./spam.mdx), errores de entrega y configuración de la aplicación remitente. Facilita a soporte hora, remitente, destinatario y código de error por un canal adecuado; no compartas contraseñas SMTP ni claves privadas.

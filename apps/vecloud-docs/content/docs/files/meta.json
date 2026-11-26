@@ -2,6 +2,7 @@
   "title": "Bestanden & toegang",
   "pages": [
     "index",
+    "webroot",
     "transfers",
     "permissions",
     "ftp",

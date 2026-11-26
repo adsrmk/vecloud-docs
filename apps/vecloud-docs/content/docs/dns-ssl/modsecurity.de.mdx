@@ -1,0 +1,34 @@
+---
+title: ModSecurity und blockierte Anfragen
+description: Prüfe die Anwendungsfirewall je Domain und untersuche mögliche Fehlalarme.
+icon: ShieldCheck
+---
+
+ModSecurity ist eine Anwendungsfirewall, die Websiteanfragen anhand von Sicherheitsregeln prüft. Werden Formulare oder Verwaltungsaktionen unerwartet blockiert, hilft eine gezielte Untersuchung bei der Ursachensuche. Siehe das [ModSecurity-Projekt](https://owasp.org/www-project-modsecurity/).
+
+## Verfügbarkeit prüfen
+
+Öffne **Domains → deine Website → SSL certificates**. Der Bereich **ModSecurity** erscheint, wenn die Funktion verfügbar ist, und bietet einen Schalter je Domain. Fehlt er, frage den Support nach dem Schutz der aktuellen Umgebung.
+
+Diese Einstellung ist von Zertifikatstatus und **Enforce HTTPS** getrennt. Adresssperren verwaltest du über [IP deny](./ip-deny.mdx), sofern verfügbar.
+
+## Einstellung ändern
+
+1. Suche die Zeile der richtigen Domain. Prüfe bei mehreren Domains den vollständigen Namen.
+2. Kontrolliere den aktuellen Stand, bevor du den Schalter änderst.
+3. Warte auf die Bestätigung; lade bei unklarem Fehler den aktuellen Stand, bevor du erneut schaltest.
+4. Teste die normale Websiteaktion, die du prüfen wolltest.
+
+Die Einstellung betrifft die gewählte Domain. Prüfe andere relevante Domains getrennt; gehe nicht davon aus, dass alle Aliasse mitgeändert wurden.
+
+## Möglichen Fehlalarm untersuchen
+
+Eine `403`-Antwort kann auch durch Anwendungsrechte, Dateirechte oder eine IP-Regel entstehen. Notiere genaue URL, Zeitpunkt mit Zeitzone, Meldung und Handlung, etwa das Speichern eines Formulars.
+
+Wiederhole die Handlung nur, wenn dadurch keine doppelte Bestellung oder andere unerwünschte Änderung entsteht. Prüfe, ob nur ein Pfad oder Konto betroffen ist und ob [IP deny](./ip-deny.mdx) oder [Dateirechte](../files/permissions.mdx) die Ursache erklären.
+
+Bitte den Support, das zugehörige Sicherheitsereignis und eine mögliche gezielte Ausnahme zu beurteilen. Das [PHP-Fehlerprotokoll](../developers/logs.mdx) ist kein vollständiges ModSecurity-Auditprotokoll. Übermittle keine Passwörter, Tokens oder sensiblen Formularinhalte.
+
+## Nach der Untersuchung
+
+Behalte vorübergehende Änderungen im Blick. Prüfe die vorgesehene Sicherheitseinstellung und teste die betroffene Funktion erneut. Das Abschalten der Firewall behebt keine zugrunde liegende Anwendungsursache.

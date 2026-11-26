@@ -43,6 +43,7 @@ jobs:
           cache-dependency-path: apps/vecloud-docs/pnpm-lock.yaml
       - run: pnpm install --frozen-lockfile
       - run: pnpm lint
+      - run: pnpm test:images
       - run: pnpm build
       - run: pnpm types:check
       - run: pnpm test:smoke

@@ -2,6 +2,7 @@
   "title": "Fichiers et accès",
   "pages": [
     "index",
+    "webroot",
     "transfers",
     "permissions",
     "ftp",

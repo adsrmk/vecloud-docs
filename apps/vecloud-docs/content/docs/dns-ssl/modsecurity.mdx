@@ -1,0 +1,34 @@
+---
+title: ModSecurity en geblokkeerde verzoeken
+description: Controleer de applicatiefirewall per domein en onderzoek mogelijke onterechte blokkades.
+icon: ShieldCheck
+---
+
+ModSecurity is een applicatiefirewall die websiteverzoeken aan beveiligingsregels toetst. Bij onverwacht geblokkeerde formulieren of beheeracties helpt een gerichte controle om de oorzaak te vinden. Lees meer bij het [ModSecurity-project](https://owasp.org/www-project-modsecurity/).
+
+## Controleer of de functie beschikbaar is
+
+Open **Domains → je website → SSL certificates**. Het blok **ModSecurity** verschijnt wanneer deze functie voor de website beschikbaar is. Het bevat een schakelaar per domein. Ontbreekt het blok, laat support dan controleren welke bescherming bij de huidige omgeving hoort.
+
+Dit staat los van de certificaatstatus en **Enforce HTTPS**. Voor adresblokkades gebruik je [IP deny](./ip-deny.mdx), wanneer die functie beschikbaar is.
+
+## Een instelling wijzigen
+
+1. Zoek de rij van het bedoelde domein. Let bij meerdere domeinen op de volledige naam.
+2. Controleer de huidige stand voordat je de schakelaar wijzigt.
+3. Wacht op de bevestiging; lees bij een onduidelijke fout de actuele stand opnieuw voordat je nogmaals schakelt.
+4. Test de normale websitehandeling die je wilde controleren.
+
+De instelling geldt voor het gekozen domein. Controleer relevante andere domeinen afzonderlijk; ga niet uit van een wijziging voor alle aliassen.
+
+## Een mogelijke onterechte blokkade onderzoeken
+
+Een `403`-antwoord kan ook door applicatierechten, bestandsrechten of een IP-regel ontstaan. Noteer daarom de exacte URL, het tijdstip met tijdzone, de foutmelding en wat je deed, bijvoorbeeld een formulier opslaan.
+
+Herhaal de handeling alleen wanneer dat geen dubbele bestelling of andere ongewenste wijziging veroorzaakt. Controleer of het probleem één pad of account treft en of [IP deny](./ip-deny.mdx) of [bestandsrechten](../files/permissions.mdx) het kunnen verklaren.
+
+Vraag support om de bijbehorende beveiligingsmelding en eventuele gerichte uitzondering te beoordelen. De [PHP-foutenlog](../developers/logs.mdx) is geen volledige ModSecurity-auditlog. Geef geen wachtwoord, token of gevoelige formulierinhoud mee.
+
+## Na onderzoek
+
+Laat een eventuele tijdelijke wijziging niet ongemerkt staan. Controleer de bedoelde beveiligingsstand en test de betrokken functie opnieuw. Een uitgeschakelde firewall herstelt de onderliggende applicatieoorzaak niet.
