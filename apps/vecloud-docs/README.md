@@ -2,7 +2,7 @@
 
 Customer documentation for the [veCloud Control Panel](https://panel.vecloud.eu), hosted at [docs.vecloud.eu](https://docs.vecloud.eu).
 
-The standalone Next.js application lives in `apps/vecloud-docs`. It uses the official Fumadocs starter and published packages; the upstream framework remains in this fork for reference and updates.
+The standalone Next.js application lives in `apps/vecloud-docs`. It uses the official Fumadocs starter and published packages; the former framework checkout remains available on the `upstream-reference` branch.
 
 ```sh
 cd apps/vecloud-docs
@@ -21,51 +21,3 @@ The docs use the Fumadocs Notebook layout with the panel’s Inter and Geist Mon
 Public routes use `/nl/docs`, `/en/docs`, `/es/docs`, `/fr/docs`, and `/de/docs`. Existing `/docs/...` links redirect to `/nl/docs/...`; the root opens the Dutch overview. Canonical URLs, language alternates, the sitemap, Markdown exports and social images include the locale.
 
 Run `pnpm lint`, `pnpm build`, `pnpm types:check` and `pnpm test:smoke` from this app directory. The smoke test checks all 40 guides, translated titles, links, language-specific search, canonical and alternate links, redirects, Markdown, images and 404 responses against the production standalone artifact. Set `DOCS_SMOKE_BASE_URL=https://docs.vecloud.eu` to run the same read-only checks against the deployed site.
-
-## Fumadocs upstream
-
-# .vecloud-docs-starter
-
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
-
-Run development server:
-
-```bash
-npm run dev
-# or
-pnpm dev
-# or
-yarn dev
-```
-
-Open http://localhost:3000 with your browser to see the result.
-
-## Explore
-
-In the project, you can see:
-
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
-
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
-
-### Fumadocs MDX
-
-Collections are defined with the [Macro API](https://fumadocs.dev/docs/mdx/macro) in `lib/source.ts`.
-
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
-
-## Learn More
-
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs

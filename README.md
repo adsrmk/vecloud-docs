@@ -1,33 +1,19 @@
-# veCloud Docs
+# VECloud Docs
 
-Customer documentation for the [veCloud Control Panel](https://panel.vecloud.eu). The standalone site lives in [`apps/vecloud-docs`](apps/vecloud-docs) and is deployed to [docs.vecloud.eu](https://docs.vecloud.eu) on Railway. See the app README for local development and content editing.
+Customer documentation for the [VECloud Control Panel](https://panel.vecloud.eu).
+Railway hosts the [documentation site](https://docs.vecloud.eu/).
 
-The upstream Fumadocs framework and its MIT license are preserved in this fork. The root Dockerfile builds only the veCloud app. Fork-specific CI checks the documentation; upstream release automation is limited to the upstream repository.
+The standalone Next.js app lives in [apps/vecloud-docs](apps/vecloud-docs).
+Run the development server from that directory with Node.js 24 and the pnpm
+version declared in its package manifest.
 
-## Upstream Fumadocs
+```sh
+pnpm install --frozen-lockfile
+pnpm dev
+```
 
-![banner](./apps/docs/public/banner.png)
+The [app README](apps/vecloud-docs/README.md) describes content editing and checks.
 
-The framework for building documentation websites in React.js frameworks and Astro.
-
-**Officially Supported:**
-
-- Next.js
-- Astro (with React)
-- Vite: Tanstack Start, Waku, React Router
-
-📘 Learn More: [Documentation](https://fumadocs.dev).
-
-## Compatibility
-
-All packages are **ESM only**.
-
-## Sticker
-
-![logo](./documents/logo.png)
-
-Welcome to print it out :D
-
-## Contributions
-
-Make sure to read the [Contributing Guide](/.github/contributing.md) before submitting a pull request.
+The site uses [Fumadocs](https://fumadocs.dev/). The original MIT license is
+included in [LICENSE](LICENSE). The former framework checkout is available on
+the `upstream-reference` branch.

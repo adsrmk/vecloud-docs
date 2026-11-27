@@ -1,9 +1,0 @@
-import { Hexagon } from 'lucide-static';
-
-export default {
-  title: 'GraphQL Example',
-  description: 'A demo for Fumadocs GraphQL',
-  root: true,
-  icon: Hexagon,
-  pages: ['index', '...(generated)'],
-};
