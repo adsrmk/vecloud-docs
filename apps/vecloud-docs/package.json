@@ -12,7 +12,6 @@
     "test:images": "node scripts/audit-images.mjs"
   },
   "dependencies": {
-    "cn": "^0.5.2",
     "fumadocs-core": "16.19.7",
     "fumadocs-mdx": "15.6.4",
     "fumadocs-ui": "npm:@fumadocs/base-ui@16.19.7",

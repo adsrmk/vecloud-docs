@@ -23,8 +23,8 @@ export function PortalScreenshot({
           href={`/screenshots/${name}-${theme}.jpg?v=${screenshotRevision}`}
           className={
             theme === 'light'
-              ? 'col-start-1 row-start-1 visible dark:invisible'
-              : 'invisible col-start-1 row-start-1 dark:visible'
+              ? 'col-start-1 row-start-1 block dark:hidden'
+              : 'col-start-1 row-start-1 hidden dark:block'
           }
           target="_blank"
           rel="noreferrer"
