@@ -24,6 +24,12 @@ Activer Redis ne configure pas automatiquement un plugin WordPress ou une autre 
 
 Pour WordPress, configurez et activez un plugin de cache d’objets adapté selon ses instructions. Vérifiez-y la connexion. Le commutateur **Redis** actif confirme le service, pas son utilisation effective par WordPress.
 
+<PortalScreenshot
+  name="php-settings"
+  alt="Paramètres PHP avec Redis dans la liste PHP extensions"
+  caption="Si votre application PHP nécessite l’extension Redis, vous la trouverez sous PHP extensions."
+/>
+
 ## Modifier redis.conf
 
 **Edit redis.conf** ouvre la configuration dans l’[éditeur de fichiers](../files/index.mdx). Conservez l’original et modifiez uniquement des paramètres maîtrisés. Une configuration invalide peut rendre Redis indisponible. Ne partagez pas ce fichier en capture ou ticket s’il contient des secrets.

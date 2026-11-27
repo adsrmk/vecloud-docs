@@ -29,6 +29,8 @@ Reprenez les valeurs des services réellement utilisés. Un exemple avec `mx` ou
 
 **Verified** confirme le contrôle DNS affiché. Si un fournisseur externe envoie vos messages, configurez aussi son DKIM ; le commutateur ne configure pas ce service externe.
 
+<PortalScreenshot name="dkim-record" alt="Données DKIM dans Email authentication" caption="Utilisez les boutons pour copier le nom et la valeur complète de l’enregistrement. Les valeurs affichées sont fictives." />
+
 ## Ajouter une politique DMARC adaptée
 
 DMARC exige SPF ou DKIM valide et aligné. Publiez le TXT sous `_dmarc` ; `p=none` sert à la surveillance. Discutez des rapports et d’une politique renforcée avec le fournisseur. Voir la [spécification](https://www.rfc-editor.org/rfc/rfc9989.html).

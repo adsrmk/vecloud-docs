@@ -32,9 +32,15 @@ Prüfe Datenbank und zugeordnete Benutzer. Wenn die Erstellung gelingt, die Rech
 </Step>
 </Steps>
 
+<PortalScreenshot
+  name="database-add"
+  alt="Neue Datenbank einem bestehenden Benutzer zuordnen"
+  caption="Neue Datenbank einem bestehenden Benutzer zuordnen"
+/>
+
 ## Rechte verwalten
 
-Klicke auf eine Datenbank. Unter **Users** kannst du bestehende Benutzer hinzufügen, neue erstellen und Rechte bearbeiten. **All database privileges** gewährt alle angebotenen Rechte. Deaktiviere die Option für einzelne Rechte, etwa `SELECT` zum Lesen. **Revoke access** entfernt die Zuordnung, nicht den Benutzer selbst.
+Öffne das Aktionsmenü neben der Datenbank und wähle **Manage**. Unter **Users** kannst du bestehende Benutzer hinzufügen, neue erstellen und Rechte bearbeiten. **All database privileges** gewährt alle angebotenen Rechte. Deaktiviere die Option für einzelne Rechte, etwa `SELECT` zum Lesen. **Revoke access** entfernt die Zuordnung, nicht den Benutzer selbst.
 
 Der Bereich **Users** in der Datenbankliste öffnet die Benutzerverwaltung mit verborgenem Passwort und zugänglichen Datenbanken. Aktualisiere nach einer Passwortänderung die Anwendungskonfiguration, damit die Website ihre Verbindung behält.
 
@@ -49,9 +55,3 @@ Das Löschen einer Datenbank entfernt sämtliche enthaltenen Daten. Ein gelösch
 </Callout>
 
 Für Tabellen und Abfragen nutze [phpMyAdmin](./phpmyadmin.mdx). PostgreSQL hat eine [eigene Verwaltung](./postgresql.mdx).
-
-<PortalScreenshot
-  name="database-add"
-  alt="Neue Datenbank einem bestehenden Benutzer zuordnen"
-  caption="Neue Datenbank einem bestehenden Benutzer zuordnen"
-/>

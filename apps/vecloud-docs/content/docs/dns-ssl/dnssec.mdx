@@ -10,8 +10,6 @@ DNSSEC voegt controle op de betrouwbaarheid van DNS-antwoorden toe. Voor een wer
 
 DNSSEC maakt het mogelijk om de herkomst en integriteit van DNS-antwoorden te controleren. Het versleutelt geen websiteverkeer; daarvoor gebruik je [SSL en HTTPS](./ssl.mdx). Een complete configuratie verbindt de ondertekende DNS-zone met een DS-record bij de registrar.
 
-<PortalScreenshot name="dnssec" alt="DNSSEC ingeschakeld met demonstratiegegevens voor het DS-record" caption="Neem in je eigen configuratie uitsluitend de werkelijk uitgegeven DS-gegevens over. Deze waarden zijn fictief." />
-
 ## Inschakelen
 
 1. Controleer eerst welke nameservers je domein daadwerkelijk gebruikt.
@@ -19,6 +17,10 @@ DNSSEC maakt het mogelijk om de herkomst en integriteit van DNS-antwoorden te co
 3. Wacht op de bevestiging. Het panel toont de DS-gegevens die je bij je domeinregistrar moet toevoegen.
 4. Neem **Key tag**, **Algorithm**, **Digest type** en **Digest** exact over voor de juiste domeinnaam.
 5. Controleer na publicatie of DNS-resolutie met validatie werkt.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC ingeschakeld met demonstratiegegevens voor het DS-record" caption="Neem in je eigen configuratie uitsluitend de werkelijk uitgegeven DS-gegevens over. Deze waarden zijn fictief." />
+
+Noteer de DS-gegevens op het moment dat het panel ze toont. Is DNSSEC al actief en zie je geen DS-gegevens? Vraag je DNS-beheerder of veCloud om de actuele gegevens voordat je iets wijzigt.
 
 <Callout type="info" title="Registrar en DNS-provider kunnen verschillen">
 De registrar beheert de registratie en de DS-koppeling. De DNS-provider beheert de ondertekende zone. Een DS-record toevoegen als gewone rij in je eigen DNS-zone vervangt de DS-koppeling bij de registrar niet.
@@ -31,6 +33,8 @@ Bij externe nameservers, bijvoorbeeld Cloudflare, gebruik je de DNSSEC-instellin
 Verwijder eerst de DS-koppeling bij de registrar en laat de wijziging doorwerken voordat je de ondertekening uitschakelt. Zet daarna DNSSEC in het panel uit en lees de bevestiging. Een oude DS-koppeling met een niet langer passende sleutel kan het hele domein onbereikbaar maken voor validerende resolvers.
 
 Bij een nameserververhuizing moeten delegatie, ondertekening en DS bij elkaar blijven passen. Vraag hulp voordat je wisselt wanneer je de juiste volgorde niet kunt bepalen.
+
+<PortalScreenshot name="dnssec-disable" alt="Waarschuwing vóór het uitschakelen van DNSSEC" caption="Verwijder eerst het DS-record bij de registrar. Bevestig pas nadat die wijziging is verwerkt." />
 
 ## DNS werkt niet na de wijziging
 

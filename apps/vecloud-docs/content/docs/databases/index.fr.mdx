@@ -32,9 +32,15 @@ Vérifiez la base et les utilisateurs associés. Si la création réussit mais l
 </Step>
 </Steps>
 
+<PortalScreenshot
+  name="database-add"
+  alt="Associer une nouvelle base à un utilisateur existant"
+  caption="Associer une nouvelle base à un utilisateur existant"
+/>
+
 ## Gérer les droits
 
-Cliquez sur une base. Dans **Users**, ajoutez un utilisateur existant, créez-en un ou modifiez les droits. **All database privileges** accorde tous les droits proposés. Décochez cette option pour choisir des droits précis, par exemple `SELECT` pour la lecture. **Revoke access** retire l’association, pas l’utilisateur lui-même.
+Ouvrez le menu d’actions à côté de la base et choisissez **Manage**. Dans **Users**, ajoutez un utilisateur existant, créez-en un ou modifiez les droits. **All database privileges** accorde tous les droits proposés. Décochez cette option pour choisir des droits précis, par exemple `SELECT` pour la lecture. **Revoke access** retire l’association, pas l’utilisateur lui-même.
 
 La section **Users** de la liste donne accès à la gestion de l’utilisateur, de son mot de passe masqué et de ses bases autorisées. Après une réinitialisation du mot de passe, mettez à jour la configuration de l’application pour préserver sa connexion.
 
@@ -49,9 +55,3 @@ Supprimer une base efface toutes ses données. Supprimer un utilisateur peut aff
 </Callout>
 
 Utilisez [phpMyAdmin](./phpmyadmin.mdx) pour les tables et requêtes. PostgreSQL dispose d’une [gestion distincte](./postgresql.mdx).
-
-<PortalScreenshot
-  name="database-add"
-  alt="Associer une nouvelle base à un utilisateur existant"
-  caption="Associer une nouvelle base à un utilisateur existant"
-/>

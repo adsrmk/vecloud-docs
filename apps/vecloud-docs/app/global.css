@@ -140,7 +140,8 @@ button {
 .prose li a:hover {
   text-decoration: underline;
 }
-.portal-screenshot {
+.portal-screenshot,
+.portal-walkthrough {
   margin-block: 28px;
 }
 .portal-screenshot > a {
@@ -153,7 +154,14 @@ button {
   width: 100%;
   height: auto;
 }
-.portal-screenshot figcaption {
+.portal-walkthrough video {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--color-fd-border);
+  border-radius: 6px;
+}
+.portal-screenshot figcaption,
+.portal-walkthrough figcaption {
   margin-top: 10px;
   color: var(--color-fd-muted-foreground);
   font-size: 12px;

@@ -8,7 +8,7 @@ Depuis un site de staging, vous pouvez copier le contenu ou utiliser cet environ
 
 ## Choisir la destination
 
-Ouvrez **Overview** d’un staging existant. Si vos droits et votre offre le permettent, **Publish staging** apparaît. L’interface actuelle affiche ce menu pour les stagings ; un site normal n’a pas de bouton de copie ici.
+Ouvrez **Overview** sur le site de staging. Si votre offre et vos droits le permettent, **Publish staging** propose deux façons de copier le contenu. Le bouton distinct **Promote to production** transforme le staging lui-même en site de production.
 
 | Action | Résultat |
 | --- | --- |
@@ -26,6 +26,8 @@ Ouvrez **Overview** d’un staging existant. Si vos droits et votre offre le per
 
 Le nouveau site consomme le quota approprié. Son domaine peut encore nécessiter DNS et SSL pour être accessible publiquement.
 
+<PortalScreenshot name="staging-new" alt="Un nouveau site comme destination du staging" caption="Vérifiez l’offre, le type de site et le nouveau domaine avant de lancer la copie." />
+
 ## Copier vers un site existant
 
 <Callout type="warning" title="Vérifiez la destination">
@@ -36,9 +38,15 @@ Sélectionnez la destination. Vérifiez chemins exclus, bases et utilisateurs de
 
 Pour WordPress, search-and-replace peut adapter les références de l’ancien domaine au nouveau. Choisissez avec soin : des références absolues peuvent devoir rester inchangées.
 
+Vérifiez les options cochées avant de choisir **Overwrite website**. **Delete destination files that do not exist on the source** peut supprimer les fichiers présents uniquement sur la destination. Décochez cette option pour les conserver. Vérifiez aussi si la version de PHP doit changer.
+
+<PortalScreenshot name="staging-existing" alt="Source, site cible existant et options de copie" caption="La source figure en haut. Vérifiez Target website et les options de fichiers et de bases avant d’écraser la destination." />
+
 ## Convertir le staging en production
 
 **Promote to production** change le type du staging et utilise un quota de site normal. Domaine et contenu restent sur ce même site. Pour envoyer le contenu vers une production existante, utilisez la copie vers un site existant et vérifiez la destination.
+
+<PortalScreenshot name="staging-promote" alt="Confirmation du passage du staging en production" caption="Vérifiez le nom du site qui passera en production et l’emplacement de site standard qu’il utilisera." />
 
 ## Après la copie
 

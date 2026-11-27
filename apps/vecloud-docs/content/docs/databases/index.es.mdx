@@ -32,9 +32,15 @@ Comprueba la base y los usuarios asociados. Si se crean pero falla la asignació
 </Step>
 </Steps>
 
+<PortalScreenshot
+  name="database-add"
+  alt="Asociar una base nueva a un usuario existente"
+  caption="Asociar una base nueva a un usuario existente"
+/>
+
 ## Gestionar permisos
 
-Pulsa una base de datos. En **Users** puedes añadir un usuario existente, crear uno o modificar permisos. **All database privileges** concede todos los permisos disponibles. Desmárcalo para elegir permisos individuales, como `SELECT` para lectura. **Revoke access** elimina la asociación, no el usuario.
+Abre el menú de acciones junto a la base de datos y selecciona **Manage**. En **Users** puedes añadir un usuario existente, crear uno o modificar permisos. **All database privileges** concede todos los permisos disponibles. Desmárcalo para elegir permisos individuales, como `SELECT` para lectura. **Revoke access** elimina la asociación, no el usuario.
 
 La sección **Users** de la lista permite gestionar el usuario, su contraseña oculta y las bases accesibles. Tras restablecer la contraseña, actualiza la configuración de la aplicación para evitar errores de conexión.
 
@@ -49,9 +55,3 @@ Eliminar una base borra todos sus datos. Eliminar un usuario puede afectar a var
 </Callout>
 
 Utiliza [phpMyAdmin](./phpmyadmin.mdx) para tablas y consultas. PostgreSQL tiene [gestión independiente](./postgresql.mdx).
-
-<PortalScreenshot
-  name="database-add"
-  alt="Asociar una base nueva a un usuario existente"
-  caption="Asociar una base nueva a un usuario existente"
-/>

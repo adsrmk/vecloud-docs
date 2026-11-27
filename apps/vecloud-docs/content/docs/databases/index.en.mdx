@@ -32,9 +32,15 @@ Check both the database and its assigned users. If creation succeeds but assigni
 </Step>
 </Steps>
 
+<PortalScreenshot
+  name="database-add"
+  alt="Assign a new database to an existing user"
+  caption="Assign a new database to an existing user"
+/>
+
 ## Manage privileges
 
-Click a database. Under **Users**, add an existing user, create one or edit privileges. **All database privileges** grants all available privileges. Clear it to choose individual privileges, such as `SELECT` for read access. **Revoke access** removes the assignment, not the database user itself.
+Open the action menu next to the database and select **Manage**. Under **Users**, add an existing user, create one or edit privileges. **All database privileges** grants all available privileges. Clear it to choose individual privileges, such as `SELECT` for read access. **Revoke access** removes the assignment, not the database user itself.
 
 The **Users** section in the database list opens user management, including the hidden password and accessible databases. After resetting a password, update the application configuration; otherwise the website may lose its database connection.
 
@@ -49,9 +55,3 @@ Deleting a database removes all its data. Deleting a user can affect several app
 </Callout>
 
 Use [phpMyAdmin](./phpmyadmin.mdx) for tables and queries. PostgreSQL has [separate management](./postgresql.mdx).
-
-<PortalScreenshot
-  name="database-add"
-  alt="Assign a new database to an existing user"
-  caption="Assign a new database to an existing user"
-/>

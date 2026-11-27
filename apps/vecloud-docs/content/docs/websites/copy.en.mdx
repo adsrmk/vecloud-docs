@@ -8,7 +8,7 @@ From a staging website, you can copy content or start using that environment for
 
 ## Choose your destination
 
-Open an existing staging website’s **Overview**. When your plan and permissions allow it, you see **Publish staging**. The current interface shows this menu for staging websites; a normal website has no copy button here.
+Open **Overview** on your staging website. If your plan and permissions allow it, **Publish staging** offers two ways to copy content. Use the separate **Promote to production** button when you want the staging website itself to become a production site.
 
 | Action | Result |
 | --- | --- |
@@ -26,6 +26,8 @@ Open an existing staging website’s **Overview**. When your plan and permission
 
 The new website uses the relevant website or staging allowance. A new domain may still need DNS and SSL before working publicly.
 
+<PortalScreenshot name="staging-new" alt="A new site as the staging destination" caption="Check the plan, website type and new domain before starting the copy." />
+
 ## Copy to an existing website
 
 <Callout type="warning" title="Check the destination">
@@ -36,9 +38,15 @@ Select the destination. Review excluded paths, databases and database users. Che
 
 For WordPress, search-and-replace can update references from the old domain to the new one. Choose deliberately: a database can also contain absolute references you want to keep.
 
+Review the selected options before choosing **Overwrite website**. **Delete destination files that do not exist on the source** can remove files that exist solely on the destination. Clear it if you need to keep those files. Also check whether the PHP version should change.
+
+<PortalScreenshot name="staging-existing" alt="Source, existing destination and copy options" caption="The source is shown at the top. Verify Target website and the file and database options before overwriting." />
+
 ## Convert staging to production
 
 **Promote to production** changes the staging website’s type and uses a regular website allowance. Its domain and content stay with the same website. To send content to an existing production website, use the existing-website copy option and check that destination.
+
+<PortalScreenshot name="staging-promote" alt="Confirmation for converting staging to production" caption="The confirmation names the website that will become production and explains the regular website slot it uses." />
 
 ## After copying
 

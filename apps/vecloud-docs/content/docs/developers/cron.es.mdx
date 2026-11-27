@@ -10,6 +10,8 @@ Una tarea cron realiza trabajos periódicos sin que tengas que iniciarlos cada v
 
 Abre **Domains → tu sitio → Developer tools → Cron jobs** y **Add cron job**. Elige **Command** o **Request URL** y un intervalo disponible. El predeterminado es cada quince minutos; ajusta la frecuencia a la tarea.
 
+<PortalScreenshot name="cron-settings" alt="Tareas cron en Developer tools" caption="Selecciona Add cron job para programar una tarea. El interruptor controla la edición desde el contenedor." />
+
 - **Command** se ejecuta como usuario del sitio. Introduce la orden sin los cinco campos de planificación delante. Usa rutas correctas al programa y al script.
 - **Request URL** llama a la URL mediante HTTP GET. Usa un endpoint destinado a la tarea; cargar una página cualquiera no ejecuta automáticamente un proceso de fondo.
 
@@ -20,6 +22,8 @@ Pulsa **Save** y comprueba la regla guardada. Ejemplo:
 ```
 
 Significa cada quince minutos. Los campos son minuto, hora, día del mes, mes y día de la semana. No hay selector de zona horaria independiente; comprueba la del entorno cuando importe la hora exacta.
+
+<PortalScreenshot name="cron-command" alt="Programación de un comando recurrente con Command" caption="Elige el intervalo e introduce el comando. El formulario completa la programación por separado." />
 
 <PortalScreenshot
   name="cron-job"

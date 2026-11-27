@@ -17,7 +17,7 @@ Open je website en kies **SSL certificates**. De tabel toont per domein de statu
 
 Een aanvraag is niet geslaagd omdat de modal sluit; controleer het resultaat in de tabel. Bij een fout controleer je eerst DNS, bereikbaarheid en eventuele proxy- of CAA-instellingen. Dien niet achter elkaar dezelfde aanvraag in.
 
-<PortalScreenshot name="ssl" alt="SSL-tabel met actief certificaat en HTTPS-schakelaar" caption="Controleer de status en vervaldatum per domein. Deze lokale demonstratie bevat geen certificaatsleutels." />
+<PortalScreenshot name="ssl-request" alt="Certificaataanvraag met domeinkeuze en vervangwaarschuwing" caption="Controleer het domein bij Request certificate. De aanvraag kan het bestaande certificaat voor dat domein vervangen." />
 
 ## HTTPS afdwingen
 
@@ -25,11 +25,15 @@ Schakel **Enforce HTTPS** in bij het juiste domein zodra daarvoor een geldig cer
 
 Blijft een omleidingslus optreden? Controleer ook redirects in je applicatie en de HTTPS-instellingen van een externe proxy. Een HTTPS-redirect verhelpt een ongeldig certificaat niet.
 
+<PortalScreenshot name="ssl" alt="SSL-tabel met actief certificaat en HTTPS-schakelaar" caption="Controleer de status en vervaldatum per domein. Deze lokale demonstratie bevat geen certificaatsleutels." />
+
 ## Eigen certificaat installeren
 
 Als **Install custom SSL** beschikbaar is, kun je een bestaand certificaat met de bijbehorende privésleutel installeren. Selecteer het domein en plak de PEM-inhoud of lees de bestanden in. De bestandskeuze accepteert de ondersteunde certificaat- en sleutelbestanden tot **64 KiB per bestand**. Kies daarna de installatieactie en controleer de status.
 
 Zorg dat certificaat en sleutel bij elkaar horen en dat de domeinnaam gedekt is. Vernieuwing van een eigen certificaat moet je zelf organiseren; het uploaden ervan vraagt geen nieuwe uitgifte aan.
+
+<PortalScreenshot name="ssl-custom" alt="Eigen SSL-certificaat installeren met lege CRT- en sleutelvelden" caption="Selecteer het juiste domein en gebruik de bij elkaar horende CRT en privésleutel." />
 
 ## Details bekijken
 

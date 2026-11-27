@@ -8,7 +8,9 @@ An SQL export gives you a transferable copy of database content. Importing loads
 
 ## Before you start
 
-Open **Domains → your website → Databases**, then click the target MySQL/MariaDB database. Importing executes SQL on this database. Uploading a file through **Files** does not import it into a database.
+Open **Domains → your website → Databases**. In the MySQL section, open the action menu next to the target database and select **Manage**. Check the database name at the top before importing. Uploading a SQL file through **Files** only places it in the file storage.
+
+<PortalScreenshot name="database-actions" alt="The MySQL action menu showing Manage" caption="Manage opens the settings and SQL actions for this database." />
 
 <Callout type="warn" title="Prepare a recovery option">
 A SQL dump can drop tables or replace existing data. Check its source and contents. Export or back up a populated database before changing it. For a migration, preferably start with a new, empty target database.
@@ -17,6 +19,8 @@ A SQL dump can drop tables or replace existing data. Check its source and conten
 ## Import a SQL file
 
 Once the destination and recovery copy are ready, select the file and follow the import.
+
+<PortalScreenshot name="sql-transfer" alt="SQL import above SQL export" caption="Select the file under Import SQL file. Use Download under Export SQL file to save a copy." />
 
 <Steps>
 <Step title="Choose the correct target database">

@@ -13,14 +13,20 @@ Utiliza un dominio que controles y comprueba que tu plan permita otro sitio. Añ
 ## Elegir el tipo
 
 <Tabs items={['Addon', 'Subdomain', 'Alias']}>
-<Tab value="Addon">
+<Tab value="Addon" keepMounted>
 Usa **Addon** para un sitio independiente. Introduce el dominio completo sin protocolo, ruta o prefijo `www.` no deseado. Se crea el espacio web; instala una aplicación después desde **Apps**.
+
+<PortalScreenshot name="add-domain" alt="Formulario con Addon y el dominio ficticio demo-site.test" caption="El formulario comienza con Domain type y Domain. La aplicación se elige después, desde el sitio." />
 </Tab>
-<Tab value="Subdomain">
+<Tab value="Subdomain" keepMounted>
 Usa **Subdomain** para un nombre bajo un dominio existente. Elige el dominio principal e introduce solo la parte nueva, como `shop`. Revisa el nombre combinado antes de crearlo.
+
+<PortalScreenshot name="add-subdomain" alt="Subdomain con shop y el dominio existente example.test" caption="Introduce shop. El dominio existente junto al campo completa shop.example.test." />
 </Tab>
-<Tab value="Alias">
+<Tab value="Alias" keepMounted>
 Usa **Alias** para asociar otro dominio a un sitio existente. Elige ese destino e introduce el alias. Es otro nombre para el mismo sitio, no una redirección HTTP a otra dirección.
+
+<PortalScreenshot name="add-alias" alt="Formulario Alias con example.test como destino" caption="Revisa el sitio existente y el dominio adicional. En el ejemplo, alias.example.test se añade a example.test." />
 </Tab>
 </Tabs>
 
@@ -32,8 +38,6 @@ Una vez elegido el tipo de dominio, completa el formulario con los datos corresp
 2. Elige el tipo y rellena sus datos.
 3. Revisa nombre y sitio de destino, si corresponde.
 4. Pulsa **Create** y espera la confirmación.
-
-<PortalScreenshot name="add-domain" alt="Formulario con Addon y el dominio ficticio demo-site.test" caption="El formulario comienza con Domain type y Domain. La aplicación se elige después, desde el sitio." />
 
 ## Después de crearlo
 

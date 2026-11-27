@@ -17,7 +17,7 @@ Abre tu sitio y elige **SSL certificates**. La tabla muestra estado, emisor, aju
 
 Que la ventana se cierre no demuestra que la emisión haya funcionado; verifica la tabla. Ante un error revisa DNS, accesibilidad y posibles ajustes de proxy o CAA. No repitas la misma solicitud continuamente.
 
-<PortalScreenshot name="ssl" alt="Tabla SSL con certificado activo e interruptor HTTPS" caption="Comprueba estado y caducidad por dominio. La demostración no muestra claves de certificados." />
+<PortalScreenshot name="ssl-request" alt="Solicitud de certificado con dominio y aviso de sustitución" caption="Comprueba el dominio en Request certificate. La solicitud puede sustituir su certificado actual." />
 
 ## Forzar HTTPS
 
@@ -25,11 +25,15 @@ Activa **Enforce HTTPS** en el dominio correcto cuando tenga un certificado vál
 
 Si hay un bucle de redirecciones, revisa también la aplicación y los ajustes HTTPS del proxy externo. Una redirección HTTPS no repara un certificado inválido.
 
+<PortalScreenshot name="ssl" alt="Tabla SSL con certificado activo e interruptor HTTPS" caption="Comprueba estado y caducidad por dominio. La demostración no muestra claves de certificados." />
+
 ## Instalar un certificado propio
 
 Si aparece **Install custom SSL**, puedes instalar un certificado existente con su clave privada correspondiente. Selecciona el dominio y pega el contenido PEM o carga los archivos. El selector acepta archivos compatibles de certificado y clave de hasta **64 KiB cada uno**. Envía la instalación y comprueba después su estado.
 
 La clave y el certificado deben corresponderse y cubrir el dominio. Organiza tú la renovación de un certificado propio; cargarlo no solicita una nueva emisión.
+
+<PortalScreenshot name="ssl-custom" alt="Formulario SSL propio con los campos de certificado y clave vacíos" caption="Selecciona el dominio correcto y utiliza el CRT y la clave privada que correspondan." />
 
 ## Consultar detalles
 

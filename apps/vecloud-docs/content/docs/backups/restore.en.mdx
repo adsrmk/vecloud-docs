@@ -23,6 +23,8 @@ With a suitable recovery point and its effects in mind, you can prepare the rest
 ### Open the recovery point
 
 Go to **Backups** and choose **Restore** next to the backup. The **Backup details** modal shows the date, completion, storage and included components.
+
+<PortalScreenshot name="backups" alt="Backup list showing the recovery point for example.test" caption="Start with a completed recovery point for the correct website. All data in these images is fictitious." />
 </Step>
 <Step>
 ### Check the contents
@@ -30,11 +32,19 @@ Go to **Backups** and choose **Restore** next to the backup. The **Backup detail
 Check that website files were included successfully. Select the required **MariaDB databases** using the checkboxes. **Select all** selects every database shown.
 
 The current restore modal includes available website files. It does not provide a file browser for choosing one individual file. Mailboxes may be listed in the details; that listing is not a separate restore selection.
+
+<Callout>
+Databases are not selected automatically. For a complete WordPress restore, explicitly select the database used by that installation. Without a database selection, this action restores only the available website files; database content such as posts, settings and orders stays at its current state.
+</Callout>
+
+<PortalScreenshot name="backup-restore" alt="Backup details with demo_wordpress explicitly selected" caption="Select the database used by this installation. It is not selected by default." />
 </Step>
 <Step>
 ### Confirm the action
 
 Choose **Restore backup**. Read the confirmation and check the date and website again before confirming. A message that the restore has started means the request was accepted; it does not mean the website has finished restoring.
+
+<PortalScreenshot name="backup-restore-confirm" alt="Final confirmation before restoring a backup" caption="Check the website and date again here. Cancel stops the action; only Restore now starts the restore." />
 </Step>
 <Step>
 ### Check your website
@@ -43,7 +53,6 @@ Let the restore finish before making further changes to the same website. Then t
 </Step>
 </Steps>
 
-<PortalScreenshot name="backup-restore" alt="Backup details with the demo_wordpress database selected" caption="Select the databases belonging to your website in the restore modal. This example contains demonstration data only." />
 
 ## WordPress after a restore
 

@@ -10,8 +10,6 @@ Wenn unerwünschter Traffic wiederholt von derselben Adresse oder demselben Netz
 
 Öffne deine Website und **IP deny** in der Seitenleiste direkt unter **SSL certificates**. Die Funktion verwaltet Nginx-Sperren für die zugeordneten Domains dieser Website. Sie ist keine serverweite Firewall und sperrt keine Mail- oder SSH-Anmeldungen.
 
-<PortalScreenshot name="ip-deny" alt="IP deny mit einer Adresse oder einem Netz je Zeile" caption="Die Adressen sind Dokumentationsbeispiele. Nutze nur die tatsächlich beabsichtigte Besucheradresse oder das Netz." />
-
 ## Adressen hinzufügen
 
 1. Wähle **Add IP addresses** neben dem Seitentitel.
@@ -29,11 +27,15 @@ Diese Werte sind ausschließlich Dokumentationsbeispiele:
 
 Die Liste unterstützt bis zu **250 Adressen oder Netzregeln**. CIDR-Netze können nach dem Speichern normalisiert erscheinen. Gib keine Domains, URLs oder Hostnamen ein.
 
+<PortalScreenshot name="ip-deny" alt="IP deny mit einer Adresse oder einem Netz je Zeile" caption="Die Adressen sind Dokumentationsbeispiele. Nutze nur die tatsächlich beabsichtigte Besucheradresse oder das Netz." />
+
 ## Sperre entfernen
 
 Wähle **Delete** neben der Adresse und bestätige. Prüfe, ob die Zeile verschwindet, und teste den Zugriff aus diesem Netz. Das Entfernen hebt keine unabhängige Sperre in einer externen Firewall oder einem Proxy auf.
 
 Bei unterschiedlichen Listen der Domains zeigt das Panel einen Hinweis und eine Aktion zum Anwenden der gemeinsamen Liste auf alle Domains. Prüfe zuerst, ob wirklich jede angezeigte Adresse überall gesperrt werden soll.
+
+<PortalScreenshot name="ip-deny-remove" alt="Bestätigung beim Entfernen einer IP-Regel" caption="Prüfe vor Confirm, welche Adresse aus der Sperrliste entfernt wird." />
 
 ## Verarbeitung oder unbestätigtes Ergebnis
 

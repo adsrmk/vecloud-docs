@@ -8,7 +8,7 @@ Von einer Staging-Website aus kannst du Inhalte kopieren oder die Umgebung für 
 
 ## Ziel auswählen
 
-Öffne **Overview** einer bestehenden Staging-Website. Wenn Tarif und Rechte es erlauben, erscheint **Publish staging**. Die aktuelle Oberfläche zeigt dieses Menü bei Staging; eine normale Website hat hier keine Kopierschaltfläche.
+Öffne **Overview** deiner Staging-Website. Wenn dein Tarif und deine Rechte es erlauben, bietet **Publish staging** zwei Möglichkeiten zum Kopieren. Über die separate Schaltfläche **Promote to production** wird die Staging-Website selbst zur Produktionswebsite.
 
 | Aktion | Ergebnis |
 | --- | --- |
@@ -26,6 +26,8 @@ Von einer Staging-Website aus kannst du Inhalte kopieren oder die Umgebung für 
 
 Die neue Website nutzt das jeweilige Website- oder Stagingkontingent. Eine neue Domain benötigt eventuell noch DNS und SSL für öffentlichen Zugriff.
 
+<PortalScreenshot name="staging-new" alt="Neue Website als Ziel für Staging" caption="Prüfe Tarif, Website-Typ und neue Domain, bevor du die Kopie startest." />
+
 ## Auf eine bestehende Website kopieren
 
 <Callout type="warning" title="Ziel prüfen">
@@ -36,9 +38,15 @@ Wähle das Ziel. Prüfe ausgeschlossene Pfade, Datenbanken und Datenbankbenutzer
 
 Für WordPress kann search-and-replace Verweise von der alten auf die neue Domain anpassen. Entscheide bewusst: Manche absoluten Verweise in der Datenbank sollen möglicherweise erhalten bleiben.
 
+Prüfe die gewählten Optionen vor **Overwrite website**. **Delete destination files that do not exist on the source** kann Dateien löschen, die nur auf der Zielwebsite vorhanden sind. Deaktiviere die Option, wenn du diese Dateien behalten möchtest. Prüfe auch, ob sich die PHP-Version ändern soll.
+
+<PortalScreenshot name="staging-existing" alt="Quelle, bestehendes Ziel und Kopieroptionen" caption="Die Quelle steht oben. Prüfe Target website und die Datei- und Datenbankoptionen vor dem Überschreiben." />
+
 ## Staging in Produktion umwandeln
 
 **Promote to production** ändert den Typ der Staging-Website und nutzt einen normalen Websiteplatz. Domain und Inhalte bleiben bei derselben Website. Um Inhalte auf eine vorhandene Produktionswebsite zu übertragen, verwende die Kopie auf ein bestehendes Ziel und prüfe dieses.
+
+<PortalScreenshot name="staging-promote" alt="Bestätigung für die Umwandlung von Staging in Produktion" caption="Die Bestätigung nennt die Website, die produktiv wird, und den regulären Website-Platz, den sie belegt." />
 
 ## Nach der Kopie
 

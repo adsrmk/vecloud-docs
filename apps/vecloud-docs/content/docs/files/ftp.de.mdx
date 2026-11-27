@@ -10,12 +10,6 @@ Ein eigenes FTP-Konto ist sinnvoll, wenn jemand Dateien in einem bestimmten Webs
 
 Öffne **Domains → deine Website → FTP**. FTP-Konten haben eigene Zugangsdaten und lassen sich auf ein Verzeichnis beschränken. SFTP verwendet die [SSH-Zugangsdaten der Website](./ssh.mdx), kein FTP-Konto.
 
-<PortalScreenshot
-  name="ftp"
-  alt="Auf ein Verzeichnis beschränktes FTP-Konto"
-  caption="Auf ein Verzeichnis beschränktes FTP-Konto"
-/>
-
 ## FTP-Konto hinzufügen
 
 Wenn der gewünschte Ordner feststeht, legst du das Konto an und prüfst anschließend den Zugriff.
@@ -32,11 +26,19 @@ Verwende mindestens zehn Zeichen mit Kleinbuchstabe, Großbuchstabe, Zahl und So
 </Step>
 </Steps>
 
+<PortalScreenshot name="ftp-create" alt="FTP-Formular mit Domain und Ordner public_html/assets" caption="Gib den Namensbestandteil vor @ und den erlaubten Ordner ein. Das Formular ergänzt die Domain." />
+
 ## Client verbinden
 
 Klicke auf den Kontonamen, um **Login details** zu öffnen. Übernimm den vollständigen Benutzernamen und **Host**; der angezeigte FTP-Port ist **21**. Nutze explizites FTP über TLS, wenn Client und Server dies unterstützen. SFTP ist ein anderes Protokoll und verwendet SSH auf Port 22.
 
 Speichere das Passwort in deinem Passwortmanager. Das Portal zeigt das bestehende Passwort nicht an. Mit **Change password** legst du ein neues fest; aktualisiere danach gespeicherte Verbindungen.
+
+<PortalScreenshot
+  name="ftp"
+  alt="Auf ein Verzeichnis beschränktes FTP-Konto"
+  caption="Auf ein Verzeichnis beschränktes FTP-Konto"
+/>
 
 ## Verzeichniszugriff ändern
 
@@ -45,6 +47,8 @@ Klicke auf den Stift bei **Directory access**, wähle das Verzeichnis und speich
 <Callout type="warn" title="Löschoption prüfen">
 Die Bestätigung **Delete FTP account** enthält eine eigene Option zum Löschen des Verzeichnisinhalts. Lass sie deaktiviert, wenn du nur den Zugriff entziehen möchtest. Das Löschen des Stammverzeichnisinhalts kann die Website unbrauchbar machen.
 </Callout>
+
+<PortalScreenshot name="ftp-delete" alt="Bestätigung zur FTP-Löschung mit deaktivierter Option für Ordnerinhalte" caption="Lass diese Option deaktiviert, wenn du nur den Zugriff des FTP-Kontos entziehen willst." />
 
 ## Verbindungsprobleme
 

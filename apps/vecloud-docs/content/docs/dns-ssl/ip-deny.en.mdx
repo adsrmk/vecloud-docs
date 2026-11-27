@@ -10,8 +10,6 @@ If unwanted traffic repeatedly comes from the same address or network, you can r
 
 Open your website and choose **IP deny** in the sidebar, immediately below **SSL certificates**. This manages Nginx deny rules for this website’s attached domains. It is not a server-wide firewall and does not block email or SSH sign-ins.
 
-<PortalScreenshot name="ip-deny" alt="IP deny with one address or network per line" caption="The entered addresses are documentation examples. Use only the intended visitor address or network in your own environment." />
-
 ## Add addresses
 
 1. Choose **Add IP addresses** beside the page title.
@@ -29,11 +27,15 @@ These are documentation examples only:
 
 The list supports up to **250 addresses or network rules**. CIDR networks may appear in normalized form after saving. Do not enter domains, URLs or hostnames.
 
+<PortalScreenshot name="ip-deny" alt="IP deny with one address or network per line" caption="The entered addresses are documentation examples. Use only the intended visitor address or network in your own environment." />
+
 ## Remove a block
 
 Choose **Delete** beside the address and confirm. Check that its row disappears, then test access from that network. Removing a rule does not clear a separate block in an external firewall or proxy.
 
 If attached domains have different lists, the panel shows a warning and an action to apply the combined list to all domains. First check that every displayed address really should be blocked everywhere.
+
+<PortalScreenshot name="ip-deny-remove" alt="Confirmation for removing an IP rule" caption="Check which address will leave the block list before choosing Confirm." />
 
 ## Configuration processing or unconfirmed
 

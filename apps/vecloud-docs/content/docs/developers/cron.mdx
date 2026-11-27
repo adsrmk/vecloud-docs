@@ -10,6 +10,8 @@ Een cronjob voert terugkerend werk uit zonder dat je het telkens zelf start. Bep
 
 Open **Domains → je website → Developer tools → Cron jobs** en kies **Add cron job**. Selecteer **Command** of **Request URL** en een beschikbaar interval. De standaardkeuze is elke vijftien minuten; kies bewust een frequentie die bij je taak past.
 
+<PortalScreenshot name="cron-settings" alt="Cron jobs in Developer tools" caption="Open Add cron job om een taak te plannen. De schakelaar eronder regelt toegang vanuit de websitecontainer." />
+
 - **Command** voert een opdracht uit als de websitegebruiker. Vul de opdracht in zonder de vijf planningsvelden ervoor. Gebruik correcte paden naar programma en script.
 - **Request URL** roept de opgegeven URL via HTTP GET aan. Gebruik een URL die hiervoor bedoeld is; een gewone pagina laden voert niet vanzelf de gewenste achtergrondtaak uit.
 
@@ -20,6 +22,8 @@ Kies **Save** en controleer de opgeslagen regel. Voorbeeld van een planning:
 ```
 
 Dit staat voor elke vijftien minuten. De velden zijn minuut, uur, dag van de maand, maand en weekdag. Het portaal biedt geen aparte tijdzonekeuze bij de taak; controleer de tijdzone van de uitvoeromgeving als een exact tijdstip belangrijk is.
+
+<PortalScreenshot name="cron-command" alt="Een terugkerende opdracht plannen met Command" caption="Kies het interval en vul alleen het uit te voeren commando in. De planning wordt apart ingevuld." />
 
 <PortalScreenshot
   name="cron-job"

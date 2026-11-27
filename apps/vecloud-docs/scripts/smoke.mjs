@@ -59,6 +59,10 @@ const locales = ['nl', 'en', 'es', 'fr', 'de'];
 const prefix = (locale) => `/${locale}`;
 const content = new Map();
 const screenshotNames = new Set();
+const walkthroughNames = new Set();
+const walkthroughs = JSON.parse(
+  await readFile(new URL('lib/walkthroughs.json', app), 'utf8'),
+);
 const optimizedScreenshots = new Set();
 const screenshotDimensions = JSON.parse(
   await readFile(new URL('lib/screenshot-dimensions.json', app), 'utf8'),
@@ -82,6 +86,13 @@ for (const file of files) {
   content.set(path, { mdx, title: mdx.match(/^title: (.+)$/m)[1] });
   for (const [, name] of mdx.matchAll(/<PortalScreenshot\s+name="([^"]+)"/g))
     screenshotNames.add(name);
+  for (const [, name, language] of mdx.matchAll(
+    /<PortalWalkthrough\s+name="([^"]+)"\s+locale="([^"]+)"/g,
+  )) {
+    assert.ok(walkthroughs[name], file + ' known walkthrough');
+    assert.equal(language, locale, file + ' localized video captions');
+    walkthroughNames.add(name);
+  }
 }
 const defaultPages = [];
 for (const path of content.keys())
@@ -161,6 +172,21 @@ try {
       );
     assert.ok(!html.includes('Hello World'));
     assert.ok(!html.includes('.mdx"'), path + ' resolved MDX links');
+    if (page.mdx.includes('<PortalWalkthrough')) {
+      const videos = [...html.matchAll(/<video\b[^>]*>/g)];
+      assert.equal(videos.length, 2, path + ' theme-matched video players');
+      for (const [video] of videos) {
+        assert.match(video, /\bcontrols(?:=|\s|>)/, path + ' playback controls');
+        assert.match(video, /\bpreload="none"/, path + ' no eager video download');
+        assert.ok(!/\bautoplay\b/i.test(video), path + ' no autoplay');
+        assert.match(video, /\baria-label="[^"]+"/, path + ' video accessible name');
+      }
+      for (const [, name] of page.mdx.matchAll(/<PortalWalkthrough\s+name="([^"]+)"/g)) {
+        assert.ok(html.includes(`/walkthroughs/${name}-${locale}.vtt`), path + ' caption track');
+        for (const theme of ['light', 'dark'])
+          assert.ok(html.includes(`/walkthroughs/${name}-${theme}.mp4`), path + ' ' + theme + ' clip');
+      }
+    }
     if (locale !== 'nl')
       assert.ok(
         !/href="\/docs(?:[\/#"])/.test(html),
@@ -208,6 +234,10 @@ try {
       await get(`/api/search?query=PortalScreenshot&locale=${locale}`)
     ).json();
     assert.equal(componentSearch.length, 0, locale + ' no screenshot code in search');
+    const walkthroughSearch = await (
+      await get(`/api/search?query=PortalWalkthrough&locale=${locale}`)
+    ).json();
+    assert.equal(walkthroughSearch.length, 0, locale + ' no video code in search');
     const search = await (
       await get(
         `/api/search?query=${encodeURIComponent(queries[locale])}&locale=${locale}`,
@@ -245,6 +275,25 @@ try {
       new URL(home.headers.get('location'), base).pathname,
       prefix(locale) + '/docs',
     );
+  }
+  for (const name of walkthroughNames) {
+    const media = walkthroughs[name];
+    assert.ok(media.seconds >= 4 && media.seconds <= 10, name + ' short explainer');
+    for (const theme of ['light', 'dark']) {
+      const path = `/walkthroughs/${name}-${theme}.mp4`;
+      const video = await get(path);
+      assert.match(video.headers.get('content-type'), /^video\/mp4/, path);
+      const bytes = new Uint8Array(await video.arrayBuffer());
+      assert.ok(bytes.length > 1000, path + ' encoded video');
+      assert.equal(new TextDecoder().decode(bytes.slice(4, 8)), 'ftyp', path + ' MP4 signature');
+      const range = await get(path, 206, { Range: 'bytes=0-31' });
+      assert.equal((await range.arrayBuffer()).byteLength, 32, path + ' seekable delivery');
+    }
+    for (const locale of locales) {
+      const captions = await (await get(`/walkthroughs/${name}-${locale}.vtt`)).text();
+      assert.ok(captions.startsWith('WEBVTT\n'), name + ' ' + locale + ' captions');
+      assert.match(captions, /00:00\.000 -->/, name + ' captions start at the beginning');
+    }
   }
   for (const name of screenshotNames) {
     for (const theme of ['light', 'dark']) {
@@ -326,6 +375,7 @@ try {
       alternates: 'passed',
       redirects: 'passed',
       images: 'passed',
+      walkthroughs: walkthroughNames.size,
       screenshotPairs: screenshotNames.size,
       optimizedScreenshots: optimizedScreenshots.size,
       internalLinks: internalLinks.size,

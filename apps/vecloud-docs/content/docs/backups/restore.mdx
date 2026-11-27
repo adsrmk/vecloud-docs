@@ -23,6 +23,8 @@ Met een passend herstelmoment en een duidelijk beeld van de gevolgen kun je de h
 ### Open het herstelmoment
 
 Ga naar **Backups** en kies **Restore** bij de gewenste back-up. De modal **Backup details** toont de datum, afronding, opslag en opgenomen onderdelen.
+
+<PortalScreenshot name="backups" alt="Back-uplijst met het herstelmoment van example.test" caption="Begin bij een afgerond herstelmoment van de juiste website. Alle gegevens in deze afbeeldingen zijn fictief." />
 </Step>
 <Step>
 ### Controleer de inhoud
@@ -30,11 +32,19 @@ Ga naar **Backups** en kies **Restore** bij de gewenste back-up. De modal **Back
 Controleer of de websitebestanden succesvol zijn opgenomen. Selecteer de benodigde **MariaDB databases** met de selectievakjes. **Select all** selecteert alle getoonde databases.
 
 De huidige herstelmodal neemt beschikbare websitebestanden mee. Deze modal bevat geen bestandsbrowser om één los bestand te selecteren. Mailboxen kunnen in de details worden vermeld; die vermelding is geen afzonderlijke herstelkeuze.
+
+<Callout>
+Databases zijn niet automatisch geselecteerd. Wil je een complete WordPress-website terugzetten, vink dan bewust de bijbehorende database aan. Zonder databasekeuze zet deze actie alleen de beschikbare websitebestanden terug; berichten, instellingen en bestellingen uit de database blijven dan op hun huidige stand.
+</Callout>
+
+<PortalScreenshot name="backup-restore" alt="Back-updetails met demo_wordpress bewust geselecteerd" caption="Vink de database aan die bij de installatie hoort. De selectie staat niet standaard aan." />
 </Step>
 <Step>
 ### Bevestig de actie
 
 Kies **Restore backup**. Lees de bevestiging en controleer nogmaals de datum en website voordat je het herstel bevestigt. De melding dat herstel is gestart betekent dat de aanvraag is geaccepteerd, niet dat de website al volledig is teruggezet.
+
+<PortalScreenshot name="backup-restore-confirm" alt="Laatste bevestiging voordat een back-up wordt teruggezet" caption="Controleer hier nogmaals website en datum. Cancel annuleert; pas Restore now start het herstel." />
 </Step>
 <Step>
 ### Controleer je website
@@ -43,7 +53,6 @@ Laat de herstelactie afronden voordat je dezelfde website opnieuw wijzigt. Test 
 </Step>
 </Steps>
 
-<PortalScreenshot name="backup-restore" alt="Back-updetails met de database demo_wordpress geselecteerd" caption="Selecteer in de herstelmodal de databases die bij je website horen. In dit voorbeeld worden uitsluitend demonstratiegegevens getoond." />
 
 ## WordPress na herstel
 

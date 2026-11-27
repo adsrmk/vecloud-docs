@@ -44,8 +44,12 @@ Folge [Ein Backup wiederherstellen](./restore.mdx) für Auswahl und Bestätigung
 Soweit verfügbar, steht **Website backups** unter der Liste. Ein berechtigter Kontoadministrator kann **Disable backups** ändern. Reiner Collaborator-Zugriff erlaubt keine Änderung.
 
 <Callout type="warning" title="Eingeschaltet heißt: keine neuen Backups">
-**Disable backups** stoppt automatische und manuelle Backups der Website und ihrer E-Mail-Daten, sowohl für Enhance als auch S3. Nutze dies nur, wenn du bewusst keine neuen Kopien erstellen möchtest.
+**Disable backups** stoppt automatische und manuelle Backups der Website und ihrer E-Mail-Daten, sowohl für veCloud als auch S3. Nutze dies nur, wenn du bewusst keine neuen Kopien erstellen möchtest.
 </Callout>
+
+Um neue Back-ups zu pausieren, aktiviere **Disable backups** und lies die Bestätigung. Erst deine Bestätigung in diesem Dialog speichert die Änderung. Mit **Cancel** bleibt die aktuelle Einstellung erhalten. Prüfe danach den Schalter: Allein das Öffnen der Warnung ändert nichts.
+
+<PortalScreenshot name="backup-settings-confirm" alt="Warnung vor dem Pausieren neuer Back-ups" caption="Erst Disable anyway ändert die Einstellung. Mit Cancel bleiben neue Back-ups erlaubt." />
 
 Schalte den Schalter aus, um die Erstellung wieder zu erlauben, und warte auf Bestätigung. Dadurch startet nicht sofort ein neues Backup. Bestehende Wiederherstellungspunkte bleiben erhalten; pausierte Erstellung löscht sie nicht und blockiert keinen Restore.
 

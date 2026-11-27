@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import screenshotDimensions from '@/lib/screenshot-dimensions.json';
 
-const screenshotRevision = '20261126-3';
+const screenshotRevision = '20261127-1';
 const dimensions: Record<string, { width: number; height: number }> =
   screenshotDimensions;
 

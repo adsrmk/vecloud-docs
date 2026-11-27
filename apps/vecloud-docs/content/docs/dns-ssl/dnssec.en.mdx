@@ -10,8 +10,6 @@ DNSSEC adds a way to verify DNS responses. A working setup depends on matching t
 
 DNSSEC allows resolvers to verify the origin and integrity of DNS answers. It does not encrypt website traffic; use [SSL and HTTPS](./ssl.mdx) for that. A complete setup links the signed DNS zone to a DS record at the registrar.
 
-<PortalScreenshot name="dnssec" alt="DNSSEC enabled with demonstration DS information" caption="Use only the DS information actually issued for your own setup. These values are fictitious." />
-
 ## Enable DNSSEC
 
 1. Check which nameservers your domain actually uses.
@@ -19,6 +17,10 @@ DNSSEC allows resolvers to verify the origin and integrity of DNS answers. It do
 3. Wait for confirmation. The panel shows the DS information to publish at your registrar.
 4. Copy **Key tag**, **Algorithm**, **Digest type** and **Digest** exactly for the correct domain.
 5. After publication, verify that DNS resolution succeeds with validation.
+
+<PortalScreenshot name="dnssec" alt="DNSSEC enabled with demonstration DS information" caption="Use only the DS information actually issued for your own setup. These values are fictitious." />
+
+Save the DS details when the panel displays them. If DNSSEC is already active and the details are absent, ask your DNS provider or veCloud for the current values before changing anything.
 
 <Callout type="info" title="The registrar and DNS provider may differ">
 The registrar handles registration and the DS delegation. The DNS provider hosts the signed zone. Adding a DS row to your own DNS zone does not replace publishing the DS at your registrar.
@@ -31,6 +33,8 @@ With external nameservers, such as Cloudflare, use the DNSSEC settings and DS in
 Remove the DS delegation at the registrar first and allow that change to propagate before disabling signing. Then turn DNSSEC off in the panel and read the confirmation. An old DS pointing to a key that no longer matches can make the entire domain unavailable to validating resolvers.
 
 During a nameserver move, delegation, signing and DS must remain consistent. Ask for help before switching if you cannot determine the correct sequence.
+
+<PortalScreenshot name="dnssec-disable" alt="Warning before disabling DNSSEC" caption="Remove the DS record at the registrar first. Confirm only after that change has taken effect." />
 
 ## DNS fails after a change
 

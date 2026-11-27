@@ -17,7 +17,7 @@ Open your website and choose **SSL certificates**. The table shows each domainâ€
 
 A closed modal alone does not prove issuance succeeded; verify the result in the table. On failure, check DNS, reachability and any proxy or CAA settings first. Do not submit the same request repeatedly.
 
-<PortalScreenshot name="ssl" alt="SSL table with an active certificate and HTTPS switch" caption="Check status and expiry for each domain. This local demonstration contains no certificate keys." />
+<PortalScreenshot name="ssl-request" alt="Certificate request with domain selection and replacement warning" caption="Check the domain in Request certificate. The request can replace the existing certificate for that domain." />
 
 ## Enforce HTTPS
 
@@ -25,11 +25,15 @@ Turn on **Enforce HTTPS** for the intended domain once a valid certificate is av
 
 If you encounter a redirect loop, check application redirects and the HTTPS settings of an external proxy too. An HTTPS redirect does not repair an invalid certificate.
 
+<PortalScreenshot name="ssl" alt="SSL table with an active certificate and HTTPS switch" caption="Check status and expiry for each domain. This local demonstration contains no certificate keys." />
+
 ## Install a custom certificate
 
 When **Install custom SSL** is available, you can install an existing certificate and its matching private key. Select the domain and paste the PEM contents or load the files. The file chooser accepts supported certificate and key files up to **64 KiB each**. Submit the installation and check the status afterwards.
 
 The certificate and key must match, and the certificate must cover the domain. Arrange renewal of a custom certificate yourself; uploading it does not request a new issuance.
+
+<PortalScreenshot name="ssl-custom" alt="Custom SSL form with empty certificate and key fields" caption="Select the correct domain and use the matching CRT and private key." />
 
 ## View details
 

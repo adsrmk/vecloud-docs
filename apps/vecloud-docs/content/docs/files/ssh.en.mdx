@@ -12,11 +12,9 @@ Go to **Domains → your website → Developer tools** and find **SSH key manage
 
 The displayed login command contains the website user and server address. Use those details, not your portal login or an FTP account. This provides access to the website environment, not root access to the server.
 
-<PortalScreenshot
-  name="ssh-key"
-  alt="Add a public SSH key"
-  caption="Add a public SSH key"
-/>
+
+
+<PortalScreenshot name="ssh-access" alt="SSH login command with a fictitious server and masked password" caption="Copy the login command for your website. It contains the correct username, host and port." />
 
 ## Add a public key
 
@@ -31,6 +29,12 @@ Select **Add SSH key**, enter a recognisable name and paste the complete public 
 Select **Add**, check the key in the list and use the login command in your terminal. Verify the server’s host fingerprint before trusting a new connection; ask support to confirm it if unsure.
 </Step>
 </Steps>
+
+<PortalScreenshot
+  name="ssh-key"
+  alt="Add a public SSH key"
+  caption="Add a public SSH key"
+/>
 
 ## Configure SFTP
 

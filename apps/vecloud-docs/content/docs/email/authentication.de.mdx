@@ -29,6 +29,8 @@ Nutze einen TXT-Eintrag mit `v=spf1` je Name und fasse die Vorgaben deiner Versa
 
 **Verified** bestätigt die angezeigte DNS-Prüfung. Versendet ein externer Anbieter, richte auch dessen eigenes DKIM ein; der Schalter konfiguriert diesen Dienst nicht.
 
+<PortalScreenshot name="dkim-record" alt="DKIM-Daten unter Email authentication" caption="Nutze die Schaltflächen zum Kopieren des Namens und des vollständigen Werts. Die angezeigten Daten sind fiktiv." />
+
 ## Passende DMARC-Richtlinie ergänzen
 
 DMARC erfordert erfolgreiches SPF oder DKIM mit Domainabgleich. Der TXT-Eintrag steht unter `_dmarc`; `p=none` dient dem Monitoring. Besprich Berichte und strengere Vorgaben mit dem Anbieter. Siehe die [Spezifikation](https://www.rfc-editor.org/rfc/rfc9989.html).

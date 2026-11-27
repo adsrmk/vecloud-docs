@@ -7,7 +7,7 @@ export default defineConfig({
       types(node) {
         if (
           node.type === 'mdxJsxFlowElement' &&
-          ['PortalScreenshot', 'Topics', 'DocsActions'].includes(node.name ?? '')
+          ['PortalScreenshot', 'PortalWalkthrough', 'Topics', 'DocsActions'].includes(node.name ?? '')
         )
           return false;
         return remarkStructureDefaultOptions.types.includes(node.type);

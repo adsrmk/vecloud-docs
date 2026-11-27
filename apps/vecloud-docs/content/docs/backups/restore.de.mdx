@@ -23,6 +23,8 @@ Mit einem passenden Wiederherstellungszeitpunkt und einem klaren Bild der Folgen
 ### Wiederherstellungspunkt öffnen
 
 Wähle unter **Backups** bei dem gewünschten Backup **Restore**. Der Dialog **Backup details** zeigt Datum, Abschluss, Speicherort und enthaltene Bestandteile.
+
+<PortalScreenshot name="backups" alt="Back-up-Liste mit dem Wiederherstellungspunkt für example.test" caption="Beginne mit einem abgeschlossenen Back-up der richtigen Website. Alle Daten in diesen Bildern sind fiktiv." />
 </Step>
 <Step>
 ### Inhalt prüfen
@@ -30,11 +32,19 @@ Wähle unter **Backups** bei dem gewünschten Backup **Restore**. Der Dialog **B
 Prüfe, ob die Website-Dateien erfolgreich gesichert wurden. Markiere die benötigten **MariaDB databases**. **Select all** wählt alle angezeigten Datenbanken aus.
 
 Der aktuelle Dialog bezieht verfügbare Website-Dateien ein. Er bietet keinen Dateibrowser für eine einzelne Datei. Postfächer können in den Details aufgeführt sein; diese Anzeige ist keine gesonderte Wiederherstellungsauswahl.
+
+<Callout>
+Datenbanken sind nicht automatisch ausgewählt. Wähle für eine vollständige WordPress-Wiederherstellung ausdrücklich die Datenbank dieser Installation aus. Ohne Datenbankauswahl stellt diese Aktion nur die verfügbaren Website-Dateien wieder her; Beiträge, Einstellungen und Bestellungen in der Datenbank bleiben auf ihrem aktuellen Stand.
+</Callout>
+
+<PortalScreenshot name="backup-restore" alt="Back-up-Details mit ausdrücklich ausgewählter Datenbank demo_wordpress" caption="Wähle die Datenbank dieser Installation aus. Sie ist nicht standardmäßig markiert." />
 </Step>
 <Step>
 ### Aktion bestätigen
 
 Wähle **Restore backup**. Lies die Bestätigung und prüfe Datum und Website erneut. Die Meldung über den Start bestätigt die Annahme der Anfrage, nicht den Abschluss der Wiederherstellung.
+
+<PortalScreenshot name="backup-restore-confirm" alt="Letzte Bestätigung vor der Wiederherstellung eines Back-ups" caption="Prüfe Website und Datum erneut. Cancel bricht ab; erst Restore now startet die Wiederherstellung." />
 </Step>
 <Step>
 ### Website prüfen
@@ -43,7 +53,6 @@ Warte auf den Abschluss, bevor du dieselbe Website weiter änderst. Teste danach
 </Step>
 </Steps>
 
-<PortalScreenshot name="backup-restore" alt="Backup-Details mit ausgewählter Datenbank demo_wordpress" caption="Wähle im Wiederherstellungsdialog die Datenbanken deiner Website. Das Beispiel enthält ausschließlich Demodaten." />
 
 ## WordPress nach der Wiederherstellung
 

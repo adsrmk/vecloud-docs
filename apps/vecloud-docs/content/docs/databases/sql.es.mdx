@@ -8,7 +8,9 @@ Una exportación SQL permite trasladar el contenido de una base de datos; una im
 
 ## Antes de empezar
 
-Abre **Domains → tu sitio → Databases** y pulsa la base MySQL/MariaDB de destino. La importación ejecuta SQL sobre esa base. Subir un archivo mediante **Files** no lo importa a la base de datos.
+Abre **Domains → tu sitio → Databases**. En la sección MySQL, abre el menú de acciones junto a la base de destino y selecciona **Manage**. Comprueba el nombre de la base de datos antes de importar. Subir un archivo SQL mediante **Files** solo lo guarda en el espacio de archivos.
+
+<PortalScreenshot name="database-actions" alt="Menú de acciones de MySQL con Manage" caption="Manage abre la configuración y las acciones SQL de esta base de datos." />
 
 <Callout type="warn" title="Prepara una opción de recuperación">
 Un volcado SQL puede eliminar tablas o sustituir datos. Revisa su origen y contenido. Exporta o respalda una base con datos antes de modificarla. Para migrar, utiliza preferiblemente una base de destino nueva y vacía.
@@ -17,6 +19,8 @@ Un volcado SQL puede eliminar tablas o sustituir datos. Revisa su origen y conte
 ## Importar un archivo SQL
 
 Cuando el destino y la copia de recuperación estén preparados, selecciona el archivo y sigue la importación.
+
+<PortalScreenshot name="sql-transfer" alt="Importación y exportación de SQL" caption="Selecciona el archivo en Import SQL file. Usa Download en Export SQL file para guardar una copia." />
 
 <Steps>
 <Step title="Elige la base de destino correcta">

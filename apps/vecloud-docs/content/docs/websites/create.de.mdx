@@ -13,14 +13,20 @@ Nutze eine Domain unter deiner Kontrolle und prüfe freie Websiteplätze im Tari
 ## Typ auswählen
 
 <Tabs items={['Addon', 'Subdomain', 'Alias']}>
-<Tab value="Addon">
+<Tab value="Addon" keepMounted>
 Nutze **Addon** für eine getrennte Website. Gib die vollständige Domain ohne Protokoll, Pfad oder unerwünschtes `www.` ein. Es wird Webspace angelegt; installiere danach eine Anwendung über **Apps**.
+
+<PortalScreenshot name="add-domain" alt="Addon-Formular mit der fiktiven Domain demo-site.test" caption="Das Formular beginnt mit Domain type und Domain. Eine Anwendung wählst du später innerhalb der Website." />
 </Tab>
-<Tab value="Subdomain">
+<Tab value="Subdomain" keepMounted>
 Nutze **Subdomain** für einen Namen unter einer bestehenden Domain. Wähle die übergeordnete Domain und gib nur den neuen Teil ein, etwa `shop`. Prüfe den zusammengesetzten Namen vor dem Anlegen.
+
+<PortalScreenshot name="add-subdomain" alt="Subdomain mit shop und der vorhandenen Domain example.test" caption="Gib shop ein. Mit der vorhandenen Domain neben dem Feld ergibt sich shop.example.test." />
 </Tab>
-<Tab value="Alias">
+<Tab value="Alias" keepMounted>
 Nutze **Alias** für eine weitere Domain derselben Website. Wähle die Zielwebsite und gib die Alias-Domain ein. Ein Alias ordnet derselben Website einen weiteren Namen zu und ist keine HTTP-Weiterleitung zu einer anderen Adresse.
+
+<PortalScreenshot name="add-alias" alt="Aliasformular mit example.test als Zielwebsite" caption="Prüfe die vorhandene Website und die zusätzliche Domain. Hier wird alias.example.test mit example.test verknüpft." />
 </Tab>
 </Tabs>
 
@@ -32,8 +38,6 @@ Wenn der Domaintyp feststeht, füllst du das Formular mit den dazugehörigen Ang
 2. Wähle den Typ und gib die passenden Daten ein.
 3. Prüfe Name und gegebenenfalls Zielwebsite.
 4. Wähle **Create** und warte auf die Bestätigung.
-
-<PortalScreenshot name="add-domain" alt="Addon-Formular mit der fiktiven Domain demo-site.test" caption="Das Formular beginnt mit Domain type und Domain. Eine Anwendung wählst du später innerhalb der Website." />
 
 ## Nach dem Anlegen
 

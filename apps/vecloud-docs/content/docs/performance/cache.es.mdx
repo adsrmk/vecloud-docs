@@ -10,12 +10,6 @@ La caché puede reducir el trabajo repetido del sitio. Cada tipo actúa en una c
 
 Abre **Domains → tu sitio → Optimization**. **Opcode caching** conserva código PHP compilado. **FastCGI cache** conserva páginas renderizadas en Nginx. Evitan trabajos distintos y ninguna sustituye a una copia de seguridad.
 
-<PortalScreenshot
-  name="nginx-cache"
-  alt="Caché FastCGI y exclusiones por dominio"
-  caption="Caché FastCGI y exclusiones por dominio"
-/>
-
 ## Caché de opcode
 
 Activa o desactiva **Opcode caching** y espera la confirmación. Controla `opcache.enable`, no el almacenamiento de HTML completo. Tras cambiar código, comprueba que se ejecute la versión actual; vaciar una caché de páginas no corrige PHP defectuoso.
@@ -28,9 +22,21 @@ En **Cache exclusions**, añade rutas que no deban servirse desde caché: acceso
 
 Eliminar una exclusión vuelve a permitir la caché según el resto de ajustes. Revisa por qué se añadió antes de quitarla.
 
+<PortalScreenshot
+  name="nginx-cache"
+  alt="Caché FastCGI y exclusiones por dominio"
+  caption="Caché FastCGI y exclusiones por dominio"
+/>
+
 ## Vaciar la caché
 
 Pulsa **Clear cache** para el dominio seleccionado y confirma. Elimina sus páginas FastCGI guardadas, no la caché del navegador, CDN externos ni todas las cachés de plugins WordPress. La siguiente petición puede requerir más trabajo al regenerar la página.
+
+<PortalScreenshot
+  name="cache-clear"
+  alt="Ventana de confirmación Clear FastCGI cache"
+  caption="Comprueba el dominio seleccionado antes de confirmar."
+/>
 
 ## Reescrituras del servidor
 

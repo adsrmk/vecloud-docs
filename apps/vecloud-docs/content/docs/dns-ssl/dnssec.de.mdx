@@ -10,8 +10,6 @@ DNSSEC ermöglicht die Prüfung von DNS-Antworten. Damit das funktioniert, müss
 
 DNSSEC ermöglicht die Prüfung von Herkunft und Integrität einer DNS-Antwort. Websiteverkehr wird dadurch nicht verschlüsselt; dafür nutzt du [SSL und HTTPS](./ssl.mdx). Die vollständige Einrichtung verbindet die signierte Zone mit einem DS-Eintrag beim Registrar.
 
-<PortalScreenshot name="dnssec" alt="Aktiviertes DNSSEC mit DS-Demodaten" caption="Übernimm nur die tatsächlich für deine Konfiguration ausgestellten DS-Angaben. Diese Werte sind fiktiv." />
-
 ## DNSSEC aktivieren
 
 1. Prüfe, welche Nameserver deine Domain tatsächlich verwendet.
@@ -19,6 +17,10 @@ DNSSEC ermöglicht die Prüfung von Herkunft und Integrität einer DNS-Antwort. 
 3. Warte auf die Bestätigung. Das Panel zeigt die DS-Angaben für deinen Registrar.
 4. Übernimm **Key tag**, **Algorithm**, **Digest type** und **Digest** exakt für die richtige Domain.
 5. Prüfe nach der Veröffentlichung, ob die DNS-Auflösung mit Validierung funktioniert.
+
+<PortalScreenshot name="dnssec" alt="Aktiviertes DNSSEC mit DS-Demodaten" caption="Übernimm nur die tatsächlich für deine Konfiguration ausgestellten DS-Angaben. Diese Werte sind fiktiv." />
+
+Halte die DS-Daten fest, sobald sie im Panel erscheinen. Wenn DNSSEC schon aktiv ist und die Angaben fehlen, frage deinen DNS-Anbieter oder veCloud nach den aktuellen Werten, bevor du etwas änderst.
 
 <Callout type="info" title="Registrar und DNS-Anbieter können verschieden sein">
 Der Registrar verwaltet die Registrierung und die DS-Delegation. Der DNS-Anbieter stellt die signierte Zone bereit. Eine DS-Zeile in deiner eigenen Zone ersetzt den DS-Eintrag beim Registrar nicht.
@@ -31,6 +33,8 @@ Bei externen Nameservern, etwa Cloudflare, verwendest du deren DNSSEC-Einstellun
 Entferne zuerst den DS-Eintrag beim Registrar und lass diese Änderung wirksam werden, bevor du die Signierung abschaltest. Deaktiviere danach DNSSEC im Panel und lies die Bestätigung. Ein alter DS mit nicht mehr passendem Schlüssel kann die gesamte Domain für validierende Resolver unerreichbar machen.
 
 Bei einem Nameserverwechsel müssen Delegation, Signierung und DS zusammenpassen. Bitte vor dem Wechsel um Hilfe, wenn du die richtige Reihenfolge nicht bestimmen kannst.
+
+<PortalScreenshot name="dnssec-disable" alt="Warnung vor dem Deaktivieren von DNSSEC" caption="Entferne zuerst den DS-Eintrag beim Registrar. Bestätige erst, wenn diese Änderung wirksam ist." />
 
 ## DNS funktioniert nach der Änderung nicht
 

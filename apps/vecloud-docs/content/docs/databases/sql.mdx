@@ -8,7 +8,9 @@ Met een SQL-export neem je database-inhoud mee; via een import laad je die in ee
 
 ## Vooraf controleren
 
-Open **Domains → je website → Databases** en klik op de gewenste MySQL/MariaDB-database. Importeren voert SQL uit op deze database. Een bestand uploaden via **Files** voert geen database-import uit.
+Open **Domains → je website → Databases**. Open in het MySQL-gedeelte het actiemenu naast de doeldatabase en kies **Manage**. Controleer de databasenaam bovenaan voordat je een bestand importeert. Een SQL-bestand uploaden via **Files** plaatst het alleen in de bestandsruimte.
+
+<PortalScreenshot name="database-actions" alt="Het MySQL-actiemenu met Manage" caption="Met Manage open je de instellingen en de SQL-acties van deze database." />
 
 <Callout type="warn" title="Maak eerst een herstelmogelijkheid">
 Een SQL-dump kan tabellen verwijderen of bestaande gegevens vervangen. Controleer de herkomst en inhoud. Maak een export of back-up voordat je een gevulde database wijzigt. Gebruik bij een migratie bij voorkeur eerst een nieuwe, lege doeldatabase.
@@ -17,6 +19,8 @@ Een SQL-dump kan tabellen verwijderen of bestaande gegevens vervangen. Controlee
 ## Een SQL-bestand importeren
 
 Als de bestemming en je herstelkopie klaarstaan, kun je het bestand selecteren en de import volgen.
+
+<PortalScreenshot name="sql-transfer" alt="SQL-import en -export onder elkaar" caption="Kies eerst het bestand bij Import SQL file. Gebruik Download bij Export SQL file om een kopie te bewaren." />
 
 <Steps>
 <Step title="Kies de juiste doeldatabase">

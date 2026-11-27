@@ -10,12 +10,6 @@ If your application uses PostgreSQL, its databases and users have their own mana
 
 Open **Domains → your website → Databases**. The PostgreSQL section appears when a PostgreSQL server is assigned to the website. A message that PostgreSQL is not enabled does not mean your MySQL databases are missing.
 
-<PortalScreenshot
-  name="postgresql"
-  alt="PostgreSQL access per database"
-  caption="PostgreSQL access per database"
-/>
-
 ## Create a database and user
 
 Select **Add database** in the PostgreSQL section, enter a name and save. Use lowercase letters, numbers, `_` or `$`, up to 64 characters. Then create a user under **Users** with its own strong password. A PostgreSQL username may contain at most 63 characters. Select the databases the new user should access.
@@ -27,6 +21,14 @@ Check the actual assignments after saving. A user can exist even if a separate a
 Open a database and add an existing user under **Users with access**. You can also add a database from the user management view. This portal feature grants full rights per database; it does not offer the individual privilege selection used for MySQL.
 
 Remove an assignment to revoke access to that database. The user and database remain separate objects. Deleting the user or database itself requires its own confirmation.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL access per database"
+  caption="PostgreSQL access per database"
+/>
+
+<PortalScreenshot name="postgresql-access" alt="Database access for a PostgreSQL user" caption="Database access lists the databases where this user has full privileges." />
 
 ## Connections and passwords
 

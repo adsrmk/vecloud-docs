@@ -32,9 +32,15 @@ Controleer zowel de database als de gekoppelde gebruikers. Als de database of ge
 </Step>
 </Steps>
 
+<PortalScreenshot
+  name="database-add"
+  alt="Een database aan een bestaande gebruiker koppelen"
+  caption="Een database aan een bestaande gebruiker koppelen"
+/>
+
 ## Rechten beheren
 
-Klik op een database. Bij **Users** kun je een bestaande gebruiker toevoegen, een nieuwe aanmaken en rechten bewerken. **All database privileges** geeft alle aangeboden rechten. Schakel dit uit om specifieke rechten te kiezen, bijvoorbeeld alleen `SELECT` voor lezen. **Revoke access** verwijdert de koppeling, niet de databasegebruiker zelf.
+Open het actiemenu naast de database en kies **Manage**. Bij **Users** kun je een bestaande gebruiker toevoegen, een nieuwe aanmaken en rechten bewerken. **All database privileges** geeft alle aangeboden rechten. Schakel dit uit om specifieke rechten te kiezen, bijvoorbeeld alleen `SELECT` voor lezen. **Revoke access** verwijdert de koppeling, niet de databasegebruiker zelf.
 
 Via het onderdeel **Users** in de databaselijst beheer je de gebruiker, het verborgen wachtwoord en de databases waartoe die toegang heeft. Na een wachtwoordreset moet je de applicatieconfiguratie bijwerken; anders kan de website geen verbinding meer maken.
 
@@ -49,9 +55,3 @@ Database verwijderen wist alle gegevens in die database. Gebruiker verwijderen k
 </Callout>
 
 Voor tabellen en query’s gebruik je [phpMyAdmin](./phpmyadmin.mdx). PostgreSQL heeft [eigen beheer](./postgresql.mdx).
-
-<PortalScreenshot
-  name="database-add"
-  alt="Een database aan een bestaande gebruiker koppelen"
-  caption="Een database aan een bestaande gebruiker koppelen"
-/>

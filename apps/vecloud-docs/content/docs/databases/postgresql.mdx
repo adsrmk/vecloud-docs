@@ -10,12 +10,6 @@ Gebruikt je applicatie PostgreSQL, dan beheer je de bijbehorende databases en ge
 
 Open **Domains → je website → Databases**. Het PostgreSQL-gedeelte verschijnt wanneer een PostgreSQL-server aan de website is gekoppeld. Een melding dat PostgreSQL niet is ingeschakeld betekent niet dat je MySQL-databases ontbreken.
 
-<PortalScreenshot
-  name="postgresql"
-  alt="PostgreSQL-toegang per database"
-  caption="PostgreSQL-toegang per database"
-/>
-
 ## Database en gebruiker aanmaken
 
 Kies in het PostgreSQL-gedeelte **Add database**, vul de naam in en sla op. Gebruik kleine letters, cijfers, `_` of `$`, maximaal 64 tekens. Maak daarna bij **Users** een gebruiker aan met een eigen sterk wachtwoord. Een PostgreSQL-gebruikersnaam is maximaal 63 tekens. Selecteer de databases waartoe de nieuwe gebruiker toegang moet krijgen.
@@ -27,6 +21,14 @@ Controleer na opslaan de daadwerkelijke koppelingen. Een aangemaakte gebruiker k
 Open een database en voeg bij **Users with access** een bestaande gebruiker toe. Je kunt ook vanuit een gebruiker een database toevoegen. De portaalfunctie geeft volledige rechten per database; er is hier geen MySQL-achtige selectie van individuele privileges.
 
 Gebruik de verwijderactie bij een koppeling om toegang tot die database in te trekken. Gebruiker en database blijven daarbij afzonderlijke objecten. Het verwijderen van een gebruiker of database zelf vraagt een eigen bevestiging.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL-toegang per database"
+  caption="PostgreSQL-toegang per database"
+/>
+
+<PortalScreenshot name="postgresql-access" alt="Databasetoegang van een PostgreSQL-gebruiker" caption="Bij Database access zie je voor welke database deze gebruiker volledige rechten heeft." />
 
 ## Verbinden en wachtwoorden
 

@@ -15,6 +15,8 @@ A backup list that will not load needs different checks from a restore that is s
 
 A loading error does not prove that backups have been deleted. An empty list without an error means no available recovery points are currently shown for this website.
 
+<PortalScreenshot name="backups" alt="Recovery points with dates and available components" caption="First check whether the list shows an error or simply has no recovery points. This example has one recovery point." />
+
 ## A backup is running or incomplete
 
 Open **Restore** to view the details. Check completion and the status of the components you need. A missing size or database entry does not justify treating a partial backup as complete.
@@ -24,6 +26,8 @@ If uncertain, use an earlier successful recovery point or ask support to check t
 ## A database is missing from the modal
 
 The current modal lets you select MariaDB databases supplied in this backup. Check the website and date. If you expected another database or database type, ask support to confirm that it is included before continuing.
+
+<PortalScreenshot name="backup-restore" alt="Restore dialog with a demonstration database available for selection" caption="Check the date and which databases are available for this recovery point before confirming." />
 
 ## Restore started, but the website looks unchanged
 

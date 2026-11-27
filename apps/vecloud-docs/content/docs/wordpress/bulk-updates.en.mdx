@@ -14,6 +14,10 @@ Create a recent [backup of files and database](../backups/index.mdx) first. The 
 
 ## Review the selection
 
+The scan only checks which updates are available; it does not install them. It continues in the background when you navigate, reload or close the tab. Open **Overview** again to see progress or results. A manual refresh joins a check that is already running.
+
+<PortalScreenshot name="wordpress-maintenance" alt="WordPress maintenance module with update categories" caption="Check for updates scans the installations. A category or Update all then opens the selection; no update has started. Demonstration data." />
+
 1. Use **Check for updates** to run a new scan. An earlier scan may be reused for up to one hour.
 2. Open **Plugins**, **Themes** or **Core**, or choose **Update all** for every category.
 3. Review the websites and selected components. Available components in the opened category are already selected.
@@ -23,6 +27,8 @@ Create a recent [backup of files and database](../backups/index.mdx) first. The 
 Searching or changing the filter does not clear your existing selection. The header checkbox can also select every matching result, including rows you must scroll to see. Check the full selection and start-button count.
 
 <PortalScreenshot name="wordpress-bulk-update" alt="WordPress, plugin and theme update selection across two demo websites" caption="Update all opens this selection first. Updates begin only after the separate start action. All websites and versions are fictitious." />
+
+<PortalWalkthrough name="wordpress-bulk-filter" locale="en" alt="Filtering bulk updates without clearing the existing selection" caption="8 seconds: all seven updates are selected. Filtering by Plugins and searching for staging leaves one visible row, but the start button still includes seven updates. Review your full selection before starting." />
 
 ## Versions and changelogs
 

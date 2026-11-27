@@ -13,14 +13,20 @@ Gebruik een domein dat je beheert en controleer of je hostingabonnement ruimte h
 ## Kies het juiste type
 
 <Tabs items={['Addon', 'Subdomain', 'Alias']}>
-<Tab value="Addon">
+<Tab value="Addon" keepMounted>
 Gebruik **Addon** voor een aparte website. Vul de volledige domeinnaam in zonder protocol, pad of `www.`-voorvoegsel dat je niet wilt gebruiken. De aanmaak maakt webruimte; installeer een applicatie daarna via **Apps**.
+
+<PortalScreenshot name="add-domain" alt="Domeinformulier met Addon en het fictieve domein demo-site.test" caption="Het aanmaakformulier begint met Domain type en Domain. De applicatie kies je later, vanuit de website." />
 </Tab>
-<Tab value="Subdomain">
+<Tab value="Subdomain" keepMounted>
 Gebruik **Subdomain** voor een naam onder een bestaand domein. Kies het bovenliggende domein en voer alleen het nieuwe deel in, bijvoorbeeld `shop`. Controleer het samengestelde domein voordat je het aanmaakt.
+
+<PortalScreenshot name="add-subdomain" alt="Subdomain met shop en het bestaande domein example.test" caption="Vul alleen shop in. Naast het invoerveld staat het bestaande domein waarmee je shop.example.test maakt." />
 </Tab>
-<Tab value="Alias">
+<Tab value="Alias" keepMounted>
 Gebruik **Alias** als de extra domeinnaam bij een bestaande website moet horen. Kies die doelwebsite en vul het aliasdomein in. Een alias is een extra koppeling naar dezelfde website en is geen HTTP-redirect naar een ander adres.
+
+<PortalScreenshot name="add-alias" alt="Aliasformulier met example.test als doelsite" caption="Controleer de bestaande website én het extra domein. In dit voorbeeld komt alias.example.test bij example.test." />
 </Tab>
 </Tabs>
 
@@ -32,8 +38,6 @@ Heb je het juiste type gekozen? Met die keuze in gedachten vul je het domeinform
 2. Kies het type en vul de bijbehorende domeingegevens in.
 3. Controleer de naam en eventuele doelwebsite.
 4. Kies **Create** en wacht op de bevestiging.
-
-<PortalScreenshot name="add-domain" alt="Domeinformulier met Addon en het fictieve domein demo-site.test" caption="Het aanmaakformulier begint met Domain type en Domain. De applicatie kies je later, vanuit de website." />
 
 ## Na het aanmaken
 

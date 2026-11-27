@@ -29,6 +29,8 @@ Usa valores de servicios que realmente utilices. Un ejemplo con `mx` o un `inclu
 
 **Verified** confirma la comprobación DNS mostrada. Si un proveedor externo envía los mensajes, configura también su propio DKIM; el interruptor no configura ese servicio externo.
 
+<PortalScreenshot name="dkim-record" alt="Datos de DKIM en Email authentication" caption="Utiliza los botones para copiar el nombre y el valor completo del registro. Los datos de la imagen son ficticios." />
+
 ## Añade una política DMARC adecuada
 
 DMARC requiere SPF o DKIM válido y alineado. Publica el TXT en `_dmarc`; `p=none` sirve para monitorización. Consulta informes y políticas más estrictas con el proveedor. Véase la [especificación](https://www.rfc-editor.org/rfc/rfc9989.html).

@@ -10,8 +10,6 @@ Si du trafic indésirable provient régulièrement d’une même adresse ou d’
 
 Ouvrez votre site puis **IP deny** dans la barre latérale, sous **SSL certificates**. Cette fonction gère les refus Nginx pour les domaines rattachés à ce site. Ce n’est pas un pare-feu pour tout le serveur et elle ne bloque pas les connexions mail ou SSH.
 
-<PortalScreenshot name="ip-deny" alt="IP deny avec une adresse ou un réseau par ligne" caption="Les adresses sont des exemples documentaires. Utilisez uniquement l’adresse ou le réseau réellement visé." />
-
 ## Ajouter des adresses
 
 1. Choisissez **Add IP addresses** à côté du titre.
@@ -29,11 +27,15 @@ Ces valeurs sont uniquement des exemples documentaires :
 
 La liste accepte jusqu’à **250 adresses ou règles réseau**. Les réseaux CIDR peuvent apparaître normalisés après enregistrement. N’utilisez ni domaine, ni URL, ni nom d’hôte.
 
+<PortalScreenshot name="ip-deny" alt="IP deny avec une adresse ou un réseau par ligne" caption="Les adresses sont des exemples documentaires. Utilisez uniquement l’adresse ou le réseau réellement visé." />
+
 ## Retirer un blocage
 
 Choisissez **Delete** à côté de l’adresse puis confirmez. Vérifiez la disparition de la ligne et testez l’accès depuis ce réseau. Retirer cette règle n’annule pas un blocage distinct dans un pare-feu ou proxy externe.
 
 Si les domaines ont des listes différentes, le panel affiche un avertissement et une action pour appliquer la liste combinée à tous. Vérifiez d’abord que toutes les adresses doivent réellement être bloquées sur chaque domaine.
+
+<PortalScreenshot name="ip-deny-remove" alt="Confirmation du retrait d’une règle IP" caption="Vérifiez quelle adresse sera retirée de la liste de blocage avant de choisir Confirm." />
 
 ## Configuration en cours ou non confirmée
 

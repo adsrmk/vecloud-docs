@@ -10,8 +10,6 @@ Si el tráfico no deseado procede repetidamente de una dirección o red, puedes 
 
 Abre tu sitio y elige **IP deny** en la barra lateral, debajo de **SSL certificates**. Gestiona las reglas de denegación Nginx de los dominios asociados a este sitio. No es un firewall de todo el servidor ni bloquea accesos de correo o SSH.
 
-<PortalScreenshot name="ip-deny" alt="IP deny con una dirección o red por línea" caption="Las direcciones son ejemplos documentales. En tu entorno usa solo la dirección o red prevista." />
-
 ## Añadir direcciones
 
 1. Pulsa **Add IP addresses** junto al título.
@@ -29,11 +27,15 @@ Los siguientes valores son solo ejemplos de documentación:
 
 La lista admite hasta **250 direcciones o reglas de red**. Las redes CIDR pueden mostrarse normalizadas después de guardar. No introduzcas dominios, URL ni nombres de servidor.
 
+<PortalScreenshot name="ip-deny" alt="IP deny con una dirección o red por línea" caption="Las direcciones son ejemplos documentales. En tu entorno usa solo la dirección o red prevista." />
+
 ## Eliminar un bloqueo
 
 Pulsa **Delete** junto a la dirección y confirma. Comprueba que desaparezca y prueba el acceso desde esa red. Eliminar esta regla no quita un bloqueo independiente en un firewall o proxy externo.
 
 Si los dominios tienen listas distintas, el panel muestra un aviso y una acción para aplicar la lista combinada a todos. Comprueba primero que todas las direcciones deban bloquearse en cada dominio.
+
+<PortalScreenshot name="ip-deny-remove" alt="Confirmación para retirar una regla de IP" caption="Comprueba qué dirección saldrá de la lista de bloqueo antes de elegir Confirm." />
 
 ## Configuración en proceso o sin confirmar
 

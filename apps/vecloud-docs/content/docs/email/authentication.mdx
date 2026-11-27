@@ -29,6 +29,8 @@ Neem alleen waarden over van diensten die je werkelijk gebruikt. Een voorbeeld m
 
 **Verified** bevestigt de getoonde DNS-controle. Verstuurt een externe provider je berichten, gebruik dan ook diens eigen DKIM-inrichting; de schakelaar configureert die externe dienst niet.
 
+<PortalScreenshot name="dkim-record" alt="DKIM-gegeven in de sectie Email authentication" caption="Gebruik de kopieerknoppen om de recordnaam en volledige waarde over te nemen. De waarden in dit beeld zijn fictief." />
+
 ## Voeg een passend DMARC-beleid toe
 
 DMARC vereist geslaagde SPF of DKIM met domeinafstemming. Publiceer het TXT-record bij `_dmarc`; `p=none` is voor monitoring. Bespreek rapportage en een strenger beleid met je provider. Zie de [specificatie](https://www.rfc-editor.org/rfc/rfc9989.html).

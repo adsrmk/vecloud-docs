@@ -10,6 +10,8 @@ A cron job handles recurring work without requiring you to start it each time. F
 
 Open **Domains → your website → Developer tools → Cron jobs**, then **Add cron job**. Choose **Command** or **Request URL** and an available interval. The default is every fifteen minutes; choose a frequency appropriate for the job.
 
+<PortalScreenshot name="cron-settings" alt="Cron jobs in Developer tools" caption="Use Add cron job to schedule a task. The switch below controls editing from the website container." />
+
 - **Command** runs as the website user. Enter the command without the five schedule fields before it. Use correct paths to the executable and script.
 - **Request URL** calls the supplied URL using HTTP GET. Use an endpoint intended for the job; loading an ordinary page does not automatically perform a background task.
 
@@ -20,6 +22,8 @@ Select **Save** and check the stored entry. For example:
 ```
 
 This runs every fifteen minutes. Fields represent minute, hour, day of month, month and weekday. The portal does not offer a separate timezone selector for the job; check the execution environment’s timezone when exact timing matters.
+
+<PortalScreenshot name="cron-command" alt="Scheduling a recurring command with Command" caption="Choose the interval and enter the command. The form fills in the schedule separately." />
 
 <PortalScreenshot
   name="cron-job"

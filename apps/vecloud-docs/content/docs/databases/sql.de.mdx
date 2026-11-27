@@ -8,7 +8,9 @@ Ein SQL-Export enthält Datenbankinhalte; mit einem Import lädst du sie in eine
 
 ## Vor dem Start
 
-Öffne **Domains → deine Website → Databases** und die gewünschte MySQL/MariaDB-Datenbank. Ein Import führt SQL auf dieser Datenbank aus. Ein Upload über **Files** importiert die Datei nicht in die Datenbank.
+Öffne **Domains → deine Website → Databases**. Öffne im MySQL-Bereich das Aktionsmenü neben der Zieldatenbank und wähle **Manage**. Prüfe vor dem Import den Namen der Datenbank. Ein Upload über **Files** legt die SQL-Datei lediglich im Dateispeicher ab.
+
+<PortalScreenshot name="database-actions" alt="MySQL-Aktionsmenü mit Manage" caption="Manage öffnet die Einstellungen und SQL-Aktionen für diese Datenbank." />
 
 <Callout type="warn" title="Wiederherstellung vorbereiten">
 Ein SQL-Dump kann Tabellen löschen oder Daten ersetzen. Prüfe Herkunft und Inhalt. Exportiere oder sichere eine gefüllte Datenbank vor Änderungen. Nutze bei einer Migration möglichst zunächst eine neue, leere Zieldatenbank.
@@ -17,6 +19,8 @@ Ein SQL-Dump kann Tabellen löschen oder Daten ersetzen. Prüfe Herkunft und Inh
 ## SQL-Datei importieren
 
 Wenn Ziel und Sicherung bereitstehen, wählst du die Datei aus und verfolgst den Import.
+
+<PortalScreenshot name="sql-transfer" alt="Bereiche für SQL-Import und -Export" caption="Wähle die Datei unter Import SQL file. Über Download unter Export SQL file speicherst du eine Kopie." />
 
 <Steps>
 <Step title="Richtige Zieldatenbank wählen">

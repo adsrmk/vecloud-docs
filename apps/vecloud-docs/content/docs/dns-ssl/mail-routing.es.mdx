@@ -12,7 +12,7 @@ Abre **DNS settings → Mail routing** en tu sitio. Elige **Local mail** si este
 
 El enrutamiento indica al alojamiento cómo tratar el correo de este dominio. Los **registros MX** públicos indican a otros servidores dónde entregarlo. Ambos deben coincidir con el proveedor elegido. Cambiar solo MX puede no bastar para los mensajes generados en el propio servidor web.
 
-<PortalScreenshot name="mail-routing" alt="Confirmación de sustitución de MX por Google Workspace" caption="El aviso muestra los registros y la selección aparte de External mail. No se cambiaron registros públicos." />
+<PortalScreenshot name="mail-delivery" alt="Mail routing con Local mail y External mail" caption="Selecciona dónde están los buzones de este dominio. El ejemplo usa buzones locales." />
 
 ## Configurar MX de Google Workspace
 
@@ -24,11 +24,15 @@ El enrutamiento indica al alojamiento cómo tratar el correo de este dominio. Lo
 
 La acción sustituye los MX del dominio raíz y conserva los de subdominios. No crea una cuenta de Google ni un buzón. Si usas DNS externo sin sincronización, configura allí los registros.
 
+<PortalScreenshot name="mail-routing" alt="Confirmación de sustitución de MX por Google Workspace" caption="El aviso muestra los registros y la selección aparte de External mail. No se cambiaron registros públicos." />
+
 ## Activar y validar DKIM
 
 En **Email authentication**, activa DKIM y consulta la validación. Si no está validado, copia el nombre `hostingcp._domainkey` y todo el valor TXT mostrado al proveedor DNS activo. Usa las acciones de copia para evitar valores incompletos.
 
 **Verified** indica que la comprobación DNS de DKIM funciona. No garantiza superar todos los filtros antispam. Si envías mediante otro proveedor, sigue también sus instrucciones DKIM.
+
+<PortalScreenshot name="dkim-record" alt="DKIM activado con valores TXT de demostración" caption="Usa los botones para copiar el nombre y el valor. La clave de ejemplo es ilustrativa." />
 
 ## SPF y DMARC
 

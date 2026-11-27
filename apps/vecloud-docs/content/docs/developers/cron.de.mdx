@@ -10,6 +10,8 @@ Ein Cronjob erledigt wiederkehrende Aufgaben, ohne dass du sie jedes Mal selbst 
 
 Öffne **Domains → deine Website → Developer tools → Cron jobs** und **Add cron job**. Wähle **Command** oder **Request URL** und ein verfügbares Intervall. Standard ist alle fünfzehn Minuten; passe die Häufigkeit an die Aufgabe an.
 
+<PortalScreenshot name="cron-settings" alt="Cronjobs in Developer tools" caption="Wähle Add cron job, um eine Aufgabe zu planen. Der Schalter steuert die Bearbeitung aus dem Website-Container." />
+
 - **Command** läuft als Website-Benutzer. Gib den Befehl ohne die fünf vorangestellten Zeitfelder ein. Nutze korrekte Pfade zu Programm und Skript.
 - **Request URL** ruft die URL per HTTP GET auf. Nutze einen dafür vorgesehenen Endpunkt; das Laden einer normalen Seite führt nicht automatisch die gewünschte Hintergrundaufgabe aus.
 
@@ -20,6 +22,8 @@ Wähle **Save** und prüfe den gespeicherten Eintrag. Beispiel:
 ```
 
 Das bedeutet alle fünfzehn Minuten. Die Felder stehen für Minute, Stunde, Tag im Monat, Monat und Wochentag. Eine eigene Zeitzonenauswahl gibt es nicht; prüfe bei exakten Uhrzeiten die Ausführungsumgebung.
+
+<PortalScreenshot name="cron-command" alt="Einen wiederkehrenden Befehl mit Command planen" caption="Wähle das Intervall und gib den Befehl ein. Das Formular füllt den Zeitplan separat aus." />
 
 <PortalScreenshot
   name="cron-job"

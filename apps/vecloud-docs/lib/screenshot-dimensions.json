@@ -1,35 +1,83 @@
 {
+  "account-devices": {
+    "width": 1000,
+    "height": 207
+  },
+  "account-security": {
+    "width": 1000,
+    "height": 311
+  },
+  "add-alias": {
+    "width": 603,
+    "height": 420
+  },
   "add-domain": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 338
+  },
+  "add-subdomain": {
+    "width": 603,
+    "height": 338
   },
   "analytics": {
-    "width": 1280,
-    "height": 900
+    "width": 1000,
+    "height": 588
+  },
+  "analytics-visitors": {
+    "width": 1000,
+    "height": 580
   },
   "apps": {
     "width": 1280,
     "height": 900
   },
   "backup-restore": {
-    "width": 1280,
-    "height": 900
+    "width": 717,
+    "height": 620
+  },
+  "backup-restore-confirm": {
+    "width": 603,
+    "height": 268
+  },
+  "backup-settings-confirm": {
+    "width": 603,
+    "height": 326
   },
   "backups": {
     "width": 1280,
     "height": 900
   },
+  "cache-clear": {
+    "width": 603,
+    "height": 216
+  },
   "cloudflare": {
     "width": 1280,
     "height": 900
   },
+  "cron-command": {
+    "width": 603,
+    "height": 464
+  },
   "cron-job": {
+    "width": 603,
+    "height": 436
+  },
+  "cron-settings": {
+    "width": 1000,
+    "height": 303
+  },
+  "dashboard-overview": {
+    "width": 1280,
+    "height": 1400
+  },
+  "database-actions": {
     "width": 1280,
     "height": 900
   },
   "database-add": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 456
   },
   "database-manage": {
     "width": 1280,
@@ -39,17 +87,29 @@
     "width": 1280,
     "height": 900
   },
+  "dkim-record": {
+    "width": 1000,
+    "height": 424
+  },
   "dns-add": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 488
   },
   "dns-records": {
     "width": 1280,
     "height": 900
   },
   "dnssec": {
-    "width": 1280,
-    "height": 720
+    "width": 1000,
+    "height": 443
+  },
+  "dnssec-disable": {
+    "width": 603,
+    "height": 248
+  },
+  "domain-switcher": {
+    "width": 591,
+    "height": 282
   },
   "domains": {
     "width": 1280,
@@ -59,7 +119,23 @@
     "width": 1280,
     "height": 900
   },
+  "file-extract": {
+    "width": 603,
+    "height": 284
+  },
+  "file-information": {
+    "width": 603,
+    "height": 280
+  },
+  "file-paste": {
+    "width": 1280,
+    "height": 900
+  },
   "file-permissions": {
+    "width": 603,
+    "height": 334
+  },
+  "file-selection": {
     "width": 1280,
     "height": 900
   },
@@ -71,19 +147,43 @@
     "width": 1280,
     "height": 900
   },
+  "ftp-create": {
+    "width": 603,
+    "height": 604
+  },
+  "ftp-delete": {
+    "width": 603,
+    "height": 276
+  },
   "github-connect": {
     "width": 1280,
     "height": 900
   },
   "ip-deny": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 422
+  },
+  "ip-deny-remove": {
+    "width": 603,
+    "height": 216
   },
   "joomla": {
     "width": 1280,
     "height": 900
   },
+  "mail-address-lists": {
+    "width": 1000,
+    "height": 292
+  },
   "mail-autoresponder": {
+    "width": 698,
+    "height": 520
+  },
+  "mail-autoresponder-saved": {
+    "width": 1280,
+    "height": 900
+  },
+  "mail-catchall": {
     "width": 1280,
     "height": 900
   },
@@ -91,23 +191,47 @@
     "width": 1280,
     "height": 900
   },
+  "mail-create": {
+    "width": 603,
+    "height": 634
+  },
+  "mail-create-forward": {
+    "width": 603,
+    "height": 476
+  },
+  "mail-delivery": {
+    "width": 1000,
+    "height": 351
+  },
   "mail-forwarding": {
+    "width": 603,
+    "height": 328
+  },
+  "mail-list": {
     "width": 1280,
     "height": 900
   },
   "mail-routing": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 560
   },
   "mail-spam": {
-    "width": 1280,
-    "height": 900
+    "width": 1000,
+    "height": 492
   },
   "mailbox": {
     "width": 1280,
     "height": 900
   },
   "nginx-cache": {
+    "width": 1000,
+    "height": 720
+  },
+  "notifications-archive": {
+    "width": 1280,
+    "height": 900
+  },
+  "notifications-current": {
     "width": 1280,
     "height": 900
   },
@@ -119,9 +243,13 @@
     "width": 1280,
     "height": 900
   },
+  "php-error-log": {
+    "width": 952,
+    "height": 175
+  },
   "php-ini": {
-    "width": 1280,
-    "height": 720
+    "width": 1000,
+    "height": 445
   },
   "php-settings": {
     "width": 1280,
@@ -131,49 +259,161 @@
     "width": 1280,
     "height": 900
   },
+  "postgresql-access": {
+    "width": 992,
+    "height": 412
+  },
   "profile": {
+    "width": 1000,
+    "height": 368
+  },
+  "profile-email": {
+    "width": 1000,
+    "height": 446
+  },
+  "redirect-list": {
     "width": 1280,
     "height": 900
   },
   "redirects": {
-    "width": 1280,
-    "height": 900
+    "width": 603,
+    "height": 345
+  },
+  "resource-memory": {
+    "width": 1000,
+    "height": 600
   },
   "resource-usage": {
-    "width": 953,
-    "height": 568
+    "width": 1000,
+    "height": 600
   },
-  "ssh-key": {
+  "server-metrics": {
     "width": 1280,
     "height": 900
+  },
+  "server-utilization": {
+    "width": 1000,
+    "height": 364
+  },
+  "sql-transfer": {
+    "width": 1000,
+    "height": 464
+  },
+  "ssh-access": {
+    "width": 1000,
+    "height": 256
+  },
+  "ssh-key": {
+    "width": 603,
+    "height": 480
   },
   "ssl": {
     "width": 1280,
     "height": 900
   },
+  "ssl-checker": {
+    "width": 920,
+    "height": 400
+  },
+  "ssl-checker-card": {
+    "width": 339,
+    "height": 463
+  },
+  "ssl-custom": {
+    "width": 603,
+    "height": 767
+  },
+  "ssl-request": {
+    "width": 603,
+    "height": 318
+  },
+  "staging-existing": {
+    "width": 920,
+    "height": 667
+  },
+  "staging-new": {
+    "width": 920,
+    "height": 447
+  },
+  "staging-promote": {
+    "width": 920,
+    "height": 277
+  },
   "team-invite": {
+    "width": 603,
+    "height": 825
+  },
+  "team-overview": {
     "width": 1280,
     "height": 900
   },
-  "website-plan": {
-    "width": 1280,
-    "height": 900
+  "website-connection": {
+    "width": 463,
+    "height": 595
+  },
+  "website-delete": {
+    "width": 603,
+    "height": 216
+  },
+  "website-disable": {
+    "width": 603,
+    "height": 196
+  },
+  "website-overview": {
+    "width": 1000,
+    "height": 432
+  },
+  "wordpress-bulk-update": {
+    "width": 1173,
+    "height": 579
+  },
+  "wordpress-catalogue": {
+    "width": 920,
+    "height": 510
   },
   "wordpress-changelog": {
-    "width": 1280,
-    "height": 900
+    "width": 525,
+    "height": 302
   },
   "wordpress-debug": {
     "width": 1280,
     "height": 900
   },
-  "wordpress-schedule": {
+  "wordpress-general": {
     "width": 1280,
-    "height": 720
+    "height": 900
+  },
+  "wordpress-install": {
+    "width": 603,
+    "height": 713
+  },
+  "wordpress-maintenance": {
+    "width": 1000,
+    "height": 199
+  },
+  "wordpress-plugins": {
+    "width": 1280,
+    "height": 900
+  },
+  "wordpress-schedule": {
+    "width": 603,
+    "height": 280
+  },
+  "wordpress-theme-activate": {
+    "width": 603,
+    "height": 216
+  },
+  "wordpress-theme-catalogue": {
+    "width": 920,
+    "height": 650
   },
   "wordpress-themes": {
     "width": 1280,
     "height": 900
+  },
+  "wordpress-user-add": {
+    "width": 634,
+    "height": 472
   },
   "wordpress-users": {
     "width": 1280,
@@ -182,21 +422,5 @@
   "worker-create": {
     "width": 1280,
     "height": 720
-  },
-  "dashboard-overview": {
-    "width": 1280,
-    "height": 1400
-  },
-  "server-metrics": {
-    "width": 1280,
-    "height": 900
-  },
-  "ssl-checker": {
-    "width": 1280,
-    "height": 900
-  },
-  "wordpress-bulk-update": {
-    "width": 1280,
-    "height": 900
   }
 }

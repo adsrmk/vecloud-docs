@@ -10,12 +10,6 @@ Una cuenta FTP independiente resulta útil para gestionar archivos de una parte 
 
 Abre **Domains → tu sitio → FTP**. Las cuentas FTP tienen credenciales propias y se pueden limitar a un directorio. SFTP utiliza las [credenciales SSH del sitio](./ssh.mdx), no una cuenta FTP.
 
-<PortalScreenshot
-  name="ftp"
-  alt="Cuenta FTP limitada a un directorio"
-  caption="Cuenta FTP limitada a un directorio"
-/>
-
 ## Añadir una cuenta FTP
 
 Con la carpeta de destino elegida, crea la cuenta y comprueba después su acceso.
@@ -32,11 +26,19 @@ Usa al menos diez caracteres con minúscula, mayúscula, número y carácter esp
 </Step>
 </Steps>
 
+<PortalScreenshot name="ftp-create" alt="Formulario FTP con el dominio y la carpeta public_html/assets" caption="Introduce la parte del usuario antes de @ y la carpeta permitida. El formulario añade el dominio." />
+
 ## Conectar el cliente
 
 Pulsa el nombre de la cuenta para abrir **Login details**. Copia el usuario completo y **Host**; el puerto FTP indicado es **21**. Utiliza FTP explícito sobre TLS si el cliente y el servidor lo admiten. SFTP es otro protocolo y utiliza SSH en el puerto 22.
 
 Guarda la contraseña en tu gestor. El portal no muestra la contraseña actual. **Change password** permite establecer otra; actualiza después las conexiones guardadas.
+
+<PortalScreenshot
+  name="ftp"
+  alt="Cuenta FTP limitada a un directorio"
+  caption="Cuenta FTP limitada a un directorio"
+/>
 
 ## Cambiar el acceso al directorio
 
@@ -45,6 +47,8 @@ Pulsa el lápiz junto a **Directory access**, elige la carpeta y guarda. La raí
 <Callout type="warn" title="Revisa la opción de eliminación">
 La confirmación de **Delete FTP account** incluye una opción independiente para borrar el contenido del directorio. Déjala desmarcada para retirar solo el acceso. Borrar el contenido de la raíz puede inutilizar el sitio.
 </Callout>
+
+<PortalScreenshot name="ftp-delete" alt="Confirmación de retirada de FTP con la opción de contenido sin marcar" caption="Deja la opción sin marcar para revocar solo el acceso de la cuenta FTP." />
 
 ## Problemas de conexión
 

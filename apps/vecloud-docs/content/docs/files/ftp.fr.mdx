@@ -10,12 +10,6 @@ Un compte FTP distinct est utile pour gérer les fichiers d’une partie précis
 
 Ouvrez **Domains → votre site → FTP**. Les comptes FTP possèdent leurs propres identifiants et peuvent être limités à un répertoire. SFTP utilise les [identifiants SSH du site](./ssh.mdx), et non un compte FTP.
 
-<PortalScreenshot
-  name="ftp"
-  alt="Compte FTP limité à un répertoire"
-  caption="Compte FTP limité à un répertoire"
-/>
-
 ## Ajouter un compte FTP
 
 Après avoir choisi le dossier, créez le compte, puis vérifiez son accès.
@@ -32,11 +26,19 @@ Utilisez au moins dix caractères comprenant minuscule, majuscule, chiffre et ca
 </Step>
 </Steps>
 
+<PortalScreenshot name="ftp-create" alt="Formulaire FTP avec le domaine et le dossier public_html/assets" caption="Saisissez la partie du nom avant @ et le dossier autorisé. Le formulaire ajoute le domaine." />
+
 ## Connecter votre client
 
 Cliquez sur le nom du compte pour ouvrir **Login details**. Copiez le nom d’utilisateur complet et **Host** ; le port FTP indiqué est **21**. Utilisez FTP explicite sur TLS si le client et le serveur le prennent en charge. SFTP est un autre protocole et utilise SSH sur le port 22.
 
 Conservez le mot de passe dans votre gestionnaire. Le portail ne révèle pas le mot de passe actuel. **Change password** permet de le remplacer ; mettez ensuite à jour les connexions enregistrées.
+
+<PortalScreenshot
+  name="ftp"
+  alt="Compte FTP limité à un répertoire"
+  caption="Compte FTP limité à un répertoire"
+/>
 
 ## Modifier l’accès au répertoire
 
@@ -45,6 +47,8 @@ Utilisez le crayon à côté de **Directory access**, choisissez le répertoire 
 <Callout type="warn" title="Vérifiez l’option de suppression">
 La confirmation **Delete FTP account** comporte une option distincte pour supprimer le contenu du répertoire. Laissez-la désactivée pour retirer uniquement l’accès. Supprimer le contenu de la racine peut rendre le site inutilisable.
 </Callout>
+
+<PortalScreenshot name="ftp-delete" alt="Confirmation de suppression FTP avec l’option du contenu décochée" caption="Laissez cette option décochée pour retirer uniquement l’accès du compte FTP." />
 
 ## Problèmes de connexion
 

@@ -13,14 +13,20 @@ Utilisez un domaine que vous contrôlez et vérifiez la capacité de votre offre
 ## Choisir le type
 
 <Tabs items={['Addon', 'Subdomain', 'Alias']}>
-<Tab value="Addon">
+<Tab value="Addon" keepMounted>
 Utilisez **Addon** pour un site distinct. Saisissez le domaine complet sans protocole, chemin ou préfixe `www.` non souhaité. L’espace web est créé ; installez ensuite une application dans **Apps**.
+
+<PortalScreenshot name="add-domain" alt="Formulaire Addon avec le domaine fictif demo-site.test" caption="Le formulaire commence par Domain type et Domain. L’application se choisit ensuite dans le site." />
 </Tab>
-<Tab value="Subdomain">
+<Tab value="Subdomain" keepMounted>
 Utilisez **Subdomain** pour un nom sous un domaine existant. Choisissez le parent et saisissez uniquement la nouvelle partie, par exemple `shop`. Vérifiez le domaine composé avant création.
+
+<PortalScreenshot name="add-subdomain" alt="Subdomain avec shop et le domaine existant example.test" caption="Saisissez shop. Le domaine existant à côté du champ complète shop.example.test." />
 </Tab>
-<Tab value="Alias">
+<Tab value="Alias" keepMounted>
 Utilisez **Alias** pour associer un autre domaine à un site existant. Choisissez la destination et saisissez l’alias. C’est un nom supplémentaire du même site, pas une redirection HTTP vers une autre adresse.
+
+<PortalScreenshot name="add-alias" alt="Formulaire Alias avec example.test comme destination" caption="Vérifiez le site existant et le domaine supplémentaire. Ici, alias.example.test est associé à example.test." />
 </Tab>
 </Tabs>
 
@@ -32,8 +38,6 @@ Une fois le type de domaine choisi, remplissez le formulaire avec les informatio
 2. Choisissez le type et renseignez ses données.
 3. Vérifiez le nom et la destination éventuelle.
 4. Cliquez sur **Create** et attendez la confirmation.
-
-<PortalScreenshot name="add-domain" alt="Formulaire Addon avec le domaine fictif demo-site.test" caption="Le formulaire commence par Domain type et Domain. L’application se choisit ensuite dans le site." />
 
 ## Après la création
 

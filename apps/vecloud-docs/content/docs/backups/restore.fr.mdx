@@ -23,6 +23,8 @@ Avec un point de restauration adapté et ses effets bien compris, vous pouvez pr
 ### Ouvrir le point de récupération
 
 Dans **Backups**, cliquez sur **Restore** à côté de la sauvegarde. La fenêtre **Backup details** indique la date, la fin de l’opération, le stockage et les composants inclus.
+
+<PortalScreenshot name="backups" alt="Liste des sauvegardes avec le point de restauration d’example.test" caption="Commencez par une sauvegarde terminée du bon site. Toutes les données de ces images sont fictives." />
 </Step>
 <Step>
 ### Vérifier le contenu
@@ -30,11 +32,19 @@ Dans **Backups**, cliquez sur **Restore** à côté de la sauvegarde. La fenêtr
 Vérifiez que les fichiers du site ont été sauvegardés avec succès. Cochez les **MariaDB databases** nécessaires. **Select all** sélectionne toutes les bases affichées.
 
 La fenêtre actuelle inclut les fichiers disponibles du site. Elle ne propose pas d’explorateur pour sélectionner un fichier isolé. Des boîtes mail peuvent figurer dans les détails ; cette liste n’est pas un choix de restauration distinct.
+
+<Callout>
+Les bases de données ne sont pas sélectionnées automatiquement. Pour restaurer entièrement WordPress, cochez explicitement la base utilisée par cette installation. Sans sélection de base, cette action restaure uniquement les fichiers disponibles ; les articles, réglages et commandes de la base conservent leur état actuel.
+</Callout>
+
+<PortalScreenshot name="backup-restore" alt="Détails de sauvegarde avec demo_wordpress explicitement sélectionnée" caption="Cochez la base utilisée par cette installation. Elle n’est pas sélectionnée par défaut." />
 </Step>
 <Step>
 ### Confirmer l’action
 
 Cliquez sur **Restore backup**. Lisez la confirmation et revérifiez la date et le site. Le message de démarrage confirme l’acceptation de la demande, pas la fin de la restauration.
+
+<PortalScreenshot name="backup-restore-confirm" alt="Dernière confirmation avant de restaurer une sauvegarde" caption="Vérifiez encore le site et la date. Cancel annule l’action ; seul Restore now lance la restauration." />
 </Step>
 <Step>
 ### Vérifier le site
@@ -43,7 +53,6 @@ Laissez la restauration se terminer avant toute autre modification de ce site. T
 </Step>
 </Steps>
 
-<PortalScreenshot name="backup-restore" alt="Détails de sauvegarde avec la base demo_wordpress sélectionnée" caption="Sélectionnez les bases de votre site dans la fenêtre de restauration. Cet exemple contient uniquement des données de démonstration." />
 
 ## WordPress après restauration
 

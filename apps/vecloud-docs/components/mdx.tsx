@@ -4,6 +4,7 @@ import { Steps, Step } from 'fumadocs-ui/components/steps';
 import { Tabs, Tab } from 'fumadocs-ui/components/tabs';
 import { Accordions, Accordion } from 'fumadocs-ui/components/accordion';
 import { PortalScreenshot } from './portal-screenshot';
+import { PortalWalkthrough } from './portal-walkthrough';
 
 export function getMDXComponents(components?: MDXComponents) {
   return {
@@ -15,6 +16,7 @@ export function getMDXComponents(components?: MDXComponents) {
     Accordions,
     Accordion,
     PortalScreenshot,
+    PortalWalkthrough,
     ...components,
   } satisfies MDXComponents;
 }

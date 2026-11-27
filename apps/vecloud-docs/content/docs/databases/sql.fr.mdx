@@ -8,7 +8,9 @@ Une exportation SQL permet de transférer le contenu d’une base ; une importat
 
 ## Avant de commencer
 
-Ouvrez **Domains → votre site → Databases**, puis la base MySQL/MariaDB cible. L’import exécute le SQL sur cette base. Envoyer un fichier via **Files** ne l’importe pas dans une base de données.
+Ouvrez **Domains → votre site → Databases**. Dans la section MySQL, ouvrez le menu d’actions à côté de la base de destination et choisissez **Manage**. Vérifiez le nom de la base avant d’importer. Le téléversement via **Files** dépose simplement le fichier dans l’espace de stockage du site.
+
+<PortalScreenshot name="database-actions" alt="Menu d’actions MySQL affichant Manage" caption="Manage ouvre les paramètres et les actions SQL pour cette base." />
 
 <Callout type="warn" title="Prévoyez une récupération">
 Un export SQL peut supprimer des tables ou remplacer des données. Vérifiez sa provenance et son contenu. Exportez ou sauvegardez une base remplie avant de la modifier. Pour une migration, utilisez de préférence une nouvelle base cible vide.
@@ -17,6 +19,8 @@ Un export SQL peut supprimer des tables ou remplacer des données. Vérifiez sa 
 ## Importer un fichier SQL
 
 Une fois la destination et la copie de secours prêtes, sélectionnez le fichier et suivez l’importation.
+
+<PortalScreenshot name="sql-transfer" alt="Import et export SQL" caption="Sélectionnez le fichier sous Import SQL file. Utilisez Download sous Export SQL file pour enregistrer une copie." />
 
 <Steps>
 <Step title="Choisissez la bonne base cible">

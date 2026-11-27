@@ -17,7 +17,7 @@ Ouvrez votre site puis **SSL certificates**. La table indique pour chaque domain
 
 La fermeture de la fenêtre ne prouve pas que l’émission a réussi ; contrôlez la table. En cas d’échec, vérifiez d’abord DNS, accessibilité et éventuels réglages proxy ou CAA. Ne répétez pas la même demande en boucle.
 
-<PortalScreenshot name="ssl" alt="Table SSL avec certificat actif et interrupteur HTTPS" caption="Vérifiez état et expiration par domaine. La démonstration ne contient aucune clé de certificat." />
+<PortalScreenshot name="ssl-request" alt="Demande de certificat avec choix du domaine et avertissement de remplacement" caption="Vérifiez le domaine dans Request certificate. La demande peut remplacer le certificat actuel de ce domaine." />
 
 ## Imposer HTTPS
 
@@ -25,11 +25,15 @@ Activez **Enforce HTTPS** pour le bon domaine dès qu’un certificat valide est
 
 En cas de boucle, vérifiez également les redirections de l’application et les réglages HTTPS du proxy externe. Une redirection HTTPS ne répare pas un certificat invalide.
 
+<PortalScreenshot name="ssl" alt="Table SSL avec certificat actif et interrupteur HTTPS" caption="Vérifiez état et expiration par domaine. La démonstration ne contient aucune clé de certificat." />
+
 ## Installer un certificat personnalisé
 
 Si **Install custom SSL** est disponible, vous pouvez installer un certificat existant et sa clé privée correspondante. Choisissez le domaine puis collez le contenu PEM ou chargez les fichiers. Le sélecteur accepte les fichiers de certificat et de clé compatibles jusqu’à **64 KiB chacun**. Lancez l’installation puis vérifiez l’état.
 
 Le certificat et la clé doivent correspondre, et le domaine doit être couvert. Organisez vous-même le renouvellement d’un certificat personnalisé ; son chargement ne demande pas une nouvelle émission.
+
+<PortalScreenshot name="ssl-custom" alt="Formulaire de certificat personnalisé avec champs CRT et clé vides" caption="Sélectionnez le bon domaine et utilisez le CRT et la clé privée correspondante." />
 
 ## Consulter les détails
 

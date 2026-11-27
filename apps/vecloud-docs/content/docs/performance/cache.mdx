@@ -10,12 +10,6 @@ Caching kan herhaald werk voor je website beperken. De verschillende caches werk
 
 Open **Domains → je website → Optimization**. **Opcode caching** bewaart gecompileerde PHP-code. **FastCGI cache** bewaart gerenderde pagina’s op Nginx. Ze lossen verschillende soorten werk op; geen van beide vervangt een back-up.
 
-<PortalScreenshot
-  name="nginx-cache"
-  alt="FastCGI-cache en uitsluitingen per domein"
-  caption="FastCGI-cache en uitsluitingen per domein"
-/>
-
 ## Opcode caching
 
 Schakel **Opcode caching** in of uit en wacht op bevestiging. Deze instelling gaat over `opcache.enable`, niet over het bewaren van volledige HTML-pagina’s. Controleer na een codewijziging of de actuele versie wordt uitgevoerd; herhaald een paginacache legen wijzigt geen foutieve PHP-code.
@@ -28,9 +22,21 @@ Bij **Cache exclusions** voeg je URL-paden toe die niet uit de paginacache mogen
 
 Verwijderen bij een uitsluiting maakt het pad weer cachebaar volgens de overige instellingen. Controleer daarom waarom een bestaande uitsluiting was toegevoegd.
 
+<PortalScreenshot
+  name="nginx-cache"
+  alt="FastCGI-cache en uitsluitingen per domein"
+  caption="FastCGI-cache en uitsluitingen per domein"
+/>
+
 ## Cache legen
 
 Kies **Clear cache** bij het geselecteerde domein en bevestig. Hiermee verwijder je opgeslagen FastCGI-pagina’s van dat domein. Het leegt geen browsercache, extern CDN of alle caches van een WordPress-plugin. De eerste aanvraag kan daarna meer werk vragen omdat de pagina opnieuw wordt opgebouwd.
+
+<PortalScreenshot
+  name="cache-clear"
+  alt="Bevestigingsvenster Clear FastCGI cache"
+  caption="Controleer het geselecteerde domein voordat je bevestigt."
+/>
 
 ## Webserver rewrites
 

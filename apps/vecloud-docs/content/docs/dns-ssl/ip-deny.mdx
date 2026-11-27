@@ -10,8 +10,6 @@ Komt ongewenst verkeer steeds van hetzelfde adres of netwerk, dan kun je de toeg
 
 Open je website en kies **IP deny** in de sidebar, direct onder **SSL certificates**. Deze functie beheert de Nginx-blokkeerlijst voor de gekoppelde domeinen van deze website. Het is geen serverbrede firewall en blokkeert geen e-mail- of SSH-aanmeldingen.
 
-<PortalScreenshot name="ip-deny" alt="IP deny met één adres of netwerk per regel" caption="De ingevulde adressen zijn documentatievoorbeelden. Gebruik in je eigen omgeving uitsluitend het bedoelde bezoekeradres of netwerk." />
-
 ## Adressen toevoegen
 
 1. Kies **Add IP addresses** rechts naast de paginatitel.
@@ -29,11 +27,15 @@ Dit zijn uitsluitend documentatievoorbeelden:
 
 De lijst ondersteunt maximaal **250 adressen of netwerkregels**. CIDR-netwerken kunnen na opslaan in genormaliseerde vorm verschijnen. Gebruik geen domeinnamen, URL’s of hostnamen in dit veld.
 
+<PortalScreenshot name="ip-deny" alt="IP deny met één adres of netwerk per regel" caption="De ingevulde adressen zijn documentatievoorbeelden. Gebruik in je eigen omgeving uitsluitend het bedoelde bezoekeradres of netwerk." />
+
 ## Een blokkering verwijderen
 
 Kies **Delete** bij het adres en bevestig de verwijdering. Controleer daarna of de rij verdwenen is en test de toegang vanuit het betreffende netwerk. Een regel verwijderen corrigeert geen blokkering die daarnaast in een externe firewall of proxy bestaat.
 
 Als domeinen verschillende lijsten gebruiken, toont het panel een waarschuwing met een actie om de gezamenlijke lijst op alle domeinen toe te passen. Controleer eerst of alle weergegeven adressen werkelijk overal geblokkeerd moeten worden.
+
+<PortalScreenshot name="ip-deny-remove" alt="Bevestiging voor het verwijderen van een IP-regel" caption="Controleer welk adres uit de blokkeerlijst verdwijnt voordat je Confirm kiest." />
 
 ## Configuratie in verwerking of niet bevestigd
 

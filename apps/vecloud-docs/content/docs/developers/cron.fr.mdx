@@ -10,6 +10,8 @@ Une tâche cron exécute un travail récurrent sans intervention à chaque lance
 
 Ouvrez **Domains → votre site → Developer tools → Cron jobs**, puis **Add cron job**. Choisissez **Command** ou **Request URL** et un intervalle proposé. La valeur par défaut est toutes les quinze minutes ; adaptez-la à la tâche.
 
+<PortalScreenshot name="cron-settings" alt="Tâches cron dans Developer tools" caption="Choisissez Add cron job pour planifier une tâche. L’interrupteur règle les modifications depuis le conteneur." />
+
 - **Command** s’exécute avec l’utilisateur du site. Saisissez la commande sans les cinq champs de planification devant elle. Utilisez les bons chemins vers programme et script.
 - **Request URL** appelle l’URL en HTTP GET. Utilisez un point d’entrée prévu pour la tâche ; charger une page ordinaire ne déclenche pas automatiquement un traitement de fond.
 
@@ -20,6 +22,8 @@ Sélectionnez **Save** et vérifiez l’entrée enregistrée. Exemple :
 ```
 
 Cette expression signifie toutes les quinze minutes. Les champs sont minute, heure, jour du mois, mois et jour de semaine. Aucun fuseau horaire distinct n’est proposé ; vérifiez celui de l’environnement si l’horaire exact compte.
+
+<PortalScreenshot name="cron-command" alt="Planification d’une commande récurrente avec Command" caption="Choisissez l’intervalle et saisissez la commande. Le formulaire renseigne la planification séparément." />
 
 <PortalScreenshot
   name="cron-job"

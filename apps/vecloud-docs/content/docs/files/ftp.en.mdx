@@ -10,12 +10,6 @@ A separate FTP account is useful when someone manages files in a particular part
 
 Open **Domains → your website → FTP**. FTP accounts have their own credentials and can be restricted to a directory. SFTP uses the [website’s SSH credentials](./ssh.mdx), not an FTP account.
 
-<PortalScreenshot
-  name="ftp"
-  alt="FTP account restricted to one directory"
-  caption="FTP account restricted to one directory"
-/>
-
 ## Add an FTP account
 
 With the intended directory in mind, create the account and then check its access.
@@ -32,11 +26,19 @@ Use at least ten characters including a lowercase letter, uppercase letter, numb
 </Step>
 </Steps>
 
+<PortalScreenshot name="ftp-create" alt="FTP form with the domain suffix and public_html/assets directory" caption="Enter the username part before @ and the directory to allow. The form adds the domain." />
+
 ## Connect your client
 
 Click the account name to open **Login details**. Copy the full username and **Host**; the displayed FTP port is **21**. Use explicit FTP over TLS when supported by your client and the server. SFTP is a different protocol and uses SSH access on port 22.
 
 Store the password in your password manager. The portal does not reveal the existing password. **Change password** sets a new one; update saved connections afterwards.
+
+<PortalScreenshot
+  name="ftp"
+  alt="FTP account restricted to one directory"
+  caption="FTP account restricted to one directory"
+/>
 
 ## Change directory access
 
@@ -45,6 +47,8 @@ Use the pencil beside **Directory access**, choose the directory and save. The r
 <Callout type="warn" title="Check the deletion option">
 The **Delete FTP account** confirmation includes a separate option to delete the directory contents. Leave it off when revoking access only. Deleting the root directory contents can make the website unusable.
 </Callout>
+
+<PortalScreenshot name="ftp-delete" alt="FTP removal confirmation with the directory-content option unchecked" caption="Leave this option unchecked to revoke access for the FTP account alone." />
 
 ## Connection problems
 

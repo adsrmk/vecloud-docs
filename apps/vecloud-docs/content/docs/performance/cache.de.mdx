@@ -10,12 +10,6 @@ Caching kann wiederholte Arbeit für deine Website reduzieren. Die einzelnen Cac
 
 Öffne **Domains → deine Website → Optimization**. **Opcode caching** speichert kompilierten PHP-Code. **FastCGI cache** speichert gerenderte Seiten in Nginx. Sie vermeiden unterschiedliche Arbeit; keiner ersetzt ein Backup.
 
-<PortalScreenshot
-  name="nginx-cache"
-  alt="FastCGI-Cache und Ausnahmen pro Domain"
-  caption="FastCGI-Cache und Ausnahmen pro Domain"
-/>
-
 ## Opcodecache
 
 Schalte **Opcode caching** ein oder aus und warte auf die Bestätigung. Die Einstellung steuert `opcache.enable`, nicht komplette HTML-Seiten. Prüfe nach Codeänderungen die ausgeführte Version; wiederholtes Leeren eines Seitencaches repariert keinen fehlerhaften PHP-Code.
@@ -28,9 +22,21 @@ Ergänze unter **Cache exclusions** URL-Pfade, die nicht aus dem Seitencache kom
 
 Eine entfernte Ausnahme macht den Pfad gemäß übriger Einstellungen wieder cachefähig. Prüfe vorher ihren ursprünglichen Zweck.
 
+<PortalScreenshot
+  name="nginx-cache"
+  alt="FastCGI-Cache und Ausnahmen pro Domain"
+  caption="FastCGI-Cache und Ausnahmen pro Domain"
+/>
+
 ## Cache leeren
 
 Wähle **Clear cache** für die ausgewählte Domain und bestätige. Das entfernt deren gespeicherte FastCGI-Seiten, nicht Browsercaches, externe CDNs oder sämtliche WordPress-Plugin-Caches. Die nächste Anfrage kann beim Neuaufbau mehr Arbeit verursachen.
+
+<PortalScreenshot
+  name="cache-clear"
+  alt="Bestätigungsdialog Clear FastCGI cache"
+  caption="Prüfe vor dem Bestätigen die ausgewählte Domain."
+/>
 
 ## Webserver-Rewrites
 

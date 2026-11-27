@@ -12,7 +12,7 @@ Open your website’s **DNS settings → Mail routing**. Choose **Local mail** w
 
 Routing tells the hosting environment how to handle mail for this domain. Public **MX records** tell other mail servers where to deliver it. Both should match your chosen mail provider. Changing MX alone may be insufficient for messages originating on the hosting server itself.
 
-<PortalScreenshot name="mail-routing" alt="Confirmation for replacing MX records with Google Workspace records" caption="The notice lists replaced records and the separate External mail setting. No public records were changed." />
+<PortalScreenshot name="mail-delivery" alt="Mail routing with Local mail and External mail" caption="Choose where this domain’s mailboxes are hosted. The example uses local mailboxes." />
 
 ## Configure Google Workspace MX
 
@@ -24,11 +24,15 @@ Routing tells the hosting environment how to handle mail for this domain. Public
 
 This action replaces root-domain MX records. Subdomain MX records remain. It does not create a Google account or mailbox. With external DNS and no synchronization, configure records there instead.
 
+<PortalScreenshot name="mail-routing" alt="Confirmation for replacing MX records with Google Workspace records" caption="The notice lists replaced records and the separate External mail setting. No public records were changed." />
+
 ## Enable and validate DKIM
 
 Under **Email authentication**, enable DKIM and check the validation status. If it is not validated, copy the displayed name `hostingcp._domainkey` and complete TXT value to the active DNS provider. Use the copy actions to avoid incomplete or truncated values.
 
 **Verified** means the DKIM DNS check succeeds. It does not guarantee every sent message will pass spam filtering. If you send through another provider, also follow that provider’s DKIM instructions.
+
+<PortalScreenshot name="dkim-record" alt="DKIM enabled with demonstration TXT values" caption="Use the copy buttons for the record name and value. The key shown here is for illustration." />
 
 ## SPF and DMARC
 

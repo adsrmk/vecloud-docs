@@ -12,7 +12,7 @@ Der Standort deiner Postfächer bestimmt, wie deine Domain E-Mails verarbeiten s
 
 Das Routing sagt dem Hosting, wie es Nachrichten für diese Domain behandeln soll. Öffentliche **MX-Einträge** sagen anderen Mailservern, wohin sie zustellen sollen. Beides muss zum gewählten Anbieter passen. Nur MX zu ändern kann für Nachrichten vom Hostingserver selbst unzureichend sein.
 
-<PortalScreenshot name="mail-routing" alt="Bestätigung zum Ersetzen von MX durch Google Workspace" caption="Der Hinweis nennt betroffene Einträge und die separate Auswahl External mail. Öffentliches DNS wurde nicht geändert." />
+<PortalScreenshot name="mail-delivery" alt="Mail routing mit Local mail und External mail" caption="Wähle, wo die Postfächer der Domain liegen. Das Beispiel verwendet lokale Postfächer." />
 
 ## Google-Workspace-MX einrichten
 
@@ -24,11 +24,15 @@ Das Routing sagt dem Hosting, wie es Nachrichten für diese Domain behandeln sol
 
 Die Aktion ersetzt MX der Hauptdomain und behält Subdomain-MX bei. Sie erstellt kein Google-Konto oder Postfach. Bei externem DNS ohne Synchronisierung legst du die Einträge dort an.
 
+<PortalScreenshot name="mail-routing" alt="Bestätigung zum Ersetzen von MX durch Google Workspace" caption="Der Hinweis nennt betroffene Einträge und die separate Auswahl External mail. Öffentliches DNS wurde nicht geändert." />
+
 ## DKIM aktivieren und validieren
 
 Aktiviere DKIM unter **Email authentication** und prüfe den Validierungsstatus. Ist es nicht validiert, übernimm den angezeigten Namen `hostingcp._domainkey` und den vollständigen TXT-Wert beim aktiven DNS-Anbieter. Nutze die Kopieraktionen gegen abgeschnittene Werte.
 
 **Verified** bedeutet, dass die DKIM-DNS-Prüfung erfolgreich ist. Es garantiert nicht das Bestehen jedes Spamfilters. Versendest du über einen anderen Anbieter, beachte auch dessen DKIM-Anleitung.
+
+<PortalScreenshot name="dkim-record" alt="Aktiviertes DKIM mit TXT-Beispielwerten" caption="Nutze die Kopierschaltflächen für Name und Wert. Der gezeigte Schlüssel dient der Veranschaulichung." />
 
 ## SPF und DMARC
 

@@ -24,6 +24,12 @@ Enabling Redis does not automatically configure a WordPress plugin or other appl
 
 For WordPress, configure and enable a suitable object cache plugin according to its instructions. Check its connection status there. The portal’s enabled **Redis** switch confirms the service setting, not that WordPress is already storing data in it.
 
+<PortalScreenshot
+  name="php-settings"
+  alt="PHP settings showing Redis under PHP extensions"
+  caption="If your PHP application needs the Redis extension, you can find it under PHP extensions."
+/>
+
 ## Edit redis.conf
 
 **Edit redis.conf** opens the configuration in the [file editor](../files/index.mdx). Retain the original contents and change only settings you understand. Invalid configuration can make Redis unavailable. Do not include the file in screenshots or shared tickets if it contains secrets.

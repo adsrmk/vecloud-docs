@@ -10,12 +10,6 @@ Wenn deine Anwendung PostgreSQL nutzt, verwaltest du die Datenbanken und Benutze
 
 Öffne **Domains → deine Website → Databases**. Der PostgreSQL-Bereich erscheint, wenn der Website ein PostgreSQL-Server zugeordnet ist. Die Meldung, dass PostgreSQL nicht aktiviert ist, bedeutet nicht, dass MySQL-Datenbanken fehlen.
 
-<PortalScreenshot
-  name="postgresql"
-  alt="PostgreSQL-Zugriff pro Datenbank"
-  caption="PostgreSQL-Zugriff pro Datenbank"
-/>
-
 ## Datenbank und Benutzer erstellen
 
 Wähle im PostgreSQL-Bereich **Add database**, trage einen Namen ein und speichere. Nutze Kleinbuchstaben, Zahlen, `_` oder `$`, höchstens 64 Zeichen. Erstelle danach unter **Users** einen Benutzer mit eigenem starkem Passwort. PostgreSQL-Benutzernamen dürfen höchstens 63 Zeichen haben. Wähle die Datenbanken aus, auf die der neue Benutzer zugreifen soll.
@@ -27,6 +21,14 @@ Prüfe nach dem Speichern die tatsächlichen Zuordnungen. Ein Benutzer kann bere
 Öffne eine Datenbank und füge unter **Users with access** einen bestehenden Benutzer hinzu. Auch über die Benutzerverwaltung kannst du eine Datenbank zuordnen. Diese Portalfunktion vergibt volle Rechte pro Datenbank; einzelne MySQL-artige Privilegien lassen sich hier nicht auswählen.
 
 Entferne eine Zuordnung, um den Zugriff auf diese Datenbank zu entziehen. Benutzer und Datenbank bleiben eigenständige Objekte. Ihr endgültiges Löschen benötigt eine eigene Bestätigung.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="PostgreSQL-Zugriff pro Datenbank"
+  caption="PostgreSQL-Zugriff pro Datenbank"
+/>
+
+<PortalScreenshot name="postgresql-access" alt="Datenbankzugriff für einen PostgreSQL-Benutzer" caption="Unter Database access siehst du die Datenbanken, für die dieser Benutzer alle Rechte hat." />
 
 ## Verbindungen und Passwörter
 

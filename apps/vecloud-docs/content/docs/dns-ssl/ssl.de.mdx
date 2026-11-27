@@ -17,7 +17,7 @@ Ein gültiges Zertifikat ermöglicht eine verschlüsselte Verbindung zu deiner W
 
 Ein geschlossenes Fenster allein beweist keine erfolgreiche Ausstellung; prüfe das Ergebnis in der Tabelle. Kontrolliere bei Fehlern zuerst DNS, Erreichbarkeit und mögliche Proxy- oder CAA-Einstellungen. Sende nicht wiederholt dieselbe Anfrage.
 
-<PortalScreenshot name="ssl" alt="SSL-Tabelle mit aktivem Zertifikat und HTTPS-Schalter" caption="Prüfe Status und Ablauf je Domain. Die lokale Demo enthält keine Zertifikatsschlüssel." />
+<PortalScreenshot name="ssl-request" alt="Zertifikatsanforderung mit Domain-Auswahl und Hinweis auf Ersatz" caption="Prüfe die Domain in Request certificate. Die Anfrage kann das vorhandene Zertifikat dieser Domain ersetzen." />
 
 ## HTTPS erzwingen
 
@@ -25,11 +25,15 @@ Aktiviere **Enforce HTTPS** für die richtige Domain, sobald ein gültiges Zerti
 
 Bei einer Weiterleitungsschleife prüfst du auch Anwendungsweiterleitungen und HTTPS-Einstellungen eines externen Proxys. Eine HTTPS-Weiterleitung repariert kein ungültiges Zertifikat.
 
+<PortalScreenshot name="ssl" alt="SSL-Tabelle mit aktivem Zertifikat und HTTPS-Schalter" caption="Prüfe Status und Ablauf je Domain. Die lokale Demo enthält keine Zertifikatsschlüssel." />
+
 ## Eigenes Zertifikat installieren
 
 Wenn **Install custom SSL** verfügbar ist, kannst du ein vorhandenes Zertifikat mit passendem privaten Schlüssel installieren. Wähle die Domain und füge PEM-Inhalte ein oder lade die Dateien. Die Dateiauswahl akzeptiert unterstützte Zertifikats- und Schlüsseldateien bis **64 KiB je Datei**. Starte die Installation und prüfe danach den Status.
 
 Zertifikat und Schlüssel müssen zusammenpassen und die Domain abdecken. Organisiere die Erneuerung eines eigenen Zertifikats selbst; das Hochladen fordert keine neue Ausstellung an.
+
+<PortalScreenshot name="ssl-custom" alt="Formular für eigenes SSL mit leeren Zertifikats- und Schlüsselfeldern" caption="Wähle die richtige Domain und verwende das dazugehörige CRT und den passenden privaten Schlüssel." />
 
 ## Details ansehen
 

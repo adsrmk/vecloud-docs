@@ -29,6 +29,8 @@ Use values from services you actually use. An example containing `mx` or an arbi
 
 **Verified** confirms the displayed DNS check. If an external provider sends your messages, also configure its own DKIM; the switch does not configure that external service.
 
+<PortalScreenshot name="dkim-record" alt="DKIM details in Email authentication" caption="Use the copy buttons to get the record name and complete value. The details shown are fictitious." />
+
 ## Add an appropriate DMARC policy
 
 DMARC requires aligned SPF or DKIM. Publish its TXT record at `_dmarc`; `p=none` requests monitoring. Discuss reporting and enforcement with your provider. See the [specification](https://www.rfc-editor.org/rfc/rfc9989.html).

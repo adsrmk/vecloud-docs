@@ -13,14 +13,20 @@ Use a domain you control and check that your hosting plan has capacity for anoth
 ## Choose the type
 
 <Tabs items={['Addon', 'Subdomain', 'Alias']}>
-<Tab value="Addon">
+<Tab value="Addon" keepMounted>
 Use **Addon** for a separate website. Enter the full domain without a protocol, path or unwanted `www.` prefix. Creation provides webspace; install an application afterwards through **Apps**.
+
+<PortalScreenshot name="add-domain" alt="Domain form with Addon and the fictitious domain demo-site.test" caption="The creation form starts with Domain type and Domain. Choose an application later, from within the website." />
 </Tab>
-<Tab value="Subdomain">
+<Tab value="Subdomain" keepMounted>
 Use **Subdomain** for a name beneath an existing domain. Select the parent domain and enter only the new part, for example `shop`. Check the combined domain before creating it.
+
+<PortalScreenshot name="add-subdomain" alt="Subdomain with shop and the existing domain example.test" caption="Enter shop. The existing domain beside the field completes shop.example.test." />
 </Tab>
-<Tab value="Alias">
+<Tab value="Alias" keepMounted>
 Use **Alias** when the additional domain should belong to an existing website. Select that destination and enter the alias domain. An alias maps an additional name to the same website; it is not an HTTP redirect to a different address.
+
+<PortalScreenshot name="add-alias" alt="Alias form with example.test as the target website" caption="Check both the existing website and the extra domain. This example adds alias.example.test to example.test." />
 </Tab>
 </Tabs>
 
@@ -32,8 +38,6 @@ With the domain type decided, you can complete the form using the corresponding 
 2. Choose the type and enter its domain details.
 3. Check the name and any destination website.
 4. Choose **Create** and wait for confirmation.
-
-<PortalScreenshot name="add-domain" alt="Domain form with Addon and the fictitious domain demo-site.test" caption="The creation form starts with Domain type and Domain. Choose an application later, from within the website." />
 
 ## After creation
 

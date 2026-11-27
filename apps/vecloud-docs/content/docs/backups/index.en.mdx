@@ -44,8 +44,12 @@ Follow [Restore a backup](./restore.mdx) for selection and confirmation. For an 
 When available, **Website backups** appears below the list. An authorised customer-account administrator can change **Disable backups**. Collaborator-only access cannot edit this setting.
 
 <Callout type="warning" title="On means no new backups">
-Enabling **Disable backups** stops automatic and manual backups of the website and its email data, for both Enhance and S3. Use it only when you deliberately want to stop creating new copies.
+Enabling **Disable backups** stops automatic and manual backups of the website and its email data, for both veCloud and S3. Use it only when you deliberately want to stop creating new copies.
 </Callout>
+
+To pause backup creation, turn on **Disable backups** and read the confirmation. The change is saved only after you confirm there. Choose **Cancel** to keep the current setting. Check the switch afterwards; opening the warning alone does not change anything.
+
+<PortalScreenshot name="backup-settings-confirm" alt="Warning before pausing new backup creation" caption="The setting changes only after Disable anyway. Cancel keeps new backups enabled." />
 
 Turn the switch off to allow creation again and wait for confirmation. This does not immediately start a new backup. Existing recovery points remain available; disabling creation neither deletes them nor blocks restoration.
 

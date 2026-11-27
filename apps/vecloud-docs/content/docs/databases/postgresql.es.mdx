@@ -10,12 +10,6 @@ Si tu aplicación utiliza PostgreSQL, sus bases de datos y usuarios se gestionan
 
 Abre **Domains → tu sitio → Databases**. La sección PostgreSQL aparece si el sitio tiene un servidor PostgreSQL asignado. Que PostgreSQL no esté habilitado no significa que falten las bases MySQL.
 
-<PortalScreenshot
-  name="postgresql"
-  alt="Acceso PostgreSQL por base de datos"
-  caption="Acceso PostgreSQL por base de datos"
-/>
-
 ## Crear una base y un usuario
 
 Pulsa **Add database** en PostgreSQL, introduce un nombre y guarda. Utiliza minúsculas, números, `_` o `$`, hasta 64 caracteres. Crea después un usuario en **Users** con una contraseña segura propia. El usuario PostgreSQL admite hasta 63 caracteres. Selecciona las bases a las que debe acceder.
@@ -27,6 +21,14 @@ Comprueba las asociaciones tras guardar. El usuario puede haberse creado aunque 
 Abre una base y añade un usuario existente en **Users with access**. También puedes añadir una base desde la gestión del usuario. Esta función concede permisos completos por base; no ofrece la selección individual de privilegios de MySQL.
 
 Elimina una asociación para retirar el acceso a esa base. El usuario y la base siguen siendo objetos independientes. Eliminarlos definitivamente requiere su propia confirmación.
+
+<PortalScreenshot
+  name="postgresql"
+  alt="Acceso PostgreSQL por base de datos"
+  caption="Acceso PostgreSQL por base de datos"
+/>
+
+<PortalScreenshot name="postgresql-access" alt="Acceso a bases de datos para un usuario de PostgreSQL" caption="Database access muestra las bases de datos en las que este usuario tiene todos los permisos." />
 
 ## Conexiones y contraseñas
 
