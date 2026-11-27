@@ -6,7 +6,7 @@
     "build": "next build --webpack",
     "dev": "next dev --hostname 127.0.0.1 --port 3100",
     "start": "next start",
-    "types:check": "next typegen && tsc --noEmit",
+    "types:check": "next typegen && tsc6 --noEmit",
     "lint": "eslint",
     "test:smoke": "node scripts/smoke.mjs",
     "test:images": "node scripts/audit-images.mjs"
@@ -30,7 +30,6 @@
     "postcss": "^8.5.32",
     "tailwindcss": "^4.3.5",
     "typescript": "npm:@typescript/typescript6@^6.0.2",
-    "@typescript/native": "npm:typescript@^7.0.2",
     "eslint": "^9.39.4",
     "eslint-config-next": "16.4.6"
   },
