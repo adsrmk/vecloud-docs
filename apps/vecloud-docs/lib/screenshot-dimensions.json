@@ -8,48 +8,58 @@
     "height": 311
   },
   "add-alias": {
-    "width": 603,
-    "height": 420
+    "width": 1812,
+    "height": 1260,
+    "density": 3
   },
   "add-domain": {
-    "width": 603,
-    "height": 338
+    "width": 1812,
+    "height": 1014,
+    "density": 3
   },
   "add-subdomain": {
-    "width": 603,
-    "height": 338
+    "width": 1812,
+    "height": 1014,
+    "density": 3
   },
   "analytics": {
-    "width": 1000,
-    "height": 588
+    "width": 3000,
+    "height": 1764,
+    "density": 3
   },
   "analytics-visitors": {
-    "width": 1000,
-    "height": 580
+    "width": 3000,
+    "height": 1740,
+    "density": 3
   },
   "apps": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "backup-restore": {
-    "width": 717,
-    "height": 620
+    "width": 2154,
+    "height": 1860,
+    "density": 3
   },
   "backup-restore-confirm": {
-    "width": 603,
-    "height": 268
+    "width": 1812,
+    "height": 804,
+    "density": 3
   },
   "backup-settings-confirm": {
     "width": 603,
     "height": 326
   },
   "backups": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "cache-clear": {
-    "width": 603,
-    "height": 216
+    "width": 1812,
+    "height": 648,
+    "density": 3
   },
   "cloudflare": {
     "width": 1280,
@@ -84,40 +94,46 @@
     "height": 900
   },
   "databases": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "dkim-record": {
     "width": 1000,
     "height": 424
   },
   "dns-add": {
-    "width": 603,
-    "height": 488
+    "width": 1812,
+    "height": 1464,
+    "density": 3
   },
   "dns-records": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "dnssec": {
     "width": 1000,
     "height": 443
   },
   "dnssec-disable": {
-    "width": 603,
-    "height": 248
+    "width": 1812,
+    "height": 744,
+    "density": 3
   },
   "domain-switcher": {
     "width": 591,
     "height": 282
   },
   "domains": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "file-editor": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "file-extract": {
     "width": 603,
@@ -140,32 +156,38 @@
     "height": 900
   },
   "files": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "ftp": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "ftp-create": {
-    "width": 603,
-    "height": 604
+    "width": 1812,
+    "height": 1812,
+    "density": 3
   },
   "ftp-delete": {
-    "width": 603,
-    "height": 276
+    "width": 1812,
+    "height": 828,
+    "density": 3
   },
   "github-connect": {
     "width": 1280,
     "height": 900
   },
   "ip-deny": {
-    "width": 603,
-    "height": 422
+    "width": 1812,
+    "height": 1266,
+    "density": 3
   },
   "ip-deny-remove": {
-    "width": 603,
-    "height": 216
+    "width": 1812,
+    "height": 648,
+    "density": 3
   },
   "joomla": {
     "width": 1280,
@@ -184,12 +206,14 @@
     "height": 900
   },
   "mail-catchall": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "mail-clients": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "mail-create": {
     "width": 603,
@@ -208,20 +232,23 @@
     "height": 328
   },
   "mail-list": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "mail-routing": {
-    "width": 603,
-    "height": 560
+    "width": 1812,
+    "height": 1680,
+    "density": 3
   },
   "mail-spam": {
     "width": 1000,
     "height": 492
   },
   "mailbox": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "nginx-cache": {
     "width": 1000,
@@ -240,8 +267,9 @@
     "height": 720
   },
   "optimization": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "php-error-log": {
     "width": 952,
@@ -280,20 +308,24 @@
     "height": 345
   },
   "resource-memory": {
-    "width": 1000,
-    "height": 600
+    "width": 3000,
+    "height": 1800,
+    "density": 3
   },
   "resource-usage": {
-    "width": 1000,
-    "height": 600
+    "width": 3000,
+    "height": 1800,
+    "density": 3
   },
   "server-metrics": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "server-utilization": {
-    "width": 1000,
-    "height": 364
+    "width": 3000,
+    "height": 1092,
+    "density": 3
   },
   "sql-transfer": {
     "width": 1000,
@@ -308,8 +340,9 @@
     "height": 480
   },
   "ssl": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "ssl-checker": {
     "width": 920,
@@ -320,12 +353,14 @@
     "height": 463
   },
   "ssl-custom": {
-    "width": 603,
-    "height": 767
+    "width": 1812,
+    "height": 2304,
+    "density": 3
   },
   "ssl-request": {
-    "width": 603,
-    "height": 318
+    "width": 1812,
+    "height": 954,
+    "density": 3
   },
   "staging-existing": {
     "width": 920,
@@ -344,8 +379,9 @@
     "height": 825
   },
   "team-overview": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "website-connection": {
     "width": 463,
@@ -372,28 +408,33 @@
     "height": 510
   },
   "wordpress-changelog": {
-    "width": 525,
-    "height": 302
+    "width": 1578,
+    "height": 906,
+    "density": 3
   },
   "wordpress-debug": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "wordpress-general": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "wordpress-install": {
-    "width": 603,
-    "height": 713
+    "width": 1812,
+    "height": 2142,
+    "density": 3
   },
   "wordpress-maintenance": {
     "width": 1000,
     "height": 199
   },
   "wordpress-plugins": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "wordpress-schedule": {
     "width": 603,
@@ -408,16 +449,19 @@
     "height": 650
   },
   "wordpress-themes": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "wordpress-user-add": {
-    "width": 634,
-    "height": 472
+    "width": 1902,
+    "height": 1416,
+    "density": 3
   },
   "wordpress-users": {
-    "width": 1280,
-    "height": 900
+    "width": 3840,
+    "height": 2700,
+    "density": 3
   },
   "worker-create": {
     "width": 1280,

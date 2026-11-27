@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import screenshotDimensions from '@/lib/screenshot-dimensions.json';
 
-const screenshotRevision = '20261127-1';
-const dimensions: Record<string, { width: number; height: number }> =
+const screenshotRevision = '20261127-2';
+const dimensions: Record<string, { width: number; height: number; density?: number }> =
   screenshotDimensions;
 
 export function PortalScreenshot({
@@ -14,9 +14,13 @@ export function PortalScreenshot({
   alt: string;
   caption: string;
 }) {
-  const { width, height } = dimensions[name];
+  const { width, height, density = 1 } = dimensions[name];
+  const displayWidth = Math.min(Math.round(width / density), 900);
   return (
-    <figure className="portal-screenshot not-prose grid">
+    <figure
+      className="portal-screenshot not-prose mx-auto grid w-full"
+      style={{ maxWidth: displayWidth }}
+    >
       {(['light', 'dark'] as const).map((theme) => (
         <a
           key={theme}
@@ -35,7 +39,8 @@ export function PortalScreenshot({
             alt={alt}
             width={width}
             height={height}
-            sizes="(max-width: 768px) 100vw, 800px"
+            quality={92}
+            sizes={`auto, (max-width: 767px) calc(100vw - 32px), ${displayWidth}px`}
           />
         </a>
       ))}

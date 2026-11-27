@@ -192,9 +192,13 @@ try {
         !/href="\/docs(?:[\/#"])/.test(html),
         path + ' links keep locale',
       );
-    for (const [, src] of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g))
-      if (src.includes('screenshots'))
-        optimizedScreenshots.add(src.replaceAll('&amp;', '&'));
+    for (const [, src] of html.matchAll(/<img\b[^>]*\bsrc="([^"]+)"/g)) {
+      if (!src.includes('screenshots')) continue;
+      const decoded = src.replaceAll('&amp;', '&');
+      const delivery = new URL(decoded, base);
+      assert.equal(delivery.searchParams.get('q'), '92', path + ' screenshot quality');
+      optimizedScreenshots.add(decoded);
+    }
     counts[locale]++;
   }
   for (const link of internalLinks) {

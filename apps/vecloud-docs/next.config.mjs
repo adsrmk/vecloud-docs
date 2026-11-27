@@ -9,9 +9,11 @@ const config = {
   poweredByHeader: false,
   devIndicators: false,
   images: {
+    qualities: [75, 92],
     localPatterns: [
       { pathname: '/**', search: '' },
       { pathname: '/screenshots/**', search: '?v=20261127-1' },
+      { pathname: '/screenshots/**', search: '?v=20261127-2' },
     ],
   },
   outputFileTracingRoot: import.meta.dirname,

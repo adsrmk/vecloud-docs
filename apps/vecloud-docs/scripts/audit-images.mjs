@@ -13,6 +13,10 @@ const dimensions = JSON.parse(
 );
 const expectedFiles = new Set();
 for (const [name, size] of Object.entries(dimensions)) {
+  const density = size.density ?? 1;
+  assert.ok([1, 3].includes(density), name + ' supported pixel density');
+  assert.equal(size.width % density, 0, name + ' CSS width');
+  assert.equal(size.height % density, 0, name + ' CSS height');
   const pair = {};
   for (const theme of ['light', 'dark']) {
     const filename = `${name}-${theme}.jpg`;
