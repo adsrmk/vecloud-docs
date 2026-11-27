@@ -4,6 +4,7 @@ import { generateOGImage } from 'fumadocs-ui/og';
 import { appName, getPageImageUrl } from '@/lib/shared';
 
 export const revalidate = false;
+export const dynamicParams = false;
 
 export async function GET(
   _req: Request,
