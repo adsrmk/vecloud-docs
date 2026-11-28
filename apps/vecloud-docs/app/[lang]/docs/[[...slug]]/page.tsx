@@ -8,8 +8,11 @@ import {
 import { notFound } from 'next/navigation';
 import { getMDXComponents } from '@/components/mdx';
 import type { Metadata } from 'next';
+import { Geist } from 'next/font/google';
 import { createRelativeLink } from 'fumadocs-ui/mdx';
 import { getPageImageUrl, languageAlternates } from '@/lib/shared';
+
+const geist = Geist({ subsets: ['latin'], variable: '--font-geist' });
 
 export default async function Page(
   props: PageProps<'/[lang]/docs/[[...slug]]'>,
@@ -22,13 +25,13 @@ export default async function Page(
 
   return (
     <DocsPage toc={page.data.toc} full={page.data.full}>
-      <DocsTitle className="text-2xl font-semibold tracking-tight sm:text-3xl">
+      <DocsTitle className={`docs-article-title ${geist.variable}`}>
         {page.data.title}
       </DocsTitle>
       <DocsDescription className="text-sm leading-5">
         {page.data.description}
       </DocsDescription>
-      <DocsBody>
+      <DocsBody className={`docs-article-body ${geist.variable}`}>
         <MDX
           components={getMDXComponents({
             // this allows you to link to other pages with relative file paths
