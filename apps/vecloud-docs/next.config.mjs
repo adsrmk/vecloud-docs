@@ -1,4 +1,5 @@
 import { createMDX } from 'fumadocs-mdx/next';
+import { fileURLToPath } from 'node:url';
 
 const withMDX = createMDX();
 
@@ -8,6 +9,7 @@ const config = {
   output: 'standalone',
   poweredByHeader: false,
   devIndicators: false,
+  adapterPath: fileURLToPath(new URL('./next-adapter.mjs', import.meta.url)),
   images: {
     qualities: [75, 92],
     localPatterns: [
