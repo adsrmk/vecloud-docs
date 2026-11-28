@@ -135,7 +135,7 @@ try {
     'Every guide appears in the sitemap',
   );
   const counts = Object.fromEntries(locales.map((locale) => [locale, 0]));
-  const renderedPages = new Map();
+  const renderedAnchors = new Map();
   const internalLinks = new Set();
   for (const [, url] of pages) {
     const location = new URL(url);
@@ -146,7 +146,15 @@ try {
     assert.ok(page, path + ' source exists');
     const { title } = page;
     const html = await (await get(path)).text();
-    renderedPages.set(path, html);
+    // Copy IDs out of the response so V8 can release the full HTML string.
+    renderedAnchors.set(
+      path,
+      new Set(
+        Array.from(html.matchAll(/\sid="([^"]+)"/g), ([, id]) =>
+          Buffer.from(id).toString(),
+        ),
+      ),
+    );
     for (const [, href] of html.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)) {
       const target = new URL(href.replaceAll('&amp;', '&'), location);
       if (
@@ -203,12 +211,11 @@ try {
   }
   for (const link of internalLinks) {
     const [path, hash] = link.split('#');
-    assert.ok(renderedPages.has(path), 'Internal destination: ' + link);
+    const anchors = renderedAnchors.get(path);
+    assert.ok(anchors, 'Internal destination: ' + link);
     if (hash)
       assert.ok(
-        renderedPages
-          .get(path)
-          .includes(`id="${escapeHTML(decodeURIComponent(hash))}"`),
+        anchors.has(escapeHTML(decodeURIComponent(hash))),
         'Internal anchor: ' + link,
       );
   }
@@ -345,10 +352,16 @@ try {
     screenshotNames.size * 2,
     'Every screenshot has both optimized themes',
   );
-  for (const src of optimizedScreenshots) {
-    const image = await get(src);
-    assert.match(image.headers.get('content-type'), /^image\//, src);
-    assert.ok((await image.arrayBuffer()).byteLength > 1000, src);
+  const imagePaths = [...optimizedScreenshots];
+  const imageConcurrency = server ? 2 : 1;
+  for (let offset = 0; offset < imagePaths.length; offset += imageConcurrency) {
+    await Promise.all(
+      imagePaths.slice(offset, offset + imageConcurrency).map(async (src) => {
+        const image = await get(src);
+        assert.match(image.headers.get('content-type'), /^image\//, src);
+        assert.ok((await image.arrayBuffer()).byteLength > 1000, src);
+      }),
+    );
   }
   const defaultLocale = await fetch(base + '/docs/backups?check=1', {
     redirect: 'manual',
