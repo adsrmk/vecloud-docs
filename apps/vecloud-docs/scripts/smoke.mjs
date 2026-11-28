@@ -219,6 +219,16 @@ try {
     fr: 'restauration',
     de: 'Wiederherstellung',
   };
+  assert.deepEqual(await (await get('/api/search')).json(), []);
+  assert.deepEqual(
+    await (await get('/api/search?query=restore&locale=unknown')).json(),
+    [],
+  );
+  assert.deepEqual(
+    await (await get('/api/search?query=herstellen&limit=2')).json(),
+    await (await get('/api/search?query=herstellen&limit=2&locale=nl')).json(),
+    'Search defaults to Dutch with the requested limit',
+  );
   const frenchAuthentication = await (
     await get('/api/search?query=authentification&locale=fr')
   ).json();
