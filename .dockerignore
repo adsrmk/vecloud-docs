@@ -6,4 +6,10 @@ apps/vecloud-docs/node_modules
 apps/vecloud-docs/.next
 apps/vecloud-docs/.source
 apps/vecloud-docs/.env*
+apps/vecloud-docs/.local-data
 apps/vecloud-docs/*.tsbuildinfo
+apps/vecloud-docs/next-env.d.ts
+apps/vecloud-docs/AGENTS.md
+apps/vecloud-docs/README.md
+apps/vecloud-docs/eslint.config.mjs
+apps/vecloud-docs/scripts
