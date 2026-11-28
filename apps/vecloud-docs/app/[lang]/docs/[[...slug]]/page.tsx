@@ -24,7 +24,11 @@ export default async function Page(
   const MDX = page.data.body;
 
   return (
-    <DocsPage toc={page.data.toc} full={page.data.full}>
+    <DocsPage
+      toc={page.data.toc}
+      full={page.data.full}
+      className="md:ps-8 xl:ps-10"
+    >
       <DocsTitle className={`docs-article-title ${geist.variable}`}>
         {page.data.title}
       </DocsTitle>
