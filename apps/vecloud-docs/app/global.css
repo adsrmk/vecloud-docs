@@ -54,9 +54,13 @@
   align-items: center;
   gap: 14px;
 }
-.docs-brand img {
+.docs-brand-logo {
   width: 89.1px;
-  height: auto;
+  aspect-ratio: 124 / 28;
+  background: url('./brand/logo-light.webp') center / contain no-repeat;
+}
+.dark .docs-brand-logo {
+  background-image: url('./brand/logo-dark.webp');
 }
 .docs-brand-label {
   border-left: 1px solid var(--color-fd-border);
