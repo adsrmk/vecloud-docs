@@ -12,7 +12,7 @@ pnpm dev
 
 Content lives in `apps/vecloud-docs/content/docs`. Dutch is the default source (`page.mdx`); translations use `page.en.mdx`, `page.es.mdx`, `page.fr.mdx`, and `page.de.mdx`. Navigation follows the same pattern with `meta.json` and `meta.<locale>.json`. Keep all five versions of each guide in sync. Missing translations do not silently fall back to Dutch. Use relative MDX links to keep navigation in the selected language. Place original, sanitized screenshots in `public/screenshots` and include meaningful alt text. Never publish customer records, credentials or account details.
 
-The root Dockerfile builds the documentation app. The [Railway configuration](../../.railway/railway.ts) defines the service and the production files that trigger a deploy from `dev`. Update its watch paths when adding another repository input to the Dockerfile and preview the change with `railway config plan` before applying it. GitHub still runs the documentation checks for changes to the app’s README, lint config and test scripts. The service uses no database or external search provider.
+The root Dockerfile builds the documentation app. The [Railway configuration](../../.railway/railway.ts) defines the service and the production files that trigger a deploy from `dev`. Railway waits for the GitHub workflow to pass before it builds. Update the watch paths and the workflow's push filters together when adding another repository input to the Dockerfile. Preview configuration changes with `railway config plan` before applying them. GitHub also runs the documentation checks for changes to the app’s README, lint config and test scripts. The service uses no database or external search provider.
 
 ## Languages and layout
 

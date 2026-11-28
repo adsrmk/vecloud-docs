@@ -4,7 +4,7 @@ export default defineRailway(() => {
   const Docs = service("Docs", {
     source: github("adsrmk/vecloud-docs", {
       branch: "dev",
-      checkSuites: false,
+      checkSuites: true,
     }),
     build: {
       buildEnvironment: "V3",
