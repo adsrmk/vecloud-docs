@@ -11,10 +11,11 @@ export default async function Layout({
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
   const options = baseOptions(lang);
+  // A visible sidebar can queue a dozen full article payloads.
   return (
     <DocsLayout
       tree={source.getPageTree(lang)}
-      sidebar={{ className: 'bg-fd-card', collapsible: false }}
+      sidebar={{ className: 'bg-fd-card', collapsible: false, prefetch: false }}
       tabs={false}
       {...options}
       nav={{ ...options.nav, mode: 'top' }}
