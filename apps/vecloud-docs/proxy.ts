@@ -1,30 +1,20 @@
-import { NextRequest, NextResponse, type NextFetchEvent } from 'next/server';
-import { createI18nMiddleware } from 'fumadocs-core/i18n/middleware';
+import { NextResponse, type NextRequest } from 'next/server';
 import { isMarkdownPreferred, rewritePath } from 'fumadocs-core/negotiation';
-import { i18n } from '@/lib/i18n';
-import { getDocsUrl } from '@/lib/shared';
 
-const localize = createI18nMiddleware(i18n);
-const markdownRewrites = i18n.languages.map((locale) => {
-  const path = getDocsUrl([], locale);
-  return rewritePath(`${path}{/*path}`, `/llms.mdx${path}{/*path}.md`).rewrite;
-});
+const markdown = rewritePath('/:lang/docs{/*path}', '/llms.mdx/:lang/docs{/*path}.md');
 
-export default function proxy(request: NextRequest, event: NextFetchEvent) {
+export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   if (/\.(md|txt)$/.test(pathname)) return NextResponse.next();
-  if (isMarkdownPreferred(request)) {
-    for (const rewrite of markdownRewrites) {
-      const path = rewrite(pathname);
-      if (!path) continue;
-      const target = new URL(path, request.url);
-      target.search = request.nextUrl.search;
-      return NextResponse.rewrite(target, { headers: { Vary: 'Accept' } });
-    }
-  }
-  return localize(request, event);
+  const headers = { Vary: 'Accept' };
+  const path = isMarkdownPreferred(request) && markdown.rewrite(pathname);
+  if (!path) return NextResponse.next({ headers });
+  const target = request.nextUrl.clone();
+  target.pathname = path;
+  return NextResponse.rewrite(target, { headers });
 }
 
+// next.config.mjs handles the root and unprefixed Docs redirects first.
 export const config = {
-  matcher: ['/', '/docs/:path*', '/:lang(nl|en|es|fr|de)/:path*'],
+  matcher: '/:lang(nl|en|es|fr|de)/docs/:path*',
 };

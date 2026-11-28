@@ -352,6 +352,7 @@ try {
   }
   const defaultLocale = await fetch(base + '/docs/backups?check=1', {
     redirect: 'manual',
+    headers: { 'Accept-Language': 'en-US,en;q=0.9' },
   });
   assert.equal(defaultLocale.status, 308);
   assert.equal(
@@ -362,6 +363,19 @@ try {
     new URL(defaultLocale.headers.get('location'), base).search,
     '?check=1',
   );
+  const html = await get('/en/docs/backups?check=1', 200, {
+    Accept: 'text/html, text/markdown;q=0.5',
+    'Accept-Language': 'nl',
+  });
+  assert.match(html.headers.get('content-type'), /^text\/html/);
+  assert.match(html.headers.get('vary'), /\bAccept\b/i);
+  assert.match(await html.text(), /<html[^>]* lang="en"/);
+  const markdown = await get('/en/docs/backups?check=1', 200, {
+    Accept: 'text/markdown, text/html;q=0.5',
+    'Accept-Language': 'nl',
+  });
+  assert.match(markdown.headers.get('vary'), /\bAccept\b/i);
+  assert.match(await markdown.text(), /^# /);
   await get('/it/docs', 404);
   for (const path of [
     '/brand/logo-light.png',
