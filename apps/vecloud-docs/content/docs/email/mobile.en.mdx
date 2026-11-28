@@ -1,0 +1,86 @@
+---
+title: Set up email on iPhone and Android
+description: Add your veCloud mailbox to Apple Mail or Gmail and check that you can send and receive messages.
+icon: MailOpen
+---
+
+Want to read your work email on your phone? Add your existing veCloud mailbox to the mail app you already use. Choose your phone and follow the steps for that app.
+
+[Go to iPhone](#iphone) · [Go to Android](#android) · [Fix a problem](#if-something-goes-wrong)
+
+## Find your mailbox details
+
+Open the veCloud panel, go to **Email**, open the mailbox through **Manage**, then select **Email client settings**. Keep the page handy while you set up the app. If you only have a forwarding address, [create a mailbox](./index.mdx) first or add the mailbox that receives the forwarded messages.
+
+<PortalScreenshot name="mail-clients" alt="Email client settings with the server and ports for a demonstration mailbox" caption="Copy the server name from your own settings. For outgoing mail, use the SMTP row with port 587." />
+
+- **Username** means your full email address, including the part after the @ sign.
+- **Password** means your mailbox password. If you are unsure, test it on a [webmail](./clients.mdx) sign-in screen that asks for your credentials.
+- **Server**, **host name** or **SMTP server** means the server name in the panel. Enter the name without `https://`. The example server is `mail.example.test`. Use the server name for your own mailbox.
+
+| If the app asks for this | Receiving (IMAP) | Sending (SMTP) |
+| --- | --- | --- |
+| Server | IMAP row in your panel | SMTP row in your panel |
+| Port | `993` | `587` |
+| Security | **SSL/TLS** | **STARTTLS** |
+| Sign-in | Full address and mailbox password | Same address and password |
+
+## iPhone
+
+### 1. Open Mail settings
+
+Go to **Settings → Apps → Mail → Mail Accounts → Add Account**. On older versions, **Mail** is directly under **Settings**. You can also search Settings for *Mail*. [See the Mail Accounts screen at Apple Support](https://cdsassets.apple.com/live/7WUAS350/images/ios/ios-26-iphone-16-pro-settings-apps-mail.png).
+
+### 2. Choose another mail account
+
+On a recent iPhone, enter your email address and tap **Next**. If you see a list of providers, choose **Add Other Account → Mail Account**. On older versions, look for **Other → Add Mail Account**. Enter the name recipients should see, your full address and your mailbox password. Use a description you will recognise, such as *Work email*. [See the account form at Apple Support](https://cdsassets.apple.com/live/7WUAS350/images/ios/ios-26-iphone-16-pro-settings-apps-mail-accounts-add-account-info.png).
+
+### 3. Fill in both servers if prompted
+
+Tap **Next**. If iPhone finds the settings, go to step 4. If it asks for the account type, choose **IMAP**. Under **Incoming Mail Server** and **Outgoing Mail Server**, enter the corresponding server names from the panel. Fill in your full email address and mailbox password in both sections, even if outgoing fields are marked *optional*.
+
+### 4. Save and open Apple Mail
+
+Tap **Next**, leave **Mail** enabled and tap **Save** or **Done**. Open the Mail app and select your new mailbox. Apple Mail usually handles the ports during setup. If receiving works and sending fails, open your mailbox under **Mail Accounts → Account Settings → SMTP**. Open the primary server and check that **Use SSL** is on, the port is `587`, and the mailbox address and password are entered there.
+
+## Android
+
+These steps use the **Gmail app** for Android. Your mailbox keeps its existing email address.
+
+### 1. Add an account
+
+Open Gmail, tap your profile picture or initial in the top right and choose **Add another account → Other**. If this is your first time opening Gmail, add an address from the welcome screen. [See where to find the button at Gmail Help](https://support.google.com/mail/answer/6078445?co=GENIE.Platform%3DAndroid&hl=en).
+
+<PortalScreenshot name="android-provider" alt="Gmail provider selection with Other at the bottom" caption="Tap Other at the bottom of the provider list." />
+
+### 2. Choose Personal (IMAP)
+
+Enter your full veCloud email address and tap **Next**. Choose **Personal (IMAP)** and enter your mailbox password. If you see **Manual setup** on the address screen, that button can also take you to the IMAP option. IMAP keeps the same messages and folders available on your phone and in webmail.
+
+<PortalScreenshot name="android-type" alt="Gmail shows Personal IMAP below Personal POP3" caption="Choose Personal (IMAP)." />
+
+### 3. Enter the server for incoming mail
+
+Check that **Username** shows your full address. Replace the suggested **Server** if needed with the IMAP server from the panel. If Gmail asks for more details, use `993` and **SSL/TLS**. Tap **Next**.
+
+<PortalScreenshot name="android-incoming" alt="Incoming server settings in Gmail with a full address, masked password and example server" caption="In Server, enter the IMAP server shown in your own panel. The address and host shown here are examples." />
+
+### 4. Enter the server for outgoing mail
+
+Under **SMTP server**, enter the name from the SMTP row. Leave **Require sign-in** on and use your full email address and mailbox password again. If Gmail asks for the port and security, choose `587` with **STARTTLS**. Tap **Next**, finish the account options and open your new inbox from the profile menu.
+
+<PortalScreenshot name="android-outgoing" alt="Outgoing server settings in Gmail with Require signin on and an example SMTP server" caption="Keep Require signin on and copy the SMTP server name from your panel." />
+
+## Test sending and receiving
+
+Send a test message from your new mailbox to another address you can open. Reply from that address and check whether the reply appears on your phone. If the app has multiple accounts, check the **From** field when you send.
+
+## If something goes wrong
+
+| What happens | What to check |
+| --- | --- |
+| The password is rejected. | Try [webmail](./clients.mdx). Check that you used the full address and the mailbox password. |
+| You can receive messages but cannot send them. | Check the outgoing server name and sign-in, port `587` and STARTTLS. On iPhone, also check **Use SSL**. |
+| The phone does not trust the server. | Stop setup and compare the server name with the panel. Keep security enabled and contact veCloud if the warning persists. |
+
+For [support](../help/index.mdx), include your phone and app, whether webmail works and the error message you see. Keep your password private.

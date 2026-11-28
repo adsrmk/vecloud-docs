@@ -1,0 +1,86 @@
+---
+title: Configurar el correo en iPhone y Android
+description: Añade tu buzón de veCloud a Mail de Apple o Gmail y prueba el envío y la recepción de mensajes.
+icon: MailOpen
+---
+
+¿Quieres leer tu correo de trabajo en el móvil? Añade tu buzón de veCloud a la aplicación de correo que ya usas. Elige tu teléfono y sigue los pasos de esa aplicación.
+
+[Ir a iPhone](#iphone) · [Ir a Android](#android) · [Resolver un problema](#si-algo-falla)
+
+## Ten a mano los datos de tu buzón
+
+En el panel de veCloud, abre **Email**, entra en tu buzón desde **Manage** y elige **Email client settings**. Mantén la página abierta mientras configuras la aplicación. Si solo tienes una dirección de reenvío, [crea primero un buzón](./index.mdx) o añade el buzón donde recibes esos mensajes.
+
+<PortalScreenshot name="mail-clients" alt="Email client settings con el servidor y los puertos de un buzón de demostración" caption="Copia el nombre del servidor de tus propios ajustes. Para enviar, usa la fila SMTP con el puerto 587." />
+
+- **Nombre de usuario** significa tu dirección completa de correo, incluida la parte después de la @.
+- **Contraseña** significa la contraseña del buzón. Si tienes dudas, pruébala en una pantalla de inicio de sesión de [webmail](./clients.mdx).
+- **Servidor**, **nombre del host** o **servidor SMTP** significa el nombre que aparece en el panel. Escríbelo sin `https://`. El servidor de ejemplo es `mail.example.test`. Usa el que corresponde a tu buzón.
+
+| Si la aplicación solicita | Recibir (IMAP) | Enviar (SMTP) |
+| --- | --- | --- |
+| Servidor | Fila IMAP del panel | Fila SMTP del panel |
+| Puerto | `993` | `587` |
+| Seguridad | **SSL/TLS** | **STARTTLS** |
+| Inicio de sesión | Dirección completa y contraseña del buzón | La misma dirección y contraseña |
+
+## iPhone
+
+### 1. Abre los ajustes de Mail
+
+Ve a **Ajustes → Apps → Mail → Cuentas de Mail → Añadir cuenta**. En versiones anteriores, **Mail** aparece directamente en **Ajustes**. También puedes buscar *Mail* desde Ajustes. [Ver la pantalla de cuentas en el soporte de Apple](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/es-es/ios-26-iphone-16-pro-settings-apps-mail.png).
+
+### 2. Añade otra cuenta de correo
+
+En un iPhone reciente, escribe tu dirección y toca **Siguiente**. Si aparece una lista de proveedores, elige **Añadir otra cuenta → Cuenta de correo**. En versiones anteriores, busca **Otra → Añadir cuenta de correo**. Escribe el nombre que verán los destinatarios, la dirección completa y la contraseña del buzón. Usa una descripción reconocible, como *Trabajo*. [Ver el formulario en el soporte de Apple](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/es-es/ios-26-iphone-16-pro-settings-apps-mail-accounts-add-account-info.png).
+
+### 3. Introduce ambos servidores si te los pide
+
+Toca **Siguiente**. Si el iPhone encuentra los ajustes, pasa al paso 4. Si te pide el tipo de cuenta, elige **IMAP**. En **Servidor de correo entrante** y **Servidor de correo saliente**, introduce los nombres correspondientes del panel. Completa también la dirección y la contraseña en ambos apartados, aunque el correo saliente marque esos datos como *opcionales*.
+
+### 4. Guarda y abre Mail
+
+Toca **Siguiente**, deja **Mail** activado y pulsa **Guardar** u **OK**, según la versión. Abre Mail y selecciona tu nuevo buzón. Apple Mail suele elegir los puertos durante el alta. Si recibes correos pero no puedes enviarlos, abre tu buzón desde **Cuentas de Mail → Ajustes de la cuenta → SMTP**. Entra en el servidor principal y comprueba que **Usar SSL** está activado, que el puerto es `587` y que has introducido los datos del buzón.
+
+## Android
+
+Estos pasos son para la **aplicación Gmail** en Android. Tu buzón conserva su dirección de correo.
+
+### 1. Añade una cuenta
+
+Abre Gmail, toca tu foto de perfil o tu inicial arriba a la derecha y elige **Añadir otra cuenta → Otra**. Si es la primera vez que abres Gmail, puedes añadir una dirección en la pantalla de bienvenida. [Ubicar el botón en la ayuda de Gmail](https://support.google.com/mail/answer/6078445?co=GENIE.Platform%3DAndroid&hl=es).
+
+<PortalScreenshot name="android-provider" alt="Lista de proveedores de Gmail con Otra al final" caption="Toca Otra al final de la lista. En la versión en inglés, aparece como Other." />
+
+### 2. Elige «Personal (IMAP)»
+
+Escribe la dirección completa de veCloud y toca **Siguiente**. Elige **Personal (IMAP)** y escribe la contraseña del buzón. Si ves **Configuración manual** en la pantalla de la dirección, también puedes usar ese botón. IMAP permite consultar los mismos mensajes y carpetas en el móvil y en webmail.
+
+<PortalScreenshot name="android-type" alt="Gmail muestra Personal IMAP debajo de Personal POP3" caption="Elige Personal (IMAP). El texto del ejemplo está en inglés." />
+
+### 3. Introduce el servidor de entrada
+
+Comprueba que **Nombre de usuario** contiene la dirección completa. Si hace falta, sustituye el **Servidor** sugerido por el servidor IMAP del panel. Si Gmail pide más datos, elige el puerto `993` y **SSL/TLS**. Toca **Siguiente**.
+
+<PortalScreenshot name="android-incoming" alt="Servidor de entrada de Gmail con dirección completa, contraseña oculta y servidor de ejemplo" caption="En Servidor, escribe el servidor IMAP de tu panel. La dirección y el servidor que ves son ejemplos." />
+
+### 4. Introduce el servidor de salida
+
+En **Servidor SMTP**, escribe el nombre de la fila SMTP. Mantén activado el inicio de sesión y vuelve a introducir la dirección completa y la contraseña del buzón. Si Gmail pide el puerto y el tipo de seguridad, elige `587` y **STARTTLS**. Toca **Siguiente**, completa los ajustes y abre el buzón nuevo desde el menú del perfil.
+
+<PortalScreenshot name="android-outgoing" alt="Servidor de salida de Gmail con inicio de sesión activado y servidor SMTP de ejemplo" caption="Mantén activado el inicio de sesión. En la imagen en inglés aparece como Require signin. Copia el servidor SMTP de tu panel." />
+
+## Prueba el envío y la recepción
+
+Envía un mensaje desde el buzón nuevo a otra dirección a la que tengas acceso. Responde desde esa dirección y comprueba que la respuesta llega a tu móvil. Si hay varias cuentas en la aplicación, comprueba también el campo **De** al enviar.
+
+## Si algo falla
+
+| Qué sucede | Qué puedes comprobar |
+| --- | --- |
+| La contraseña se rechaza. | Prueba en [webmail](./clients.mdx). Comprueba la dirección completa y la contraseña del buzón. |
+| Recibes mensajes, pero el envío falla. | Comprueba el servidor de salida, el inicio de sesión, el puerto `587` y STARTTLS. En iPhone, revisa también **Usar SSL**. |
+| El móvil no confía en el servidor. | Detén la configuración y compara el nombre del servidor con el del panel. Mantén la seguridad activada y contacta con veCloud si continúa el aviso. |
+
+Si necesitas [ayuda](../help/index.mdx), indica el modelo de móvil y la aplicación, si funciona webmail y el mensaje que muestra la aplicación. Mantén tu contraseña en privado.

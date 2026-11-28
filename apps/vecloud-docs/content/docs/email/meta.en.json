@@ -2,6 +2,7 @@
   "title": "Email",
   "pages": [
     "index",
+    "mobile",
     "forwarding",
     "spam",
     "autoresponder",

@@ -1,0 +1,86 @@
+---
+title: E-mail instellen op iPhone en Android
+description: Voeg je veCloud-mailbox toe aan Apple Mail of Gmail en test of je berichten kunt versturen en ontvangen.
+icon: MailOpen
+---
+
+Wil je je zakelijke e-mail op je telefoon lezen? Voeg je bestaande veCloud-mailbox toe aan de mailapp die je al gebruikt. Kies je toestel en volg alleen de stappen voor die app.
+
+[Ga naar iPhone](#iphone) · [Ga naar Android](#android) · [Los een probleem op](#als-het-niet-lukt)
+
+## Pak je mailgegevens erbij
+
+Open het veCloud-panel, ga naar **Email**, open je mailbox via **Manage** en kies **Email client settings**. Houd deze pagina open tijdens het instellen. Heb je alleen een doorstuuradres? Maak dan eerst een [mailbox](./index.mdx) aan of voeg de mailbox toe waarin de berichten aankomen.
+
+<PortalScreenshot name="mail-clients" alt="Email client settings met de servernaam en poorten voor een voorbeeldmailbox" caption="Kopieer de servernaam uit jouw eigen instellingen. Gebruik voor verzenden de SMTP-regel met poort 587." />
+
+- **Gebruikersnaam** is je volledige e-mailadres, inclusief alles na het apenstaartje.
+- **Wachtwoord** is het wachtwoord van die mailbox. Twijfel je? Test het via [webmail](./clients.mdx#webmail-openen) op een scherm waarop je zelf moet inloggen.
+- **Server**, **hostnaam** of **SMTP-server** is de servernaam uit de tabel in het panel. Vul alleen die naam in, zonder `https://`. In de voorbeelden heet de server `mail.example.test`. Gebruik bij het instellen je eigen servernaam.
+
+| Als de app hierom vraagt | Ontvangen (IMAP) | Versturen (SMTP) |
+| --- | --- | --- |
+| Server | IMAP-regel uit je panel | SMTP-regel uit je panel |
+| Poort | `993` | `587` |
+| Beveiliging | **SSL/TLS** | **STARTTLS** |
+| Aanmelden | Volledig adres en mailboxwachtwoord | Hetzelfde adres en wachtwoord |
+
+## iPhone
+
+### 1. Open de instellingen voor Mail
+
+Ga naar **Instellingen → Apps → Mail → Mailaccounts → Nieuwe account**. Op oudere iPhones staat **Mail** rechtstreeks in **Instellingen**. Zoek eventueel bovenin Instellingen op *Mail*. [Bekijk het scherm Mailaccounts bij Apple Support](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/nl-nl/ios-26-iphone-16-pro-settings-apps-mail.png).
+
+### 2. Kies een ander mailaccount
+
+Vul op een recente iPhone je e-mailadres in en tik op **Volgende**. Verschijnt een lijst met aanbieders? Kies **Voeg andere account toe → Mail-account**. Op oudere versies heet dit **Andere → Voeg mailaccount toe**. Vul je naam in zoals ontvangers die mogen zien, je volledige adres en je mailboxwachtwoord. Gebruik als beschrijving bijvoorbeeld *Werkmail*. [Bekijk het invoerscherm bij Apple Support](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/nl-nl/ios-26-iphone-16-pro-settings-apps-mail-accounts-add-account-info.png).
+
+### 3. Vul zo nodig beide servers in
+
+Tik op **Volgende**. Vindt de iPhone de instellingen automatisch, dan kun je door naar stap 4. Vraagt hij om een type account, kies **IMAP**. Vul bij **Server inkomende post** en **Server uitgaande post** de bijbehorende servernaam uit het panel in. Vul in beide blokken ook je volledige e-mailadres en mailboxwachtwoord in, ook als een veld bij de uitgaande server *optioneel* heet.
+
+### 4. Sla op en open Apple Mail
+
+Tik op **Volgende**, laat **Mail** ingeschakeld en kies **Bewaar** of **Gereed**. Open de Mail-app en kies je nieuwe postbus. Tijdens het toevoegen vraagt Apple Mail meestal niet om poorten. Als ontvangen wel werkt maar versturen niet, open dan je mailbox onder **Mailaccounts → Accountinstellingen → SMTP**. Kies de primaire server en controleer of **Gebruik SSL** aan staat, de serverpoort `587` is en de mailboxgegevens voor die server zijn ingevuld.
+
+## Android
+
+Deze stappen zijn voor de **Gmail-app** op Android. De naam van je mailbox blijft gewoon je eigen e-mailadres.
+
+### 1. Voeg een account toe
+
+Open Gmail, tik rechtsboven op je profielfoto of initiaal en kies **Nog een account toevoegen → Anders**. Gebruik je Gmail voor het eerst, dan kun je vanaf het beginscherm meteen een adres toevoegen. [Bekijk waar de knop staat bij Gmail Help](https://support.google.com/mail/answer/6078445?co=GENIE.Platform%3DAndroid&hl=nl).
+
+<PortalScreenshot name="android-provider" alt="Gmail toont een lijst met aanbieders met Anders onderaan" caption="Tik op Anders. Op een Engelstalig toestel staat hier Other." />
+
+### 2. Kies Persoonlijk (IMAP)
+
+Vul je volledige veCloud-adres in en tik op **Volgende**. Kies **Persoonlijk (IMAP)** en vul je mailboxwachtwoord in. Zie je **Handmatig instellen** bij het adres, dan kun je via die knop ook bij de IMAP-keuze komen. Met IMAP zie je dezelfde berichten en mappen op je telefoon en in webmail.
+
+<PortalScreenshot name="android-type" alt="Gmail toont Persoonlijk IMAP onder Persoonlijk POP3" caption="Kies Persoonlijk (IMAP). In dit voorbeeld staat Personal (IMAP)." />
+
+### 3. Vul de server voor inkomende mail in
+
+Controleer bij **Gebruikersnaam** het volledige e-mailadres. Vervang de voorgestelde **Server** zo nodig door de IMAP-server uit het panel. Vraagt Gmail om extra velden, kies `993` en **SSL/TLS**. Tik op **Volgende**.
+
+<PortalScreenshot name="android-incoming" alt="Gmail toont de inkomende mailserver met het volledige adres, verborgen wachtwoord en voorbeeldserver" caption="In Server komt de IMAP-server uit jouw panel. Het ingevulde adres en de server zijn voorbeelden." />
+
+### 4. Vul de server voor uitgaande mail in
+
+Neem bij **SMTP-server** de naam uit de SMTP-regel. Laat **Aanmelden vereist** aan en gebruik weer je volledige e-mailadres en mailboxwachtwoord. Vraagt Gmail om een poort en beveiliging, kies `587` met **STARTTLS**. Tik op **Volgende**, rond de accountopties af en open je nieuwe inbox via je profiel.
+
+<PortalScreenshot name="android-outgoing" alt="Gmail toont de uitgaande server met Aanmelden vereist ingeschakeld en de voorbeeldserver ingevuld" caption="Laat Aanmelden vereist aan. In deze Engelstalige weergave heet dat Require signin. Vul bij SMTP-server de naam uit je eigen panel in." />
+
+## Test ontvangen én versturen
+
+Stuur vanuit je nieuwe mailbox een testbericht naar een tweede adres dat je kunt openen. Beantwoord het daar en kijk of het antwoord binnenkomt op je telefoon. Controleer bij het versturen ook het veld **Van** als je meerdere accounts in dezelfde app hebt.
+
+## Als het niet lukt
+
+| Wat je merkt | Wat je kunt controleren |
+| --- | --- |
+| Je wachtwoord wordt geweigerd. | Probeer [webmail](./clients.mdx#webmail-openen). Controleer of je het volledige adres en het mailboxwachtwoord gebruikt. |
+| Je ontvangt mail, maar kunt niets versturen. | Controleer bij de uitgaande server de hostnaam, aanmelding, poort `587` en STARTTLS. Controleer op iPhone ook de schakelaar **Gebruik SSL**. |
+| Je telefoon vertrouwt de server niet. | Stop de installatie en vergelijk de hostnaam met de tabel in het panel. Laat de beveiliging aan en neem contact op met veCloud als de melding blijft terugkomen. |
+
+Kom je er niet uit? Vermeld bij [support](../help/index.mdx) welk toestel en welke app je gebruikt, of webmail werkt en welke foutmelding je ziet. Houd je wachtwoord voor jezelf.

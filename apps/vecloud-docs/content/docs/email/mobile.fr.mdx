@@ -1,0 +1,86 @@
+---
+title: Configurer son e-mail sur iPhone et Android
+description: Ajoutez votre boîte veCloud dans Mail d’Apple ou Gmail, puis testez l’envoi et la réception.
+icon: MailOpen
+---
+
+Vous souhaitez lire vos e-mails professionnels sur votre téléphone ? Ajoutez votre boîte veCloud à l’application de messagerie que vous utilisez déjà. Choisissez votre appareil pour suivre le parcours qui vous concerne.
+
+[Aller à iPhone](#iphone) · [Aller à Android](#android) · [Résoudre un problème](#en-cas-de-problème)
+
+## Retrouvez les réglages de votre boîte
+
+Dans le panneau veCloud, ouvrez **Email**, accédez à votre boîte via **Manage**, puis choisissez **Email client settings**. Gardez la page ouverte pendant la configuration. Pour une adresse de redirection seule, [créez d’abord une boîte](./index.mdx) ou ajoutez la boîte où arrivent les messages transférés.
+
+<PortalScreenshot name="mail-clients" alt="Email client settings avec les noms de serveur et les ports d’une boîte de démonstration" caption="Copiez le nom de serveur de vos propres réglages. Pour l’envoi, choisissez la ligne SMTP avec le port 587." />
+
+- **Nom d’utilisateur** désigne votre adresse e-mail complète, y compris la partie après le signe @.
+- **Mot de passe** désigne celui de la boîte. En cas de doute, testez-le sur un écran de connexion au [webmail](./clients.mdx).
+- **Serveur**, **nom d’hôte** ou **serveur SMTP** désigne le nom affiché dans le panneau. Saisissez-le sans `https://`. Le serveur d’exemple est `mail.example.test`. Utilisez le nom associé à votre propre boîte.
+
+| Si l’application demande | Réception (IMAP) | Envoi (SMTP) |
+| --- | --- | --- |
+| Serveur | Ligne IMAP du panneau | Ligne SMTP du panneau |
+| Port | `993` | `587` |
+| Sécurité | **SSL/TLS** | **STARTTLS** |
+| Connexion | Adresse complète et mot de passe de la boîte | Les mêmes identifiants |
+
+## iPhone
+
+### 1. Ouvrez les réglages de Mail
+
+Allez dans **Réglages → Apps → Mail → Comptes Mail → Ajouter un compte**. Sur les anciennes versions, **Mail** se trouve directement dans **Réglages**. Vous pouvez aussi chercher *Mail* dans Réglages. [Voir l’écran des comptes chez Apple](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/fr-fr/ios-26-iphone-16-pro-settings-apps-mail.png).
+
+### 2. Ajoutez un autre compte de messagerie
+
+Sur un iPhone récent, saisissez votre adresse et touchez **Suivant**. Si vous voyez une liste de fournisseurs, choisissez **Ajouter un autre compte → Compte de messagerie**. Sur les anciennes versions, cherchez **Autre → Ajouter un compte Mail**. Saisissez le nom que vos destinataires verront, votre adresse complète et le mot de passe de la boîte. Choisissez une description facile à reconnaître, comme *Travail*. [Voir le formulaire chez Apple](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/fr-fr/ios-26-iphone-16-pro-settings-apps-mail-accounts-add-account-info.png).
+
+### 3. Renseignez les deux serveurs si nécessaire
+
+Touchez **Suivant**. Si l’iPhone trouve les réglages, passez à l’étape 4. S’il demande un type de compte, choisissez **IMAP**. Renseignez les noms de serveur pour la réception et l’envoi en suivant les lignes correspondantes du panneau. Indiquez votre adresse complète et le mot de passe dans les deux parties, même si les champs d’envoi portent la mention *facultatif*.
+
+### 4. Enregistrez et ouvrez Mail
+
+Touchez **Suivant**, laissez **Mail** activé et choisissez **Enregistrer** ou **Terminé**. Ouvrez Mail et choisissez votre nouvelle boîte. Apple Mail choisit généralement les ports lors de la configuration. Si vous recevez les messages mais ne pouvez pas en envoyer, ouvrez votre boîte sous **Comptes Mail → Réglages du compte → SMTP**. Ouvrez le serveur principal et vérifiez que **Utiliser SSL** est activé, que le port est `587` et que les identifiants de la boîte sont renseignés.
+
+## Android
+
+Ces étapes concernent l’**application Gmail** sur Android. Votre boîte conserve son adresse e-mail.
+
+### 1. Ajoutez un compte
+
+Ouvrez Gmail, touchez votre photo de profil ou votre initiale en haut à droite, puis choisissez **Ajouter un autre compte → Autre**. À la première ouverture de Gmail, vous pouvez ajouter une adresse depuis l’écran d’accueil. [Repérer le bouton dans l’aide Gmail](https://support.google.com/mail/answer/6078445?co=GENIE.Platform%3DAndroid&hl=fr).
+
+<PortalScreenshot name="android-provider" alt="Liste des fournisseurs Gmail avec l’option Autre en bas" caption="Touchez Autre en bas de la liste. Dans la version anglaise, le bouton s’appelle Other." />
+
+### 2. Choisissez « Personnel (IMAP) »
+
+Saisissez votre adresse veCloud complète, puis touchez **Suivant**. Choisissez **Personnel (IMAP)** et saisissez le mot de passe de la boîte. Si l’écran de l’adresse propose **Configuration manuelle**, ce bouton mène aussi au choix IMAP. IMAP vous donne accès aux mêmes messages et dossiers sur votre téléphone et dans le webmail.
+
+<PortalScreenshot name="android-type" alt="Gmail propose Personnel IMAP sous Personnel POP3" caption="Choisissez Personnel (IMAP). L’exemple en anglais indique Personal (IMAP)." />
+
+### 3. Renseignez le serveur de réception
+
+Vérifiez que le **Nom d’utilisateur** contient votre adresse complète. Si nécessaire, remplacez le **Serveur** proposé par le serveur IMAP du panneau. Si Gmail demande plus de détails, choisissez le port `993` et **SSL/TLS**. Touchez **Suivant**.
+
+<PortalScreenshot name="android-incoming" alt="Serveur de réception dans Gmail avec adresse complète, mot de passe masqué et serveur d’exemple" caption="Dans Serveur, saisissez le serveur IMAP de votre panneau. L’adresse et le serveur affichés sont des exemples." />
+
+### 4. Renseignez le serveur d’envoi
+
+Dans **Serveur SMTP**, saisissez le nom de la ligne SMTP. Laissez la connexion requise et renseignez à nouveau votre adresse complète et votre mot de passe. Si Gmail demande un port et un type de sécurité, choisissez `587` et **STARTTLS**. Touchez **Suivant**, terminez la configuration et ouvrez votre boîte depuis le menu du profil.
+
+<PortalScreenshot name="android-outgoing" alt="Serveur d’envoi de Gmail avec connexion requise et serveur SMTP d’exemple" caption="Laissez la connexion requise. Dans l’exemple en anglais, le réglage s’appelle Require signin. Copiez le serveur SMTP depuis votre panneau." />
+
+## Testez l’envoi et la réception
+
+Envoyez un message depuis la nouvelle boîte vers une autre adresse à laquelle vous avez accès. Répondez depuis cette adresse et vérifiez que la réponse arrive sur votre téléphone. Avec plusieurs comptes dans l’application, vérifiez aussi le champ **De** à l’envoi.
+
+## En cas de problème
+
+| Ce qui se passe | Ce que vous pouvez vérifier |
+| --- | --- |
+| Le mot de passe est refusé. | Essayez le [webmail](./clients.mdx). Vérifiez l’adresse complète et le mot de passe de la boîte. |
+| Vous recevez les messages mais l’envoi échoue. | Vérifiez le serveur d’envoi, les identifiants, le port `587` et STARTTLS. Sur iPhone, vérifiez aussi **Utiliser SSL**. |
+| Le téléphone ne fait pas confiance au serveur. | Interrompez la configuration et comparez le nom du serveur à celui du panneau. Laissez la sécurité activée et contactez veCloud si le message persiste. |
+
+Si vous avez besoin d’[aide](../help/index.mdx), précisez le téléphone, l’application, si le webmail fonctionne et le message affiché. Gardez votre mot de passe pour vous.

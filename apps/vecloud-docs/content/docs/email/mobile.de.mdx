@@ -1,0 +1,86 @@
+---
+title: E-Mail auf dem iPhone und unter Android einrichten
+description: Richte dein veCloud-Postfach in Apple Mail oder Gmail ein und teste Versand und Empfang.
+icon: MailOpen
+---
+
+Du möchtest deine geschäftlichen E-Mails auf dem Handy lesen? Füge dein bestehendes veCloud-Postfach zu deiner Mail-App hinzu. Wähle dein Gerät und folge den Schritten für diese App.
+
+[Zum iPhone](#iphone) · [Zu Android](#android) · [Probleme lösen](#wenn-es-nicht-klappt)
+
+## Halte deine Postfachdaten bereit
+
+Öffne das veCloud-Panel und gehe zu **Email**. Öffne dein Postfach über **Manage** und wähle **Email client settings**. Lass diese Seite bei der Einrichtung offen. Wenn du nur eine Weiterleitungsadresse hast, richte zuerst ein [Postfach](./index.mdx) ein oder füge das Postfach hinzu, das die weitergeleiteten Nachrichten empfängt.
+
+<PortalScreenshot name="mail-clients" alt="Email client settings mit Servername und Ports eines Beispielpostfachs" caption="Kopiere den Servernamen aus deinen Einstellungen. Verwende für den Versand die SMTP-Zeile mit Port 587." />
+
+- **Benutzername** ist deine vollständige E-Mail-Adresse einschließlich des Teils nach dem @.
+- **Passwort** ist das Passwort des Postfachs. Wenn du unsicher bist, teste es auf der [Webmail](./clients.mdx)-Anmeldeseite.
+- **Server**, **Hostname** oder **SMTP-Server** ist der Servername im Panel. Gib ihn ohne `https://` ein. `mail.example.test` ist der Beispielserver. Verwende den Servernamen deines Postfachs.
+
+| Wenn die App danach fragt | Empfangen (IMAP) | Senden (SMTP) |
+| --- | --- | --- |
+| Server | IMAP-Zeile im Panel | SMTP-Zeile im Panel |
+| Port | `993` | `587` |
+| Sicherheit | **SSL/TLS** | **STARTTLS** |
+| Anmeldung | Vollständige Adresse und Postfachpasswort | Dieselbe Adresse und dasselbe Passwort |
+
+## iPhone
+
+### 1. Öffne die Mail-Einstellungen
+
+Gehe zu **Einstellungen → Apps → Mail → Mail-Accounts → Account hinzufügen**. Bei älteren Versionen steht **Mail** direkt in den **Einstellungen**. Du kannst dort auch nach *Mail* suchen. [Den Bildschirm „Mail-Accounts“ bei Apple ansehen](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/de-de/ios-26-iphone-16-pro-settings-apps-mail.png).
+
+### 2. Füge einen anderen Mail-Account hinzu
+
+Gib auf einem aktuellen iPhone deine E-Mail-Adresse ein und tippe auf **Weiter**. Wenn eine Anbieterliste erscheint, wähle **Anderen Account hinzufügen → Mail-Account**. Bei älteren Versionen findest du den Weg unter **Andere → Mail-Account hinzufügen**. Gib den Namen ein, den Empfänger sehen sollen, sowie deine vollständige Adresse und das Postfachpasswort. Wähle eine Beschreibung wie *Arbeit*. [Das Formular bei Apple ansehen](https://cdsassets.apple.com/live/7WUAS350/images/ios/locale/de-de/ios-26-iphone-16-pro-settings-apps-mail-accounts-add-account-info.png).
+
+### 3. Gib bei Bedarf beide Server ein
+
+Tippe auf **Weiter**. Findet das iPhone die Einstellungen, gehe zu Schritt 4. Wenn es nach dem Accounttyp fragt, wähle **IMAP**. Übernimm unter **Server für eintreffende E-Mails** und **Server für ausgehende E-Mails** jeweils den passenden Servernamen aus dem Panel. Gib in beiden Bereichen die vollständige E-Mail-Adresse und das Postfachpasswort ein, auch wenn die Felder für ausgehende E-Mails als optional angezeigt werden.
+
+### 4. Sichere den Account und öffne Mail
+
+Tippe auf **Weiter**, lass **Mail** aktiviert und tippe auf **Sichern** oder **Fertig**. Wähle in der Mail-App dein neues Postfach. Apple Mail ermittelt die Ports bei der Einrichtung meist selbst. Wenn der Empfang klappt, der Versand aber scheitert, wähle dein Postfach unter **Mail-Accounts → Accounteinstellungen → SMTP**. Öffne den primären Server und prüfe, ob **SSL verwenden** aktiviert ist, der Port `587` lautet und deine Postfachdaten eingetragen sind.
+
+## Android
+
+Diese Schritte gelten für die **Gmail-App** unter Android. Dein Postfach behält seine E-Mail-Adresse.
+
+### 1. Füge ein Konto hinzu
+
+Öffne Gmail, tippe rechts oben auf dein Profilbild oder deinen Anfangsbuchstaben und wähle **Weiteres Konto hinzufügen → Sonstige**. Wenn du Gmail zum ersten Mal öffnest, kannst du auf dem Begrüßungsbildschirm eine Adresse hinzufügen. [Den Einstieg in der Gmail-Hilfe ansehen](https://support.google.com/mail/answer/6078445?co=GENIE.Platform%3DAndroid&hl=de).
+
+<PortalScreenshot name="android-provider" alt="Liste der Gmail-Anbieter mit Sonstige am unteren Ende" caption="Tippe unten auf Sonstige. In der englischen Ansicht steht dort Other." />
+
+### 2. Wähle „Privat (IMAP)“
+
+Gib deine vollständige veCloud-E-Mail-Adresse ein und tippe auf **Weiter**. Wähle **Privat (IMAP)** und gib das Postfachpasswort ein. Falls du bei der Adresse **Manuell einrichten** siehst, gelangst du auch darüber zur IMAP-Auswahl. Mit IMAP stehen dieselben Nachrichten und Ordner am Handy und in Webmail zur Verfügung.
+
+<PortalScreenshot name="android-type" alt="Gmail zeigt Privat IMAP unter Privat POP3" caption="Wähle Privat (IMAP). Im Beispiel steht Personal (IMAP)." />
+
+### 3. Gib den Server für eingehende E-Mails ein
+
+Prüfe, ob unter **Nutzername** deine vollständige Adresse steht. Ersetze den vorgeschlagenen **Server** bei Bedarf durch den IMAP-Server aus dem Panel. Wenn Gmail weitere Angaben verlangt, verwende Port `993` und **SSL/TLS**. Tippe auf **Weiter**.
+
+<PortalScreenshot name="android-incoming" alt="Gmail-Eingangsserver mit vollständiger Adresse, verdecktem Passwort und Beispielserver" caption="Unter Server trägst du den IMAP-Server aus deinem Panel ein. Die gezeigte Adresse und der Server sind Beispiele." />
+
+### 4. Gib den Server für ausgehende E-Mails ein
+
+Übernimm für **SMTP-Server** den Namen aus der SMTP-Zeile. Lass die Anmeldung aktiviert und verwende erneut deine vollständige E-Mail-Adresse und das Postfachpasswort. Fragt Gmail nach Port und Sicherheit, wähle `587` mit **STARTTLS**. Tippe auf **Weiter**, schließe die Kontooptionen ab und öffne dein neues Postfach über dein Profil.
+
+<PortalScreenshot name="android-outgoing" alt="Gmail-Ausgangsserver mit eingeschalteter Anmeldung und Beispielserver" caption="Lass die Anmeldung aktiviert. Im englischen Beispiel steht Require signin. Gib den SMTP-Server aus deinem Panel ein." />
+
+## Teste Versand und Empfang
+
+Schicke aus deinem neuen Postfach eine Testnachricht an eine zweite Adresse, auf die du Zugriff hast. Antworte von dort und prüfe, ob die Antwort auf dem Handy ankommt. Wenn du mehrere Konten eingerichtet hast, kontrolliere beim Senden auch das Feld **Von**.
+
+## Wenn es nicht klappt
+
+| Was passiert | Was du prüfen kannst |
+| --- | --- |
+| Das Passwort wird abgelehnt. | Teste [Webmail](./clients.mdx). Prüfe die vollständige Adresse und das Postfachpasswort. |
+| Empfangen klappt, Senden scheitert. | Prüfe Servername und Anmeldung für den Versand sowie Port `587` und STARTTLS. Kontrolliere auf dem iPhone auch **SSL verwenden**. |
+| Das Gerät vertraut dem Server nicht. | Unterbrich die Einrichtung und vergleiche den Servernamen mit der Tabelle im Panel. Lass die Sicherheit aktiviert und wende dich bei anhaltender Meldung an veCloud. |
+
+Nenne dem [Support](../help/index.mdx) dein Gerät, die App und die genaue Fehlermeldung. Sag dazu, ob Webmail funktioniert. Behalte dein Passwort für dich.

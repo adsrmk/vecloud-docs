@@ -32,6 +32,26 @@
     "height": 1740,
     "density": 3
   },
+  "android-incoming": {
+    "width": 1080,
+    "height": 1104,
+    "density": 3
+  },
+  "android-outgoing": {
+    "width": 1080,
+    "height": 1314,
+    "density": 3
+  },
+  "android-provider": {
+    "width": 1080,
+    "height": 1134,
+    "density": 3
+  },
+  "android-type": {
+    "width": 1080,
+    "height": 783,
+    "density": 3
+  },
   "apps": {
     "width": 3840,
     "height": 2700,
