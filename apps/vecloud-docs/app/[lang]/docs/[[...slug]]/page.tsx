@@ -1,7 +1,6 @@
 import { source } from '@/lib/source';
 import {
   DocsBody,
-  DocsDescription,
   DocsPage,
   DocsTitle,
 } from 'fumadocs-ui/layouts/notebook/page';
@@ -32,9 +31,6 @@ export default async function Page(
       <DocsTitle className={`docs-article-title ${geist.variable}`}>
         {page.data.title}
       </DocsTitle>
-      <DocsDescription className="text-sm leading-5">
-        {page.data.description}
-      </DocsDescription>
       <DocsBody className={`docs-article-body ${geist.variable}`}>
         <MDX
           components={getMDXComponents({
