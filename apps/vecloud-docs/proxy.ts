@@ -1,20 +1,16 @@
 import { NextResponse, type NextRequest } from 'next/server';
-import { isMarkdownPreferred, rewritePath } from 'fumadocs-core/negotiation';
-
-const markdown = rewritePath('/:lang/docs{/*path}', '/llms.mdx/:lang/docs{/*path}.md');
+import { isMarkdownPreferred } from 'fumadocs-core/negotiation';
 
 export default function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
-  if (/\.(md|txt)$/.test(pathname)) return NextResponse.next();
-  const headers = { Vary: 'Accept' };
-  const path = isMarkdownPreferred(request) && markdown.rewrite(pathname);
-  if (!path) return NextResponse.next({ headers });
+  if (/\.(md|txt)$/.test(pathname) || !isMarkdownPreferred(request)) {
+    return NextResponse.next();
+  }
   const target = request.nextUrl.clone();
-  target.pathname = path;
-  return NextResponse.rewrite(target, { headers });
+  target.pathname = `/llms.mdx${pathname}.md`;
+  return NextResponse.rewrite(target);
 }
 
-// next.config.mjs handles the root and unprefixed Docs redirects first.
 export const config = {
-  matcher: '/:lang(nl|en|es|fr|de)/docs/:path*',
+  matcher: ['/docs/:path*', '/:lang(nl|es|fr|de)/docs/:path*'],
 };

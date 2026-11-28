@@ -55,8 +55,8 @@ async function get(path, expected = 200, headers = {}) {
   assert.equal(response.status, expected, path);
   return response;
 }
-const locales = ['nl', 'en', 'es', 'fr', 'de'];
-const prefix = (locale) => `/${locale}`;
+const locales = ['en', 'nl', 'es', 'fr', 'de'];
+const prefix = (locale) => locale === 'en' ? '' : `/${locale}`;
 const content = new Map();
 const screenshotNames = new Set();
 const walkthroughNames = new Set();
@@ -70,13 +70,14 @@ const screenshotDimensions = JSON.parse(
 const files = await readdir(new URL('content/docs/', app), { recursive: true });
 for (const file of files) {
   if (!file.endsWith('.mdx')) continue;
-  const match = file.match(/\.(en|es|fr|de)\.mdx$/);
-  const locale = match?.[1] ?? 'nl';
-  const parts = file.replace(/(?:\.(?:en|es|fr|de))?\.mdx$/, '').split('/');
+  const match = file.match(/\.(en|nl|es|fr|de)\.mdx$/);
+  assert.ok(match, file + ' explicit locale');
+  const locale = match[1];
+  const parts = file.slice(0, -match[0].length).split('/');
   const slugs = [];
   for (const part of parts) if (!part.startsWith('(')) slugs.push(part);
   if (slugs.at(-1) === 'index') slugs.pop();
-  const path = `/${locale}/docs${slugs.length ? '/' + slugs.join('/') : ''}`;
+  const path = `${prefix(locale)}/docs${slugs.length ? '/' + slugs.join('/') : ''}`;
   assert.ok(!content.has(path), 'Unique route: ' + path);
   const mdx = await readFile(new URL('content/docs/' + file, app), 'utf8');
   assert.match(mdx, /^title: .+/m, file + ' title');
@@ -96,11 +97,11 @@ for (const file of files) {
 }
 const defaultPages = [];
 for (const path of content.keys())
-  if (path.startsWith('/nl/')) defaultPages.push(path);
+  if (path === '/docs' || path.startsWith('/docs/')) defaultPages.push(path);
 for (const path of defaultPages)
   for (const locale of locales)
     assert.ok(
-      content.has('/' + locale + path.slice(3)),
+      content.has(prefix(locale) + path),
       path + ' translation ' + locale,
     );
 const escapeHTML = (value) =>
@@ -141,7 +142,8 @@ try {
     const location = new URL(url);
     assert.equal(location.origin, 'https://docs.vecloud.eu');
     const path = location.pathname;
-    const locale = path.match(/^\/(nl|en|es|fr|de)(?:\/|$)/)?.[1] ?? 'nl';
+    const locale = path.match(/^\/(nl|es|fr|de)(?:\/|$)/)?.[1] ?? 'en';
+    const docsPath = path.slice(prefix(locale).length);
     const page = content.get(path);
     assert.ok(page, path + ' source exists');
     const { title } = page;
@@ -159,7 +161,7 @@ try {
       const target = new URL(href.replaceAll('&amp;', '&'), location);
       if (
         target.origin === location.origin &&
-        /^\/(nl|en|es|fr|de)\/docs(?:\/|$)/.test(target.pathname)
+        /^(?:\/(?:nl|en|es|fr|de))?\/docs(?:\/|$)/.test(target.pathname)
       )
         internalLinks.add(target.pathname + target.hash);
     }
@@ -173,9 +175,11 @@ try {
       html.includes(`rel="canonical" href="${location.href}"`),
       path + ' canonical',
     );
-    for (const alternate of locales)
+    for (const alternate of [...locales, 'x-default'])
       assert.ok(
-        html.includes(`hrefLang="${alternate}"`),
+        html.includes(
+          `hrefLang="${alternate}" href="${location.origin}${prefix(alternate === 'x-default' ? 'en' : alternate)}${docsPath}"`,
+        ),
         path + ' alternate ' + alternate,
       );
     assert.ok(!html.includes('Hello World'));
@@ -195,7 +199,7 @@ try {
           assert.ok(html.includes(`/walkthroughs/${name}-${theme}.mp4`), path + ' ' + theme + ' clip');
       }
     }
-    if (locale !== 'nl')
+    if (locale !== 'en')
       assert.ok(
         !/href="\/docs(?:[\/#"])/.test(html),
         path + ' links keep locale',
@@ -232,9 +236,9 @@ try {
     [],
   );
   assert.deepEqual(
-    await (await get('/api/search?query=herstellen&limit=2')).json(),
-    await (await get('/api/search?query=herstellen&limit=2&locale=nl')).json(),
-    'Search defaults to Dutch with the requested limit',
+    await (await get('/api/search?query=restore&limit=2')).json(),
+    await (await get('/api/search?query=restore&limit=2&locale=en')).json(),
+    'Search defaults to English with the requested limit',
   );
   const frenchAuthentication = await (
     await get('/api/search?query=authentification&locale=fr')
@@ -275,6 +279,8 @@ try {
       locale + ' search isolation',
     );
     for (const path of [
+      prefix(locale) + '/docs.md',
+      prefix(locale) + '/docs',
       prefix(locale) + '/docs/backups.md',
       prefix(locale) + '/docs/backups',
     ]) {
@@ -363,27 +369,27 @@ try {
       }),
     );
   }
-  const defaultLocale = await fetch(base + '/docs/backups?check=1', {
-    redirect: 'manual',
-    headers: { 'Accept-Language': 'en-US,en;q=0.9' },
-  });
-  assert.equal(defaultLocale.status, 308);
-  assert.equal(
-    new URL(defaultLocale.headers.get('location'), base).pathname,
-    '/nl/docs/backups',
-  );
-  assert.equal(
-    new URL(defaultLocale.headers.get('location'), base).search,
-    '?check=1',
-  );
-  const html = await get('/en/docs/backups?check=1', 200, {
+  for (const [from, to] of [
+    ['/en', '/docs'],
+    ['/en/docs', '/docs'],
+    ['/en/docs.md', '/docs.md'],
+    ['/en/docs/email/mobile', '/docs/email/mobile'],
+    ['/en/docs/backups.md', '/docs/backups.md'],
+    ['/llms.mdx/en/docs/backups.md', '/llms.mdx/docs/backups.md'],
+  ]) {
+    const legacy = await fetch(base + from + '?check=1', { redirect: 'manual' });
+    assert.equal(legacy.status, 308, from);
+    const target = new URL(legacy.headers.get('location'), base);
+    assert.equal(target.pathname + target.search, to + '?check=1', from);
+  }
+  const html = await get('/docs/backups?check=1', 200, {
     Accept: 'text/html, text/markdown;q=0.5',
     'Accept-Language': 'nl',
   });
   assert.match(html.headers.get('content-type'), /^text\/html/);
   assert.match(html.headers.get('vary'), /\bAccept\b/i);
   assert.match(await html.text(), /<html[^>]* lang="en"/);
-  const markdown = await get('/en/docs/backups?check=1', 200, {
+  const markdown = await get('/docs/backups?check=1', 200, {
     Accept: 'text/markdown, text/html;q=0.5',
     'Accept-Language': 'nl',
   });
@@ -400,7 +406,9 @@ try {
     assert.match(response.headers.get('content-type'), /^image\//);
     await response.arrayBuffer();
   }
-  assert.match(await (await get('/llms.txt')).text(), /\/en\/docs/);
+  const llmsIndex = await (await get('/llms.txt')).text();
+  assert.match(llmsIndex, /\]\(\/docs\/backups\.md\)/);
+  assert.doesNotMatch(llmsIndex, /\]\(\/en\/docs/);
   assert.match(
     await (await get('/robots.txt')).text(),
     /https:\/\/docs.vecloud.eu\/sitemap.xml/,
