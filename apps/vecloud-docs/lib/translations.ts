@@ -7,6 +7,11 @@ const nl = {
     'Handleidingen voor websites, WordPress, e-mail, DNS, SSL en back-ups in het veCloud Control Panel.',
   getStarted: 'Aan de slag',
   openPanel: 'Open Control Panel',
+  topicGroups: {
+    hosting: 'Hosting',
+    management: 'Websitebeheer',
+    support: 'Account en hulp',
+  },
   topics: {
     websites: {
       title: 'Websites & domeinen',
@@ -69,6 +74,11 @@ export const messages = {
       'Guides for websites, WordPress, email, DNS, SSL and backups in the veCloud Control Panel.',
     getStarted: 'Get started',
     openPanel: 'Open Control Panel',
+    topicGroups: {
+      hosting: 'Hosting',
+      management: 'Site management',
+      support: 'Account and support',
+    },
     topics: {
       websites: {
         title: 'Websites & domains',
@@ -129,6 +139,11 @@ export const messages = {
       'Guías de sitios web, WordPress, correo, DNS, SSL y copias de seguridad en veCloud Control Panel.',
     getStarted: 'Primeros pasos',
     openPanel: 'Abrir Control Panel',
+    topicGroups: {
+      hosting: 'Alojamiento',
+      management: 'Gestión del sitio',
+      support: 'Cuenta y ayuda',
+    },
     topics: {
       websites: {
         title: 'Sitios web y dominios',
@@ -190,6 +205,11 @@ export const messages = {
       'Guides pour les sites web, WordPress, les e-mails, DNS, SSL et les sauvegardes dans veCloud Control Panel.',
     getStarted: 'Premiers pas',
     openPanel: 'Ouvrir Control Panel',
+    topicGroups: {
+      hosting: 'Hébergement',
+      management: 'Gestion du site',
+      support: 'Compte et assistance',
+    },
     topics: {
       websites: {
         title: 'Sites web et domaines',
@@ -253,6 +273,11 @@ export const messages = {
       'Anleitungen für Websites, WordPress, E-Mail, DNS, SSL und Backups im veCloud Control Panel.',
     getStarted: 'Erste Schritte',
     openPanel: 'Control Panel öffnen',
+    topicGroups: {
+      hosting: 'Hosting',
+      management: 'Website-Verwaltung',
+      support: 'Konto und Hilfe',
+    },
     topics: {
       websites: {
         title: 'Websites und Domains',

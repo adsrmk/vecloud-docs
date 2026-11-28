@@ -4,65 +4,66 @@ import { ArrowRight } from 'lucide-react';
 import { messages } from '@/lib/translations';
 import type { Locale } from '@/lib/i18n';
 import { getDocsUrl } from '@/lib/shared';
-import { Card, Cards } from 'fumadocs-ui/components/card';
-import {
-  Globe,
-  Blocks,
-  Mail,
-  Archive,
-  LockKeyhole,
-  FolderOpen,
-  Users,
-  Package,
-  Database,
-  Gauge,
-  Code,
-  LifeBuoy,
-} from 'lucide-react';
 
-const topics = [
+type Topic = keyof (typeof messages)['en']['topics'];
+
+const guidePaths: Partial<Record<Topic, string[]>> = {
+  account: ['account', 'navigation'],
+  developers: ['developers', 'php'],
+};
+
+const topicGroups = [
   {
-    slug: 'account',
-    path: ['account', 'navigation'],
-    icon: <Users aria-hidden />,
+    id: 'hosting',
+    topics: ['websites', 'applications', 'wordpress', 'email'],
   },
-  { slug: 'websites', icon: <Globe aria-hidden /> },
-  { slug: 'applications', icon: <Package aria-hidden /> },
-  { slug: 'wordpress', icon: <Blocks aria-hidden /> },
-  { slug: 'email', icon: <Mail aria-hidden /> },
-  { slug: 'backups', icon: <Archive aria-hidden /> },
-  { slug: 'dns-ssl', icon: <LockKeyhole aria-hidden /> },
-  { slug: 'files', icon: <FolderOpen aria-hidden /> },
-  { slug: 'databases', icon: <Database aria-hidden /> },
-  { slug: 'performance', icon: <Gauge aria-hidden /> },
   {
-    slug: 'developers',
-    path: ['developers', 'php'],
-    icon: <Code aria-hidden />,
+    id: 'management',
+    topics: [
+      'backups', 'dns-ssl', 'files', 'databases', 'performance', 'developers',
+    ],
   },
-  { slug: 'help', icon: <LifeBuoy aria-hidden /> },
-] as const;
+  { id: 'support', topics: ['account', 'help'] },
+] as const satisfies ReadonlyArray<{
+  id: keyof (typeof messages)['en']['topicGroups'];
+  topics: readonly Topic[];
+}>;
 
 export function Topics({ locale }: { locale: Locale }) {
+  const text = messages[locale];
+
   return (
-    <Cards>
-      {topics.map((topic) => {
-        const text = messages[locale].topics[topic.slug];
-        return (
-          <Card
-            key={topic.slug}
-            title={text.title}
-            href={getDocsUrl(
-              'path' in topic ? [...topic.path] : [topic.slug],
-              locale,
-            )}
-            icon={topic.icon}
-          >
-            {text.description}
-          </Card>
-        );
-      })}
-    </Cards>
+    <div className="docs-topics not-prose">
+      {topicGroups.map((group) => (
+        <section key={group.id} className="docs-topic-group">
+          <h3 className="docs-topic-group-title">
+            {text.topicGroups[group.id]}
+          </h3>
+          <ul role="list" className="docs-topic-list">
+            {group.topics.map((slug) => {
+              const topic = text.topics[slug];
+              return (
+                <li key={slug}>
+                  <Link
+                    href={getDocsUrl(guidePaths[slug] ?? [slug], locale)}
+                    prefetch={false}
+                    className="docs-topic-link"
+                  >
+                    <span className="docs-topic-copy">
+                      <span className="docs-topic-title">{topic.title}</span>
+                      <span className="docs-topic-description">
+                        {topic.description}
+                      </span>
+                    </span>
+                    <ArrowRight className="size-4 shrink-0" aria-hidden />
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      ))}
+    </div>
   );
 }
 
